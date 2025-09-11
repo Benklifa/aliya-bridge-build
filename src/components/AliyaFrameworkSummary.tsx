@@ -79,9 +79,9 @@ const AliyaFrameworkSummary = () => {
                       <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
                         {index === 1 ? (
                           <>
-                            integrate annuities and long-term care strategies<br/>
+                            Plan for longevity and rising late-life costs; integrate annuities and long-term care strategies<br/>
                             Plan for longevity and rising late-life<br/>
-                            costs; healthcare needs
+                            costs; integrate annuities and long-term care strategies
                           </>
                         ) : (
                           item.description
