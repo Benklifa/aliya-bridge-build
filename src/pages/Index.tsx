@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import DidYouKnowTicker from "@/components/DidYouKnowTicker";
 
 import ServicesPreview from "@/components/ServicesPreview";
-import SocialProof from "@/components/SocialProof";
 import CTAStrip from "@/components/CTAStrip";
 
 const Index = () => {
@@ -13,7 +12,6 @@ const Index = () => {
       <DidYouKnowTicker />
       
       <ServicesPreview />
-      <SocialProof />
       <CTAStrip />
     </Layout>
   );
