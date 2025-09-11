@@ -2,39 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Aliya Financial Design System - Banking Grade Professional */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Aliya Financial Brand Colors */
+    --navy-primary: 207 63% 19%;        /* #1C2D41 - Dark Navy */
+    --gold-accent: 43 48% 58%;          /* #C8A95E - Gold accents */
+    --soft-white: 210 17% 98%;          /* #F8F9FA - Background */
+    --teal-highlight: 188 44% 39%;      /* #3A8D92 - Teal highlights */
+    
+    /* Semantic color system */
+    --background: var(--soft-white);
+    --foreground: var(--navy-primary);
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: var(--navy-primary);
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
+    --popover-foreground: var(--navy-primary);
+    
+    --primary: var(--navy-primary);
+    --primary-foreground: var(--soft-white);
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: var(--navy-primary);
+    
+    --muted: 215 20% 95%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: var(--gold-accent);
+    --accent-foreground: var(--navy-primary);
+    
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    
+    --border: 215 20% 90%;
+    --input: 215 20% 90%;
+    --ring: var(--gold-accent);
 
     --radius: 0.5rem;
 
@@ -101,5 +108,62 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  /* Typography Scale */
+  h1, h2, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  
+  /* Custom gradients and effects */
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--navy-primary) / 0.95) 0%, hsl(var(--navy-primary) / 0.85) 100%);
+  }
+  
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold-accent)) 0%, hsl(var(--gold-accent) / 0.8) 100%);
+  }
+  
+  .card-shadow {
+    box-shadow: 0 2px 8px hsl(var(--navy-primary) / 0.08);
+  }
+  
+  .puzzle-border {
+    border-image: linear-gradient(45deg, hsl(var(--gold-accent)), hsl(var(--teal-highlight))) 1;
+  }
+  
+  /* Banking-grade button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-colors px-6 py-3 rounded-md font-medium;
+  }
+  
+  .btn-gold {
+    background: hsl(var(--gold-accent));
+    color: hsl(var(--navy-primary));
+  }
+  
+  .btn-gold:hover {
+    background: hsl(var(--gold-accent) / 0.9);
+  }
+  
+  /* Smooth animations */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Ticker animation */
+  .ticker-slide {
+    animation: tickerSlide 0.5s ease-in-out;
+  }
+  
+  @keyframes tickerSlide {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
   }
 }
