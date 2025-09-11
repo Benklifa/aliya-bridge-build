@@ -28,15 +28,15 @@ const Navigation = () => {
               alt="Aliya Financial Puzzle Logo" 
               className="h-96 w-auto absolute left-0 top-4 z-30"
             />
-            <Link to="/" className="flex items-center ml-40 mt-4">
-              <div className="font-serif font-bold text-6xl text-white">
+            <Link to="/" className="flex items-center ml-40 mt-8">
+              <div className="font-serif font-bold text-7xl text-white">
                 Aliya Financial
               </div>
             </Link>
           </div>
 
           {/* Navigation at Bottom */}
-          <div className="flex items-end justify-end pb-4 mt-auto">
+          <div className="flex items-end justify-end pb-2 mt-auto">
             <nav className="flex items-center space-x-8 flex-wrap">
               {navItems.map((item) => (
                 <Link
