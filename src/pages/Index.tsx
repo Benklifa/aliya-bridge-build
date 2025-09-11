@@ -2,7 +2,6 @@ import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
 import DidYouKnowTicker from "@/components/DidYouKnowTicker";
 import AliyaFrameworkSummary from "@/components/AliyaFrameworkSummary";
-import HowWereDifferent from "@/components/HowWereDifferent";
 import ServicesPreview from "@/components/ServicesPreview";
 import SocialProof from "@/components/SocialProof";
 import CTAStrip from "@/components/CTAStrip";
@@ -13,7 +12,6 @@ const Index = () => {
       <Hero />
       <DidYouKnowTicker />
       <AliyaFrameworkSummary />
-      <HowWereDifferent />
       <ServicesPreview />
       <SocialProof />
       <CTAStrip />

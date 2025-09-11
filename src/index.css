@@ -10,15 +10,18 @@
   :root {
     /* Aliya Financial Brand Colors */
     --navy-primary: 207 63% 19%;        /* #1C2D41 - Dark Navy */
+    --navy-light: 207 43% 35%;          /* Lighter navy for cards */
     --gold-accent: 43 48% 58%;          /* #C8A95E - Gold accents */
+    --gold-light: 43 38% 68%;           /* Lighter gold */
     --soft-white: 210 17% 98%;          /* #F8F9FA - Background */
+    --cream: 45 25% 95%;                /* Warm cream background */
     --teal-highlight: 188 44% 39%;      /* #3A8D92 - Teal highlights */
     
     /* Semantic color system */
-    --background: var(--soft-white);
-    --foreground: var(--navy-primary);
+    --background: var(--navy-primary);
+    --foreground: var(--soft-white);
     
-    --card: 0 0% 100%;
+    --card: var(--cream);
     --card-foreground: var(--navy-primary);
     
     --popover: 0 0% 100%;
@@ -27,8 +30,8 @@
     --primary: var(--navy-primary);
     --primary-foreground: var(--soft-white);
     
-    --secondary: 210 40% 96%;
-    --secondary-foreground: var(--navy-primary);
+    --secondary: var(--navy-light);
+    --secondary-foreground: var(--soft-white);
     
     --muted: 215 20% 95%;
     --muted-foreground: 215 16% 47%;

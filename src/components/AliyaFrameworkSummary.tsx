@@ -54,35 +54,130 @@ const AliyaFrameworkSummary = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
-            {frameworkItems.map((item, index) => {
-              const IconComponent = item.icon;
-              return (
-                <div 
-                  key={index}
-                  className="bg-white rounded-lg card-shadow p-6 text-center hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center">
-                      <IconComponent size={24} className={item.color} />
+          {/* Puzzle-piece layout */}
+          <div className="relative max-w-4xl mx-auto mb-8">
+            {/* Top row - A and L */}
+            <div className="flex justify-center gap-4 mb-4">
+              {frameworkItems.slice(0, 2).map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="bg-card rounded-lg card-shadow p-4 w-48 text-center hover:shadow-lg transition-all hover:scale-105"
+                    style={{
+                      transform: index === 0 ? 'rotate(-2deg)' : 'rotate(2deg)',
+                    }}
+                  >
+                    <div className="flex justify-center mb-3">
+                      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                        <IconComponent size={20} className={item.color} />
+                      </div>
                     </div>
+                    
+                    <div className="mb-2">
+                      <span className="font-serif text-xl font-bold text-accent mr-1">
+                        {item.letter}
+                      </span>
+                      <span className="text-md font-semibold text-card-foreground">
+                        {item.title}
+                      </span>
+                    </div>
+                    
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                      {item.description}
+                    </p>
+                    
+                    <Link 
+                      to={`/framework/${item.letter.toLowerCase()}`}
+                      className="text-xs text-accent hover:text-accent/80 font-medium"
+                    >
+                      Learn More →
+                    </Link>
                   </div>
-                  
-                  <div className="mb-3">
-                    <span className="font-serif text-2xl font-bold text-accent mr-2">
-                      {item.letter}
-                    </span>
-                    <span className="text-lg font-semibold text-primary">
-                      {item.title}
-                    </span>
+                );
+              })}
+            </div>
+            
+            {/* Middle - I */}
+            <div className="flex justify-center mb-4">
+              {frameworkItems.slice(2, 3).map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="bg-card rounded-lg card-shadow p-4 w-48 text-center hover:shadow-lg transition-all hover:scale-105"
+                  >
+                    <div className="flex justify-center mb-3">
+                      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                        <IconComponent size={20} className={item.color} />
+                      </div>
+                    </div>
+                    
+                    <div className="mb-2">
+                      <span className="font-serif text-xl font-bold text-accent mr-1">
+                        {item.letter}
+                      </span>
+                      <span className="text-md font-semibold text-card-foreground">
+                        {item.title}
+                      </span>
+                    </div>
+                    
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                      {item.description}
+                    </p>
+                    
+                    <Link 
+                      to={`/framework/${item.letter.toLowerCase()}`}
+                      className="text-xs text-accent hover:text-accent/80 font-medium"
+                    >
+                      Learn More →
+                    </Link>
                   </div>
-                  
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+            
+            {/* Bottom row - Y and A */}
+            <div className="flex justify-center gap-4">
+              {frameworkItems.slice(3, 5).map((item, index) => {
+                const IconComponent = item.icon;
+                return (
+                  <div 
+                    key={index}
+                    className="bg-card rounded-lg card-shadow p-4 w-48 text-center hover:shadow-lg transition-all hover:scale-105"
+                    style={{
+                      transform: index === 0 ? 'rotate(1deg)' : 'rotate(-1deg)',
+                    }}
+                  >
+                    <div className="flex justify-center mb-3">
+                      <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                        <IconComponent size={20} className={item.color} />
+                      </div>
+                    </div>
+                    
+                    <div className="mb-2">
+                      <span className="font-serif text-xl font-bold text-accent mr-1">
+                        {item.letter}
+                      </span>
+                      <span className="text-md font-semibold text-card-foreground">
+                        {item.title}
+                      </span>
+                    </div>
+                    
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+                      {item.description}
+                    </p>
+                    
+                    <Link 
+                      to={`/framework/${item.letter.toLowerCase()}`}
+                      className="text-xs text-accent hover:text-accent/80 font-medium"
+                    >
+                      Learn More →
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           <div className="text-center">

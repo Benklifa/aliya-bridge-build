@@ -3,7 +3,7 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[800px] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -16,7 +16,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="font-serif text-5xl md:text-6xl font-bold text-white mb-6 fade-in">
+          <h1 className="font-serif text-6xl md:text-8xl font-bold text-white mb-8 fade-in">
             Financial clarity for a successful Aliyah.
           </h1>
           

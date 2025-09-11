@@ -5,11 +5,17 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Framework from "./pages/Framework";
+import FrameworkAlign from "./pages/FrameworkAlign";
+import FrameworkLive from "./pages/FrameworkLive";
+import FrameworkInvest from "./pages/FrameworkInvest";
+import FrameworkYrusha from "./pages/FrameworkYrusha";
+import FrameworkAdapt from "./pages/FrameworkAdapt";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Events from "./pages/Events";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,11 +29,17 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/framework" element={<Framework />} />
+          <Route path="/framework/a" element={<FrameworkAlign />} />
+          <Route path="/framework/l" element={<FrameworkLive />} />
+          <Route path="/framework/i" element={<FrameworkInvest />} />
+          <Route path="/framework/y" element={<FrameworkYrusha />} />
+          <Route path="/framework/adapt" element={<FrameworkAdapt />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/events" element={<Events />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

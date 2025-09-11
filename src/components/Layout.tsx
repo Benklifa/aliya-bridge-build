@@ -12,6 +12,7 @@ const Navigation = () => {
     { name: "Services", path: "/services" },
     { name: "Events", path: "/events" },
     { name: "In the News", path: "/news" },
+    { name: "FAQ", path: "/faq" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -107,11 +108,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span>Lisa@AliyaFinancial.com</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail size={16} />
-                <span>Michael@AliyaFinancial.com</span>
+                <span>info@AliyaFinancial.com</span>
               </div>
             </div>
           </div>
