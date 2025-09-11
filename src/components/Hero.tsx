@@ -40,7 +40,7 @@ const Hero = () => {
           
           <Link 
             to="/framework" 
-            className="inline-flex items-center space-x-2 text-white hover:text-gold-500 transition-colors border-2 border-gold-400 px-8 py-4 rounded-md font-medium text-lg hover:border-gold-500"
+            className="inline-flex items-center space-x-2 text-white hover:text-gold-500 transition-colors border-2 border-gold-500 px-8 py-4 rounded-md font-medium text-lg hover:border-gold-400"
           >
             <span>Explore the A.L.I.Y.A Framework</span>
             <ArrowRight size={20} />
