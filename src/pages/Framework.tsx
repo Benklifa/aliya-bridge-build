@@ -114,14 +114,14 @@ const Framework = () => {
           </div>
 
           {/* Framework Puzzle Grid */}
-          <div className="max-w-md mx-auto mb-16">
-            <div className="bg-card/50 rounded-lg p-8 border border-border/50 backdrop-blur-sm">
-              <div className="flex flex-col items-center gap-2">
+          <div className="max-w-lg mx-auto mb-16">
+            <div className="bg-card/80 rounded-lg p-8 border border-border backdrop-blur-sm">
+              <div className="flex flex-col items-center gap-1">
                 {frameworkSections.map((section, index) => {
                   return (
                     <div 
                       key={section.title} 
-                      className="relative w-80 h-48 text-center hover:scale-105 transition-all duration-300"
+                      className="relative w-96 h-52 text-center hover:scale-105 transition-all duration-300"
                       style={{
                         backgroundImage: `url(${section.puzzlePiece})`,
                         backgroundSize: 'contain',
@@ -129,13 +129,12 @@ const Framework = () => {
                         backgroundPosition: 'center'
                       }}
                     >
-                      <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
-                      <div className="relative z-10 p-6 h-full flex flex-col justify-center">
-                        <div className="mb-3">
-                          <span className="text-xl font-bold text-white drop-shadow-lg">{section.title}</span>
+                      <div className="relative z-10 p-8 h-full flex flex-col justify-center">
+                        <div className="mb-4">
+                          <span className="text-2xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">{section.title}</span>
                         </div>
-                        <p className="text-sm text-white leading-relaxed mb-4 drop-shadow-md px-4">{section.description}</p>
-                        <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-sm text-white hover:text-accent font-medium bg-black/30 px-4 py-2 rounded backdrop-blur-sm transition-colors inline-block mx-auto">Learn more →</Link>
+                        <p className="text-sm text-white leading-relaxed mb-5 drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] px-6">{section.description}</p>
+                        <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-sm text-white hover:text-accent font-medium bg-black/50 px-4 py-2 rounded backdrop-blur-sm transition-colors inline-block mx-auto drop-shadow-lg">Learn more →</Link>
                       </div>
                     </div>
                   );
