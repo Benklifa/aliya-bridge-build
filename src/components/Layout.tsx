@@ -19,15 +19,15 @@ const Navigation = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-navy-900 border-b border-navy-600">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-32">
+        <div className="flex items-center justify-between h-40">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-6">
             <img 
               src="/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png" 
               alt="Aliya Financial Puzzle Logo" 
-              className="h-24 w-auto"
+              className="h-36 w-auto"
             />
-            <div className="font-serif font-bold text-5xl text-white">
+            <div className="font-serif font-bold text-6xl text-white">
               Aliya Financial
             </div>
           </Link>
