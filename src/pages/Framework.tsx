@@ -141,9 +141,9 @@ const Framework = () => {
                           <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
                             {index === 1 ? (
                               <>
-                                Plan for longevity and rising late-life costs; integrate annuities and long-term care strategies<br/>
-                                Plan for longevity and rising late-life<br/>
-                                costs; integrate annuities and long-term care strategies
+                                Plan for longevity and rising<br/>
+                                late-life costs; integrate annuities and<br/>
+                                long term care strategies.
                               </>
                             ) : (
                               section.description
