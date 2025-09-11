@@ -58,7 +58,7 @@ const AliyaFrameworkSummary = () => {
                 return (
                   <div 
                     key={index}
-                    className={`relative flex items-center w-full ${marginClass} ${topMargin}`}
+                    className={`relative flex items-center justify-between w-full ${marginClass} ${topMargin}`}
                   >
                     <div 
                       className="relative w-[1200px] h-96 text-center hover:scale-105 transition-all duration-300"
@@ -76,53 +76,55 @@ const AliyaFrameworkSummary = () => {
                         </span>
                       </div>
                       
-                       <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
-                         {index === 0 ? (
-                           <>
-                             Align your financial reality with<br/>
-                             your Aliya vision through<br/>
-                             comprehensive budgeting<br/>
-                             and lifestyle planning
-                           </>
-                         ) : index === 1 ? (
-                           <>
-                             Plan for longevity and rising<br/>
-                             late-life costs; integrate annuities<br/>
-                             and long term care strategies.
-                           </>
-                         ) : index === 2 ? (
-                           <>
-                             Build reliable income, manage the<br/>
-                             10-year tax window, balance growth<br/>
-                             with protection, and use smart credit lines.
-                           </>
-                         ) : index === 3 ? (
-                           <>
-                             Cross-border wills, beneficiary design,<br/>
-                             titling, and tax-sensitive<br/>
-                             legacy planning.
-                           </>
-                         ) : index === 4 ? (
-                           <>
-                             Liquidity and flexibility—<br/>
-                             cash reserves, access to<br/>
-                             USD/ILS, and practical<br/>
-                             solutions like HELOC, asset-based<br/>
-                             lending, and policy loans.
-                           </>
-                         ) : (
-                           item.description
-                         )}
-                       </p>
+                      <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
+                        {index === 0 ? (
+                          <>
+                            Align your financial reality with<br/>
+                            your Aliya vision through<br/>
+                            comprehensive budgeting<br/>
+                            and lifestyle planning
+                          </>
+                        ) : index === 1 ? (
+                          <>
+                            Plan for longevity and rising<br/>
+                            late-life costs; integrate annuities<br/>
+                            and long term care strategies.
+                          </>
+                        ) : index === 2 ? (
+                          <>
+                            Build reliable income, manage the<br/>
+                            10-year tax window, balance growth<br/>
+                            with protection, and use smart credit lines.
+                          </>
+                        ) : index === 3 ? (
+                          <>
+                            Cross-border wills, beneficiary design,<br/>
+                            titling, and tax-sensitive<br/>
+                            legacy planning.
+                          </>
+                        ) : index === 4 ? (
+                          <>
+                            Liquidity and flexibility—<br/>
+                            cash reserves, access to<br/>
+                            USD/ILS, and practical<br/>
+                            solutions like HELOC, asset-based<br/>
+                            lending, and policy loans.
+                          </>
+                        ) : (
+                          item.description
+                        )}
+                      </p>
                     </div>
                     </div>
                     
-                    <Link 
-                      to={`/framework/${item.letter.toLowerCase()}`}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-base text-accent hover:text-accent/80 font-semibold transition-colors drop-shadow-lg whitespace-nowrap"
-                    >
-                      Learn More →
-                    </Link>
+                    <div className="w-32 flex justify-end">
+                      <Link 
+                        to={`/framework/${item.letter.toLowerCase()}`}
+                        className="text-base text-accent hover:text-accent/80 font-semibold transition-colors drop-shadow-lg whitespace-nowrap"
+                      >
+                        Learn More →
+                      </Link>
+                    </div>
                   </div>
                 );
               })}
