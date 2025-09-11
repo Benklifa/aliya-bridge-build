@@ -77,7 +77,14 @@ const AliyaFrameworkSummary = () => {
                       </div>
                       
                       <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
-                        {index === 1 ? (
+                        {index === 0 ? (
+                          <>
+                            Align your financial reality with<br/>
+                            your Aliya vision through<br/>
+                            comprehensive budgeting<br/>
+                            and lifestyle planning
+                          </>
+                        ) : index === 1 ? (
                           <>
                             Plan for longevity and rising<br/>
                             late-life costs; integrate annuities<br/>
