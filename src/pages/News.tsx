@@ -24,19 +24,9 @@ const News = () => {
   ];
 
   return (
-    <Layout>
+    <Layout hideNav>
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h1 className="font-serif text-5xl font-bold text-foreground mb-6">
-              Aliya Financial in the News
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Books, articles, and media appearances featuring our expertise 
-              in cross-border financial planning.
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {newsItems.map((item) => (
               <div key={item.id} className="bg-card rounded-lg card-shadow overflow-hidden hover:shadow-lg transition-shadow">

@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const Navigation = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   const navItems = [
@@ -21,21 +19,21 @@ const Navigation = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-navy-900 border-b border-navy-600">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-24">
+        <div className="flex items-center justify-between h-32">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-4">
+          <Link to="/" className="flex items-center space-x-6">
             <img 
               src="/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png" 
               alt="Aliya Financial Puzzle Logo" 
-              className="h-16 w-auto"
+              className="h-24 w-auto"
             />
-            <div className="font-serif font-bold text-3xl text-white">
+            <div className="font-serif font-bold text-5xl text-white">
               Aliya Financial
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          {/* Navigation - Always visible */}
+          <nav className="flex items-center space-x-6 flex-wrap">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -56,42 +54,7 @@ const Navigation = () => {
               Schedule Consultation
             </Link>
           </nav>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-white hover:text-gold-500"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-navy-600">
-            <nav className="flex flex-col space-y-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-gold-500 ${
-                    isActive(item.path) ? "text-gold-500" : "text-white"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Link
-                to="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-gold mt-4 inline-block text-center"
-              >
-                Schedule Consultation
-              </Link>
-            </nav>
-          </div>
-        )}
       </div>
     </header>
   );
@@ -164,12 +127,13 @@ const Footer = () => {
 
 interface LayoutProps {
   children: React.ReactNode;
+  hideNav?: boolean;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, hideNav = false }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navigation />
+      {!hideNav && <Navigation />}
       <main className="flex-1">
         {children}
       </main>
