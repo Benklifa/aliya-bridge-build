@@ -12,7 +12,7 @@ const AliyaFrameworkSummary = () => {
     {
       letter: "L",
       title: "Live",
-      description: "Plan for longevity and rising late-life costs; integrate annuities and long-term care strategies.",
+      description: "Plan for longevity and rising late-life costs; integrate annuities and long-term care strategies",
       puzzlePiece: "/lovable-uploads/735c892c-6aff-45ec-9d46-71fe93453bfe.png"
     },
     {
@@ -69,7 +69,7 @@ const AliyaFrameworkSummary = () => {
                         backgroundPosition: 'center'
                       }}
                     >
-                    <div className={`relative z-10 h-full flex flex-col ${index === 1 ? 'justify-start pt-16' : 'justify-center'} ${index === 1 ? 'max-w-[300px]' : 'max-w-[500px]'} mx-auto`}>
+                    <div className={`relative z-10 h-full flex flex-col ${index === 1 ? 'justify-center pt-8' : 'justify-center'} ${index === 1 ? 'max-w-[350px]' : 'max-w-[500px]'} mx-auto`}>
                       <div className="mb-4">
                         <span className="text-3xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">
                           {item.title}
@@ -77,7 +77,15 @@ const AliyaFrameworkSummary = () => {
                       </div>
                       
                       <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
-                        {item.description}
+                        {index === 1 ? (
+                          <>
+                            integrate annuities and long-term care strategies<br/>
+                            Plan for longevity and rising late-life<br/>
+                            costs; healthcare needs
+                          </>
+                        ) : (
+                          item.description
+                        )}
                       </p>
                     </div>
                     </div>
