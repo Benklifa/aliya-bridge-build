@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { Target, Heart, TrendingUp, Users, Shuffle, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -10,8 +10,7 @@ const Framework = () => {
     {
       letter: "A",
       title: "Align",
-      icon: Target,
-      color: "text-blue-600",
+      puzzlePiece: "/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png",
       description: "Align your financial reality with your Aliyah vision through comprehensive budgeting and lifestyle planning.",
       details: [
         "Housing cost analysis: Rent vs. buy decisions in both markets",
@@ -24,8 +23,7 @@ const Framework = () => {
     {
       letter: "L", 
       title: "Live",
-      icon: Heart,
-      color: "text-red-600",
+      puzzlePiece: "/public/lovable-uploads/puzzle-piece-l.png",
       description: "Plan for longevity with strategies that address rising late-life costs and healthcare needs.",
       details: [
         "Longevity planning for extended retirement periods",
@@ -38,8 +36,7 @@ const Framework = () => {
     {
       letter: "I",
       title: "Invest (& Insure)",
-      icon: TrendingUp,
-      color: "text-green-600", 
+      puzzlePiece: "/public/lovable-uploads/puzzle-piece-i.png",
       description: "Build reliable income streams while managing the 10-year tax window and balancing growth with protection.",
       details: [
         "Tax-efficient investing during the 10-year exemption period",
@@ -52,8 +49,7 @@ const Framework = () => {
     {
       letter: "Y",
       title: "Y'rusha (Legacy)",
-      icon: Users,
-      color: "text-purple-600",
+      puzzlePiece: "/public/lovable-uploads/puzzle-piece-y.png",
       description: "Cross-border estate planning with proper wills, beneficiary design, and tax-sensitive legacy strategies.",
       details: [
         "Dual-jurisdiction will preparation and coordination",
@@ -66,8 +62,7 @@ const Framework = () => {
     {
       letter: "A",
       title: "Adapt", 
-      icon: Shuffle,
-      color: "text-orange-600",
+      puzzlePiece: "/public/lovable-uploads/puzzle-piece-adapt.png",
       description: "Maintain liquidity and flexibility with cash reserves, currency access, and practical lending solutions.",
       details: [
         "Emergency fund allocation across USD and ILS",
@@ -124,17 +119,17 @@ const Framework = () => {
               {/* Top row - A and L */}
               <div className="flex gap-4">
                 {frameworkSections.slice(0,2).map((section, idx) => {
-                  const IconComponent = section.icon;
                   const notchClass = "notch-bottom";
                   return (
                     <div key={section.title} className={`puzzle-card ${notchClass} w-56 p-4 text-center hover:shadow-lg transition-shadow`}>
                       <div className="flex justify-center mb-3">
-                        <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
-                          <IconComponent size={20} className={section.color} />
-                        </div>
+                        <img 
+                          src={section.puzzlePiece} 
+                          alt={`${section.title} puzzle piece`}
+                          className="w-16 h-16 object-contain"
+                        />
                       </div>
                       <div className="mb-2">
-                        <span className="font-serif text-xl font-bold text-accent mr-1">{section.letter}</span>
                         <span className="text-md font-semibold text-card-foreground">{section.title}</span>
                       </div>
                       <p className="text-xs text-card-foreground leading-relaxed mb-3">{section.description}</p>
@@ -147,16 +142,16 @@ const Framework = () => {
               {/* Middle - I */}
               <div>
                 {frameworkSections.slice(2,3).map((section) => {
-                  const IconComponent = section.icon;
                   return (
                     <div key={section.title} className="puzzle-card tab-top tab-bottom w-56 p-4 text-center hover:shadow-lg transition-shadow">
                       <div className="flex justify-center mb-3">
-                        <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
-                          <IconComponent size={20} className={section.color} />
-                        </div>
+                        <img 
+                          src={section.puzzlePiece} 
+                          alt={`${section.title} puzzle piece`}
+                          className="w-16 h-16 object-contain"
+                        />
                       </div>
                       <div className="mb-2">
-                        <span className="font-serif text-xl font-bold text-accent mr-1">{section.letter}</span>
                         <span className="text-md font-semibold text-card-foreground">{section.title}</span>
                       </div>
                       <p className="text-xs text-card-foreground leading-relaxed mb-3">{section.description}</p>
@@ -169,16 +164,16 @@ const Framework = () => {
               {/* Bottom row - Y and A */}
               <div className="flex gap-4">
                 {frameworkSections.slice(3,5).map((section) => {
-                  const IconComponent = section.icon;
                   return (
                     <div key={section.title} className="puzzle-card notch-top w-56 p-4 text-center hover:shadow-lg transition-shadow">
                       <div className="flex justify-center mb-3">
-                        <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
-                          <IconComponent size={20} className={section.color} />
-                        </div>
+                        <img 
+                          src={section.puzzlePiece} 
+                          alt={`${section.title} puzzle piece`}
+                          className="w-16 h-16 object-contain"
+                        />
                       </div>
                       <div className="mb-2">
-                        <span className="font-serif text-xl font-bold text-accent mr-1">{section.letter}</span>
                         <span className="text-md font-semibold text-card-foreground">{section.title}</span>
                       </div>
                       <p className="text-xs text-card-foreground leading-relaxed mb-3">{section.description}</p>
