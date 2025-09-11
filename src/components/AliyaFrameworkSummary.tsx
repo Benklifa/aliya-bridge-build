@@ -50,8 +50,8 @@ const AliyaFrameworkSummary = () => {
           </div>
 
           {/* Vertical puzzle-piece layout */}
-          <div className="bg-gray-800/90 rounded-lg p-8 border border-gray-700 backdrop-blur-sm">
-            <div className="flex flex-col items-center -space-y-8 max-w-6xl mx-auto">
+          <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm max-w-5xl mx-auto">
+            <div className="flex flex-col items-center -space-y-12">
               {frameworkItems.map((item, index) => {
                 return (
                   <div 
@@ -67,14 +67,14 @@ const AliyaFrameworkSummary = () => {
                         backgroundPosition: 'center'
                       }}
                     >
-                      <div className="relative z-10 p-16 h-full flex flex-col justify-center max-w-[700px] mx-auto">
-                        <div className="mb-6">
+                      <div className="relative z-10 p-16 h-full flex flex-col justify-center max-w-[400px] mx-auto">
+                        <div className="mb-4">
                           <span className="text-4xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">
                             {item.title}
                           </span>
                         </div>
                         
-                        <p className="text-lg text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] px-8">
+                        <p className="text-lg text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words">
                           {item.description}
                         </p>
                       </div>
@@ -82,7 +82,7 @@ const AliyaFrameworkSummary = () => {
                     
                     <Link 
                       to={`/framework/${item.letter.toLowerCase()}`}
-                      className="text-lg text-accent hover:text-accent/80 font-semibold transition-colors ml-8 drop-shadow-lg whitespace-nowrap"
+                      className="text-lg text-accent hover:text-accent/80 font-semibold transition-colors ml-4 drop-shadow-lg whitespace-nowrap"
                     >
                       Learn More →
                     </Link>

@@ -114,9 +114,9 @@ const Framework = () => {
           </div>
 
           {/* Framework Puzzle Grid */}
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="bg-gray-800/90 rounded-lg p-8 border border-gray-700 backdrop-blur-sm">
-              <div className="flex flex-col items-center -space-y-8">
+          <div className="max-w-5xl mx-auto mb-16">
+            <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm">
+              <div className="flex flex-col items-center -space-y-12">
                 {frameworkSections.map((section, index) => {
                   return (
                     <div 
@@ -132,17 +132,17 @@ const Framework = () => {
                           backgroundPosition: 'center'
                         }}
                       >
-                        <div className="relative z-10 p-16 h-full flex flex-col justify-center max-w-[700px] mx-auto">
-                          <div className="mb-6">
+                        <div className="relative z-10 p-16 h-full flex flex-col justify-center max-w-[400px] mx-auto">
+                          <div className="mb-4">
                             <span className="text-4xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">{section.title}</span>
                           </div>
-                          <p className="text-lg text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] px-8">{section.description}</p>
+                          <p className="text-lg text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words">{section.description}</p>
                         </div>
                       </div>
                       
                       <Link 
                         to={`/framework/${section.letter.toLowerCase()}`} 
-                        className="text-lg text-accent hover:text-accent/80 font-semibold transition-colors ml-8 drop-shadow-lg whitespace-nowrap"
+                        className="text-lg text-accent hover:text-accent/80 font-semibold transition-colors ml-4 drop-shadow-lg whitespace-nowrap"
                       >
                         Learn more →
                       </Link>
