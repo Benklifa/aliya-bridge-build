@@ -7,7 +7,7 @@ const AliyaFrameworkSummary = () => {
       letter: "A",
       title: "Align",
       description: "Budgeting, housing, healthcare, transportation, and currency/inflation realities aligned with your Aliyah vision.",
-      puzzlePiece: "/lovable-uploads/ba92d131-5eef-4b0b-b451-18a218ac3b44.png"
+      puzzlePiece: "/lovable-uploads/ae86307b-b07d-4f24-b1a1-d3edd4b05bbb.png"
     },
     {
       letter: "L",
@@ -19,13 +19,13 @@ const AliyaFrameworkSummary = () => {
       letter: "I",
       title: "Invest (& Insure)",
       description: "Build reliable income, manage the 10-year tax window, balance growth with protection, and use smart credit lines.",
-      puzzlePiece: "/lovable-uploads/e4789ae2-00ef-4434-8448-e40b3d958c6f.png"
+      puzzlePiece: "/lovable-uploads/ba92d131-5eef-4b0b-b451-18a218ac3b44.png"
     },
     {
       letter: "Y",
       title: "Y'rusha",
       description: "Cross-border wills, beneficiary design, titling, and tax-sensitive legacy planning.",
-      puzzlePiece: "/lovable-uploads/ae86307b-b07d-4f24-b1a1-d3edd4b05bbb.png"
+      puzzlePiece: "/lovable-uploads/e4789ae2-00ef-4434-8448-e40b3d958c6f.png"
     },
     {
       letter: "A",
@@ -49,54 +49,14 @@ const AliyaFrameworkSummary = () => {
             </p>
           </div>
 
-          {/* Puzzle-piece layout */}
-          <div className="relative max-w-4xl mx-auto mb-8">
-            {/* Top row - A and L */}
-            <div className="flex justify-center gap-4 mb-4">
-              {frameworkItems.slice(0, 2).map((item, index) => {
+          {/* Vertical puzzle-piece layout */}
+          <div className="bg-card/50 rounded-lg p-8 border border-border/50 backdrop-blur-sm">
+            <div className="flex flex-col items-center gap-2 max-w-md mx-auto">
+              {frameworkItems.map((item, index) => {
                 return (
                   <div 
                     key={index}
-                    className="relative w-48 h-60 text-center hover:scale-105 transition-all duration-300"
-                    style={{
-                      transform: index === 0 ? 'rotate(-2deg)' : 'rotate(2deg)',
-                      backgroundImage: `url(${item.puzzlePiece})`,
-                      backgroundSize: 'contain',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center'
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
-                    <div className="relative z-10 p-4 h-full flex flex-col justify-center">
-                      <div className="mb-3">
-                        <span className="text-lg font-bold text-white drop-shadow-lg">
-                          {item.title}
-                        </span>
-                      </div>
-                      
-                      <p className="text-xs text-white leading-relaxed mb-4 drop-shadow-md px-2">
-                        {item.description}
-                      </p>
-                      
-                      <Link 
-                        to={`/framework/${item.letter.toLowerCase()}`}
-                        className="text-xs text-white hover:text-accent font-medium bg-black/30 px-3 py-1 rounded backdrop-blur-sm transition-colors"
-                      >
-                        Learn More →
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            
-            {/* Middle - I */}
-            <div className="flex justify-center mb-4">
-              {frameworkItems.slice(2, 3).map((item, index) => {
-                return (
-                  <div 
-                    key={index}
-                    className="relative w-48 h-60 text-center hover:scale-105 transition-all duration-300"
+                    className="relative w-80 h-48 text-center hover:scale-105 transition-all duration-300"
                     style={{
                       backgroundImage: `url(${item.puzzlePiece})`,
                       backgroundSize: 'contain',
@@ -105,59 +65,20 @@ const AliyaFrameworkSummary = () => {
                     }}
                   >
                     <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
-                    <div className="relative z-10 p-4 h-full flex flex-col justify-center">
+                    <div className="relative z-10 p-6 h-full flex flex-col justify-center">
                       <div className="mb-3">
-                        <span className="text-lg font-bold text-white drop-shadow-lg">
+                        <span className="text-xl font-bold text-white drop-shadow-lg">
                           {item.title}
                         </span>
                       </div>
                       
-                      <p className="text-xs text-white leading-relaxed mb-4 drop-shadow-md px-2">
+                      <p className="text-sm text-white leading-relaxed mb-4 drop-shadow-md px-4">
                         {item.description}
                       </p>
                       
                       <Link 
                         to={`/framework/${item.letter.toLowerCase()}`}
-                        className="text-xs text-white hover:text-accent font-medium bg-black/30 px-3 py-1 rounded backdrop-blur-sm transition-colors"
-                      >
-                        Learn More →
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            
-            {/* Bottom row - Y and A */}
-            <div className="flex justify-center gap-4">
-              {frameworkItems.slice(3, 5).map((item, index) => {
-                return (
-                  <div 
-                    key={index}
-                    className="relative w-48 h-60 text-center hover:scale-105 transition-all duration-300"
-                    style={{
-                      transform: index === 0 ? 'rotate(1deg)' : 'rotate(-1deg)',
-                      backgroundImage: `url(${item.puzzlePiece})`,
-                      backgroundSize: 'contain',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center'
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
-                    <div className="relative z-10 p-4 h-full flex flex-col justify-center">
-                      <div className="mb-3">
-                        <span className="text-lg font-bold text-white drop-shadow-lg">
-                          {item.title}
-                        </span>
-                      </div>
-                      
-                      <p className="text-xs text-white leading-relaxed mb-4 drop-shadow-md px-2">
-                        {item.description}
-                      </p>
-                      
-                      <Link 
-                        to={`/framework/${item.letter.toLowerCase()}`}
-                        className="text-xs text-white hover:text-accent font-medium bg-black/30 px-3 py-1 rounded backdrop-blur-sm transition-colors"
+                        className="text-sm text-white hover:text-accent font-medium bg-black/30 px-4 py-2 rounded backdrop-blur-sm transition-colors inline-block mx-auto"
                       >
                         Learn More →
                       </Link>

@@ -10,7 +10,7 @@ const Framework = () => {
     {
       letter: "A",
       title: "Align",
-      puzzlePiece: "/lovable-uploads/ba92d131-5eef-4b0b-b451-18a218ac3b44.png",
+      puzzlePiece: "/lovable-uploads/ae86307b-b07d-4f24-b1a1-d3edd4b05bbb.png",
       description: "Align your financial reality with your Aliyah vision through comprehensive budgeting and lifestyle planning.",
       details: [
         "Housing cost analysis: Rent vs. buy decisions in both markets",
@@ -36,7 +36,7 @@ const Framework = () => {
     {
       letter: "I",
       title: "Invest (& Insure)",
-      puzzlePiece: "/lovable-uploads/e4789ae2-00ef-4434-8448-e40b3d958c6f.png",
+      puzzlePiece: "/lovable-uploads/ba92d131-5eef-4b0b-b451-18a218ac3b44.png",
       description: "Build reliable income streams while managing the 10-year tax window and balancing growth with protection.",
       details: [
         "Tax-efficient investing during the 10-year exemption period",
@@ -49,7 +49,7 @@ const Framework = () => {
     {
       letter: "Y",
       title: "Y'rusha (Legacy)",
-      puzzlePiece: "/lovable-uploads/ae86307b-b07d-4f24-b1a1-d3edd4b05bbb.png",
+      puzzlePiece: "/lovable-uploads/e4789ae2-00ef-4434-8448-e40b3d958c6f.png",
       description: "Cross-border estate planning with proper wills, beneficiary design, and tax-sensitive legacy strategies.",
       details: [
         "Dual-jurisdiction will preparation and coordination",
@@ -114,16 +114,14 @@ const Framework = () => {
           </div>
 
           {/* Framework Puzzle Grid */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="flex flex-col items-center gap-4">
-              {/* Top row - A and L */}
-              <div className="flex gap-4">
-                {frameworkSections.slice(0,2).map((section, idx) => {
-                  const notchClass = "notch-bottom";
+          <div className="max-w-md mx-auto mb-16">
+            <div className="bg-card/50 rounded-lg p-8 border border-border/50 backdrop-blur-sm">
+              <div className="flex flex-col items-center gap-2">
+                {frameworkSections.map((section, index) => {
                   return (
                     <div 
                       key={section.title} 
-                      className="relative w-56 h-64 text-center hover:scale-105 transition-all duration-300"
+                      className="relative w-80 h-48 text-center hover:scale-105 transition-all duration-300"
                       style={{
                         backgroundImage: `url(${section.puzzlePiece})`,
                         backgroundSize: 'contain',
@@ -132,66 +130,12 @@ const Framework = () => {
                       }}
                     >
                       <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
-                      <div className="relative z-10 p-4 h-full flex flex-col justify-center">
+                      <div className="relative z-10 p-6 h-full flex flex-col justify-center">
                         <div className="mb-3">
-                          <span className="text-lg font-bold text-white drop-shadow-lg">{section.title}</span>
+                          <span className="text-xl font-bold text-white drop-shadow-lg">{section.title}</span>
                         </div>
-                        <p className="text-xs text-white leading-relaxed mb-4 drop-shadow-md px-2">{section.description}</p>
-                        <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-xs text-white hover:text-accent font-medium bg-black/30 px-3 py-1 rounded backdrop-blur-sm transition-colors">Learn more →</Link>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Middle - I */}
-              <div>
-                {frameworkSections.slice(2,3).map((section) => {
-                  return (
-                    <div 
-                      key={section.title} 
-                      className="relative w-56 h-64 text-center hover:scale-105 transition-all duration-300"
-                      style={{
-                        backgroundImage: `url(${section.puzzlePiece})`,
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center'
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
-                      <div className="relative z-10 p-4 h-full flex flex-col justify-center">
-                        <div className="mb-3">
-                          <span className="text-lg font-bold text-white drop-shadow-lg">{section.title}</span>
-                        </div>
-                        <p className="text-xs text-white leading-relaxed mb-4 drop-shadow-md px-2">{section.description}</p>
-                        <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-xs text-white hover:text-accent font-medium bg-black/30 px-3 py-1 rounded backdrop-blur-sm transition-colors">Learn more →</Link>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Bottom row - Y and A */}
-              <div className="flex gap-4">
-                {frameworkSections.slice(3,5).map((section) => {
-                  return (
-                    <div 
-                      key={section.title} 
-                      className="relative w-56 h-64 text-center hover:scale-105 transition-all duration-300"
-                      style={{
-                        backgroundImage: `url(${section.puzzlePiece})`,
-                        backgroundSize: 'contain',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center'
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-black/20 rounded-lg"></div>
-                      <div className="relative z-10 p-4 h-full flex flex-col justify-center">
-                        <div className="mb-3">
-                          <span className="text-lg font-bold text-white drop-shadow-lg">{section.title}</span>
-                        </div>
-                        <p className="text-xs text-white leading-relaxed mb-4 drop-shadow-md px-2">{section.description}</p>
-                        <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-xs text-white hover:text-accent font-medium bg-black/30 px-3 py-1 rounded backdrop-blur-sm transition-colors">Learn more →</Link>
+                        <p className="text-sm text-white leading-relaxed mb-4 drop-shadow-md px-4">{section.description}</p>
+                        <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-sm text-white hover:text-accent font-medium bg-black/30 px-4 py-2 rounded backdrop-blur-sm transition-colors inline-block mx-auto">Learn more →</Link>
                       </div>
                     </div>
                   );
