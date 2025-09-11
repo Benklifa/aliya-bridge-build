@@ -104,9 +104,11 @@ const AliyaFrameworkSummary = () => {
                            </>
                          ) : index === 4 ? (
                            <>
-                             Liquidity and flexibility—cash reserves,<br/>
-                             access to USD/ILS, and practical solutions<br/>
-                             like HELOC, asset-based lending, and policy loans.
+                             Liquidity and flexibility—<br/>
+                             cash reserves, access to<br/>
+                             USD/ILS, and practical<br/>
+                             solutions like HELOC, asset-based<br/>
+                             lending, and policy loans.
                            </>
                          ) : (
                            item.description
