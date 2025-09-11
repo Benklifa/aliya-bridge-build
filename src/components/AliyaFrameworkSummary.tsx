@@ -69,7 +69,7 @@ const AliyaFrameworkSummary = () => {
                         backgroundPosition: 'center'
                       }}
                     >
-                    <div className={`relative z-10 h-full flex flex-col ${index === 1 ? 'justify-center -mt-2 ml-1.5' : 'justify-center'} ${index === 1 ? 'max-w-[350px]' : 'max-w-[500px]'} mx-auto ${index === 0 ? '-mt-[19px] ml-[120px]' : ''}`}>
+                    <div className={`relative z-10 h-full flex flex-col ${index === 1 ? 'justify-center -mt-2' : 'justify-center'} ${index === 1 ? 'max-w-[350px]' : 'max-w-[500px]'} mx-auto ${index === 0 ? '-mt-[19px] ml-[120px]' : ''}`}>
                       <div className="mb-4">
                         <span className="text-3xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">
                           {item.title}
