@@ -102,6 +102,12 @@ const AliyaFrameworkSummary = () => {
                              titling, and tax-sensitive<br/>
                              legacy planning.
                            </>
+                         ) : index === 4 ? (
+                           <>
+                             Liquidity and flexibility—cash reserves,<br/>
+                             access to USD/ILS, and practical solutions<br/>
+                             like HELOC, asset-based lending, and policy loans.
+                           </>
                          ) : (
                            item.description
                          )}
