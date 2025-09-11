@@ -17,7 +17,7 @@ const AliyaFrameworkSummary = () => {
     },
     {
       letter: "I",
-      title: "Invest (& Insure)",
+      title: "Invest",
       description: "Build reliable income, manage the 10-year tax window, balance growth with protection, and use smart credit lines.",
       puzzlePiece: "/lovable-uploads/ba92d131-5eef-4b0b-b451-18a218ac3b44.png"
     },
@@ -53,7 +53,7 @@ const AliyaFrameworkSummary = () => {
           <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm max-w-4xl mx-auto">
             <div className="flex flex-col items-center">
               {frameworkItems.map((item, index) => {
-                const marginClass = index === 0 ? "ml-[95px]" : index === 3 ? "-mt-12" : "-mt-20";
+                const marginClass = index === 0 ? "ml-[95px]" : index === 2 ? "-ml-[75px] -mt-[70px]" : index === 3 ? "-mt-12" : "-mt-20";
                 return (
                   <div 
                     key={index}
