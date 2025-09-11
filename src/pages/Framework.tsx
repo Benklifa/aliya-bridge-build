@@ -118,7 +118,7 @@ const Framework = () => {
             <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm">
               <div className="flex flex-col items-center">
                 {frameworkSections.map((section, index) => {
-                  const marginClass = index === 0 ? "ml-[95px]" : index === 2 ? "-ml-[90px] -mt-[140px]" : index === 3 ? "-ml-[75px] -mt-[137px]" : "-mt-20";
+                  const marginClass = index === 0 ? "ml-[95px]" : index === 2 ? "-ml-[90px] -mt-[140px]" : index === 3 ? "-ml-[75px] -mt-[137px]" : index === 4 ? "-ml-[50px] -mt-[5px]" : "-mt-20";
                   return (
                     <div 
                       key={section.title}
