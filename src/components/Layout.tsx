@@ -19,30 +19,34 @@ const Navigation = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-navy-900 border-b border-navy-600">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-40">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <div className="font-serif font-bold text-6xl text-white">
-              Aliya Financial
-            </div>
-          </Link>
+        <div className="flex flex-col h-40">
+          {/* Logo and Title at Top */}
+          <div className="flex items-center justify-start pt-4">
+            <Link to="/" className="flex items-center">
+              <div className="font-serif font-bold text-6xl text-white">
+                Aliya Financial
+              </div>
+            </Link>
+          </div>
 
-          {/* Navigation - Always visible */}
-          <nav className="flex items-center space-x-6 flex-wrap">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-gold-500 ${
-                  isActive(item.path) 
-                    ? "text-gold-500 border-b-2 border-gold-500" 
-                    : "text-white"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+          {/* Navigation at Bottom */}
+          <div className="flex items-end justify-center pb-4 mt-auto">
+            <nav className="flex items-center space-x-8 flex-wrap">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`text-base font-medium transition-colors hover:text-gold-500 ${
+                    isActive(item.path) 
+                      ? "text-gold-500 border-b-2 border-gold-500" 
+                      : "text-white"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </header>
