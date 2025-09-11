@@ -3,20 +3,29 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[800px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[800px] flex items-center justify-center overflow-hidden bg-navy-900">
+      {/* Spanning Logo */}
+      <div className="absolute left-8 top-0 bottom-0 flex items-center z-20 hidden xl:block">
+        <img 
+          src="/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png" 
+          alt="Aliya Financial Logo" 
+          className="h-96 w-auto opacity-20"
+        />
+      </div>
+      
       {/* Background Image with Overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
         style={{
           backgroundImage: `url('/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png')`,
         }}
       />
-      <div className="absolute inset-0 hero-gradient" />
+      <div className="absolute inset-0 bg-navy-900/70" />
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div className="relative z-10 container mx-auto px-4 text-center xl:ml-64">
         <div className="max-w-4xl mx-auto">
-          <h1 className="font-serif text-6xl md:text-8xl font-bold text-white mb-8 fade-in">
+          <h1 className="font-serif text-4xl md:text-6xl font-bold text-white mb-8 fade-in">
             Financial clarity for a successful Aliyah.
           </h1>
           

@@ -19,17 +19,17 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-50 w-full bg-navy-900 border-b border-navy-600">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-4">
             <img 
               src="/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png" 
               alt="Aliya Financial Puzzle Logo" 
-              className="h-10 w-auto"
+              className="h-16 w-auto"
             />
-            <div className="font-serif font-semibold text-xl text-primary">
+            <div className="font-serif font-bold text-3xl text-white">
               Aliya Financial
             </div>
           </Link>
@@ -40,10 +40,10 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm font-medium transition-colors hover:text-accent ${
+                className={`text-sm font-medium transition-colors hover:text-gold-500 ${
                   isActive(item.path) 
-                    ? "text-accent border-b-2 border-accent" 
-                    : "text-foreground"
+                    ? "text-gold-500 border-b-2 border-gold-500" 
+                    : "text-white"
                 }`}
               >
                 {item.name}
@@ -51,7 +51,7 @@ const Navigation = () => {
             ))}
             <Link
               to="/contact"
-              className="btn-primary ml-4"
+              className="btn-gold ml-4"
             >
               Schedule Consultation
             </Link>
@@ -60,7 +60,7 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground hover:text-accent"
+            className="lg:hidden p-2 text-white hover:text-gold-500"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -68,15 +68,15 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border">
+          <div className="lg:hidden py-4 border-t border-navy-600">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-accent ${
-                    isActive(item.path) ? "text-accent" : "text-foreground"
+                  className={`text-sm font-medium transition-colors hover:text-gold-500 ${
+                    isActive(item.path) ? "text-gold-500" : "text-white"
                   }`}
                 >
                   {item.name}
@@ -85,7 +85,7 @@ const Navigation = () => {
               <Link
                 to="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-primary mt-4 inline-block text-center"
+                className="btn-gold mt-4 inline-block text-center"
               >
                 Schedule Consultation
               </Link>
@@ -108,7 +108,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <Mail size={16} />
-                <span>info@AliyaFinancial.com</span>
+                <span>info@aliyafinancial.com</span>
               </div>
             </div>
           </div>
