@@ -53,7 +53,7 @@ const SocialProof = () => {
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white rounded-lg card-shadow p-6 hover:shadow-lg transition-shadow group block"
+                  className="bg-card rounded-lg card-shadow p-6 hover:shadow-lg transition-shadow group block"
                 >
                   <div className="flex items-start space-x-4">
                     <img 
@@ -74,7 +74,7 @@ const SocialProof = () => {
                         {item.title}
                       </h3>
                       
-                      <p className="text-sm text-muted-foreground mb-2 leading-relaxed">
+                      <p className="text-sm text-card-foreground mb-2 leading-relaxed">
                         {item.description}
                       </p>
                       

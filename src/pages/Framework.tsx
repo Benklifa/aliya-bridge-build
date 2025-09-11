@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { Target, Heart, TrendingUp, Users, Shuffle, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Framework = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
@@ -117,45 +118,76 @@ const Framework = () => {
             </p>
           </div>
 
-          {/* Framework Sections */}
-          <div className="max-w-6xl mx-auto space-y-12 mb-16">
-            {frameworkSections.map((section, index) => {
-              const IconComponent = section.icon;
-              return (
-                <div key={index} className="bg-white rounded-lg card-shadow p-8">
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-8">
-                    <div className="flex items-center space-x-4 mb-6 lg:mb-0 lg:flex-col lg:space-x-0 lg:space-y-4 lg:text-center">
-                      <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center flex-shrink-0">
-                        <IconComponent size={32} className={section.color} />
+          {/* Framework Puzzle Grid */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="flex flex-col items-center gap-4">
+              {/* Top row - A and L */}
+              <div className="flex gap-4">
+                {frameworkSections.slice(0,2).map((section, idx) => {
+                  const IconComponent = section.icon;
+                  const notchClass = "notch-bottom";
+                  return (
+                    <div key={section.title} className={`puzzle-card ${notchClass} w-56 p-4 text-center hover:shadow-lg transition-shadow`}>
+                      <div className="flex justify-center mb-3">
+                        <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                          <IconComponent size={20} className={section.color} />
+                        </div>
                       </div>
-                      <div>
-                        <span className="font-serif text-4xl font-bold text-accent">
-                          {section.letter}
-                        </span>
-                        <h3 className="text-2xl font-bold text-primary ml-2 lg:ml-0">
-                          {section.title}
-                        </h3>
+                      <div className="mb-2">
+                        <span className="font-serif text-xl font-bold text-accent mr-1">{section.letter}</span>
+                        <span className="text-md font-semibold text-card-foreground">{section.title}</span>
                       </div>
+                      <p className="text-xs text-card-foreground leading-relaxed mb-3">{section.description}</p>
+                      <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-xs text-accent hover:text-accent/80 font-medium">Learn more →</Link>
                     </div>
-                    
-                    <div className="flex-1">
-                      <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                        {section.description}
-                      </p>
-                      
-                      <ul className="space-y-2">
-                        {section.details.map((detail, detailIndex) => (
-                          <li key={detailIndex} className="flex items-start space-x-2">
-                            <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                            <span className="text-foreground">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
+                  );
+                })}
+              </div>
+
+              {/* Middle - I */}
+              <div>
+                {frameworkSections.slice(2,3).map((section) => {
+                  const IconComponent = section.icon;
+                  return (
+                    <div key={section.title} className="puzzle-card tab-top tab-bottom w-56 p-4 text-center hover:shadow-lg transition-shadow">
+                      <div className="flex justify-center mb-3">
+                        <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                          <IconComponent size={20} className={section.color} />
+                        </div>
+                      </div>
+                      <div className="mb-2">
+                        <span className="font-serif text-xl font-bold text-accent mr-1">{section.letter}</span>
+                        <span className="text-md font-semibold text-card-foreground">{section.title}</span>
+                      </div>
+                      <p className="text-xs text-card-foreground leading-relaxed mb-3">{section.description}</p>
+                      <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-xs text-accent hover:text-accent/80 font-medium">Learn more →</Link>
                     </div>
-                  </div>
-                </div>
-              );
-            })}
+                  );
+                })}
+              </div>
+
+              {/* Bottom row - Y and A */}
+              <div className="flex gap-4">
+                {frameworkSections.slice(3,5).map((section) => {
+                  const IconComponent = section.icon;
+                  return (
+                    <div key={section.title} className="puzzle-card notch-top w-56 p-4 text-center hover:shadow-lg transition-shadow">
+                      <div className="flex justify-center mb-3">
+                        <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center">
+                          <IconComponent size={20} className={section.color} />
+                        </div>
+                      </div>
+                      <div className="mb-2">
+                        <span className="font-serif text-xl font-bold text-accent mr-1">{section.letter}</span>
+                        <span className="text-md font-semibold text-card-foreground">{section.title}</span>
+                      </div>
+                      <p className="text-xs text-card-foreground leading-relaxed mb-3">{section.description}</p>
+                      <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-xs text-accent hover:text-accent/80 font-medium">Learn more →</Link>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
           {/* FAQ Section */}
@@ -166,7 +198,7 @@ const Framework = () => {
             
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className="bg-white rounded-lg card-shadow">
+                <div key={index} className="bg-card rounded-lg card-shadow">
                   <button
                     onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
                     className="w-full p-6 text-left flex items-center justify-between hover:bg-muted/30 transition-colors"
@@ -184,7 +216,7 @@ const Framework = () => {
                   
                   {openFAQ === index && (
                     <div className="px-6 pb-6">
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-card-foreground leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>

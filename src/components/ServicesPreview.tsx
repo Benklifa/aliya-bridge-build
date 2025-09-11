@@ -49,7 +49,7 @@ const ServicesPreview = () => {
               return (
                 <div 
                   key={index}
-                  className="bg-white rounded-lg card-shadow p-6 hover:shadow-lg transition-shadow group"
+                  className="bg-card rounded-lg card-shadow p-6 hover:shadow-lg transition-shadow group"
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
@@ -60,7 +60,7 @@ const ServicesPreview = () => {
                       <h3 className="text-lg font-semibold text-primary mb-2">
                         {service.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-card-foreground leading-relaxed">
                         {service.description}
                       </p>
                     </div>

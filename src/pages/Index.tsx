@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
 import DidYouKnowTicker from "@/components/DidYouKnowTicker";
-import AliyaFrameworkSummary from "@/components/AliyaFrameworkSummary";
+
 import ServicesPreview from "@/components/ServicesPreview";
 import SocialProof from "@/components/SocialProof";
 import CTAStrip from "@/components/CTAStrip";
@@ -11,7 +11,7 @@ const Index = () => {
     <Layout>
       <Hero />
       <DidYouKnowTicker />
-      <AliyaFrameworkSummary />
+      
       <ServicesPreview />
       <SocialProof />
       <CTAStrip />

@@ -169,4 +169,52 @@
     from { opacity: 0; transform: translateX(20px); }
     to { opacity: 1; transform: translateX(0); }
   }
+  
+  /* Puzzle card utilities */
+  .puzzle-card {
+    position: relative;
+    border-radius: 0.75rem; /* rounded-xl */
+    background: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 2px 8px hsl(var(--navy-primary) / 0.08);
+  }
+  .puzzle-card::before,
+  .puzzle-card::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+  }
+  /* Tabs (protrusions) */
+  .tab-top::before {
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 2px 6px hsl(var(--navy-primary) / 0.06);
+  }
+  .tab-bottom::after {
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 2px 6px hsl(var(--navy-primary) / 0.06);
+  }
+  /* Notches (cutouts) */
+  .notch-top::before {
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(var(--background));
+  }
+  .notch-bottom::after {
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(var(--background));
+  }
 }

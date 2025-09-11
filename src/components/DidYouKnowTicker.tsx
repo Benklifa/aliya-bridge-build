@@ -54,11 +54,11 @@ const DidYouKnowTicker = () => {
             </h2>
           </div>
           
-          <div className="bg-white rounded-lg card-shadow p-6 min-h-[120px] flex items-center justify-center">
+          <div className="bg-card rounded-lg card-shadow p-6 min-h-[120px] flex items-center justify-center">
             <div className="ticker-slide flex items-start space-x-4 text-center">
               <IconComponent size={24} className={`${currentFact.color} flex-shrink-0 mt-1`} />
               <div className="flex-1">
-                <p className="text-lg text-foreground leading-relaxed">
+                <p className="text-lg text-card-foreground leading-relaxed">
                   {currentFact.text}
                 </p>
                 <Link 
