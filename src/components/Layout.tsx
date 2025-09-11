@@ -47,12 +47,6 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="btn-gold ml-4"
-            >
-              Schedule Consultation
-            </Link>
           </nav>
         </div>
       </div>
