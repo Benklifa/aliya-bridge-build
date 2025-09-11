@@ -50,7 +50,7 @@ const AliyaFrameworkSummary = () => {
           </div>
 
           {/* Vertical puzzle-piece layout */}
-          <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm max-w-5xl mx-auto">
+          <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm max-w-4xl mx-auto">
             <div className="flex flex-col items-center -space-y-12">
               {frameworkItems.map((item, index) => {
                 return (
@@ -59,7 +59,7 @@ const AliyaFrameworkSummary = () => {
                     className="relative flex items-center w-full"
                   >
                     <div 
-                      className="relative w-[1000px] h-80 text-center hover:scale-105 transition-all duration-300"
+                      className="relative w-[1200px] h-96 text-center hover:scale-105 transition-all duration-300"
                       style={{
                         backgroundImage: `url(${item.puzzlePiece})`,
                         backgroundSize: 'contain',
@@ -67,14 +67,14 @@ const AliyaFrameworkSummary = () => {
                         backgroundPosition: 'center'
                       }}
                     >
-                      <div className="relative z-10 p-16 h-full flex flex-col justify-center max-w-[400px] mx-auto">
+                      <div className="relative z-10 p-20 h-full flex flex-col justify-center max-w-[500px] mx-auto">
                         <div className="mb-4">
-                          <span className="text-4xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">
+                          <span className="text-3xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">
                             {item.title}
                           </span>
                         </div>
                         
-                        <p className="text-lg text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words">
+                        <p className="text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words">
                           {item.description}
                         </p>
                       </div>
@@ -82,7 +82,7 @@ const AliyaFrameworkSummary = () => {
                     
                     <Link 
                       to={`/framework/${item.letter.toLowerCase()}`}
-                      className="text-lg text-accent hover:text-accent/80 font-semibold transition-colors ml-4 drop-shadow-lg whitespace-nowrap"
+                      className="text-base text-accent hover:text-accent/80 font-semibold transition-colors ml-2 drop-shadow-lg whitespace-nowrap"
                     >
                       Learn More →
                     </Link>
