@@ -76,24 +76,36 @@ const AliyaFrameworkSummary = () => {
                         </span>
                       </div>
                       
-                      <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
-                        {index === 0 ? (
-                          <>
-                            Align your financial reality with<br/>
-                            your Aliya vision through<br/>
-                            comprehensive budgeting<br/>
-                            and lifestyle planning
-                          </>
-                        ) : index === 1 ? (
-                          <>
-                            Plan for longevity and rising<br/>
-                            late-life costs; integrate annuities<br/>
-                            and long term care strategies.
-                          </>
-                        ) : (
-                          item.description
-                        )}
-                      </p>
+                       <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
+                         {index === 0 ? (
+                           <>
+                             Align your financial reality with<br/>
+                             your Aliya vision through<br/>
+                             comprehensive budgeting<br/>
+                             and lifestyle planning
+                           </>
+                         ) : index === 1 ? (
+                           <>
+                             Plan for longevity and rising<br/>
+                             late-life costs; integrate annuities<br/>
+                             and long term care strategies.
+                           </>
+                         ) : index === 2 ? (
+                           <>
+                             Build reliable income, manage the<br/>
+                             10-year tax window, balance growth<br/>
+                             with protection, and use smart credit lines.
+                           </>
+                         ) : index === 3 ? (
+                           <>
+                             Cross-border wills, beneficiary design,<br/>
+                             titling, and tax-sensitive<br/>
+                             legacy planning.
+                           </>
+                         ) : (
+                           item.description
+                         )}
+                       </p>
                     </div>
                     </div>
                     

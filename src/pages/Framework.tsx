@@ -139,23 +139,35 @@ const Framework = () => {
                             <span className="text-3xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">{section.title}</span>
                           </div>
                            <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
-                            {index === 0 ? (
-                              <>
-                                Align your financial reality with<br/>
-                                your Aliya vision through<br/>
-                                comprehensive budgeting<br/>
-                                and lifestyle planning
-                              </>
-                            ) : index === 1 ? (
-                              <>
-                                Plan for longevity and rising<br/>
-                                late-life costs; integrate annuities<br/>
-                                and long term care strategies.
-                              </>
-                            ) : (
-                              section.description
-                            )}
-                           </p>
+                             {index === 0 ? (
+                               <>
+                                 Align your financial reality with<br/>
+                                 your Aliya vision through<br/>
+                                 comprehensive budgeting<br/>
+                                 and lifestyle planning
+                               </>
+                             ) : index === 1 ? (
+                               <>
+                                 Plan for longevity and rising<br/>
+                                 late-life costs; integrate annuities<br/>
+                                 and long term care strategies.
+                               </>
+                             ) : index === 2 ? (
+                               <>
+                                 Build reliable income, manage the<br/>
+                                 10-year tax window, balance growth<br/>
+                                 with protection, and use smart credit lines.
+                               </>
+                             ) : index === 3 ? (
+                               <>
+                                 Cross-border wills, beneficiary design,<br/>
+                                 titling, and tax-sensitive<br/>
+                                 legacy planning.
+                               </>
+                             ) : (
+                               section.description
+                             )}
+                            </p>
                         </div>
                       </div>
                       
