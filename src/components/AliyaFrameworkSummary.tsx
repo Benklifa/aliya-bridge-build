@@ -50,13 +50,13 @@ const AliyaFrameworkSummary = () => {
           </div>
 
           {/* Vertical puzzle-piece layout */}
-          <div className="bg-card/80 rounded-lg p-8 border border-border backdrop-blur-sm">
-            <div className="flex flex-col items-center gap-1 max-w-lg mx-auto">
+          <div className="bg-gray-800/90 rounded-lg p-8 border border-gray-700 backdrop-blur-sm">
+            <div className="flex flex-col items-center gap-1 max-w-2xl mx-auto">
               {frameworkItems.map((item, index) => {
                 return (
                   <div 
                     key={index}
-                    className="relative w-96 h-52 text-center hover:scale-105 transition-all duration-300"
+                    className="relative w-[500px] h-64 text-center hover:scale-105 transition-all duration-300"
                     style={{
                       backgroundImage: `url(${item.puzzlePiece})`,
                       backgroundSize: 'contain',
@@ -64,14 +64,14 @@ const AliyaFrameworkSummary = () => {
                       backgroundPosition: 'center'
                     }}
                   >
-                    <div className="relative z-10 p-8 h-full flex flex-col justify-center">
+                    <div className="relative z-10 p-10 h-full flex flex-col justify-center">
                       <div className="mb-4">
                         <span className="text-2xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">
                           {item.title}
                         </span>
                       </div>
                       
-                      <p className="text-sm text-white leading-relaxed mb-5 drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] px-6">
+                      <p className="text-sm text-white leading-relaxed mb-5 drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] px-8">
                         {item.description}
                       </p>
                       
