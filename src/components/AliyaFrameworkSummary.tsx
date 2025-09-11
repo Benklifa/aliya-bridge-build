@@ -53,7 +53,7 @@ const AliyaFrameworkSummary = () => {
           <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm max-w-4xl mx-auto">
             <div className="flex flex-col items-center">
               {frameworkItems.map((item, index) => {
-                const marginClass = index === 0 ? "ml-[105px] -mt-[25px]" : index === 1 ? "ml-[5px] -mt-[135px]" : index === 2 ? "-ml-[105px] -mt-[170px]" : index === 3 ? "-ml-[90px] -mt-[187px]" : index === 4 ? "-ml-[60px] -mt-[80px]" : "-mt-20";
+                const marginClass = index === 0 ? "ml-[105px] -mt-[25px]" : index === 1 ? "ml-[5px] -mt-[135px]" : index === 2 ? "-ml-[105px] -mt-[150px]" : index === 3 ? "-ml-[90px] -mt-[187px]" : index === 4 ? "-ml-[60px] -mt-[80px]" : "-mt-20";
                 const topMargin = "";
                 return (
                   <div 
