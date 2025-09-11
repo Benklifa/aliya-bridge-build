@@ -116,12 +116,13 @@ const Framework = () => {
           {/* Framework Puzzle Grid */}
           <div className="max-w-4xl mx-auto mb-16">
             <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm">
-              <div className="flex flex-col items-center -space-y-20">
+              <div className="flex flex-col items-center">
                 {frameworkSections.map((section, index) => {
+                  const marginClass = index === 0 ? "" : index === 3 ? "-mt-12" : "-mt-20";
                   return (
                     <div 
                       key={section.title}
-                      className="relative flex items-center w-full"
+                      className={`relative flex items-center w-full ${marginClass}`}
                     >
                       <div 
                         className="relative w-[1200px] h-96 text-center hover:scale-105 transition-all duration-300"

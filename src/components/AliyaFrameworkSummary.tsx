@@ -51,12 +51,13 @@ const AliyaFrameworkSummary = () => {
 
           {/* Vertical puzzle-piece layout */}
           <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm max-w-4xl mx-auto">
-            <div className="flex flex-col items-center -space-y-20">
+            <div className="flex flex-col items-center">
               {frameworkItems.map((item, index) => {
+                const marginClass = index === 0 ? "" : index === 3 ? "-mt-12" : "-mt-20";
                 return (
                   <div 
                     key={index}
-                    className="relative flex items-center w-full"
+                    className={`relative flex items-center w-full ${marginClass}`}
                   >
                     <div 
                       className="relative w-[1200px] h-96 text-center hover:scale-105 transition-all duration-300"
