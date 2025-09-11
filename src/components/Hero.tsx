@@ -3,9 +3,9 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden bg-navy-900 pt-20">
+    <section className="relative min-h-[500px] flex items-start justify-center overflow-hidden bg-navy-900 pt-8">
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div className="relative z-10 container mx-auto px-4 text-center mt-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 fade-in">
             Financial clarity for a<br />successful Aliyah.
