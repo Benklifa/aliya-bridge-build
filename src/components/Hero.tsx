@@ -3,21 +3,21 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden bg-navy-900">
-      {/* Large Logo on Left Side */}
-      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 z-0">
+    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden bg-navy-900 pt-20">
+      {/* Large Logo at Top Left */}
+      <div className="absolute left-8 top-8 z-20">
         <img 
           src="/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png" 
           alt="Aliya Financial Puzzle Logo" 
-          className="h-96 w-auto opacity-20"
+          className="h-80 w-auto"
         />
       </div>
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div className="relative z-10 container mx-auto px-4 text-center ml-80">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 fade-in">
-            Financial clarity for a successful Aliyah.
+            Financial clarity for a<br />successful Aliyah.
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-8 fade-in max-w-3xl mx-auto">
