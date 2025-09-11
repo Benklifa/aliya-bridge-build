@@ -30,7 +30,7 @@ const Navigation = () => {
           </div>
 
           {/* Navigation at Bottom */}
-          <div className="flex items-end justify-center pb-4 mt-auto">
+          <div className="flex items-end justify-end pb-4 mt-auto">
             <nav className="flex items-center space-x-8 flex-wrap">
               {navItems.map((item) => (
                 <Link
