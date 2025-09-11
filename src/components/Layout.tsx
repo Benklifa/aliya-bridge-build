@@ -20,13 +20,13 @@ const Navigation = () => {
     <header className="sticky top-0 z-50 w-full bg-navy-900 border-b border-navy-600">
       <div className="container mx-auto px-4">
         <div className="flex flex-col h-40">
-          {/* Logo and Title at Top */}
-          <div className="flex items-start pt-4 relative">
+          {/* Logo and Title */}
+          <div className="flex items-center h-full relative">
             {/* Large Logo extending downward */}
             <img 
               src="/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png" 
               alt="Aliya Financial Puzzle Logo" 
-              className="h-80 w-auto absolute left-0 top-0 z-30"
+              className="h-96 w-auto absolute left-0 top-4 z-30"
             />
             <Link to="/" className="flex items-center ml-32">
               <div className="font-serif font-bold text-6xl text-white">
