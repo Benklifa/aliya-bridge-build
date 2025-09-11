@@ -80,8 +80,8 @@ const AliyaFrameworkSummary = () => {
                         {index === 1 ? (
                           <>
                             Plan for longevity and rising<br/>
-                            late-life costs; integrate annuities and<br/>
-                            long term care strategies.
+                            late-life costs; integrate annuities<br/>
+                            and long term care strategies.
                           </>
                         ) : (
                           item.description
