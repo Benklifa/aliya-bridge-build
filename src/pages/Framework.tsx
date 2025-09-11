@@ -114,14 +114,14 @@ const Framework = () => {
           </div>
 
           {/* Framework Puzzle Grid */}
-          <div className="max-w-2xl mx-auto mb-16">
+          <div className="max-w-3xl mx-auto mb-16">
             <div className="bg-gray-800/90 rounded-lg p-8 border border-gray-700 backdrop-blur-sm">
-              <div className="flex flex-col items-center gap-1">
+              <div className="flex flex-col items-center gap-0">
                 {frameworkSections.map((section, index) => {
                   return (
                     <div 
                       key={section.title} 
-                      className="relative w-[500px] h-64 text-center hover:scale-105 transition-all duration-300"
+                      className="relative w-[600px] h-80 text-center hover:scale-105 transition-all duration-300"
                       style={{
                         backgroundImage: `url(${section.puzzlePiece})`,
                         backgroundSize: 'contain',
@@ -129,12 +129,12 @@ const Framework = () => {
                         backgroundPosition: 'center'
                       }}
                     >
-                      <div className="relative z-10 p-10 h-full flex flex-col justify-center">
-                        <div className="mb-4">
-                          <span className="text-2xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">{section.title}</span>
+                      <div className="relative z-10 p-12 h-full flex flex-col justify-center max-w-[450px] mx-auto">
+                        <div className="mb-5">
+                          <span className="text-3xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">{section.title}</span>
                         </div>
-                        <p className="text-sm text-white leading-relaxed mb-5 drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] px-8">{section.description}</p>
-                        <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-sm text-white hover:text-accent font-medium bg-black/50 px-4 py-2 rounded backdrop-blur-sm transition-colors inline-block mx-auto drop-shadow-lg">Learn more →</Link>
+                        <p className="text-base text-white leading-relaxed mb-6 drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] px-4">{section.description}</p>
+                        <Link to={`/framework/${section.letter.toLowerCase()}`} className="text-base text-accent hover:text-accent/80 font-semibold transition-colors inline-block mx-auto drop-shadow-lg">Learn more →</Link>
                       </div>
                     </div>
                   );
