@@ -116,7 +116,7 @@ const Framework = () => {
           {/* Framework Puzzle Grid */}
           <div className="max-w-4xl mx-auto mb-16">
             <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm">
-              <div className="flex flex-col items-center -space-y-12">
+              <div className="flex flex-col items-center -space-y-20">
                 {frameworkSections.map((section, index) => {
                   return (
                     <div 

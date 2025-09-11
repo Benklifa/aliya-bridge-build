@@ -51,7 +51,7 @@ const AliyaFrameworkSummary = () => {
 
           {/* Vertical puzzle-piece layout */}
           <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm max-w-4xl mx-auto">
-            <div className="flex flex-col items-center -space-y-12">
+            <div className="flex flex-col items-center -space-y-20">
               {frameworkItems.map((item, index) => {
                 return (
                   <div 
