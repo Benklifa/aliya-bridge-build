@@ -3,7 +3,15 @@ import { ArrowRight, Calendar } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[500px] flex items-start justify-center overflow-hidden bg-navy-900 pt-8">
+    <section 
+      className="relative min-h-[500px] flex items-start justify-center overflow-hidden pt-8"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/lovable-uploads/80ed530d-61bc-49e2-a97f-d091d6bde7fb.png')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center mt-8">
         <div className="max-w-4xl mx-auto">
