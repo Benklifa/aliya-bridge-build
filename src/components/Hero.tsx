@@ -8,11 +8,11 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center mt-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 fade-in">
-            Financial clarity for a<br />successful Aliyah.
+            Putting the puzzle together for a successful Aliya
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 mb-8 fade-in max-w-3xl mx-auto">
-            Cross-border planning to help you afford the lifestyle you want—now and later.
+            Start planning now to achieve the lifestyle you want - now and later.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in">
