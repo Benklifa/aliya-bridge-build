@@ -119,7 +119,7 @@ const AliyaFrameworkSummary = () => {
                     
                     <Link 
                       to={`/framework/${item.letter.toLowerCase()}`}
-                      className="text-base text-accent hover:text-accent/80 font-semibold transition-colors ml-2 drop-shadow-lg whitespace-nowrap"
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-base text-accent hover:text-accent/80 font-semibold transition-colors drop-shadow-lg whitespace-nowrap"
                     >
                       Learn More →
                     </Link>
