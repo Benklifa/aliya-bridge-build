@@ -4,6 +4,15 @@ import { ArrowRight, Calendar } from "lucide-react";
 const Hero = () => {
   return (
     <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden bg-navy-900">
+      {/* Large Logo on Left Side */}
+      <div className="absolute left-8 top-1/2 transform -translate-y-1/2 z-0">
+        <img 
+          src="/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png" 
+          alt="Aliya Financial Puzzle Logo" 
+          className="h-96 w-auto opacity-20"
+        />
+      </div>
+      
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">

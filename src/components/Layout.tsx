@@ -21,12 +21,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-40">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-6">
-            <img 
-              src="/lovable-uploads/9910b6d4-7800-4fca-b397-1e1d4f4302ad.png" 
-              alt="Aliya Financial Puzzle Logo" 
-              className="h-36 w-auto"
-            />
+          <Link to="/" className="flex items-center">
             <div className="font-serif font-bold text-6xl text-white">
               Aliya Financial
             </div>
