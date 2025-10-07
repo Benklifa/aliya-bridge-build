@@ -99,98 +99,63 @@ const Framework = () => {
 
   return (
     <Layout>
-      <div className="py-16">
+      <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="font-serif text-5xl font-bold text-primary mb-6">
+            <h1 className="font-serif text-5xl font-bold text-white mb-6">
               The A.L.I.Y.A. Framework Explained
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-white leading-relaxed">
               Our comprehensive methodology for cross-border financial planning, 
               designed specifically to ensure your Aliyah transition supports 
               the lifestyle you want—both now and in retirement.
             </p>
           </div>
+        </div>
+      </div>
+      
+      <div className="pb-8">
+        <div className="container mx-auto px-4">
 
-          {/* Framework Puzzle Grid */}
+          {/* Framework Puzzle Image - Positioned 1 inch (96px) below the header text */}
+          <div className="max-w-4xl mx-auto mb-12" style={{ marginTop: '96px' }}>
+            <div className="flex justify-center">
+              <img 
+                src="/brokenpuzzlewithwords.png" 
+                alt="A.L.I.Y.A Framework - Align, Live, Invest, Y'rusha, Adapt"
+                className="w-full max-w-2xl h-auto"
+              />
+            </div>
+          </div>
+
+          {/* Framework Sections with Learn More Links */}
           <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-gray-800/90 rounded-lg p-6 border border-gray-700 backdrop-blur-sm">
-              <div className="flex flex-col items-center">
-                {frameworkSections.map((section, index) => {
-                  const marginClass = index === 0 ? "ml-[105px] -mt-[25px]" : index === 1 ? "ml-[5px] -mt-[135px]" : index === 2 ? "-ml-[105px] -mt-[190px]" : index === 3 ? "-ml-[90px] -mt-[187px]" : index === 4 ? "-ml-[60px] -mt-[80px]" : "-mt-20";
-                  const topMargin = "";
-                  return (
+            <div className="space-y-6">
+              {frameworkSections.map((section) => (
                     <div 
                       key={section.title}
-                      className={`relative flex items-center justify-between w-full ${marginClass} ${topMargin}`}
+                      className="bg-white rounded-lg card-shadow p-6 flex items-center justify-between"
                     >
-                      <div 
-                        className="relative w-[1200px] h-96 text-center hover:scale-105 transition-all duration-300"
-                        style={{
-                          backgroundImage: `url(${section.puzzlePiece})`,
-                          backgroundSize: 'contain',
-                          backgroundRepeat: 'no-repeat',
-                          backgroundPosition: 'center'
-                        }}
-                      >
-                        <div className={`relative z-10 h-full flex flex-col ${index === 1 ? 'justify-center -mt-2' : 'justify-center'} ${index === 1 ? 'max-w-[350px]' : 'max-w-[500px]'} mx-auto ${index === 0 ? '-mt-[19px] ml-[120px]' : ''}`}>
-                          <div className="mb-4">
-                            <span className="text-3xl font-bold text-white drop-shadow-[2px_2px_4px_rgba(0,0,0,0.8)]">{section.title}</span>
-                          </div>
-                           <p className={`text-base text-white leading-relaxed drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)] break-words ${index === 1 ? 'px-2' : ''}`}>
-                             {index === 0 ? (
-                               <>
-                                 Align your financial reality with<br/>
-                                 your Aliya vision through<br/>
-                                 comprehensive budgeting<br/>
-                                 and lifestyle planning
-                               </>
-                             ) : index === 1 ? (
-                               <>
-                                 Plan for longevity and rising<br/>
-                                 late-life costs; integrate annuities<br/>
-                                 and long term care strategies.
-                               </>
-                             ) : index === 2 ? (
-                               <>
-                                 Build reliable income, manage the<br/>
-                                 10-year tax window, balance growth<br/>
-                                 with protection, and use smart credit lines.
-                               </>
-                             ) : index === 3 ? (
-                               <>
-                                 Cross-border wills, beneficiary design,<br/>
-                                 titling, and tax-sensitive<br/>
-                                 legacy planning.
-                               </>
-                             ) : index === 4 ? (
-                               <>
-                                 Liquidity and flexibility—<br/>
-                                 cash reserves, access to<br/>
-                                 USD/ILS, and practical<br/>
-                                 solutions like HELOC, asset-based<br/>
-                                 lending, and policy loans.
-                               </>
-                             ) : (
-                               section.description
-                             )}
-                            </p>
-                        </div>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-bold text-primary mb-2">
+                          {section.letter}. {section.title}
+                        </h3>
+                        <p className="text-black leading-relaxed">
+                          {section.description}
+                        </p>
                       </div>
                       
-                      <div className="w-32 flex justify-end">
+                      <div className="ml-6">
                         <Link 
                           to={`/framework/${section.letter.toLowerCase()}`} 
-                          className="text-base text-accent hover:text-accent/80 font-semibold transition-colors drop-shadow-lg whitespace-nowrap"
+                          className="text-accent hover:text-accent/80 font-semibold transition-colors whitespace-nowrap"
                         >
                           Learn more →
                         </Link>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
+                  ))}
             </div>
           </div>
 

@@ -42,17 +42,24 @@ const FAQ = () => {
 
   return (
     <Layout>
-      <div className="py-16">
+      <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h1 className="font-serif text-5xl font-bold text-foreground mb-6">
+              <h1 className="font-serif text-5xl font-bold text-white mb-6">
                 Frequently Asked Questions
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-xl text-white leading-relaxed">
                 Common questions about cross-border financial planning and Aliyah preparation
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
 
             <div className="space-y-4">
               {faqs.map((faq, index) => (

@@ -17,6 +17,7 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const topics = [
+    "Event Registration",
     "Financial Planning",
     "Investment Management", 
     "Alternative Investments",
@@ -95,18 +96,23 @@ const Contact = () => {
 
   return (
     <Layout>
-      <div className="py-16">
+      <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="font-serif text-5xl font-bold text-primary mb-6">
+            <h1 className="font-serif text-5xl font-bold text-white mb-6">
               Contact Us
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-white leading-relaxed">
               Tell us where you are in your Aliyah journey and how we can help 
               you achieve your cross-border financial goals.
             </p>
           </div>
+        </div>
+      </div>
+      
+      <div className="py-16">
+        <div className="container mx-auto px-4">
 
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}

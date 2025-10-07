@@ -34,7 +34,7 @@
     --secondary-foreground: var(--soft-white);
     
     --muted: 215 20% 95%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 215 20% 25%;  /* Much darker for better visibility */
     
     --accent: var(--gold-accent);
     --accent-foreground: var(--navy-primary);

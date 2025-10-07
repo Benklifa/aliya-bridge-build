@@ -16,11 +16,11 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center h-full flex flex-col justify-between py-16">
         {/* Text content positioned higher above the road sign */}
         <div className="max-w-4xl mx-auto pt-4">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 fade-in">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 fade-in drop-shadow-lg">
             Putting the puzzle together<br />for a successful Aliya
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 fade-in max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white fade-in max-w-3xl mx-auto drop-shadow-lg">
             Start planning now to achieve the lifestyle you want - now and later.
           </p>
         </div>
@@ -40,7 +40,7 @@ const Hero = () => {
           
           <Link 
             to="/framework" 
-            className="inline-flex items-center space-x-2 text-white hover:text-gold-500 transition-colors border-2 border-gold-500 px-8 py-4 rounded-md font-medium text-lg hover:border-gold-400"
+            className="inline-flex items-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-8 py-4 rounded-md font-medium text-lg"
           >
             <span>Explore the A.L.I.Y.A Framework</span>
             <ArrowRight size={20} />

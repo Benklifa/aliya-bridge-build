@@ -49,7 +49,7 @@ const DidYouKnowTicker = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-4">
-            <h2 className="font-serif text-3xl font-semibold text-white mb-2">
+            <h2 className="font-serif text-3xl font-semibold text-primary mb-2">
               Did You Know...
             </h2>
           </div>
