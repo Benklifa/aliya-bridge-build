@@ -89,6 +89,41 @@ const Events = () => {
     const displayHour = hour % 12 || 12;
     return `${displayHour}:${minutes} ${ampm}`;
   };
+const handleSubmitRegistration = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbwibEG7LkA7qVhCv5LiBAIAi5UDoAxdimYxAI9UthntH5tV9hkk91A7iePsaOewG8T3/exec",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          eventId: selectedEvent?.id,
+          eventTitle: selectedEvent?.title,
+          ...registrationData,
+        }),
+      }
+    );
+
+    const data = await response.json();
+    if (data.success) {
+      setShowSuccessMessage(true);
+    } else {
+      throw new Error(data.error || "Registration failed");
+    }
+  } catch (error) {
+    console.error("Error submitting registration:", error);
+    toast({
+      title: "Error",
+      description: "Registration failed. Please try again later.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   if (loading) {
     return (
