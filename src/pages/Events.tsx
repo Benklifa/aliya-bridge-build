@@ -82,7 +82,7 @@ const Events = () => {
     return `${displayHour}:${minutes} ${ampm}`;
   };
 
-  // Fixed: send form-encoded data to Apps Script
+  // Fixed: send form-encoded data to Apps Script with proper CORS handling
   const handleSubmitRegistration = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -95,13 +95,24 @@ const Events = () => {
       formData.append("eventId", selectedEvent?.id || "");
       formData.append("eventTitle", selectedEvent?.title || "");
 
-     await fetch("https://script.google.com/macros/s/AKfycbwibEG7LkA7qVhCv5LiBAIAi5UDoAxdimYxAI9UthntH5tV9hkk91A7iePsaOewG8T3/exec", {
-  method: "POST",
-  body: formData,
-});
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwibEG7LkA7qVhCv5LiBAIAi5UDoAxdimYxAI9UthntH5tV9hkk91A7iePsaOewG8T3/exec", {
+        method: "POST",
+        body: formData,
+      });
 
+      const result = await response.json();
 
-      setShowSuccessMessage(true);
+      if (result.success) {
+        setShowSuccessMessage(true);
+        // Reset form
+        setRegistrationData({ name: "", email: "", phone: "" });
+      } else {
+        toast({
+          title: "Error",
+          description: result.error || "Registration failed. Please try again later.",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
       console.error("Error submitting registration:", error);
       toast({
