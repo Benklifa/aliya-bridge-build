@@ -1,0 +1,12 @@
+/* Mobile-specific positioning for Aliya Buddy button */
+.aliya-buddy-button {
+  /* Default: centered vertically */
+  transform: translateY(-50%);
+}
+
+/* On mobile screens (max-width: 767px), move down 96px */
+@media (max-width: 767px) {
+  .aliya-buddy-button {
+    transform: translateY(calc(-50% + 96px));
+  }
+}
