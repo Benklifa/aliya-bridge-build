@@ -21,9 +21,9 @@ const Events = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [registrationData, setRegistrationData] = useState({
-    name: '',
-    email: '',
-    phone: ''
+    name: "",
+    email: "",
+    phone: "",
   });
 
   useEffect(() => {
@@ -32,13 +32,13 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch('/public-events.json');
+      const response = await fetch("/public-events.json");
       const data = await response.json();
       if (data.success && data.events) {
         setEvents(data.events);
       }
     } catch (error) {
-      console.error('Error fetching events:', error);
+      console.error("Error fetching events:", error);
       toast({
         title: "Error",
         description: "Failed to load events. Please try again later.",
@@ -49,8 +49,6 @@ const Events = () => {
     }
   };
 
-
-
   const handleOpenModal = (event: Event) => {
     setSelectedEvent(event);
     setShowSuccessMessage(false);
@@ -58,88 +56,64 @@ const Events = () => {
 
   const handleCloseModal = () => {
     setSelectedEvent(null);
-    setRegistrationData({ name: '', email: '', phone: '' });
+    setRegistrationData({ name: "", email: "", phone: "" });
     setShowSuccessMessage(false);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRegistrationData({
-      ...registrationData,
-      [e.target.name]: e.target.value
-    });
+    setRegistrationData({ ...registrationData, [e.target.name]: e.target.value });
   };
-
- 
-
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
+    return date.toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
   const formatTime = (timeString: string) => {
-    const [hours, minutes] = timeString.split(':');
+    const [hours, minutes] = timeString.split(":");
     const hour = parseInt(hours);
-    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const ampm = hour >= 12 ? "PM" : "AM";
     const displayHour = hour % 12 || 12;
     return `${displayHour}:${minutes} ${ampm}`;
   };
-const handleSubmitRegistration = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
 
-  try {
-    // Create form data for Google Apps Script
-    const formData = new URLSearchParams();
-    formData.append('eventId', selectedEvent?.id || '');
-    formData.append('eventTitle', selectedEvent?.title || '');
-    formData.append('name', registrationData.name);
-    formData.append('email', registrationData.email);
-    formData.append('phone', registrationData.phone);
+  // Fixed: send form-encoded data to Apps Script
+  const handleSubmitRegistration = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwibEG7LkA7qVhCv5LiBAIAi5UDoAxdimYxAI9UthntH5tV9hkk91A7iePsaOewG8T3/exec",
-      {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formData.toString(),
-      }
-    );
+    try {
+      const formData = new URLSearchParams();
+      formData.append("name", registrationData.name);
+      formData.append("email", registrationData.email);
+      formData.append("phone", registrationData.phone);
+      formData.append("eventId", selectedEvent?.id || "");
+      formData.append("eventTitle", selectedEvent?.title || "");
 
-    // With no-cors mode, we can't read the response, so we assume success
-    setShowSuccessMessage(true);
-    setRegistrationData({ name: '', email: '', phone: '' });
-    
-    toast({
-      title: "Success!",
-      description: "Your registration has been submitted successfully.",
-    });
-    
-    // Close the modal after a short delay
-    setTimeout(() => {
-      setSelectedEvent(null);
-      setShowSuccessMessage(false);
-    }, 3000);
-    
-  } catch (error) {
-    console.error("Error submitting registration:", error);
-    toast({
-      title: "Error",
-      description: "Registration failed. Please try again later.",
-      variant: "destructive",
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+     await fetch("https://script.google.com/macros/s/AKfycbwibEG7LkA7qVhCv5LiBAIAi5UDoAxdimYxAI9UthntH5tV9hkk91A7iePsaOewG8T3/exec", {
+  method: "POST",
+  body: formData,
+  mode: "no-cors",
+});
+
+
+      setShowSuccessMessage(true);
+    } catch (error) {
+      console.error("Error submitting registration:", error);
+      toast({
+        title: "Error",
+        description: "Registration failed. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -177,35 +151,30 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
                   <h3 className="text-xl sm:text-2xl font-serif font-bold text-primary mb-3 sm:mb-4">
                     {event.title}
                   </h3>
-
                   <p className="text-sm sm:text-base text-black mb-4 sm:mb-6">
                     {event.description}
                   </p>
-
                   <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                     <div className="flex items-center text-sm sm:text-base text-black">
                       <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-accent flex-shrink-0" />
                       <span>{formatDate(event.date)}</span>
                     </div>
-
                     <div className="flex items-center text-sm sm:text-base text-black">
                       <Clock className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-accent flex-shrink-0" />
                       <span>{formatTime(event.time)}</span>
                     </div>
-
                     <div className="flex items-start text-sm sm:text-base text-black">
                       <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-accent flex-shrink-0 mt-0.5" />
                       <span>{event.location}</span>
                     </div>
                   </div>
-
                   <button
                     onClick={() => handleOpenModal(event)}
                     disabled={!event.registrationOpen}
                     className={`w-full py-2 sm:py-3 px-4 sm:px-6 rounded-md font-medium text-sm sm:text-base transition-colors ${
                       !event.registrationOpen
-                        ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                        : 'btn-primary hover:opacity-90'
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "btn-primary hover:opacity-90"
                     }`}
                   >
                     Register Now
@@ -236,7 +205,9 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
 
               {showSuccessMessage ? (
                 <div className="text-center py-6 sm:py-8">
-                  <div className="text-green-600 text-4xl sm:text-5xl mb-3 sm:mb-4">✓</div>
+                  <div className="text-green-600 text-4xl sm:text-5xl mb-3 sm:mb-4">
+                    ✓
+                  </div>
                   <h3 className="text-lg sm:text-xl font-bold text-primary mb-2">
                     Registration Successful!
                   </h3>
@@ -255,10 +226,12 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
                   <p className="text-sm sm:text-base text-black mb-4 sm:mb-6">
                     {selectedEvent.title}
                   </p>
-
                   <form onSubmit={handleSubmitRegistration} className="space-y-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-primary mb-2"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -268,12 +241,15 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
                         required
                         value={registrationData.name}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-black bg-white border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-primary mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -283,12 +259,15 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
                         required
                         value={registrationData.email}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-black bg-white border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-primary mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-primary mb-2"
+                      >
                         Phone Number *
                       </label>
                       <input
@@ -298,7 +277,7 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
                         required
                         value={registrationData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-black bg-white border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
 
