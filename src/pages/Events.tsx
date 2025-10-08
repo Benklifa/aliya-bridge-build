@@ -98,7 +98,6 @@ const Events = () => {
      await fetch("https://script.google.com/macros/s/AKfycbwibEG7LkA7qVhCv5LiBAIAi5UDoAxdimYxAI9UthntH5tV9hkk91A7iePsaOewG8T3/exec", {
   method: "POST",
   body: formData,
-  mode: "no-cors",
 });
 
 
