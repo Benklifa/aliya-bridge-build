@@ -114,6 +114,16 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
   
+  /* Fix input text color - ensure it's always dark on light backgrounds */
+  input, textarea, select {
+    color: hsl(var(--navy-primary)) !important;
+    background-color: white !important;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: hsl(var(--muted-foreground)) !important;
+  }
+  
   /* Typography Scale */
   h1, h2, .font-serif {
     font-family: 'Playfair Display', Georgia, serif;
