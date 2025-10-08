@@ -69,46 +69,8 @@ const Events = () => {
     });
   };
 
-  const handleSubmitRegistration = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+ 
 
-    try {
-      const response = await fetch('/api/register-event', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          eventId: selectedEvent?.id,
-          eventTitle: selectedEvent?.title,
-          ...registrationData
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setShowSuccessMessage(true);
-        setRegistrationData({ name: '', email: '', phone: '' });
-        toast({
-          title: "Registration Successful!",
-          description: "Check your email for confirmation with the event address.",
-        });
-      } else {
-        throw new Error(data.error || 'Registration failed');
-      }
-    } catch (error) {
-      console.error('Registration error:', error);
-      toast({
-        title: "Registration Failed",
-        description: error instanceof Error ? error.message : "Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
