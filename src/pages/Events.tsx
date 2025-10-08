@@ -94,25 +94,41 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
   setIsSubmitting(true);
 
   try {
+    // Create form data for Google Apps Script
+    const formData = new URLSearchParams();
+    formData.append('eventId', selectedEvent?.id || '');
+    formData.append('eventTitle', selectedEvent?.title || '');
+    formData.append('name', registrationData.name);
+    formData.append('email', registrationData.email);
+    formData.append('phone', registrationData.phone);
+
     const response = await fetch(
       "https://script.google.com/macros/s/AKfycbwibEG7LkA7qVhCv5LiBAIAi5UDoAxdimYxAI9UthntH5tV9hkk91A7iePsaOewG8T3/exec",
       {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          eventId: selectedEvent?.id,
-          eventTitle: selectedEvent?.title,
-          ...registrationData,
-        }),
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData.toString(),
       }
     );
 
-    const data = await response.json();
-    if (data.success) {
-      setShowSuccessMessage(true);
-    } else {
-      throw new Error(data.error || "Registration failed");
-    }
+    // With no-cors mode, we can't read the response, so we assume success
+    setShowSuccessMessage(true);
+    setRegistrationData({ name: '', email: '', phone: '' });
+    
+    toast({
+      title: "Success!",
+      description: "Your registration has been submitted successfully.",
+    });
+    
+    // Close the modal after a short delay
+    setTimeout(() => {
+      setSelectedEvent(null);
+      setShowSuccessMessage(false);
+    }, 3000);
+    
   } catch (error) {
     console.error("Error submitting registration:", error);
     toast({
