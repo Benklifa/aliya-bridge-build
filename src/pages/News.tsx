@@ -1,67 +1,41 @@
 import Layout from "@/components/Layout";
-import { ExternalLink, Calendar, User } from "lucide-react";
 
 const News = () => {
-  const newsItems = [
-    {
-      id: 1,
-      title: "The Complete Guide to Cross-Border Financial Planning",
-      description: "Michael Benklifa's comprehensive guide to managing finances across U.S. and Israeli markets.",
-      author: "Michael Hanania Benklifa",
-      date: "2024",
-      type: "book",
-      link: "https://example.com/book1"
-    },
-    {
-      id: 2,
-      title: "Alternative Investment Strategies for Qualified Investors",
-      description: "Advanced investment approaches for high-net-worth individuals navigating cross-border regulations.",
-      author: "Michael Hanania Benklifa", 
-      date: "2023",
-      type: "book",
-      link: "https://example.com/book2"
-    }
-  ];
-
   return (
-    <Layout hideNav>
+    <Layout>
+      <div className="bg-primary py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="font-serif text-5xl font-bold text-white mb-6">
+              In the News
+            </h1>
+            <p className="text-xl text-white leading-relaxed">
+              Featured articles about Aliya Financial and our cross-border financial planning expertise.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {newsItems.map((item) => (
-              <div key={item.id} className="bg-card rounded-lg card-shadow overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-card-foreground mb-2">
-                    {item.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {item.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                    <div className="flex items-center space-x-2">
-                      <User size={16} />
-                      <span>{item.author}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Calendar size={16} />
-                      <span>{item.date}</span>
-                    </div>
-                  </div>
-                  
-                  <a 
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 text-accent hover:text-accent/80 font-medium"
-                  >
-                    <span>Read More</span>
-                    <ExternalLink size={16} />
-                  </a>
-                </div>
-              </div>
-            ))}
+          <div className="max-w-5xl mx-auto space-y-8">
+            {/* Article 4 - Top */}
+            <div className="flex justify-center">
+              <img 
+                src="/Article4.jpg" 
+                alt="Aliya Financial article featuring the A.L.I.Y.A. Framework and key takeaways for cross-border financial planning"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+
+            {/* Article 3 - Bottom */}
+            <div className="flex justify-center">
+              <img 
+                src="/Article3.jpg" 
+                alt="Community News: Aliya Financial presents at Highland Park's Congregation Ohav Emeth"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
           </div>
         </div>
       </div>
