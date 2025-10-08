@@ -252,7 +252,7 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
                         required
                         value={registrationData.name}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-black bg-white border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
 
@@ -267,7 +267,7 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
                         required
                         value={registrationData.email}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-black bg-white border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
 
@@ -282,7 +282,7 @@ const handleSubmitRegistration = async (e: React.FormEvent) => {
                         required
                         value={registrationData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-black bg-white border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
                       />
                     </div>
 
