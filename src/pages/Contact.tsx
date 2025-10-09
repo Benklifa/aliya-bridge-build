@@ -77,7 +77,7 @@ const Contact = () => {
               <h1 className="font-serif text-4xl font-bold text-primary mb-4">
                 Thank You!
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-xl text-black mb-8">
                 Your message has been sent successfully. We'll review your inquiry 
                 and get back to you within 24 hours.
               </p>
@@ -248,8 +248,8 @@ const Contact = () => {
                     <Mail size={24} className="text-accent mt-1" />
                     <div>
                       <h4 className="font-semibold text-primary mb-2">Email</h4>
-                      <p className="text-muted-foreground">Lisa@AliyaFinancial.com</p>
-                      <p className="text-muted-foreground">Michael@AliyaFinancial.com</p>
+                      <p className="text-black">Lisa@AliyaFinancial.com</p>
+                      <p className="text-black">Michael@AliyaFinancial.com</p>
                     </div>
                   </div>
                   
@@ -257,8 +257,8 @@ const Contact = () => {
                     <MapPin size={24} className="text-accent mt-1" />
                     <div>
                       <h4 className="font-semibold text-primary mb-2">Locations</h4>
-                      <p className="text-muted-foreground mb-1">Highland Park, NJ (USA)</p>
-                      <p className="text-muted-foreground">Jerusalem, Israel</p>
+                      <p className="text-black mb-1">Highland Park, NJ (USA)</p>
+                      <p className="text-black">Jerusalem, Israel</p>
                     </div>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ const Contact = () => {
                 <h3 className="font-serif text-xl font-bold text-primary mb-4">
                   What to Expect
                 </h3>
-                <ul className="space-y-3 text-sm text-muted-foreground">
+                <ul className="space-y-3 text-sm text-black">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
                     <span>We'll respond within 24 hours</span>
