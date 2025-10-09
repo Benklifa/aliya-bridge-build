@@ -5,28 +5,28 @@ import { ArrowRight } from "lucide-react";
 const Framework = () => {
   const frameworkElements = [
     {
-      id: "align",
+      id: "a",
       letter: "A",
       title: "Align",
       tagline: "Align your financial reality with your Aliyah vision through comprehensive budgeting and lifestyle planning.",
       color: "border-blue-500"
     },
     {
-      id: "live",
+      id: "l",
       letter: "L", 
       title: "Live",
       tagline: "Plan for longevity and rising late-life costs; integrate annuities and long-term care strategies.",
       color: "border-green-500"
     },
     {
-      id: "invest",
+      id: "i",
       letter: "I",
       title: "Invest",
       tagline: "Build reliable income streams while managing the 10-year tax window and balancing growth with protection.",
       color: "border-purple-500"
     },
     {
-      id: "yrusha",
+      id: "y",
       letter: "Y",
       title: "Y'rusha (Legacy)",
       tagline: "Cross-border estate planning with proper wills, beneficiary design, and tax-sensitive legacy strategies.",
