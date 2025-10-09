@@ -119,12 +119,12 @@ const Framework = () => {
         <div className="container mx-auto px-4">
 
           {/* Framework Puzzle Image - Positioned below the header text */}
-          <div className="max-w-4xl mx-auto mb-12" style={{ marginTop: '32px' }}>
+          <div className="max-w-4xl mx-auto mb-12" style={{ marginTop: '16px' }}>
             <div className="flex justify-center">
               <img 
                 src="/brokenpuzzlewithwords.png" 
                 alt="A.L.I.Y.A Framework - Align, Live, Invest, Y'rusha, Adapt"
-                className="w-full max-w-2xl h-auto"
+                className="w-full max-w-4xl h-auto"
               />
             </div>
           </div>
