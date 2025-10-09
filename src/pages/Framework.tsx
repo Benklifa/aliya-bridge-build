@@ -1,99 +1,43 @@
 import Layout from "@/components/Layout";
-import { ChevronDown } from "lucide-react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Framework = () => {
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-
-  const frameworkSections = [
+  const frameworkElements = [
     {
+      id: "align",
       letter: "A",
       title: "Align",
-      puzzlePiece: "/lovable-uploads/ae86307b-b07d-4f24-b1a1-d3edd4b05bbb.png",
-      description: "Align your financial reality with your Aliyah vision through comprehensive budgeting and lifestyle planning.",
-      details: [
-        "Housing cost analysis: Rent vs. buy decisions in both markets",
-        "Healthcare transition planning and insurance continuity",
-        "Transportation budgeting and vehicle considerations",
-        "Currency hedging strategies for major expenses",
-        "Inflation protection for fixed-income planning"
-      ]
+      color: "bg-blue-500",
+      position: "top-[15%]"
     },
     {
+      id: "live",
       letter: "L", 
       title: "Live",
-      puzzlePiece: "/lovable-uploads/735c892c-6aff-45ec-9d46-71fe93453bfe.png",
-      description: "Plan for longevity and rising late-life costs; integrate annuities and long-term care strategies",
-      details: [
-        "Longevity planning for extended retirement periods",
-        "Long-term care insurance evaluation and alternatives",
-        "Annuity strategies for guaranteed income floors", 
-        "Healthcare cost projections in both countries",
-        "Medicare coordination with Israeli healthcare systems"
-      ]
+      color: "bg-green-500",
+      position: "top-[30%]"
     },
     {
+      id: "invest",
       letter: "I",
       title: "Invest",
-      puzzlePiece: "/lovable-uploads/ba92d131-5eef-4b0b-b451-18a218ac3b44.png",
-      description: "Build reliable income streams while managing the 10-year tax window and balancing growth with protection.",
-      details: [
-        "Tax-efficient investing during the 10-year exemption period",
-        "Asset allocation for dual-currency retirement needs",
-        "Life insurance strategies for cross-border estate planning",
-        "Alternative investments for qualified investors",
-        "Smart credit lines: HELOC and asset-based lending"
-      ]
+      color: "bg-purple-500",
+      position: "top-[45%]"
     },
     {
+      id: "yrusha",
       letter: "Y",
-      title: "Y'rusha (Legacy)",
-      puzzlePiece: "/lovable-uploads/e4789ae2-00ef-4434-8448-e40b3d958c6f.png",
-      description: "Cross-border estate planning with proper wills, beneficiary design, and tax-sensitive legacy strategies.",
-      details: [
-        "Dual-jurisdiction will preparation and coordination",
-        "Beneficiary designation optimization for tax efficiency",
-        "Asset titling strategies for cross-border estates",
-        "Trust structures for U.S.-Israel estate planning",
-        "Generation-skipping transfer tax considerations"
-      ]
+      title: "Y'rusha",
+      color: "bg-orange-500",
+      position: "top-[60%]"
     },
     {
+      id: "adapt",
       letter: "A",
       title: "Adapt", 
-      puzzlePiece: "/lovable-uploads/d9cfcc3e-4886-420b-8669-e72474f17be9.png",
-      description: "Maintain liquidity and flexibility with cash reserves, currency access, and practical lending solutions.",
-      details: [
-        "Emergency fund allocation across USD and ILS",
-        "Currency diversification strategies",
-        "HELOC establishment before international move",
-        "Asset-based lending for major purchases",
-        "Permanent life insurance policy loans for liquidity"
-      ]
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "How does currency hedging work for Aliyah planning?",
-      answer: "Currency hedging involves using financial instruments to protect against adverse exchange rate movements between USD and ILS. We implement strategies like forward contracts, currency-hedged investments, and maintaining assets in both currencies to reduce exposure to volatility."
-    },
-    {
-      question: "Should I maintain dual-country bank accounts?",
-      answer: "Yes, maintaining accounts in both countries is typically beneficial for currency flexibility, easier bill payment, and avoiding international transfer fees. We help structure this to comply with reporting requirements in both jurisdictions."
-    },
-    {
-      question: "When should I apply for Medicare and how does it work with Israeli healthcare?",
-      answer: "You should apply for Medicare Part A when eligible (usually at 65) even if living in Israel, as there's no penalty. Part B has enrollment deadlines that can result in lifetime penalties, so timing is crucial based on your specific situation and health insurance coverage."
-    },
-    {
-      question: "What is the 10-year Israeli tax exemption and how do I optimize it?",
-      answer: "New and returning residents may qualify for a 10-year exemption on foreign income and capital gains. This creates significant tax planning opportunities for investment timing, Roth conversions, and asset reallocation that we help coordinate with your overall financial plan."
-    },
-    {
-      question: "What are the best liquidity strategies for cross-border living?",
-      answer: "Effective liquidity strategies include establishing a HELOC before moving (easier to qualify as a U.S. resident), asset-based lending against investment portfolios, and permanent life insurance policy loans. Each provides access to capital without triggering taxable events."
+      color: "bg-red-500",
+      position: "top-[75%]"
     }
   ];
 
@@ -115,83 +59,37 @@ const Framework = () => {
         </div>
       </div>
       
-      <div className="pb-8">
+      <div className="pb-16">
         <div className="container mx-auto px-4">
+          {/* Framework Puzzle Image with Bubble Callouts */}
+          <div className="max-w-6xl mx-auto" style={{ marginTop: '16px' }}>
+            <div className="relative flex items-start justify-center">
+              {/* Image on the left */}
+              <div className="w-3/5 pr-8">
+                <img 
+                  src="/brokenpuzzlewithwords.png" 
+                  alt="A.L.I.Y.A Framework - Align, Live, Invest, Y'rusha, Adapt"
+                  className="w-full h-auto"
+                />
+              </div>
 
-          {/* Framework Puzzle Image - Positioned below the header text */}
-          <div className="max-w-4xl mx-auto mb-12" style={{ marginTop: '16px' }}>
-            <div className="flex justify-center">
-              <img 
-                src="/brokenpuzzlewithwords.png" 
-                alt="A.L.I.Y.A Framework - Align, Live, Invest, Y'rusha, Adapt"
-                className="w-full max-w-4xl h-auto"
-              />
-            </div>
-          </div>
-
-          {/* Framework Sections with Learn More Links */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="space-y-6">
-              {frameworkSections.map((section) => (
-                    <div 
-                      key={section.title}
-                      className="bg-white rounded-lg card-shadow p-6 flex items-center justify-between"
-                    >
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-primary mb-2">
-                          {section.letter}. {section.title}
-                        </h3>
-                        <p className="text-black leading-relaxed">
-                          {section.description}
-                        </p>
-                      </div>
-                      
-                      <div className="ml-6">
-                        <Link 
-                          to={`/framework/${section.letter.toLowerCase()}`} 
-                          className="text-accent hover:text-accent/80 font-semibold transition-colors whitespace-nowrap"
-                        >
-                          Learn more →
-                        </Link>
-                      </div>
-                    </div>
-                  ))}
-            </div>
-          </div>
-
-          {/* FAQ Section */}
-          <div className="max-w-4xl mx-auto">
-            <h2 className="font-serif text-3xl font-bold text-primary text-center mb-12">
-              Frequently Asked Questions
-            </h2>
-            
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-card rounded-lg card-shadow">
-                  <button
-                    onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-muted/30 transition-colors"
+              {/* Bubble callouts on the right */}
+              <div className="w-2/5 relative" style={{ minHeight: '600px' }}>
+                {frameworkElements.map((element) => (
+                  <Link
+                    key={element.id}
+                    to={`/framework/${element.id}`}
+                    className={`absolute right-0 ${element.position} group`}
                   >
-                    <h3 className="text-lg font-semibold text-primary pr-4">
-                      {faq.question}
-                    </h3>
-                    <ChevronDown 
-                      size={20} 
-                      className={`text-accent transition-transform ${
-                        openFAQ === index ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  
-                  {openFAQ === index && (
-                    <div className="px-6 pb-6">
-                      <p className="text-black leading-relaxed">
-                        {faq.answer}
-                      </p>
+                    <div className={`${element.color} text-white px-6 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center space-x-3 min-w-[280px]`}>
+                      <span className="font-semibold text-lg">
+                        Learn more about {element.title}
+                      </span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </div>
-                  )}
-                </div>
-              ))}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -201,3 +99,4 @@ const Framework = () => {
 };
 
 export default Framework;
+
