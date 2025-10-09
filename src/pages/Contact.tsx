@@ -124,7 +124,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
                       Full Name *
                     </label>
                     <input
@@ -139,7 +139,7 @@ const Contact = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
                       Email Address *
                     </label>
                     <input
@@ -156,7 +156,7 @@ const Contact = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-black mb-2">
                       Phone Number
                     </label>
                     <input
@@ -170,7 +170,7 @@ const Contact = () => {
                   </div>
                   
                   <div>
-                    <label htmlFor="countryState" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="countryState" className="block text-sm font-medium text-black mb-2">
                       Country/State
                     </label>
                     <input
@@ -186,7 +186,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="topic" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="topic" className="block text-sm font-medium text-black mb-2">
                     Topic of Interest
                   </label>
                   <select
@@ -204,7 +204,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
                     Message *
                   </label>
                   <textarea

@@ -148,9 +148,7 @@ const Footer = () => {
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground leading-relaxed">
             Educational content. Not legal, tax, or investment advice. Investing involves risk. 
-            Past performance does not guarantee future results. Securities offered through 
-            [FINRA Member Firm - License Pending]. Advisory services offered through 
-            [Registered Investment Advisor - License Pending].
+            Past performance does not guarantee future results.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             © 2024 Aliya Financial. All rights reserved.
