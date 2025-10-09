@@ -46,7 +46,7 @@ const Framework = () => {
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
+          <div className="max-w-4xl mx-auto text-center mb-4">
             <h1 className="font-serif text-5xl font-bold text-white mb-6">
               The A.L.I.Y.A. Framework Explained
             </h1>
@@ -59,7 +59,7 @@ const Framework = () => {
         </div>
       </div>
       
-      <div className="py-12">
+      <div className="pt-4 pb-12">
         <div className="container mx-auto px-4">
           {/* Framework Puzzle Image - Centered and Responsive */}
           <div className="max-w-5xl mx-auto mb-12">
