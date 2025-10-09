@@ -27,14 +27,14 @@ const FrameworkAdapt = () => {
             {/* Content Sections */}
             <div className="space-y-8">
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">
+                <h2 className="text-2xl font-bold text-card-foreground mb-4">
                   Emergency Fund & Cash Reserves
                 </h2>
-                <p className="text-white mb-4">
+                <p className="text-card-foreground mb-4">
                   Maintaining appropriate cash reserves in both currencies provides security and flexibility for 
                   unexpected expenses, currency fluctuations, and opportunities that may arise.
                 </p>
-                <ul className="list-disc list-inside text-white space-y-2">
+                <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>Multi-currency emergency fund allocation</li>
                   <li>Optimal cash reserve sizing for cross-border living</li>
                   <li>High-yield savings and money market optimization</li>
@@ -43,14 +43,14 @@ const FrameworkAdapt = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">
+                <h2 className="text-2xl font-bold text-card-foreground mb-4">
                   Currency Diversification Strategies
                 </h2>
-                <p className="text-white mb-4">
+                <p className="text-card-foreground mb-4">
                   Maintaining assets and income streams in both USD and ILS provides natural hedging against 
                   currency fluctuations and ensures access to funds in your currency of need.
                 </p>
-                <ul className="list-disc list-inside text-white space-y-2">
+                <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>Strategic currency allocation across asset classes</li>
                   <li>Natural hedging through income and expense matching</li>
                   <li>Currency-hedged vs. unhedged investment strategies</li>
@@ -59,14 +59,14 @@ const FrameworkAdapt = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">
+                <h2 className="text-2xl font-bold text-card-foreground mb-4">
                   Home Equity Line of Credit (HELOC)
                 </h2>
-                <p className="text-white mb-4">
+                <p className="text-card-foreground mb-4">
                   Establishing a HELOC before international relocation is often easier as a U.S. resident. 
                   This provides a valuable source of low-cost capital that can be accessed as needed.
                 </p>
-                <ul className="list-disc list-inside text-white space-y-2">
+                <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>HELOC establishment timing and qualification</li>
                   <li>Rate structures and repayment strategies</li>
                   <li>Tax deductibility considerations</li>
@@ -75,14 +75,14 @@ const FrameworkAdapt = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">
+                <h2 className="text-2xl font-bold text-card-foreground mb-4">
                   Asset-Based Lending Solutions
                 </h2>
-                <p className="text-white mb-4">
+                <p className="text-card-foreground mb-4">
                   Borrowing against investment portfolios provides access to capital without triggering taxable events 
                   or disrupting long-term investment strategies.
                 </p>
-                <ul className="list-disc list-inside text-white space-y-2">
+                <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>Securities-based lines of credit</li>
                   <li>Portfolio loan structures and terms</li>
                   <li>Margin lending considerations and risks</li>
@@ -91,14 +91,14 @@ const FrameworkAdapt = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">
+                <h2 className="text-2xl font-bold text-card-foreground mb-4">
                   Life Insurance Policy Loans
                 </h2>
-                <p className="text-white mb-4">
+                <p className="text-card-foreground mb-4">
                   Permanent life insurance policies with cash value provide another source of liquidity through 
                   policy loans, which are generally not taxable and don't require credit approval.
                 </p>
-                <ul className="list-disc list-inside text-white space-y-2">
+                <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>Policy loan mechanics and repayment options</li>
                   <li>Tax advantages and considerations</li>
                   <li>Impact on death benefits and policy performance</li>
@@ -107,14 +107,14 @@ const FrameworkAdapt = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-white mb-4">
+                <h2 className="text-2xl font-bold text-card-foreground mb-4">
                   Banking & Financial Infrastructure
                 </h2>
-                <p className="text-white mb-4">
+                <p className="text-card-foreground mb-4">
                   Maintaining proper banking relationships and financial infrastructure in both countries ensures 
                   smooth operations and access to services when needed.
                 </p>
-                <ul className="list-disc list-inside text-white space-y-2">
+                <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>Dual-country banking relationship management</li>
                   <li>International wire transfer optimization</li>
                   <li>Credit card and payment system access</li>
