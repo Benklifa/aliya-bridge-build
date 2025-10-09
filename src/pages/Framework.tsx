@@ -118,8 +118,8 @@ const Framework = () => {
       <div className="pb-8">
         <div className="container mx-auto px-4">
 
-          {/* Framework Puzzle Image - Positioned 1 inch (96px) below the header text */}
-          <div className="max-w-4xl mx-auto mb-12" style={{ marginTop: '96px' }}>
+          {/* Framework Puzzle Image - Positioned below the header text */}
+          <div className="max-w-4xl mx-auto mb-12" style={{ marginTop: '32px' }}>
             <div className="flex justify-center">
               <img 
                 src="/brokenpuzzlewithwords.png" 
