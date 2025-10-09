@@ -19,7 +19,7 @@ const FrameworkLive = () => {
                 <span className="font-serif text-5xl font-bold text-accent mr-3">L</span>
                 <span className="text-4xl font-bold text-foreground">Live</span>
               </div>
-              <p className="text-xl text-black">
+              <p className="text-xl text-white">
                 Plan for longevity with strategies that address rising late-life costs and healthcare needs.
               </p>
             </div>
@@ -27,14 +27,14 @@ const FrameworkLive = () => {
             {/* Content Sections */}
             <div className="space-y-8">
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-black mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   Longevity & Life Expectancy Planning
                 </h2>
-                <p className="text-black mb-4">
+                <p className="text-white mb-4">
                   With increasing life expectancies, retirement can last 30+ years. We plan for extended retirement periods 
                   and the financial implications of potentially living in two countries during different life stages.
                 </p>
-                <ul className="list-disc list-inside text-black space-y-2">
+                <ul className="list-disc list-inside text-white space-y-2">
                   <li>Extended retirement period income planning</li>
                   <li>Healthcare cost escalation projections</li>
                   <li>Late-life housing and care considerations</li>
@@ -43,14 +43,14 @@ const FrameworkLive = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-black mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   Long-Term Care Strategies
                 </h2>
-                <p className="text-black mb-4">
+                <p className="text-white mb-4">
                   Long-term care needs can arise in either country. We evaluate insurance options, alternative strategies, 
                   and family care coordination to protect your assets and ensure quality care.
                 </p>
-                <ul className="list-disc list-inside text-black space-y-2">
+                <ul className="list-disc list-inside text-white space-y-2">
                   <li>Long-term care insurance evaluation and alternatives</li>
                   <li>Cross-border care coordination strategies</li>
                   <li>Family caregiver support and planning</li>
@@ -59,14 +59,14 @@ const FrameworkLive = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-black mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   Guaranteed Income Strategies
                 </h2>
-                <p className="text-black mb-4">
+                <p className="text-white mb-4">
                   Annuities and other guaranteed income vehicles can provide a reliable income floor, especially important 
                   when living on a fixed income across different currencies and economic environments.
                 </p>
-                <ul className="list-disc list-inside text-black space-y-2">
+                <ul className="list-disc list-inside text-white space-y-2">
                   <li>Immediate and deferred annuity strategies</li>
                   <li>Social Security optimization across borders</li>
                   <li>Pension coordination and timing</li>
@@ -75,14 +75,14 @@ const FrameworkLive = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-black mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   Healthcare System Integration
                 </h2>
-                <p className="text-black mb-4">
+                <p className="text-white mb-4">
                   Understanding and coordinating between U.S. Medicare and Israeli healthcare systems ensures continuous, 
                   cost-effective healthcare coverage throughout your retirement years.
                 </p>
-                <ul className="list-disc list-inside text-black space-y-2">
+                <ul className="list-disc list-inside text-white space-y-2">
                   <li>Medicare Part A, B, C, and D coordination strategies</li>
                   <li>Israeli Kupat Holim system integration</li>
                   <li>Supplemental insurance gap analysis</li>
