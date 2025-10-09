@@ -81,17 +81,12 @@ const Framework = () => {
                   to={`/framework/${element.id}`}
                   className="group"
                 >
-                  <div className={`bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8 border-l-4 ${element.color} h-full flex flex-col`}>
+                  <div className={`bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8 border-l-4 ${element.color} h-full flex flex-col justify-between`}>
                     {/* Title */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-primary mb-3 flex items-center">
+                    <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4 flex items-center">
                       <span className="text-accent mr-2">{element.letter}.</span>
                       {element.title}
                     </h3>
-                    
-                    {/* Tagline */}
-                    <p className="text-black leading-relaxed mb-4 flex-grow">
-                      {element.tagline}
-                    </p>
                     
                     {/* CTA Link */}
                     <div className="flex items-center text-accent font-semibold group-hover:text-accent/80 transition-colors">
