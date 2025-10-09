@@ -122,7 +122,7 @@ const Events = () => {
                     </div>
                   </div>
                   <button
-                    onClick={() => handleOpenModal(event)}
+                    onClick={() => handleRegisterClick(event)}
                     disabled={!event.registrationOpen}
                     className={`w-full py-2 sm:py-3 px-4 sm:px-6 rounded-md font-medium text-sm sm:text-base transition-colors ${
                       !event.registrationOpen
