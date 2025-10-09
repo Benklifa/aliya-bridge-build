@@ -185,7 +185,7 @@ const Framework = () => {
                   
                   {openFAQ === index && (
                     <div className="px-6 pb-6">
-                      <p className="text-card-foreground leading-relaxed">
+                      <p className="text-black leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>

@@ -19,7 +19,7 @@ const FrameworkYrusha = () => {
                 <span className="font-serif text-5xl font-bold text-accent mr-3">Y</span>
                 <span className="text-4xl font-bold text-foreground">Y'rusha (Legacy)</span>
               </div>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-black">
                 Cross-border estate planning with proper wills, beneficiary design, and tax-sensitive legacy strategies.
               </p>
             </div>
@@ -27,14 +27,14 @@ const FrameworkYrusha = () => {
             {/* Content Sections */}
             <div className="space-y-8">
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-card-foreground mb-4">
+                <h2 className="text-2xl font-bold text-black mb-4">
                   Dual-Jurisdiction Will Preparation
                 </h2>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-black mb-4">
                   Having properly coordinated wills in both countries ensures your wishes are carried out efficiently 
                   and minimizes complications for your heirs. We coordinate with estate attorneys in both jurisdictions.
                 </p>
-                <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                <ul className="list-disc list-inside text-black space-y-2">
                   <li>Coordinated will preparation avoiding conflicts</li>
                   <li>Asset-specific jurisdiction planning</li>
                   <li>Executor selection and coordination strategies</li>
@@ -43,14 +43,14 @@ const FrameworkYrusha = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-card-foreground mb-4">
+                <h2 className="text-2xl font-bold text-black mb-4">
                   Beneficiary Designation Optimization
                 </h2>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-black mb-4">
                   Proper beneficiary designations can bypass probate and minimize taxes. We ensure all accounts, 
                   insurance policies, and retirement plans have appropriate and up-to-date beneficiary information.
                 </p>
-                <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                <ul className="list-disc list-inside text-black space-y-2">
                   <li>Primary and contingent beneficiary strategies</li>
                   <li>Per stirpes vs. per capita considerations</li>
                   <li>Minor beneficiary planning and trusts</li>
@@ -59,14 +59,14 @@ const FrameworkYrusha = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-card-foreground mb-4">
+                <h2 className="text-2xl font-bold text-black mb-4">
                   Asset Titling & Ownership Strategies
                 </h2>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-black mb-4">
                   How assets are titled affects taxation, probate, and transfer efficiency. We structure ownership 
                   to minimize complications while optimizing for tax efficiency in both countries.
                 </p>
-                <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                <ul className="list-disc list-inside text-black space-y-2">
                   <li>Joint vs. individual ownership analysis</li>
                   <li>Transfer on death (TOD) and payable on death (POD) accounts</li>
                   <li>Trust ownership considerations</li>
@@ -75,14 +75,14 @@ const FrameworkYrusha = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-card-foreground mb-4">
+                <h2 className="text-2xl font-bold text-black mb-4">
                   Trust Structures for Cross-Border Estates
                 </h2>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-black mb-4">
                   Trusts can provide significant benefits for cross-border estates, including tax optimization, 
                   asset protection, and simplified transfers. However, they require careful coordination between jurisdictions.
                 </p>
-                <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                <ul className="list-disc list-inside text-black space-y-2">
                   <li>Revocable vs. irrevocable trust considerations</li>
                   <li>U.S. trust taxation for Israeli residents</li>
                   <li>Asset protection and creditor considerations</li>
@@ -91,14 +91,14 @@ const FrameworkYrusha = () => {
               </div>
 
               <div className="bg-card rounded-lg card-shadow p-8">
-                <h2 className="text-2xl font-bold text-card-foreground mb-4">
+                <h2 className="text-2xl font-bold text-black mb-4">
                   Generation-Skipping & Advanced Strategies
                 </h2>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-black mb-4">
                   For families with significant wealth, advanced estate planning strategies can minimize transfer taxes 
                   and provide benefits for multiple generations while navigating complex cross-border regulations.
                 </p>
-                <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                <ul className="list-disc list-inside text-black space-y-2">
                   <li>Generation-skipping transfer tax planning</li>
                   <li>Grantor trust strategies</li>
                   <li>Family limited partnerships and LLCs</li>
