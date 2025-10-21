@@ -25,41 +25,41 @@ const ReadinessQuestionnaire = () => {
   const [email, setEmail] = useState("");
 
   const questions: Question[] = [
-    // Lifestyle (Align) - 6 questions
-    { id: 1, category: "Lifestyle", text: "How confident are you in your housing plan for Israel (rental, purchase, or temporary accommodation)?", value: 5 },
-    { id: 2, category: "Lifestyle", text: "How well do you understand the Israeli healthcare system and your coverage options?", value: 5 },
-    { id: 3, category: "Lifestyle", text: "How comfortable are you with Hebrew for daily life (shopping, banking, basic conversations)?", value: 5 },
-    { id: 4, category: "Lifestyle", text: "How connected are you to a community or support network in Israel?", value: 5 },
-    { id: 5, category: "Lifestyle", text: "How prepared are you for the cultural and lifestyle changes of living in Israel?", value: 5 },
-    { id: 6, category: "Lifestyle", text: "How aligned is your family (spouse, children) with the decision to make Aliyah?", value: 5 },
+    // A - Aliya Lifestyle (6 questions)
+    { id: 1, category: "Lifestyle", text: "Housing plan – Do you know where you want to live and the cost range?", value: 5 },
+    { id: 2, category: "Lifestyle", text: "Language readiness – Are you prepared with Hebrew skills for daily life?", value: 5 },
+    { id: 3, category: "Lifestyle", text: "Transportation plan – Do you have a plan for driving, licensing, or public transport?", value: 5 },
+    { id: 4, category: "Lifestyle", text: "Community integration – Have you identified suitable schools, synagogues, and networks?", value: 5 },
+    { id: 5, category: "Lifestyle", text: "Cost-of-living awareness – Do you have an Israel-adjusted budget?", value: 5 },
+    { id: 6, category: "Lifestyle", text: "Emotional support – Do you have a support system in Israel for transition?", value: 5 },
     
-    // Longevity (Live) - 5 questions
-    { id: 7, category: "Longevity", text: "How clear is your 5-10 year vision for life in Israel?", value: 5 },
-    { id: 8, category: "Longevity", text: "How sustainable is your career or income plan for long-term life in Israel?", value: 5 },
-    { id: 9, category: "Longevity", text: "How prepared are you for your children's education in the Israeli system (if applicable)?", value: 5 },
-    { id: 10, category: "Longevity", text: "How committed are you to building lasting relationships and integrating into Israeli society?", value: 5 },
-    { id: 11, category: "Longevity", text: "How well have you planned for retirement while living in Israel?", value: 5 },
+    // L - Longevity (5 questions)
+    { id: 7, category: "Longevity", text: "Kupah knowledge – Do you understand Israel's kupot holim options?", value: 5 },
+    { id: 8, category: "Longevity", text: "Supplemental coverage – Have you explored private health insurance or upgrades?", value: 5 },
+    { id: 9, category: "Longevity", text: "Long-term care planning – Have you considered future care and costs?", value: 5 },
+    { id: 10, category: "Longevity", text: "Health history – Have you mapped chronic needs to Israel's system?", value: 5 },
+    { id: 11, category: "Longevity", text: "End-of-life preferences – Do you have them recorded in both countries?", value: 5 },
     
-    // Income (Invest) - 5 questions
-    { id: 12, category: "Income", text: "How secure is your employment or business income for the first year in Israel?", value: 5 },
-    { id: 13, category: "Income", text: "Do you have 6-12 months of living expenses saved in accessible funds?", value: 5 },
-    { id: 14, category: "Income", text: "How well do you understand managing finances in both USD and ILS?", value: 5 },
-    { id: 15, category: "Income", text: "How prepared are you for U.S.-Israel tax obligations and reporting requirements?", value: 5 },
-    { id: 16, category: "Income", text: "How confident are you in your cross-border investment and savings strategy?", value: 5 },
+    // I - Income (6 questions)
+    { id: 12, category: "Income", text: "Retirement accounts – Do you know how your U.S. savings will fund Israeli expenses?", value: 5 },
+    { id: 13, category: "Income", text: "Pension/Social Security – Have you planned timing and taxation in Israel?", value: 5 },
+    { id: 14, category: "Income", text: "Investment income – Are your investments aligned for income in Israel?", value: 5 },
+    { id: 15, category: "Income", text: "Work/side income – Do you have a plan for employment or consulting?", value: 5 },
+    { id: 16, category: "Income", text: "Currency transfers – Do you have a USD/ILS conversion strategy?", value: 5 },
+    { id: 17, category: "Income", text: "Inflation-adjusted income – Have you stress-tested income against inflation?", value: 5 },
     
-    // Y'rusha (Legacy) - 5 questions
-    { id: 17, category: "Y'rusha", text: "Do you have an updated will that accounts for assets in both countries?", value: 5 },
-    { id: 18, category: "Y'rusha", text: "Have you reviewed and updated beneficiaries on all accounts for cross-border considerations?", value: 5 },
-    { id: 19, category: "Y'rusha", text: "How well do you understand Israeli inheritance laws and how they differ from U.S. laws?", value: 5 },
-    { id: 20, category: "Y'rusha", text: "Is your life insurance coverage adequate and accessible from Israel?", value: 5 },
-    { id: 21, category: "Y'rusha", text: "How clear are you on your legacy and wealth transfer goals for the next generation?", value: 5 },
+    // Y - Y'rusha (4 questions)
+    { id: 18, category: "Y'rusha", text: "Wills – Do you have valid wills recognized in both the U.S. and Israel?", value: 5 },
+    { id: 19, category: "Y'rusha", text: "Power of attorney – Do you have updated POAs in both countries?", value: 5 },
+    { id: 20, category: "Y'rusha", text: "Trusts/Inheritance – Have you addressed cross-border estate complexities?", value: 5 },
+    { id: 21, category: "Y'rusha", text: "Beneficiaries – Have you updated designations for both countries?", value: 5 },
     
-    // Access (Adapt) - 5 questions
-    { id: 22, category: "Access", text: "Can you access your U.S. financial accounts, investments, and credit from Israel?", value: 5 },
-    { id: 23, category: "Access", text: "How prepared are you to open and manage Israeli bank accounts?", value: 5 },
-    { id: 24, category: "Access", text: "Do you have all necessary legal documents (citizenship, apostilles, translations)?", value: 5 },
-    { id: 25, category: "Access", text: "How strong is your professional network in Israel for career or business support?", value: 5 },
-    { id: 26, category: "Access", text: "How confident are you in your ability to adapt to unexpected challenges during the transition?", value: 5 },
+    // A - Access (5 questions)
+    { id: 22, category: "Access", text: "Emergency funds – Do you have 3–6 months' liquidity in both currencies?", value: 5 },
+    { id: 23, category: "Access", text: "Banking access – Do you maintain functioning accounts in both countries?", value: 5 },
+    { id: 24, category: "Access", text: "Credit – Do you have credit lines in Israel?", value: 5 },
+    { id: 25, category: "Access", text: "Big purchases – Can you cover large one-off costs (car, appliances, deposits)?", value: 5 },
+    { id: 26, category: "Access", text: "Flexibility – Could you return or pivot financially if needed?", value: 5 },
   ];
 
   const [responses, setResponses] = useState<Question[]>(questions);
@@ -74,8 +74,8 @@ const ReadinessQuestionnaire = () => {
     const categoryGroups = {
       "Lifestyle": { maxScore: 60, questions: responses.filter(q => q.category === "Lifestyle") },
       "Longevity": { maxScore: 50, questions: responses.filter(q => q.category === "Longevity") },
-      "Income": { maxScore: 50, questions: responses.filter(q => q.category === "Income") },
-      "Y'rusha": { maxScore: 50, questions: responses.filter(q => q.category === "Y'rusha") },
+      "Income": { maxScore: 60, questions: responses.filter(q => q.category === "Income") },
+      "Y'rusha": { maxScore: 40, questions: responses.filter(q => q.category === "Y'rusha") },
       "Access": { maxScore: 50, questions: responses.filter(q => q.category === "Access") },
     };
 
@@ -122,11 +122,11 @@ const ReadinessQuestionnaire = () => {
 
   const getRecommendations = (categoryName: string): string => {
     const recommendations: { [key: string]: string } = {
-      "Lifestyle": "Start Hebrew language courses, research housing options, and connect with communities of recent olim to build your support network.",
-      "Longevity": "Develop a clear 5-year career plan for Israel, research educational options, and create a retirement savings strategy that works across borders.",
-      "Income": "Build an emergency fund of 6-12 months expenses, consult with a cross-border tax advisor, and review your investment portfolio for compliance.",
-      "Y'rusha": "Update your will with an attorney familiar with both U.S. and Israeli law, review beneficiary designations, and ensure adequate life insurance coverage.",
-      "Access": "Verify you can access U.S. financial accounts from Israel, research Israeli banks, and gather all necessary legal documents.",
+      "Lifestyle": "Start Hebrew language courses, research housing options in your preferred area, and connect with communities of recent olim to build your support network.",
+      "Longevity": "Research Israel's kupot holim system, explore supplemental health insurance options, and ensure your chronic health needs are mapped to Israeli healthcare providers.",
+      "Income": "Develop a clear retirement account withdrawal strategy, understand U.S.-Israel tax treaty implications, and establish a USD/ILS currency conversion plan.",
+      "Y'rusha": "Update your will with an attorney familiar with both U.S. and Israeli law, establish power of attorney in both countries, and review all beneficiary designations.",
+      "Access": "Build emergency funds in both USD and ILS, establish Israeli banking relationships, and ensure you have credit access for major purchases.",
     };
     return recommendations[categoryName] || "";
   };
@@ -256,10 +256,10 @@ const ReadinessQuestionnaire = () => {
           <h3 className="text-2xl font-bold text-primary mb-4">Ready to discuss your results?</h3>
           <p className="text-black mb-6">Our cross-border financial advisors can help you create a personalized action plan and address your specific gaps.</p>
           <Button 
-            onClick={() => window.open('https://calendly.com/aliyafinancial', '_blank')}
+            onClick={() => window.location.href = '/contact'}
             className="bg-primary text-white hover:bg-navy-700 px-8 py-6 text-lg"
           >
-            📅 Book a Counselor Call
+            📅 Book an Appointment
           </Button>
         </Card>
 
