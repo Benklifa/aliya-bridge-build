@@ -283,9 +283,11 @@ const ReadinessQuestionnaire = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <Card className="p-6 sm:p-8">
-        <p className="text-sm text-gray-600 mb-6">
-          Rate each question from 0 (not at all prepared) to 10 (completely ready). Your responses will generate a personalized readiness report.
-        </p>
+        <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
+          <p className="text-lg font-bold text-gray-900 leading-relaxed">
+            Rate each statement from 0 (Strongly Disagree) to 10 (Strongly Agree). Your responses will generate a personalized readiness report.
+          </p>
+        </div>
 
         <div className="space-y-8">
           {Object.entries(questionsByCategory).map(([categoryName, questions]) => (
@@ -295,24 +297,27 @@ const ReadinessQuestionnaire = () => {
               </h3>
               <div className="space-y-4">
                 {questions.map((question) => (
-                  <div key={question.id} className="space-y-2">
-                    <label className="text-sm font-medium text-black flex justify-between items-start">
+                  <div key={question.id} className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors">
+                    <label className="text-base font-semibold text-gray-900 flex justify-between items-start mb-3">
                       <span className="flex-1">{question.id}. {question.text}</span>
-                      <span className="ml-4 text-primary font-bold text-lg min-w-[2rem] text-right">
+                      <span className="ml-4 text-blue-600 font-bold text-xl min-w-[2.5rem] text-right">
                         {question.value}
                       </span>
                     </label>
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs text-gray-500">0</span>
+                    <div className="space-y-2">
                       <Slider
                         value={[question.value]}
                         onValueChange={(value) => handleSliderChange(question.id, value)}
                         min={0}
                         max={10}
                         step={1}
-                        className="flex-1"
+                        className="w-full"
                       />
-                      <span className="text-xs text-gray-500">10</span>
+                      <div className="flex justify-between text-xs text-gray-500 px-1">
+                        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
+                          <span key={num} className="w-4 text-center">{num}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}
