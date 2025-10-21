@@ -11,6 +11,7 @@ const Navigation = () => {
     { name: "A.L.I.Y.A Framework", path: "/framework" },
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
+    { name: "Readiness Score", path: "/readiness" },
     { name: "Events", path: "/events" },
     { name: "In the News", path: "/news" },
     { name: "FAQ", path: "/faq" },
