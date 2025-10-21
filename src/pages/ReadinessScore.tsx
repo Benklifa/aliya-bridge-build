@@ -3,7 +3,7 @@ import ReadinessQuestionnaire from "../components/ReadinessQuestionnaire";
 
 const ReadinessScore = () => {
   return (
-    <Layout>
+    <Layout hideBuddy={true}>
       {/* Header Section */}
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">

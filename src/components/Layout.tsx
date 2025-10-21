@@ -163,9 +163,10 @@ const Footer = () => {
 interface LayoutProps {
   children: React.ReactNode;
   hideNav?: boolean;
+  hideBuddy?: boolean;
 }
 
-const Layout = ({ children, hideNav = false }: LayoutProps) => {
+const Layout = ({ children, hideNav = false, hideBuddy = false }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       {!hideNav && <Navigation />}
@@ -173,7 +174,7 @@ const Layout = ({ children, hideNav = false }: LayoutProps) => {
         {children}
       </main>
       <Footer />
-      <AliyaBuddy />
+      {!hideBuddy && <AliyaBuddy />}
     </div>
   );
 };
