@@ -274,7 +274,10 @@ const ReadinessQuestionnaire = () => {
   // Group questions by category
   const questionsByCategory = {
     "A – Align (Lifestyle & Budget)": responses.filter(q => q.category === "Align"),
-    "L – Live (Longevity & Lifetime Income)": responses.filter(q => q.category === "Live"),      "I – Invest (Income, 10-Year Window & Currency)":responses.filter(q => q.category === "Invest"),      "Y – Y'rusha (Protection & Estate Planning)":responses.filter(q => q.category === "Y'rusha")      "A – Adapt (Liquidity & Flexibility — Pre-Move Readiness)": responses.filter(q => q.category === "Adapt"),
+    "L – Live (Longevity & Lifetime Income)": responses.filter(q => q.category === "Live"),
+    "I – Invest (Income, 10-Year Window & Currency)": responses.filter(q => q.category === "Invest"),
+    "Y – Y'rusha (Protection & Estate Planning)": responses.filter(q => q.category === "Y'rusha"),
+    "A – Adapt (Liquidity & Flexibility — Pre-Move Readiness)": responses.filter(q => q.category === "Adapt"),
   };
 
   return (
