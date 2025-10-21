@@ -23,41 +23,41 @@ const ReadinessQuestionnaire = () => {
   const [showResults, setShowResults] = useState(false);
 
   const initialQuestions: Question[] = [
-    // A - Aliya Lifestyle (6 questions)
-    { id: 1, category: "Lifestyle", text: "Housing plan – Do you know where you want to live and the cost range?", value: 5 },
-    { id: 2, category: "Lifestyle", text: "Language readiness – Are you prepared with Hebrew skills for daily life?", value: 5 },
-    { id: 3, category: "Lifestyle", text: "Transportation plan – Do you have a plan for driving, licensing, or public transport?", value: 5 },
-    { id: 4, category: "Lifestyle", text: "Community integration – Have you identified suitable schools, synagogues, and networks?", value: 5 },
-    { id: 5, category: "Lifestyle", text: "Cost-of-living awareness – Do you have an Israel-adjusted budget?", value: 5 },
-    { id: 6, category: "Lifestyle", text: "Emotional support – Do you have a support system in Israel for transition?", value: 5 },
+    // A - Align (Lifestyle & Budget) - 6 questions
+    { id: 1, category: "Align", text: "Do you know what your everyday life in Israel will cost?", value: 5 },
+    { id: 2, category: "Align", text: "Have you made a draft budget that fits your income and lifestyle?", value: 5 },
+    { id: 3, category: "Align", text: "Do you know which areas match both your needs and your budget?", value: 5 },
+    { id: 4, category: "Align", text: "Have you decided whether to rent or buy first?", value: 5 },
+    { id: 5, category: "Align", text: "Do you understand extra housing costs like Arnona and va'ad bayit?", value: 5 },
+    { id: 6, category: "Align", text: "Have you planned what to do with your U.S. home – sell, rent, or keep?", value: 5 },
     
-    // L - Longevity (5 questions)
-    { id: 7, category: "Longevity", text: "Kupah knowledge – Do you understand Israel's kupot holim options?", value: 5 },
-    { id: 8, category: "Longevity", text: "Supplemental coverage – Have you explored private health insurance or upgrades?", value: 5 },
-    { id: 9, category: "Longevity", text: "Long-term care planning – Have you considered future care and costs?", value: 5 },
-    { id: 10, category: "Longevity", text: "Health history – Have you mapped chronic needs to Israel's system?", value: 5 },
-    { id: 11, category: "Longevity", text: "End-of-life preferences – Do you have them recorded in both countries?", value: 5 },
+    // L - Live (Longevity & Lifetime Income) - 5 questions
+    { id: 7, category: "Live", text: "Have you estimated how long your savings need to last?", value: 5 },
+    { id: 8, category: "Live", text: "Do you know your essential monthly expenses through retirement?", value: 5 },
+    { id: 9, category: "Live", text: "Do you have steady income that won't run out (pension, Social Security, etc.)?", value: 5 },
+    { id: 10, category: "Live", text: "Have you looked at ways to create lifetime income (annuities or similar)?", value: 5 },
+    { id: 11, category: "Live", text: "Have you tested your plan for living longer or for market downturns?", value: 5 },
     
-    // I - Income (6 questions)
-    { id: 12, category: "Income", text: "Retirement accounts – Do you know how your U.S. savings will fund Israeli expenses?", value: 5 },
-    { id: 13, category: "Income", text: "Pension/Social Security – Have you planned timing and taxation in Israel?", value: 5 },
-    { id: 14, category: "Income", text: "Investment income – Are your investments aligned for income in Israel?", value: 5 },
-    { id: 15, category: "Income", text: "Work/side income – Do you have a plan for employment or consulting?", value: 5 },
-    { id: 16, category: "Income", text: "Currency transfers – Do you have a USD/ILS conversion strategy?", value: 5 },
-    { id: 17, category: "Income", text: "Inflation-adjusted income – Have you stress-tested income against inflation?", value: 5 },
+    // I - Invest (Income & 10-Year Window) - 6 questions
+    { id: 12, category: "Invest", text: "Do you know which income sources are stable versus market-based?", value: 5 },
+    { id: 13, category: "Invest", text: "Have you planned how to use Israel's 10-year tax break wisely?", value: 5 },
+    { id: 14, category: "Invest", text: "Do you know which investments to keep in the U.S. and which to move?", value: 5 },
+    { id: 15, category: "Invest", text: "Do you have a plan for converting dollars to shekels over time?", value: 5 },
+    { id: 16, category: "Invest", text: "Have you checked how inflation and currency swings affect your plan?", value: 5 },
+    { id: 17, category: "Invest", text: "Do you have a way to access cash without large tax bills?", value: 5 },
     
-    // Y - Y'rusha (4 questions)
-    { id: 18, category: "Y'rusha", text: "Wills – Do you have valid wills recognized in both the U.S. and Israel?", value: 5 },
-    { id: 19, category: "Y'rusha", text: "Power of attorney – Do you have updated POAs in both countries?", value: 5 },
-    { id: 20, category: "Y'rusha", text: "Trusts/Inheritance – Have you addressed cross-border estate complexities?", value: 5 },
-    { id: 21, category: "Y'rusha", text: "Beneficiaries – Have you updated designations for both countries?", value: 5 },
+    // Y - Y'rusha (Protection & Estate) - 4 questions
+    { id: 18, category: "Y'rusha", text: "Do you have wills that work in both the U.S. and Israel?", value: 5 },
+    { id: 19, category: "Y'rusha", text: "Have you set up power-of-attorney and health directives for both countries?", value: 5 },
+    { id: 20, category: "Y'rusha", text: "Do you know if your life-insurance coverage will still apply after Aliyah?", value: 5 },
+    { id: 21, category: "Y'rusha", text: "Have you reviewed all your beneficiary designations?", value: 5 },
     
-    // A - Access (5 questions)
-    { id: 22, category: "Access", text: "Emergency funds – Do you have 3–6 months' liquidity in both currencies?", value: 5 },
-    { id: 23, category: "Access", text: "Banking access – Do you maintain functioning accounts in both countries?", value: 5 },
-    { id: 24, category: "Access", text: "Credit – Do you have credit lines in Israel?", value: 5 },
-    { id: 25, category: "Access", text: "Big purchases – Can you cover large one-off costs (car, appliances, deposits)?", value: 5 },
-    { id: 26, category: "Access", text: "Flexibility – Could you return or pivot financially if needed?", value: 5 },
+    // A - Adapt (Liquidity & Flexibility) - 5 questions
+    { id: 22, category: "Adapt", text: "Do you have 3–6 months of expenses ready in USD and ILS?", value: 5 },
+    { id: 23, category: "Adapt", text: "Have you budgeted for one-time setup costs like flights or deposits?", value: 5 },
+    { id: 24, category: "Adapt", text: "Do you have credit or borrowing options if you need quick liquidity?", value: 5 },
+    { id: 25, category: "Adapt", text: "Are your U.S. and Israeli bank accounts working for easy transfers?", value: 5 },
+    { id: 26, category: "Adapt", text: "Do you have a fallback plan if you need to pause or delay Aliyah?", value: 5 },
   ];
 
   const [responses, setResponses] = useState<Question[]>(initialQuestions);
@@ -70,11 +70,11 @@ const ReadinessQuestionnaire = () => {
 
   const calculateScores = (): { categories: CategoryScore[], overall: number, overallStatus: string } => {
     const categoryGroups = {
-      "Lifestyle": { maxScore: 60, questions: responses.filter(q => q.category === "Lifestyle") },
-      "Longevity": { maxScore: 50, questions: responses.filter(q => q.category === "Longevity") },
-      "Income": { maxScore: 60, questions: responses.filter(q => q.category === "Income") },
+      "Align": { maxScore: 60, questions: responses.filter(q => q.category === "Align") },
+      "Live": { maxScore: 50, questions: responses.filter(q => q.category === "Live") },
+      "Invest": { maxScore: 60, questions: responses.filter(q => q.category === "Invest") },
       "Y'rusha": { maxScore: 40, questions: responses.filter(q => q.category === "Y'rusha") },
-      "Access": { maxScore: 50, questions: responses.filter(q => q.category === "Access") },
+      "Adapt": { maxScore: 50, questions: responses.filter(q => q.category === "Adapt") },
     };
 
     const categories: CategoryScore[] = Object.entries(categoryGroups).map(([name, data]) => {
@@ -119,11 +119,11 @@ const ReadinessQuestionnaire = () => {
 
   const getRecommendations = (categoryName: string): string => {
     const recommendations: { [key: string]: string } = {
-      "Lifestyle": "Start Hebrew language courses, research housing options in your preferred area, and connect with communities of recent olim to build your support network.",
-      "Longevity": "Research Israel's kupot holim system, explore supplemental health insurance options, and ensure your chronic health needs are mapped to Israeli healthcare providers.",
-      "Income": "Develop a clear retirement account withdrawal strategy, understand U.S.-Israel tax treaty implications, and establish a USD/ILS currency conversion plan.",
-      "Y'rusha": "Update your will with an attorney familiar with both U.S. and Israeli law, establish power of attorney in both countries, and review all beneficiary designations.",
-      "Access": "Build emergency funds in both USD and ILS, establish Israeli banking relationships, and ensure you have credit access for major purchases.",
+      "Align": "Create a detailed Israel budget, research neighborhoods that fit your lifestyle and budget, and decide on your U.S. home strategy (sell, rent, or keep).",
+      "Live": "Calculate your essential monthly expenses through retirement, explore lifetime income options like annuities, and stress-test your plan for longevity and market downturns.",
+      "Invest": "Develop a strategy to maximize Israel's 10-year tax break, decide which investments to keep in the U.S. versus move, and create a multi-year currency conversion plan.",
+      "Y'rusha": "Update your will with an attorney familiar with both U.S. and Israeli law, establish power of attorney and health directives in both countries, and review all beneficiary designations.",
+      "Adapt": "Build emergency funds in both USD and ILS, budget for one-time setup costs, and ensure you have credit access and banking infrastructure in both countries.",
     };
     return recommendations[categoryName] || "";
   };
@@ -142,7 +142,7 @@ const ReadinessQuestionnaire = () => {
       return {
         title: "⚠️ NEXT STEPS - Address these gaps before your move",
         steps: [
-          "Focus on your top 3 priority areas identified above",
+          "Focus on your priority areas identified above",
           "Schedule a comprehensive planning session with our advisors",
           "Create a 90-day action plan to improve readiness in key categories"
         ]
@@ -251,82 +251,85 @@ const ReadinessQuestionnaire = () => {
           </Button>
         </Card>
 
-        {/* Restart Button */}
+        {/* Take Again Button */}
         <div className="text-center">
-          <Button onClick={handleRestart} variant="outline" className="text-primary border-primary hover:bg-primary hover:text-white">
+          <Button 
+            onClick={handleRestart}
+            variant="outline"
+            className="px-8 py-3"
+          >
             Take Assessment Again
           </Button>
         </div>
 
         {/* Disclaimer */}
-        <div className="text-xs text-gray-500 text-center border-t pt-4">
-          This assessment is for educational purposes only and does not constitute financial, legal, or tax advice. 
-          Results are based on self-reported information and should be discussed with qualified professionals.
-        </div>
+        <p className="text-xs text-gray-600 text-center">
+          This assessment provides general educational information only and does not constitute financial, tax, legal, or investment advice. 
+          For personalized guidance, please consult with our licensed advisors.
+        </p>
       </div>
     );
   }
 
-  // Group questions by category for display
-  const categoryGroups = [
-    { name: "A – Aliya Lifestyle", questions: responses.filter(q => q.category === "Lifestyle") },
-    { name: "L – Longevity", questions: responses.filter(q => q.category === "Longevity") },
-    { name: "I – Income", questions: responses.filter(q => q.category === "Income") },
-    { name: "Y – Y'rusha", questions: responses.filter(q => q.category === "Y'rusha") },
-    { name: "A – Access", questions: responses.filter(q => q.category === "Access") },
-  ];
+  // Group questions by category
+  const questionsByCategory = {
+    "A – Align (Lifestyle & Budget)": responses.filter(q => q.category === "Align"),
+    "L – Live (Longevity & Lifetime Income)": responses.filter(q => q.category === "Live"),
+    "I – Invest (Income & 10-Year Window)": responses.filter(q => q.category === "Invest"),
+    "Y – Y'rusha (Protection & Estate)": responses.filter(q => q.category === "Y'rusha"),
+    "A – Adapt (Liquidity & Flexibility)": responses.filter(q => q.category === "Adapt"),
+  };
 
   return (
-    <div className="max-w-5xl mx-auto">
-      <Card className="p-6 mb-6">
-        <p className="text-sm text-gray-600 mb-4">
-          Rate each question from 0 (not at all prepared) to 10 (completely ready). 
-          Your responses will generate a personalized readiness report.
+    <div className="max-w-4xl mx-auto">
+      <Card className="p-6 sm:p-8">
+        <p className="text-sm text-gray-600 mb-6">
+          Rate each question from 0 (not at all prepared) to 10 (completely ready). Your responses will generate a personalized readiness report.
         </p>
-        
-        {categoryGroups.map((group, groupIdx) => (
-          <div key={groupIdx} className="mb-8">
-            <h3 className="text-lg font-bold text-primary mb-4 pb-2 border-b-2 border-primary">
-              {group.name}
-            </h3>
-            <div className="space-y-4">
-              {group.questions.map((question) => (
-                <div key={question.id} className="py-3 border-b border-gray-100 last:border-0">
-                  <div className="flex items-start justify-between gap-4 mb-2">
-                    <label className="text-sm font-medium text-black flex-1">
-                      {question.id}. {question.text}
-                    </label>
-                    <span className="text-lg font-bold text-primary min-w-[40px] text-center">
-                      {question.value}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs text-gray-500 whitespace-nowrap">0</span>
-                    <Slider
-                      value={[question.value]}
-                      onValueChange={(value) => handleSliderChange(question.id, value)}
-                      max={10}
-                      step={1}
-                      className="flex-1"
-                    />
-                    <span className="text-xs text-gray-500 whitespace-nowrap">10</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </Card>
 
-      {/* Submit Button */}
-      <div className="text-center mb-8">
-        <Button
-          onClick={handleSubmit}
-          className="bg-primary text-white hover:bg-navy-700 px-12 py-6 text-lg font-semibold"
-        >
-          Calculate My Readiness Score
-        </Button>
-      </div>
+        <div className="space-y-8">
+          {Object.entries(questionsByCategory).map(([categoryName, questions]) => (
+            <div key={categoryName}>
+              <h3 className="text-xl font-bold text-primary mb-4 pb-2 border-b-2 border-gray-200">
+                {categoryName}
+              </h3>
+              <div className="space-y-4">
+                {questions.map((question) => (
+                  <div key={question.id} className="space-y-2">
+                    <label className="text-sm font-medium text-black flex justify-between items-start">
+                      <span className="flex-1">{question.id}. {question.text}</span>
+                      <span className="ml-4 text-primary font-bold text-lg min-w-[2rem] text-right">
+                        {question.value}
+                      </span>
+                    </label>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xs text-gray-500">0</span>
+                      <Slider
+                        value={[question.value]}
+                        onValueChange={(value) => handleSliderChange(question.id, value)}
+                        min={0}
+                        max={10}
+                        step={1}
+                        className="flex-1"
+                      />
+                      <span className="text-xs text-gray-500">10</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <Button 
+            onClick={handleSubmit}
+            className="bg-primary text-white hover:bg-navy-700 px-12 py-6 text-lg"
+          >
+            Calculate My Readiness Score
+          </Button>
+        </div>
+      </Card>
     </div>
   );
 };
