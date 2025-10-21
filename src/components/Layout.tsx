@@ -9,9 +9,9 @@ const Navigation = () => {
 
   const navItems = [
     { name: "A.L.I.Y.A Framework", path: "/framework" },
+    { name: "Readiness Score", path: "/readiness" },
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "Readiness Score", path: "/readiness" },
     { name: "Events", path: "/events" },
     { name: "In the News", path: "/news" },
     { name: "FAQ", path: "/faq" },

@@ -80,6 +80,7 @@ const Framework = () => {
                   key={element.id}
                   to={`/framework/${element.id}`}
                   className="group"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 >
                   <div className={`bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8 border-l-4 ${element.color} h-full flex flex-col justify-between`}>
                     {/* Title */}
