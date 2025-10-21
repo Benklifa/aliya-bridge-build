@@ -151,7 +151,7 @@ const Services = () => {
                                 {service.details.map((detail, detailIndex) => (
                                   <li key={detailIndex} className="flex items-start space-x-2">
                                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                                    <span className="text-foreground text-sm">{detail}</span>
+                                    <span className="text-gray-900 text-sm">{detail}</span>
                                   </li>
                                 ))}
                               </ul>
