@@ -23,41 +23,41 @@ const ReadinessQuestionnaire = () => {
   const [showResults, setShowResults] = useState(false);
 
   const initialQuestions: Question[] = [
-    // A - Align (Lifestyle & Budget) - 6 questions
-    { id: 1, category: "Align", text: "Do you have a realistic picture of what everyday life in Israel will cost?", value: 5 },
-    { id: 2, category: "Align", text: "Have you built a budget that reflects both your lifestyle and expected income?", value: 5 },
-    { id: 3, category: "Align", text: "To what extent have you explored neighborhoods that fit your needs and budget?", value: 5 },
-    { id: 4, category: "Align", text: "Have you developed a strategically based rent-versus-buy plan in Israel?", value: 5 },
-    { id: 5, category: "Align", text: "Have you included Israeli expenses like Arnona, va'ad bayit, and higher setup costs in your estimates?", value: 5 },
-    { id: 6, category: "Align", text: "Is your plan for your U.S. home — selling, renting, or keeping — clearly mapped out and financially modeled?", value: 5 },
+    // 🅰️ Align (Lifestyle & Budget) - 6 questions
+    { id: 1, category: "Align", text: "I have a clear picture of everyday living costs in Israel.", value: 5 },
+    { id: 2, category: "Align", text: "I have developed a budget that reflects both my lifestyle and expected income.", value: 5 },
+    { id: 3, category: "Align", text: "I have explored neighborhoods and housing options that fit my needs and budget.", value: 5 },
+    { id: 4, category: "Align", text: "I have a clear rent-versus-buy plan for housing in Israel.", value: 5 },
+    { id: 5, category: "Align", text: "I have accounted for Israeli expenses like Arnona, va'ad bayit, and setup costs.", value: 5 },
+    { id: 6, category: "Align", text: "I have a well-defined plan for my U.S. home (sell, rent, or keep).", value: 5 },
     
-    // L - Live (Longevity & Lifetime Income) - 5 questions
-    { id: 7, category: "Live", text: "Have you estimated how long your savings need to last if you live into your 90s?", value: 5 },
-    { id: 8, category: "Live", text: "Do you understand what your essential expenses will look like in retirement in Israel?", value: 5 },
-    { id: 9, category: "Live", text: "Are your steady income sources (Social Security, pension, annuity) enough to meet those core needs?", value: 5 },
-    { id: 10, category: "Live", text: "Have you looked into ways to turn savings or investments into reliable income for life?", value: 5 },
-    { id: 11, category: "Live", text: "Is your plan resilient if you live longer than expected or markets perform poorly for a few years?", value: 5 },
+    // 🅻 Live (Longevity & Lifetime Income) - 5 questions
+    { id: 7, category: "Live", text: "I know what my monthly retirement budget should be for my savings last into my 90s.", value: 5 },
+    { id: 8, category: "Live", text: "I understand my essential retirement expenses in Israel including healthcare and elder care.", value: 5 },
+    { id: 9, category: "Live", text: "My steady income sources (Social Security, pension, annuity) cover my core needs.", value: 5 },
+    { id: 10, category: "Live", text: "I have strategies to turn savings or investments into reliable retirement income that will keep up with inflation.", value: 5 },
+    { id: 11, category: "Live", text: "My plan is resilient to longevity, market downturns, inflation and currency swings.", value: 5 },
     
-    // I - Invest (Income, 10-Year Window & Currency) - 6 questions
-    { id: 12, category: "Invest", text: "Have you identified which parts of your income are stable and which depend on the market?", value: 5 },
-    { id: 13, category: "Invest", text: "Are you prepared to use Israel's 10-year tax exemption period strategically?", value: 5 },
-    { id: 14, category: "Invest", text: "Do you know which investments you'll keep in the U.S. and which might shift to Israel later?", value: 5 },
-    { id: 15, category: "Invest", text: "Have you outlined a step-by-step plan for converting dollars to shekels gradually?", value: 5 },
-    { id: 16, category: "Invest", text: "Have you tested your projections against different inflation and exchange-rate scenarios?", value: 5 },
-    { id: 17, category: "Invest", text: "Do you have ways to access cash during the move or first year without triggering major taxes?", value: 5 },
+    // 🅸 Invest (Income, Inflation & Currency) - 6 questions
+    { id: 12, category: "Invest", text: "I know which parts of my income are stable and which depend on the market.", value: 5 },
+    { id: 13, category: "Invest", text: "I am prepared to use Israel's 10-year tax exemption strategically.", value: 5 },
+    { id: 14, category: "Invest", text: "I know which investments I will keep in the U.S. and which I may shift to Israel.", value: 5 },
+    { id: 15, category: "Invest", text: "I have a step-by-step plan for converting dollars to shekels.", value: 5 },
+    { id: 16, category: "Invest", text: "I have tested my plan against inflation and exchange-rate scenarios.", value: 5 },
+    { id: 17, category: "Invest", text: "I can access cash during the move or first year without major tax consequences.", value: 5 },
     
-    // Y - Y'rusha (Protection & Estate Planning) - 4 questions
-    { id: 18, category: "Y'rusha", text: "Have you discussed how your current U.S. will and estate plan might need to change after Aliyah?", value: 5 },
-    { id: 19, category: "Y'rusha", text: "Do you already have updated power-of-attorney and healthcare directive documents for your U.S. affairs?", value: 5 },
-    { id: 20, category: "Y'rusha", text: "Have you confirmed that your life-insurance coverage and amounts will still meet your needs after relocating?", value: 5 },
-    { id: 21, category: "Y'rusha", text: "Have you reviewed your beneficiary designations to be sure they'll work correctly across borders?", value: 5 },
+    // 🆈 Y'rusha (Protection & Estate Planning) - 4 questions
+    { id: 18, category: "Y'rusha", text: "I have reviewed how my U.S. will and estate plan may need to be updated to include Israeli laws and taxes.", value: 5 },
+    { id: 19, category: "Y'rusha", text: "I have updated power-of-attorney and healthcare directive documents.", value: 5 },
+    { id: 20, category: "Y'rusha", text: "My life insurance coverage will still meet my needs after Aliya.", value: 5 },
+    { id: 21, category: "Y'rusha", text: "My beneficiary designations are reviewed and valid across borders.", value: 5 },
     
-    // A - Adapt (Liquidity & Flexibility — Pre-Move Readiness) - 5 questions
-    { id: 22, category: "Adapt", text: "Do you have cash reserves you can easily access for your move and first months in Israel?", value: 5 },
-    { id: 23, category: "Adapt", text: "Have you budgeted for one-time setup costs such as flights, deposits, shipping, and appliances?", value: 5 },
-    { id: 24, category: "Adapt", text: "Are backup funding sources (credit lines, HELOC, portfolio loans) available in case of unexpected expenses?", value: 5 },
-    { id: 25, category: "Adapt", text: "Have you researched how you'll transfer funds and make payments between U.S. and Israeli banks once you arrive?", value: 5 },
-    { id: 26, category: "Adapt", text: "If circumstances change, could you pause, delay, or modify your move without major financial hardship?", value: 5 },
+    // 🅰️ Adapt (Liquidity & Flexibility — Pre-Move Readiness) - 5 questions
+    { id: 22, category: "Adapt", text: "I have cash reserves for my move and first 6 months in Israel.", value: 5 },
+    { id: 23, category: "Adapt", text: "I have budgeted for one-time setup costs (flights, deposits, shipping, appliances).", value: 5 },
+    { id: 24, category: "Adapt", text: "I have backup funding sources for unexpected expenses.", value: 5 },
+    { id: 25, category: "Adapt", text: "I know how I will transfer funds and make payments between U.S. and Israeli banks.", value: 5 },
+    { id: 26, category: "Adapt", text: "I could pause, delay, or adjust my move without major financial hardship.", value: 5 },
   ];
 
   const [responses, setResponses] = useState<Question[]>(initialQuestions);
@@ -273,11 +273,11 @@ const ReadinessQuestionnaire = () => {
 
   // Group questions by category
   const questionsByCategory = {
-    "A – Align (Lifestyle & Budget)": responses.filter(q => q.category === "Align"),
-    "L – Live (Longevity & Lifetime Income)": responses.filter(q => q.category === "Live"),
-    "I – Invest (Income, 10-Year Window & Currency)": responses.filter(q => q.category === "Invest"),
-    "Y – Y'rusha (Protection & Estate Planning)": responses.filter(q => q.category === "Y'rusha"),
-    "A – Adapt (Liquidity & Flexibility — Pre-Move Readiness)": responses.filter(q => q.category === "Adapt"),
+    "🅰️ Align (Lifestyle & Budget)": responses.filter(q => q.category === "Align"),
+    "🅻 Live (Longevity & Lifetime Income)": responses.filter(q => q.category === "Live"),
+    "🅸 Invest (Income, Inflation & Currency)": responses.filter(q => q.category === "Invest"),
+    "🆈 Y'rusha (Protection & Estate Planning)": responses.filter(q => q.category === "Y'rusha"),
+    "🅰️ Adapt (Liquidity & Flexibility — Pre-Move Readiness)": responses.filter(q => q.category === "Adapt"),
   };
 
   return (
