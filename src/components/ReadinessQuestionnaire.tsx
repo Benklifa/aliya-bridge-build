@@ -298,11 +298,8 @@ const ReadinessQuestionnaire = () => {
               <div className="space-y-4">
                 {questions.map((question) => (
                   <div key={question.id} className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors">
-                    <label className="text-base font-semibold text-gray-900 flex justify-between items-start mb-3">
-                      <span className="flex-1">{question.id}. {question.text}</span>
-                      <span className="ml-4 text-blue-600 font-bold text-xl min-w-[2.5rem] text-right">
-                        {question.value}
-                      </span>
+                    <label className="text-base font-semibold text-gray-900 mb-3 block">
+                      {question.id}. {question.text}
                     </label>
                     <div className="space-y-2">
                       <Slider
