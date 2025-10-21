@@ -1,4 +1,5 @@
 import Layout from "../components/Layout";
+import ReadinessQuestionnaire from "../components/ReadinessQuestionnaire";
 
 const ReadinessScore = () => {
   return (
@@ -18,17 +19,10 @@ const ReadinessScore = () => {
         </div>
       </div>
 
-      {/* Content Section - Empty for future embedding */}
+      {/* Questionnaire Section */}
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg card-shadow p-8 min-h-[400px]">
-              {/* This area is reserved for future Manus workflow embedding */}
-              <div className="text-center text-gray-500">
-                <p className="text-lg">Assessment tool will be embedded here.</p>
-              </div>
-            </div>
-          </div>
+          <ReadinessQuestionnaire />
         </div>
       </div>
     </Layout>
