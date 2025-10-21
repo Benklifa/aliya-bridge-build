@@ -20,11 +20,9 @@ interface CategoryScore {
 }
 
 const ReadinessQuestionnaire = () => {
-  const [currentStep, setCurrentStep] = useState(0);
   const [showResults, setShowResults] = useState(false);
-  const [email, setEmail] = useState("");
 
-  const questions: Question[] = [
+  const initialQuestions: Question[] = [
     // A - Aliya Lifestyle (6 questions)
     { id: 1, category: "Lifestyle", text: "Housing plan – Do you know where you want to live and the cost range?", value: 5 },
     { id: 2, category: "Lifestyle", text: "Language readiness – Are you prepared with Hebrew skills for daily life?", value: 5 },
@@ -62,7 +60,7 @@ const ReadinessQuestionnaire = () => {
     { id: 26, category: "Access", text: "Flexibility – Could you return or pivot financially if needed?", value: 5 },
   ];
 
-  const [responses, setResponses] = useState<Question[]>(questions);
+  const [responses, setResponses] = useState<Question[]>(initialQuestions);
 
   const handleSliderChange = (questionId: number, value: number[]) => {
     setResponses(prev =>
@@ -162,24 +160,15 @@ const ReadinessQuestionnaire = () => {
     }
   };
 
-  const handleNext = () => {
-    if (currentStep < questions.length - 1) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      setShowResults(true);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-    }
+  const handleSubmit = () => {
+    setShowResults(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleRestart = () => {
-    setCurrentStep(0);
     setShowResults(false);
-    setResponses(questions);
+    setResponses(initialQuestions);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (showResults) {
@@ -279,69 +268,64 @@ const ReadinessQuestionnaire = () => {
     );
   }
 
-  const currentQuestion = questions[currentStep];
-  const progress = Math.round(((currentStep + 1) / questions.length) * 100);
+  // Group questions by category for display
+  const categoryGroups = [
+    { name: "A – Aliya Lifestyle", questions: responses.filter(q => q.category === "Lifestyle") },
+    { name: "L – Longevity", questions: responses.filter(q => q.category === "Longevity") },
+    { name: "I – Income", questions: responses.filter(q => q.category === "Income") },
+    { name: "Y – Y'rusha", questions: responses.filter(q => q.category === "Y'rusha") },
+    { name: "A – Access", questions: responses.filter(q => q.category === "Access") },
+  ];
 
   return (
-    <div className="max-w-3xl mx-auto">
-      {/* Progress Bar */}
-      <div className="mb-8">
-        <div className="flex justify-between text-sm text-gray-600 mb-2">
-          <span>Question {currentStep + 1} of {questions.length}</span>
-          <span>{progress}% Complete</span>
-        </div>
-        <div className="w-full bg-gray-200 rounded-full h-3">
-          <div 
-            className="bg-gold-500 h-3 rounded-full transition-all duration-300"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-      </div>
-
-      {/* Question Card */}
-      <Card className="p-8 mb-6">
-        <div className="mb-4">
-          <span className="inline-block px-3 py-1 bg-primary text-white rounded-full text-sm font-medium mb-4">
-            {currentQuestion.category}
-          </span>
-        </div>
-        <h3 className="text-xl font-semibold text-black mb-8">
-          {currentQuestion.text}
-        </h3>
+    <div className="max-w-5xl mx-auto">
+      <Card className="p-6 mb-6">
+        <p className="text-sm text-gray-600 mb-4">
+          Rate each question from 0 (not at all prepared) to 10 (completely ready). 
+          Your responses will generate a personalized readiness report.
+        </p>
         
-        <div className="space-y-4">
-          <div className="flex justify-between text-sm text-gray-600 mb-2">
-            <span>Not at all (0)</span>
-            <span>Completely ready (10)</span>
+        {categoryGroups.map((group, groupIdx) => (
+          <div key={groupIdx} className="mb-8">
+            <h3 className="text-lg font-bold text-primary mb-4 pb-2 border-b-2 border-primary">
+              {group.name}
+            </h3>
+            <div className="space-y-4">
+              {group.questions.map((question) => (
+                <div key={question.id} className="py-3 border-b border-gray-100 last:border-0">
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <label className="text-sm font-medium text-black flex-1">
+                      {question.id}. {question.text}
+                    </label>
+                    <span className="text-lg font-bold text-primary min-w-[40px] text-center">
+                      {question.value}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs text-gray-500 whitespace-nowrap">0</span>
+                    <Slider
+                      value={[question.value]}
+                      onValueChange={(value) => handleSliderChange(question.id, value)}
+                      max={10}
+                      step={1}
+                      className="flex-1"
+                    />
+                    <span className="text-xs text-gray-500 whitespace-nowrap">10</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <Slider
-            value={[responses[currentStep].value]}
-            onValueChange={(value) => handleSliderChange(currentQuestion.id, value)}
-            max={10}
-            step={1}
-            className="w-full"
-          />
-          <div className="text-center">
-            <span className="text-3xl font-bold text-primary">{responses[currentStep].value}</span>
-          </div>
-        </div>
+        ))}
       </Card>
 
-      {/* Navigation Buttons */}
-      <div className="flex justify-between">
+      {/* Submit Button */}
+      <div className="text-center mb-8">
         <Button
-          onClick={handlePrevious}
-          disabled={currentStep === 0}
-          variant="outline"
-          className="text-primary border-primary hover:bg-primary hover:text-white"
+          onClick={handleSubmit}
+          className="bg-primary text-white hover:bg-navy-700 px-12 py-6 text-lg font-semibold"
         >
-          ← Previous
-        </Button>
-        <Button
-          onClick={handleNext}
-          className="bg-primary text-white hover:bg-navy-700"
-        >
-          {currentStep === questions.length - 1 ? 'See Results' : 'Next →'}
+          Calculate My Readiness Score
         </Button>
       </div>
     </div>
