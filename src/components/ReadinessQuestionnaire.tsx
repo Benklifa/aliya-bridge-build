@@ -112,10 +112,9 @@ const ReadinessQuestionnaire = () => {
     return { categories, overall, overallStatus };
   };
 
-  const getTopGaps = (categories: CategoryScore[]) => {
+  const getPriorityAreas = (categories: CategoryScore[]) => {
     return [...categories]
-      .sort((a, b) => a.percentage - b.percentage)
-      .slice(0, 3);
+      .sort((a, b) => a.percentage - b.percentage);
   };
 
   const getRecommendations = (categoryName: string): string => {
@@ -173,7 +172,7 @@ const ReadinessQuestionnaire = () => {
 
   if (showResults) {
     const { categories, overall, overallStatus } = calculateScores();
-    const topGaps = getTopGaps(categories);
+    const priorityAreas = getPriorityAreas(categories);
     const nextSteps = getNextSteps(overall);
 
     return (
@@ -214,11 +213,11 @@ const ReadinessQuestionnaire = () => {
           </div>
         </Card>
 
-        {/* Top 3 Gaps */}
+        {/* Priority Areas */}
         <Card className="p-6">
-          <h3 className="text-2xl font-serif font-bold text-primary mb-4">🎯 Your Top 3 Priority Areas</h3>
+          <h3 className="text-2xl font-serif font-bold text-primary mb-4">🎯 Priority Areas</h3>
           <div className="space-y-4">
-            {topGaps.map((gap, idx) => (
+            {priorityAreas.map((gap, idx) => (
               <div key={idx} className="border-l-4 border-gold-500 pl-4">
                 <div className="font-semibold text-lg text-black">{idx + 1}. {gap.name} - {gap.percentage}%</div>
                 <div className="text-gray-700 mt-1">→ {getRecommendations(gap.name)}</div>
