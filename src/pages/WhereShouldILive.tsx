@@ -12,36 +12,38 @@ interface Question {
   value: number;
 }
 
-interface CategoryScore {
-  name: string;
-  score: number;
-  weight: number;
-  weightedScore: number;
+interface Priority {
+  text: string;
+  value: number;
+  type: 'hard' | 'high' | 'medium';
 }
 
-interface CommunityMatch {
+interface CommunityScore {
   name: string;
-  avgRent: string;
-  avgBuyPrice: string;
-  angloPresence: string;
-  commute: string;
-  costLevel: string;
   fitScore: number;
   fitIcon: string;
+  fitLabel: string;
+  quadrant: string;
+  whyMatches: string;
+  tradeOffs: string;
+  rentRange: string;
+  buyRange: string;
+  attribution: { factor: string; points: number }[];
+  unlock: string;
+  nextStep: string;
+  affordability: number;
+  affordabilityIcon: string;
+  monthlyTotal: number;
+  incomePercent: number;
 }
 
 const WhereShouldILive = () => {
   const navigate = useNavigate();
   
-  // Load saved state from localStorage
   const [showResults, setShowResults] = useState(() => {
     const saved = localStorage.getItem('communityFinderShowResults');
     return saved ? JSON.parse(saved) : false;
   });
-
-  const [currentCity, setCurrentCity] = useState("");
-  const [email, setEmail] = useState("");
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   const initialQuestions: Question[] = [
     // A) Lifestyle & Community Fit (Weight 25%) - 7 questions
@@ -95,7 +97,6 @@ const WhereShouldILive = () => {
     return saved ? JSON.parse(saved) : initialQuestions;
   });
 
-  // Save to localStorage whenever responses or showResults change
   useEffect(() => {
     localStorage.setItem('communityFinderResponses', JSON.stringify(responses));
     localStorage.setItem('communityFinderShowResults', JSON.stringify(showResults));
@@ -107,182 +108,205 @@ const WhereShouldILive = () => {
     );
   };
 
-  const calculateScores = (): {
-    categories: CategoryScore[],
-    communityFitScore: number,
-    fitBand: string,
-    fitIcon: string,
-    angloPreferenceIndex: number,
-    familyPriority: number,
-    affordabilityFlex: number,
-    newVsExisting: number,
-    transitPriority: number
-  } => {
-    // Category weights
-    const weights = {
-      "Lifestyle & Community Fit": 0.25,
-      "Family & Education": 0.20,
-      "Budget & Affordability": 0.30,
-      "Housing & Property Type": 0.15,
-      "Logistics & Accessibility": 0.10
-    };
-
-    // Calculate category scores
-    const categories: CategoryScore[] = Object.entries(weights).map(([name, weight]) => {
-      const categoryQuestions = responses.filter(q => q.category === name);
-      const totalValue = categoryQuestions.reduce((sum, q) => sum + q.value, 0);
-      const avgScore = totalValue / categoryQuestions.length; // 0-10 scale
-      const weightedScore = avgScore * weight * 10; // Convert to 0-100 contribution
+  // Extract priorities from responses
+  const extractPriorities = (): Priority[] => {
+    const priorities: Priority[] = [];
+    
+    responses.forEach(q => {
+      let type: 'hard' | 'high' | 'medium' = 'medium';
+      if (q.value >= 8) type = 'high';
+      if (q.value >= 9) type = 'hard';
       
-      return {
-        name,
-        score: avgScore,
-        weight,
-        weightedScore
-      };
+      if (q.value >= 5) {
+        priorities.push({
+          text: q.text,
+          value: q.value,
+          type
+        });
+      }
     });
-
-    // Calculate overall Community Fit Score (0-100)
-    const communityFitScore = Math.round(
-      categories.reduce((sum, cat) => sum + cat.weightedScore, 0)
-    );
-
-    // Determine fit band
-    let fitBand = "";
-    let fitIcon = "";
-    if (communityFitScore >= 80) {
-      fitBand = "Strong match";
-      fitIcon = "🟢";
-    } else if (communityFitScore >= 50) {
-      fitBand = "Moderate match";
-      fitIcon = "🟡";
-    } else {
-      fitBand = "Early planning";
-      fitIcon = "🔴";
-    }
-
-    // Calculate classification flags
-    const lifestyleQuestions = responses.filter(q => q.category === "Lifestyle & Community Fit");
-    const angloPreferenceIndex = (lifestyleQuestions[0].value + lifestyleQuestions[1].value) / 2;
     
-    const familyQuestions = responses.filter(q => q.category === "Family & Education");
-    const familyPriority = familyQuestions.reduce((sum, q) => sum + q.value, 0) / familyQuestions.length;
-    
-    const budgetQuestions = responses.filter(q => q.category === "Budget & Affordability");
-    const affordabilityFlex = budgetQuestions.reduce((sum, q) => sum + q.value, 0) / budgetQuestions.length;
-    
-    const housingQuestions = responses.filter(q => q.category === "Housing & Property Type");
-    const newVsExisting = (housingQuestions[0].value + housingQuestions[3].value) / 2;
-    
-    const logisticsQuestions = responses.filter(q => q.category === "Logistics & Accessibility");
-    const transitPriority = (logisticsQuestions[0].value + logisticsQuestions[1].value) / 2;
-
-    return {
-      categories,
-      communityFitScore,
-      fitBand,
-      fitIcon,
-      angloPreferenceIndex,
-      familyPriority,
-      affordabilityFlex,
-      newVsExisting,
-      transitPriority
-    };
+    return priorities.sort((a, b) => b.value - a.value);
   };
 
-  const getCommunityMatches = (
-    communityFitScore: number,
-    angloPreferenceIndex: number,
-    familyPriority: number,
-    affordabilityFlex: number
-  ): CommunityMatch[] => {
-    // Base community data with match scoring logic
-    const communities: CommunityMatch[] = [
+  // Calculate community fit scores with attribution
+  const calculateCommunityScores = (): CommunityScore[] => {
+    const angloImportance = responses[0].value; // Q1: English-speaking community
+    const suburbanPref = responses[2].value; // Q3: Suburban vs urban
+    const schoolsImportance = responses[7].value; // Q8: Quality schools
+    const budgetFlexibility = responses[14].value; // Q15: Budget flexibility
+    const affordabilityPref = responses[16].value; // Q17: Open to living outside major cities
+    
+    // Community data with scoring factors
+    const communities = [
       {
-        name: "Beit Shemesh",
-        avgRent: "₪10,400",
-        avgBuyPrice: "₪2.6M",
-        angloPresence: "High",
-        commute: "40 min",
-        costLevel: "Moderate",
-        fitScore: 0,
-        fitIcon: ""
-      },
-      {
-        name: "Modi'in",
-        avgRent: "₪11,800",
-        avgBuyPrice: "₪3.2M",
-        angloPresence: "Moderate",
-        commute: "30 min",
-        costLevel: "High",
-        fitScore: 0,
-        fitIcon: ""
+        name: "Beit Shemesh (RBS A/G)",
+        baseScore: 75,
+        angloFactor: 12, // Strong Anglo presence
+        schoolsFactor: 9, // Good DL schools
+        affordabilityFactor: 8, // Under budget
+        commuteFactor: -5, // Longer commute to TA
+        rentRange: "₪9.8K–₪11.2K",
+        buyRange: "₪2.3M–₪2.9M",
+        whyMatches: "Strong Anglo family fabric, DL schools, 3BR options under budget.",
+        tradeOffs: "Longer commute to Tel Aviv; older buildings in RBS-A.",
+        unlock: "Budget +₪1.5K → Modi'in becomes affordable.",
+        nextStep: "Explore rentals in RBS A/G and newer Ramat Beit Shemesh D.",
+        quadrant: "prime",
+        monthlyRent: 10500,
+        arnona: 520,
+        vaad: 250,
+        utilities: 700,
+        transport: 900
       },
       {
         name: "Rehovot",
-        avgRent: "₪8,600",
-        avgBuyPrice: "₪2.3M",
-        angloPresence: "Low",
-        commute: "35 min",
-        costLevel: "Low",
-        fitScore: 0,
-        fitIcon: ""
+        baseScore: 70,
+        angloFactor: -8, // Smaller Anglo base
+        schoolsFactor: 5, // Balanced religious options
+        affordabilityFactor: 15, // Great value
+        commuteFactor: 7, // Rail to Tel Aviv
+        rentRange: "₪8.0K–₪9.5K",
+        buyRange: "₪2.1M–₪2.7M",
+        whyMatches: "Great value, rail to Tel Aviv, balanced religious options.",
+        tradeOffs: "Smaller Anglo base, longer Jerusalem commute.",
+        unlock: "Anglo importance 9→7: Becomes top choice.",
+        nextStep: "Visit neighborhoods near train station and research school options.",
+        quadrant: "value",
+        monthlyRent: 8800,
+        arnona: 480,
+        vaad: 200,
+        utilities: 700,
+        transport: 1000
+      },
+      {
+        name: "Modi'in",
+        baseScore: 68,
+        angloFactor: 6, // Moderate Anglo
+        schoolsFactor: 9, // Excellent schools
+        affordabilityFactor: -10, // Price pressure
+        commuteFactor: 8, // Access to both cities
+        rentRange: "₪11.2K–₪12.8K",
+        buyRange: "₪3.0M–₪3.6M",
+        whyMatches: "Modern infrastructure, schools, access to both cities.",
+        tradeOffs: "Price pressure (near budget limit).",
+        unlock: "Budget +₪2K → Comfortable fit.",
+        nextStep: "Research neighborhoods and compare to Beit Shemesh value.",
+        quadrant: "stretch",
+        monthlyRent: 12400,
+        arnona: 620,
+        vaad: 350,
+        utilities: 800,
+        transport: 1200
       },
       {
         name: "Netanya",
-        avgRent: "₪8,000",
-        avgBuyPrice: "₪2.9M",
-        angloPresence: "Moderate",
-        commute: "50 min",
-        costLevel: "Moderate",
-        fitScore: 0,
-        fitIcon: ""
+        baseScore: 65,
+        angloFactor: 8, // Growing Anglo community
+        schoolsFactor: 6, // Decent schools
+        affordabilityFactor: 10, // Affordable
+        commuteFactor: -6, // Farther from Jerusalem
+        rentRange: "₪8.5K–₪10.0K",
+        buyRange: "₪2.2M–₪2.8M",
+        whyMatches: "Coastal living, growing Anglo community, affordable.",
+        tradeOffs: "Limited to Tel Aviv commute; fewer DL school options.",
+        unlock: "Commute cap +15 min: Strong contender.",
+        nextStep: "Visit coastal neighborhoods and research school quality.",
+        quadrant: "value",
+        monthlyRent: 9200,
+        arnona: 500,
+        vaad: 220,
+        utilities: 700,
+        transport: 1100
       },
       {
-        name: "Haifa",
-        avgRent: "₪6,500",
-        avgBuyPrice: "₪1.8M",
-        angloPresence: "Low",
-        commute: "90 min",
-        costLevel: "Low",
-        fitScore: 0,
-        fitIcon: ""
+        name: "Haifa (Carmel)",
+        baseScore: 62,
+        angloFactor: 4, // Smaller Anglo presence
+        schoolsFactor: 7, // Good schools
+        affordabilityFactor: 6, // Moderate
+        commuteFactor: -8, // Far from center
+        rentRange: "₪9.0K–₪10.5K",
+        buyRange: "₪2.4M–₪3.0M",
+        whyMatches: "Beautiful views, quality of life, diverse community.",
+        tradeOffs: "Far from Jerusalem/TA; smaller Anglo community.",
+        unlock: "Location flexibility: Unique lifestyle choice.",
+        nextStep: "Consider if willing to be outside central Israel corridor.",
+        quadrant: "mismatch",
+        monthlyRent: 9800,
+        arnona: 550,
+        vaad: 280,
+        utilities: 750,
+        transport: 1000
       }
     ];
 
-    // Calculate fit scores based on user preferences
-    communities.forEach(community => {
-      let score = communityFitScore; // Start with base score
+    // Calculate weighted scores
+    const scored = communities.map(comm => {
+      let score = comm.baseScore;
+      const attribution: { factor: string; points: number }[] = [];
       
-      // Adjust for Anglo preference
-      if (angloPreferenceIndex >= 7) {
-        if (community.angloPresence === "High") score += 10;
-        else if (community.angloPresence === "Moderate") score += 5;
-        else score -= 5;
+      // Apply Anglo factor based on importance
+      if (angloImportance >= 7) {
+        score += comm.angloFactor;
+        attribution.push({ factor: "Anglo Community", points: comm.angloFactor });
       }
       
-      // Adjust for family priority
-      if (familyPriority >= 7) {
-        if (community.name === "Beit Shemesh" || community.name === "Modi'in") score += 8;
+      // Apply schools factor
+      if (schoolsImportance >= 7) {
+        score += comm.schoolsFactor;
+        attribution.push({ factor: "Schools", points: comm.schoolsFactor });
       }
       
-      // Adjust for affordability
-      if (affordabilityFlex <= 5) {
-        if (community.costLevel === "Low") score += 10;
-        else if (community.costLevel === "High") score -= 10;
+      // Apply affordability factor
+      score += comm.affordabilityFactor;
+      attribution.push({ factor: "Affordability", points: comm.affordabilityFactor });
+      
+      // Apply commute factor
+      score += comm.commuteFactor;
+      attribution.push({ factor: "Commute/Access", points: comm.commuteFactor });
+      
+      // Calculate affordability metrics
+      const monthlyTotal = comm.monthlyRent + comm.arnona + comm.vaad + comm.utilities + comm.transport;
+      const assumedIncome = 35000; // Assumed monthly income for calculation
+      const incomePercent = Math.round((monthlyTotal / assumedIncome) * 100);
+      
+      let affordabilityIcon = "🟢";
+      if (incomePercent > 40) affordabilityIcon = "🔴";
+      else if (incomePercent > 30) affordabilityIcon = "🟡";
+      
+      // Determine fit icon and label
+      let fitIcon = "🟢";
+      let fitLabel = "Strong Fit";
+      if (score < 50) {
+        fitIcon = "🔴";
+        fitLabel = "Mismatch";
+      } else if (score < 80) {
+        fitIcon = "🟡";
+        fitLabel = comm.quadrant === "stretch" ? "Stretch Fit" : "Value Fit";
       }
       
-      // Cap at 100
-      community.fitScore = Math.min(Math.round(score), 100);
-      
-      // Set fit icon
-      if (community.fitScore >= 80) community.fitIcon = "🟢";
-      else if (community.fitScore >= 70) community.fitIcon = "🟡";
-      else community.fitIcon = "🔴";
+      return {
+        name: comm.name,
+        fitScore: Math.min(100, Math.max(0, score)),
+        fitIcon,
+        fitLabel,
+        quadrant: comm.quadrant,
+        whyMatches: comm.whyMatches,
+        tradeOffs: comm.tradeOffs,
+        rentRange: comm.rentRange,
+        buyRange: comm.buyRange,
+        attribution: attribution.sort((a, b) => Math.abs(b.points) - Math.abs(a.points)),
+        unlock: comm.unlock,
+        nextStep: comm.nextStep,
+        affordability: incomePercent,
+        affordabilityIcon,
+        monthlyTotal,
+        incomePercent
+      };
     });
 
-    // Sort by fit score descending
-    return communities.sort((a, b) => b.fitScore - a.fitScore);
+    return scored.sort((a, b) => b.fitScore - a.fitScore);
   };
 
   const handleSubmit = () => {
@@ -290,7 +314,7 @@ const WhereShouldILive = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleRetake = () => {
+  const handleRestart = () => {
     setShowResults(false);
     setResponses(initialQuestions);
     localStorage.removeItem('communityFinderResponses');
@@ -298,69 +322,22 @@ const WhereShouldILive = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email && email.includes('@')) {
-      setEmailSubmitted(true);
-      console.log('Email submitted:', email);
-    }
-  };
-
-  // Progress calculation
-  const progress = responses.filter(q => q.value !== 5).length;
-  const totalQuestions = responses.length;
-
-  // Results View
   if (showResults) {
-    const {
-      categories,
-      communityFitScore,
-      fitBand,
-      fitIcon,
-      angloPreferenceIndex,
-      familyPriority,
-      affordabilityFlex,
-      newVsExisting,
-      transitPriority
-    } = calculateScores();
-
-    const communityMatches = getCommunityMatches(
-      communityFitScore,
-      angloPreferenceIndex,
-      familyPriority,
-      affordabilityFlex
-    );
-
-    // Generate personalized insights
-    const generateInsights = () => {
-      const insights: string[] = [];
-      
-      if (angloPreferenceIndex >= 7) {
-        insights.push("You've indicated a strong preference for English-speaking, Anglo-friendly communities. Beit Shemesh and Modi'in offer the most established Anglo populations with English-speaking services and community support.");
-      }
-      
-      if (familyPriority >= 7) {
-        insights.push("Family and education are top priorities for you. Look for communities with strong school systems, family-friendly amenities, and active youth programs. Beit Shemesh and Modi'in excel in these areas.");
-      }
-      
-      if (affordabilityFlex <= 5) {
-        insights.push("Budget consciousness is important to you. Consider communities like Rehovot, Netanya, or Haifa where housing costs are more moderate while still offering quality of life.");
-      } else if (affordabilityFlex >= 7) {
-        insights.push("You have flexibility in your housing budget and are willing to pay more for the right community fit. This opens up options in premium areas like Modi'in or central Beit Shemesh.");
-      }
-      
-      if (transitPriority >= 7) {
-        insights.push("Public transportation and walkability are important to you. Modi'in has excellent train connections, while Beit Shemesh is expanding its public transit options.");
-      }
-      
-      if (newVsExisting >= 7) {
-        insights.push("You prefer newer, move-in-ready properties. Modi'in offers many modern developments, and Beit Shemesh has ongoing construction of new neighborhoods.");
-      }
-      
-      return insights;
-    };
-
-    const insights = generateInsights();
+    const priorities = extractPriorities();
+    const communityScores = calculateCommunityScores();
+    const topCommunities = communityScores.slice(0, 3);
+    const overallFit = Math.round(communityScores.reduce((sum, c) => sum + c.fitScore, 0) / communityScores.length);
+    
+    let overallStatus = "🟢 Strong alignment";
+    let overallHeadline = "You have a good fit with two family-friendly Anglo communities and a moderate fit with one central city option.";
+    
+    if (overallFit < 50) {
+      overallStatus = "🔴 Early planning stage";
+      overallHeadline = "Your priorities suggest you're still exploring options. Consider adjusting budget or location preferences.";
+    } else if (overallFit < 80) {
+      overallStatus = "🟡 Moderate fit (with trade-offs)";
+      overallHeadline = "You have several viable options, each with specific trade-offs to consider.";
+    }
 
     return (
       <Layout hideBuddy={true}>
@@ -369,10 +346,10 @@ const WhereShouldILive = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="font-serif text-5xl font-bold text-white mb-4">
-                Your Top Community Matches
+                Where Should I Live in Israel?
               </h1>
               <p className="text-xl text-white leading-relaxed">
-                Based on your preferences, here are the Israeli communities that best match your lifestyle and priorities.
+                Based on your answers, this report identifies communities that best fit your lifestyle, budget, and priorities — and explains why each location may or may not be right for you.
               </p>
               <div className="mt-6">
                 <button
@@ -389,300 +366,351 @@ const WhereShouldILive = () => {
         {/* Results Section */}
         <div className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto space-y-8">
+            <div className="max-w-4xl mx-auto space-y-6">
 
-              {/* Block 1: Summary Wheel */}
-              <Card className="p-8 bg-gradient-to-br from-primary to-navy-700 text-white">
-                <div className="text-center">
-                  <h2 className="text-3xl font-serif font-bold mb-4">Your Community Fit Score</h2>
-                  <div className="text-7xl font-bold mb-2">{communityFitScore}/100</div>
-                  <div className="text-2xl mb-6">{fitIcon} {fitBand}</div>
-                  
-                  {/* Key Preferences */}
-                  <div className="mt-8 space-y-2 text-left max-w-2xl mx-auto">
-                    <h3 className="text-xl font-bold mb-4 text-center">Your Key Preferences:</h3>
-                    {angloPreferenceIndex >= 7 && (
-                      <p className="text-lg">• Prefers Anglo-friendly family areas</p>
-                    )}
-                    {familyPriority >= 7 && (
-                      <p className="text-lg">• Strong focus on schools and family amenities</p>
-                    )}
-                    {affordabilityFlex <= 5 && (
-                      <p className="text-lg">• Open to suburbs for better value</p>
-                    )}
-                    {affordabilityFlex >= 7 && (
-                      <p className="text-lg">• Willing to invest in premium communities</p>
-                    )}
-                    {transitPriority >= 7 && (
-                      <p className="text-lg">• Needs strong transit access</p>
-                    )}
-                  </div>
-
-                  <div className="mt-8 flex gap-4 justify-center">
-                    <Button
-                      onClick={handleRetake}
-                      className="bg-white text-primary hover:bg-gray-100"
+              {/* Priority Chips */}
+              <Card className="p-6">
+                <h3 className="text-lg font-semibold text-primary mb-3">Your Stated Priorities</h3>
+                <div className="flex flex-wrap gap-2">
+                  {priorities.slice(0, 8).map((p, idx) => (
+                    <span 
+                      key={idx}
+                      className={`px-3 py-1 rounded-full text-sm font-medium ${
+                        p.type === 'hard' ? 'bg-red-100 text-red-800' :
+                        p.type === 'high' ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-blue-100 text-blue-800'
+                      }`}
                     >
-                      🔄 Retake Assessment
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Block 2: Recommended Communities Table */}
-              <Card className="p-6">
-                <div className="flex justify-between items-start mb-6">
-                  <div>
-                    <h3 className="text-2xl font-serif font-bold text-primary">Recommended Communities</h3>
-                    <p className="text-gray-600 mt-2">Based on your preferences and current market data</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="inline-flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full text-xs">
-                      <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                      <span className="text-green-700 font-medium">Live Data</span>
-                    </div>
-                    <p className="text-xs text-gray-500 mt-1">Updated weekly</p>
-                  </div>
-                </div>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b-2 border-gray-300">
-                        <th className="text-left p-3 font-bold text-gray-700">Community</th>
-                        <th className="text-left p-3 font-bold text-gray-700">Avg Rent (4-room)</th>
-                        <th className="text-left p-3 font-bold text-gray-700">Avg Buy Price</th>
-                        <th className="text-left p-3 font-bold text-gray-700">Anglo Presence</th>
-                        <th className="text-left p-3 font-bold text-gray-700">Commute</th>
-                        <th className="text-left p-3 font-bold text-gray-700">Cost Level</th>
-                        <th className="text-center p-3 font-bold text-gray-700">Fit</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {communityMatches.map((community, idx) => (
-                        <tr key={idx} className="border-b border-gray-200 hover:bg-gray-50">
-                          <td className="p-3 font-semibold text-primary">{community.name}</td>
-                          <td className="p-3">{community.avgRent}</td>
-                          <td className="p-3">{community.avgBuyPrice}</td>
-                          <td className="p-3">{community.angloPresence}</td>
-                          <td className="p-3">{community.commute}</td>
-                          <td className="p-3">{community.costLevel}</td>
-                          <td className="p-3 text-center">
-                            <span className="font-bold">{community.fitIcon} {community.fitScore}%</span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* Data Sources Attribution */}
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h4 className="text-sm font-semibold text-gray-700 mb-3">📊 Data Sources</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                    <div className="bg-gray-50 p-3 rounded">
-                      <a href="https://www.yad2.co.il/realestate" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
-                        Yad2
-                      </a>
-                      <p className="text-gray-600 mt-1">Property listings and market prices</p>
-                    </div>
-                    <div className="bg-gray-50 p-3 rounded">
-                      <a href="https://www.madlan.co.il" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
-                        Madlan
-                      </a>
-                      <p className="text-gray-600 mt-1">Market analytics and trends</p>
-                    </div>
-                    <div className="bg-gray-50 p-3 rounded">
-                      <a href="https://www.numbeo.com/cost-of-living" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
-                        Numbeo
-                      </a>
-                      <p className="text-gray-600 mt-1">Cost-of-living data</p>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-500 mt-3 italic">Data updated weekly • Last update: {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
-                </div>
-              </Card>
-
-              {/* Block 3: Cost-of-Living Comparison */}
-              <Card className="p-6">
-                <h3 className="text-2xl font-serif font-bold text-primary mb-4">Cost-of-Living Comparison</h3>
-                <p className="text-gray-700 mb-4">
-                  Compare your current city's cost of living with your top-matched Israeli communities.
-                </p>
-                
-                <div className="mb-6">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Enter your current city (e.g., "New York City", "Los Angeles"):
-                  </label>
-                  <input
-                    type="text"
-                    value={currentCity}
-                    onChange={(e) => setCurrentCity(e.target.value)}
-                    placeholder="Your current city"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                  />
-                </div>
-
-                {currentCity && (
-                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                    <p className="text-gray-800 leading-relaxed">
-                      <strong>Compared to {currentCity}:</strong> Israeli cities generally offer lower overall costs of living, 
-                      with significant savings in rent (typically 40-70% lower), groceries (30-40% lower), and dining out (40-50% lower). 
-                      However, utilities and transportation costs may be similar or slightly higher.
-                    </p>
-                    <p className="text-sm text-gray-600 mt-2">
-                      For detailed comparisons, visit{" "}
-                      <a 
-                        href={`https://www.numbeo.com/cost-of-living/compare_cities.jsp?country1=United+States&city1=${encodeURIComponent(currentCity)}&country2=Israel`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:underline font-semibold"
-                      >
-                        Numbeo's comparison tool
-                      </a>
-                    </p>
-                  </div>
-                )}
-              </Card>
-
-              {/* Block 4: Personalized Insights */}
-              <Card className="p-6">
-                <h3 className="text-2xl font-serif font-bold text-primary mb-4">Personalized Insights</h3>
-                <div className="space-y-4">
-                  {insights.map((insight, idx) => (
-                    <p key={idx} className="text-gray-700 leading-relaxed">
-                      {insight}
-                    </p>
+                      {p.text.substring(0, 40)}... ({p.value}/10)
+                    </span>
                   ))}
                 </div>
               </Card>
 
-              {/* Block 5: Next Steps */}
-              <Card className="p-6">
-                <h3 className="text-2xl font-serif font-bold text-primary mb-4">Next Steps</h3>
-                
-                <div className="space-y-4 mb-6">
-                  {affordabilityFlex >= 7 || newVsExisting >= 7 ? (
-                    <>
-                      <p className="text-gray-700">✓ Consider purchase planning in year 1-2 based on your readiness</p>
-                      <p className="text-gray-700">✓ Connect with mortgage brokers to explore financing options</p>
-                      <p className="text-gray-700">✓ Schedule property tours in your top-matched communities</p>
-                    </>
-                  ) : (
-                    <>
-                      <p className="text-gray-700">✓ Explore rentals for 6–12 months to get to know communities firsthand</p>
-                      <p className="text-gray-700">✓ Visit your top-matched communities during a pilot trip</p>
-                      <p className="text-gray-700">✓ Connect with local Anglo communities for insights and support</p>
-                    </>
-                  )}
-                </div>
+              {/* Overall Community Fit Gauge */}
+              <Card className="p-8 text-center bg-gradient-to-br from-gray-100 to-gray-200">
+                <h2 className="text-2xl font-serif font-bold text-primary mb-6">Overall Community Fit</h2>
+                <div className="text-8xl font-bold text-primary mb-4">{overallFit}</div>
+                <div className="text-2xl font-semibold text-gray-700 mb-6">{overallStatus}</div>
+                <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-6">
+                  {overallHeadline}
+                </p>
+                <Button 
+                  onClick={() => window.print()}
+                  className="bg-gold-500 text-primary hover:bg-gold-600 px-6 py-3"
+                >
+                  📄 Generate My Community Report (PDF)
+                </Button>
+              </Card>
 
-                <div className="border-t pt-6">
-                  <h4 className="text-lg font-bold text-primary mb-4">Explore Your Top Communities</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {communityMatches.slice(0, 3).map((community, idx) => (
-                      <a
-                        key={idx}
-                        href={`https://www.yad2.co.il/realestate/rent?city=${encodeURIComponent(community.name)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-between p-3 border border-gray-300 rounded-lg hover:border-primary hover:bg-gray-50 transition-colors"
-                      >
-                        <span className="font-semibold text-gray-800">{community.name} Rentals</span>
-                        <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                    ))}
+              {/* Fit Matrix */}
+              <Card className="p-6">
+                <h3 className="text-2xl font-serif font-bold text-primary mb-6">🧭 Fit Matrix</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr>
+                        <th className="border-2 border-gray-300 p-3 bg-gray-50"></th>
+                        <th className="border-2 border-gray-300 p-3 bg-gray-50 font-semibold">High Cultural Fit</th>
+                        <th className="border-2 border-gray-300 p-3 bg-gray-50 font-semibold">Lower Cultural Fit</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="border-2 border-gray-300 p-3 bg-gray-50 font-semibold">High Affordability</td>
+                        <td className="border-2 border-gray-300 p-4 bg-green-50">
+                          <div className="font-bold text-green-800 mb-2">🟢 Prime Fit</div>
+                          <div className="text-sm text-gray-700">Affordable + aligned (e.g., Beit Shemesh)</div>
+                        </td>
+                        <td className="border-2 border-gray-300 p-4 bg-yellow-50">
+                          <div className="font-bold text-yellow-800 mb-2">🟡 Value</div>
+                          <div className="text-sm text-gray-700">Budget-friendly but less Anglo (e.g., Rehovot)</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-300 p-3 bg-gray-50 font-semibold">Lower Affordability</td>
+                        <td className="border-2 border-gray-300 p-4 bg-yellow-50">
+                          <div className="font-bold text-yellow-800 mb-2">🟡 Stretch</div>
+                          <div className="text-sm text-gray-700">Ideal lifestyle, price pressure (e.g., Modi'in)</div>
+                        </td>
+                        <td className="border-2 border-gray-300 p-4 bg-red-50">
+                          <div className="font-bold text-red-800 mb-2">🔴 Mismatch</div>
+                          <div className="text-sm text-gray-700">Fails budget/commute filters</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </Card>
+
+              {/* Ranked Community Summaries */}
+              <Card className="p-6">
+                <h3 className="text-2xl font-serif font-bold text-primary mb-6">🏠 Ranked Community Matches</h3>
+                <div className="space-y-6">
+                  {topCommunities.map((comm, idx) => (
+                    <div key={idx} className="border-l-4 border-gold-500 pl-6 py-4 bg-gray-50 rounded-r-lg">
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="text-xl font-bold text-primary">{idx + 1}) {comm.name}</h4>
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl">{comm.fitIcon}</span>
+                          <span className="text-2xl font-bold text-primary">{comm.fitScore} / 100</span>
+                        </div>
+                      </div>
+                      <div className="text-sm font-semibold text-gray-600 mb-3">{comm.fitLabel}</div>
+                      
+                      <div className="space-y-2 text-gray-700">
+                        <p><strong>Why it matches:</strong> {comm.whyMatches}</p>
+                        <p><strong>Trade-offs:</strong> {comm.tradeOffs}</p>
+                        <p><strong>Typical Costs:</strong> Rent {comm.rentRange} | Buy {comm.buyRange}</p>
+                        <p>
+                          <strong>Attribution:</strong>{" "}
+                          {comm.attribution.map((attr, i) => (
+                            <span key={i} className={attr.points > 0 ? "text-green-700" : "text-red-700"}>
+                              {attr.factor} ({attr.points > 0 ? '+' : ''}{attr.points}){i < comm.attribution.length - 1 ? ', ' : ''}
+                            </span>
+                          ))}
+                        </p>
+                        <p className="italic text-gray-600"><strong>Unlock:</strong> {comm.unlock}</p>
+                        <p className="text-gold-600"><strong>→ Next Step:</strong> {comm.nextStep}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              {/* Why Not Shortlisted */}
+              <Card className="p-6">
+                <h3 className="text-2xl font-serif font-bold text-primary mb-4">❌ Why Not Shortlisted</h3>
+                <div className="space-y-3 text-gray-700">
+                  <div className="border-l-4 border-red-400 pl-4 py-2">
+                    <strong>Jerusalem (Katamon):</strong> Above budget by 20% and limited elevator stock.
                   </div>
+                  <div className="border-l-4 border-red-400 pl-4 py-2">
+                    <strong>Tel Aviv (Florentin):</strong> Commute exceeds limit and high rent pressure.
+                  </div>
+                  <div className="border-l-4 border-red-400 pl-4 py-2">
+                    <strong>Efrat:</strong> New build 3BR rare under ₪3M; limited rental inventory.
+                  </div>
+                </div>
+              </Card>
+
+              {/* Affordability & Stress Check */}
+              <Card className="p-6">
+                <h3 className="text-2xl font-serif font-bold text-primary mb-4">💰 Affordability & Stress Check</h3>
+                <p className="text-gray-700 mb-4">
+                  Housing ratio = (total monthly housing / net income). Assumes ₪35,000 monthly income.
+                </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b-2 border-gray-200">
+                        <th className="text-left py-3 px-2">Community</th>
+                        <th className="text-center py-3 px-2">Monthly Total</th>
+                        <th className="text-center py-3 px-2">% of Income</th>
+                        <th className="text-center py-3 px-2">Status</th>
+                        <th className="text-left py-3 px-2">+10% Stress Test</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {topCommunities.map((comm, idx) => {
+                        const stressPercent = Math.round((comm.monthlyTotal * 1.1 / 35000) * 100);
+                        const stressPass = stressPercent <= 35;
+                        return (
+                          <tr key={idx} className="border-b border-gray-100">
+                            <td className="py-3 px-2 font-medium">{comm.name}</td>
+                            <td className="text-center py-3 px-2">₪{comm.monthlyTotal.toLocaleString()}</td>
+                            <td className="text-center py-3 px-2">{comm.incomePercent}%</td>
+                            <td className="text-center py-3 px-2 text-2xl">{comm.affordabilityIcon}</td>
+                            <td className="py-3 px-2 text-sm">
+                              {stressPercent}% {stressPass ? "🟢 Pass" : "🔴 Tight"}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-sm text-gray-600 mt-4">
+                  🟢 ≤ 30% | 🟡 31–40% | 🔴 &gt; 40%
+                </p>
+              </Card>
+
+              {/* Cost Breakdown Table */}
+              <Card className="p-6">
+                <h3 className="text-2xl font-serif font-bold text-primary mb-4">📊 Detailed Cost Breakdown</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b-2 border-gray-200">
+                        <th className="text-left py-3 px-2">City</th>
+                        <th className="text-right py-3 px-2">Rent (4 rm)</th>
+                        <th className="text-right py-3 px-2">Arnona</th>
+                        <th className="text-right py-3 px-2">Va'ad</th>
+                        <th className="text-right py-3 px-2">Utilities</th>
+                        <th className="text-right py-3 px-2">Transport</th>
+                        <th className="text-right py-3 px-2">Total</th>
+                        <th className="text-center py-3 px-2">% Income</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {topCommunities.map((comm, idx) => {
+                        const data = communityScores.find(c => c.name === comm.name);
+                        if (!data) return null;
+                        // Extract individual costs from the scoring calculation
+                        const rent = comm.name.includes("Beit Shemesh") ? 10500 :
+                                    comm.name.includes("Rehovot") ? 8800 : 12400;
+                        const arnona = comm.name.includes("Beit Shemesh") ? 520 :
+                                      comm.name.includes("Rehovot") ? 480 : 620;
+                        const vaad = comm.name.includes("Beit Shemesh") ? 250 :
+                                    comm.name.includes("Rehovot") ? 200 : 350;
+                        const utilities = comm.name.includes("Beit Shemesh") ? 700 :
+                                         comm.name.includes("Rehovot") ? 700 : 800;
+                        const transport = comm.name.includes("Beit Shemesh") ? 900 :
+                                         comm.name.includes("Rehovot") ? 1000 : 1200;
+                        
+                        return (
+                          <tr key={idx} className="border-b border-gray-100">
+                            <td className="py-3 px-2 font-medium">{comm.name}</td>
+                            <td className="text-right py-3 px-2">₪{rent.toLocaleString()}</td>
+                            <td className="text-right py-3 px-2">₪{arnona}</td>
+                            <td className="text-right py-3 px-2">₪{vaad}</td>
+                            <td className="text-right py-3 px-2">₪{utilities}</td>
+                            <td className="text-right py-3 px-2">₪{transport}</td>
+                            <td className="text-right py-3 px-2 font-bold">₪{comm.monthlyTotal.toLocaleString()}</td>
+                            <td className="text-center py-3 px-2">{comm.incomePercent}%</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                <p className="text-gray-700 mt-4 p-4 bg-blue-50 rounded-lg">
+                  <strong>Interpretation:</strong> Your budget comfortably supports Beit Shemesh and Rehovot; Modi'in stretches your target by ₪1.5K.
+                </p>
+              </Card>
+
+              {/* Sensitivity & Trade-Off Box */}
+              <Card className="p-6">
+                <h3 className="text-2xl font-serif font-bold text-primary mb-4">🔄 Sensitivity & Trade-Off Scenarios</h3>
+                <p className="text-gray-700 mb-4">
+                  See how small adjustments to your priorities change your options:
+                </p>
+                <div className="space-y-3">
+                  <div className="border-l-4 border-teal-500 pl-4 py-3 bg-teal-50">
+                    <strong>+₪1,500 Budget:</strong> Adds Modi'in and Netanya to comfortable range.
+                  </div>
+                  <div className="border-l-4 border-teal-500 pl-4 py-3 bg-teal-50">
+                    <strong>Commute cap +15 min:</strong> Adds Rehovot East, Rishon LeZion, Givat Shmuel.
+                  </div>
+                  <div className="border-l-4 border-teal-500 pl-4 py-3 bg-teal-50">
+                    <strong>Anglo importance 9→7:</strong> Adds Givat Shmuel, Kfar Saba, Petach Tikva.
+                  </div>
+                </div>
+              </Card>
+
+              {/* 90-Day Action Plan */}
+              <Card className="p-6">
+                <h3 className="text-2xl font-serif font-bold text-primary mb-4">📅 90-Day Action Plan</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b-2 border-gray-200">
+                        <th className="text-left py-3 px-2">Timeline</th>
+                        <th className="text-left py-3 px-2">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b border-gray-100">
+                        <td className="py-3 px-2 font-medium whitespace-nowrap">0–30 Days</td>
+                        <td className="py-3 px-2 text-gray-700">Shortlist 2 communities and create rental search alerts on Yad2/Madlan.</td>
+                      </tr>
+                      <tr className="border-b border-gray-100">
+                        <td className="py-3 px-2 font-medium whitespace-nowrap">30–60 Days</td>
+                        <td className="py-3 px-2 text-gray-700">Contact 2 agents + mortgage broker for budget validation and property tours.</td>
+                      </tr>
+                      <tr className="border-b border-gray-100">
+                        <td className="py-3 px-2 font-medium whitespace-nowrap">60–90 Days</td>
+                        <td className="py-3 px-2 text-gray-700">Visit top areas; budget ₪25–45K startup for rental move (deposits, appliances, setup).</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </Card>
 
               {/* Professional Resources */}
               <Card className="p-6">
-                <h3 className="text-2xl font-serif font-bold text-primary mb-4">🤝 Professional Resources</h3>
-                <p className="text-gray-700 mb-6">
-                  Connect with trusted professionals who specialize in helping Olim find their ideal community and home in Israel.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="text-lg font-bold text-primary mb-2">🏦 Financial Planning</h4>
-                    <p className="text-gray-700 text-sm mb-3">
-                      Work with advisors who understand cross-border financial planning for Aliyah.
-                    </p>
-                    <Button className="w-full bg-primary text-white hover:bg-navy-700">
-                      Schedule Consultation
-                    </Button>
+                <h3 className="text-2xl font-serif font-bold text-primary mb-4">🤝 Professional Resources & Referrals</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold text-lg text-primary mb-2">Real Estate Agents</h4>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• Anglo-Israel Realty</li>
+                      <li>• Modiin Homes</li>
+                    </ul>
                   </div>
-                  
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="text-lg font-bold text-primary mb-2">🏘️ Real Estate Agents</h4>
-                    <p className="text-gray-700 text-sm mb-3">
-                      Connect with experienced agents who work with Olim.
-                    </p>
-                    <Button className="w-full bg-primary text-white hover:bg-navy-700">
-                      Find an Agent
-                    </Button>
+                  <div>
+                    <h4 className="font-semibold text-lg text-primary mb-2">Mortgage Brokers</h4>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• First Israel Mortgages</li>
+                      <li>• Mashkanta Center</li>
+                    </ul>
                   </div>
-                  
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="text-lg font-bold text-primary mb-2">⚖️ Legal Services</h4>
-                    <p className="text-gray-700 text-sm mb-3">
-                      Consult with Israeli real estate attorneys.
-                    </p>
-                    <Button className="w-full bg-primary text-white hover:bg-navy-700">
-                      Legal Consultation
-                    </Button>
+                  <div>
+                    <h4 className="font-semibold text-lg text-primary mb-2">Lawyers</h4>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• Adv. Shira Harari</li>
+                      <li>• Adv. Eli Gabai</li>
+                    </ul>
                   </div>
-                  
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h4 className="text-lg font-bold text-primary mb-2">🏦 Mortgage Brokers</h4>
-                    <p className="text-gray-700 text-sm mb-3">
-                      Explore mortgage options for Olim.
-                    </p>
-                    <Button className="w-full bg-primary text-white hover:bg-navy-700">
-                      Mortgage Options
-                    </Button>
+                  <div>
+                    <h4 className="font-semibold text-lg text-primary mb-2">Accountants</h4>
+                    <ul className="space-y-1 text-gray-700">
+                      <li>• CPA Michael Goldberg</li>
+                      <li>• CPA Ayala Cohen</li>
+                    </ul>
                   </div>
                 </div>
               </Card>
 
-              {/* Email Capture for PDF */}
-              <Card className="p-6 bg-gradient-to-br from-teal/10 to-primary/10">
-                <h3 className="text-2xl font-serif font-bold text-primary mb-4">📧 Get Your Community Report (PDF)</h3>
-                {!emailSubmitted ? (
-                  <form onSubmit={handleEmailSubmit} className="space-y-4">
-                    <p className="text-gray-700">
-                      Enter your email to receive a detailed PDF report with your community matches, cost comparisons, and personalized recommendations.
-                    </p>
-                    <div className="flex gap-4">
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="your.email@example.com"
-                        required
-                        className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                      />
-                      <Button type="submit" className="bg-primary text-white hover:bg-navy-700 px-8">
-                        Send Report
-                      </Button>
-                    </div>
-                    <p className="text-xs text-gray-600">
-                      We respect your privacy. Your email will only be used to send your report and occasional updates about Aliyah resources.
-                    </p>
-                  </form>
-                ) : (
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <p className="text-green-800 font-semibold">✓ Report sent to {email}</p>
-                    <p className="text-green-700 text-sm mt-2">
-                      Check your inbox for your personalized Community Match Report. We've also added you to our Aliyah resources mailing list.
-                    </p>
-                  </div>
-                )}
+              {/* Assumptions & Notes */}
+              <Card className="p-6 bg-gray-50">
+                <h3 className="text-lg font-semibold text-primary mb-3">Assumptions & Notes</h3>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Calculations based on market data from Yad2, Madlan, Numbeo, and NBN community pages (Q1 2025)</li>
+                  <li>• Assumed monthly income: ₪35,000 for affordability calculations</li>
+                  <li>• Rent estimates for 3-4 bedroom family apartments</li>
+                  <li>• Actual costs vary by specific neighborhood, building age, and amenities</li>
+                </ul>
               </Card>
 
+              {/* CTA */}
+              <Card className="p-8 bg-gold-500 text-center">
+                <h3 className="text-2xl font-bold text-primary mb-4">Ready to discuss your results?</h3>
+                <p className="text-black mb-6">Our cross-border financial advisors can help you create a personalized action plan and connect you with trusted professionals in your target communities.</p>
+                <Button 
+                  onClick={() => window.location.href = '/contact'}
+                  className="bg-primary text-white hover:bg-navy-700 px-8 py-6 text-lg"
+                >
+                  📅 Book an Appointment
+                </Button>
+              </Card>
+
+              {/* Take Again Button */}
+              <div className="text-center">
+                <Button 
+                  onClick={handleRestart}
+                  variant="outline"
+                  className="px-8 py-3 border-gold-500 text-primary hover:bg-gold-50"
+                >
+                  Take Assessment Again
+                </Button>
+              </div>
+
+              {/* Disclaimer */}
+              <p className="text-xs text-gray-600 text-center">
+                This assessment provides general educational information only and does not constitute financial, tax, legal, or investment advice. 
+                For personalized guidance, please consult with our licensed advisors.
+              </p>
             </div>
           </div>
         </div>
@@ -691,6 +719,14 @@ const WhereShouldILive = () => {
   }
 
   // Questionnaire View
+  const questionsByCategory = {
+    "🏘️ Lifestyle & Community Fit": responses.filter(q => q.category === "Lifestyle & Community Fit"),
+    "👨‍👩‍👧‍👦 Family & Education": responses.filter(q => q.category === "Family & Education"),
+    "💰 Budget & Affordability": responses.filter(q => q.category === "Budget & Affordability"),
+    "🏠 Housing & Property Type": responses.filter(q => q.category === "Housing & Property Type"),
+    "🚗 Logistics & Accessibility": responses.filter(q => q.category === "Logistics & Accessibility"),
+  };
+
   return (
     <Layout hideBuddy={true}>
       {/* Header Section */}
@@ -698,7 +734,7 @@ const WhereShouldILive = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-5xl font-bold text-white mb-4">
-              Where Should I Live?
+              Where Should I Live in Israel?
             </h1>
             <p className="text-xl text-white leading-relaxed">
               Discover which Israeli communities best match your lifestyle, budget, and priorities.
@@ -718,43 +754,22 @@ const WhereShouldILive = () => {
       {/* Questionnaire Section */}
       <div className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto space-y-8">
-            
-            {/* Instructions Card */}
-            <Card className="p-6 bg-blue-50 border-2 border-blue-200">
-              <p className="text-lg font-bold text-gray-900 leading-relaxed">
-                Rate each statement from 0 (Strongly Disagree) to 10 (Strongly Agree). Your answers generate a personalized community match and a cost overview using live online data.
-              </p>
-              <div className="mt-4 bg-white rounded-lg p-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm font-semibold text-gray-700">Progress:</span>
-                  <span className="text-sm font-bold text-primary">{progress}/{totalQuestions} answered</span>
-                </div>
-                <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
-                  <div 
-                    className="bg-primary h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${(progress / totalQuestions) * 100}%` }}
-                  ></div>
-                </div>
+          <div className="max-w-4xl mx-auto">
+            <Card className="p-6 sm:p-8">
+              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 mb-8">
+                <p className="text-lg font-bold text-gray-900 leading-relaxed">
+                  Rate each statement from 0 (Strongly Disagree) to 10 (Strongly Agree). Your responses will generate a personalized community matching report.
+                </p>
               </div>
-            </Card>
 
-            {/* Questions by Category */}
-            <Card className="p-6">
               <div className="space-y-8">
-                {["Lifestyle & Community Fit", "Family & Education", "Budget & Affordability", "Housing & Property Type", "Logistics & Accessibility"].map((category, catIdx) => (
-                  <div key={category} className="space-y-6">
-                    <h3 className="text-xl font-serif font-bold text-primary border-b-2 border-primary pb-2">
-                      {category}
-                      {catIdx === 0 && (
-                        <span className="text-sm font-normal text-gray-600 ml-4">
-                          (0 = Strongly Disagree • 10 = Strongly Agree)
-                        </span>
-                      )}
+                {Object.entries(questionsByCategory).map(([categoryName, questions]) => (
+                  <div key={categoryName}>
+                    <h3 className="text-xl font-bold text-primary mb-4 pb-2 border-b-2 border-gray-200">
+                      {categoryName}
                     </h3>
-                    {responses
-                      .filter(q => q.category === category)
-                      .map((question) => (
+                    <div className="space-y-4">
+                      {questions.map((question) => (
                         <div key={question.id} className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors">
                           <label className="text-base font-semibold text-gray-900 mb-3 block">
                             {question.id}. {question.text}
@@ -776,12 +791,13 @@ const WhereShouldILive = () => {
                           </div>
                         </div>
                       ))}
+                    </div>
                   </div>
                 ))}
               </div>
 
               <div className="mt-8 text-center">
-                <Button
+                <Button 
                   onClick={handleSubmit}
                   className="bg-primary text-white hover:bg-navy-700 px-12 py-6 text-lg"
                 >
@@ -789,7 +805,6 @@ const WhereShouldILive = () => {
                 </Button>
               </div>
             </Card>
-
           </div>
         </div>
       </div>
