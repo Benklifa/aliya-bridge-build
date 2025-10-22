@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
@@ -20,7 +20,11 @@ interface CategoryScore {
 }
 
 const ReadinessQuestionnaire = () => {
-  const [showResults, setShowResults] = useState(false);
+  // Load saved state from localStorage
+  const [showResults, setShowResults] = useState(() => {
+    const saved = localStorage.getItem('readinessShowResults');
+    return saved ? JSON.parse(saved) : false;
+  });
 
   const initialQuestions: Question[] = [
     // 🅰️ Align (Lifestyle & Budget) - 6 questions
@@ -60,7 +64,16 @@ const ReadinessQuestionnaire = () => {
     { id: 26, category: "Adapt", text: "I could pause, delay, or adjust my move without major financial hardship.", value: 5 },
   ];
 
-  const [responses, setResponses] = useState<Question[]>(initialQuestions);
+  const [responses, setResponses] = useState<Question[]>(() => {
+    const saved = localStorage.getItem('readinessResponses');
+    return saved ? JSON.parse(saved) : initialQuestions;
+  });
+
+  // Save to localStorage whenever responses or showResults change
+  useEffect(() => {
+    localStorage.setItem('readinessResponses', JSON.stringify(responses));
+    localStorage.setItem('readinessShowResults', JSON.stringify(showResults));
+  }, [responses, showResults]);
 
   const handleSliderChange = (questionId: number, value: number[]) => {
     setResponses(prev =>
@@ -167,6 +180,8 @@ const ReadinessQuestionnaire = () => {
   const handleRestart = () => {
     setShowResults(false);
     setResponses(initialQuestions);
+    localStorage.removeItem('readinessResponses');
+    localStorage.removeItem('readinessShowResults');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -182,7 +197,13 @@ const ReadinessQuestionnaire = () => {
           <div className="text-center">
             <h2 className="text-3xl font-serif font-bold mb-4">Your Aliya Readiness Score™</h2>
             <div className="text-6xl font-bold mb-2">{overall}%</div>
-            <div className="text-2xl">{overallStatus}</div>
+            <div className="text-2xl mb-6">{overallStatus}</div>
+            <Button 
+              onClick={() => window.print()}
+              className="bg-white text-primary hover:bg-gray-100 px-6 py-3"
+            >
+              📄 Download PDF Report
+            </Button>
           </div>
         </Card>
 
