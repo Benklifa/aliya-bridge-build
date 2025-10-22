@@ -8,6 +8,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
+    { name: "Home", path: "/" },
     { name: "A.L.I.Y.A Framework", path: "/framework" },
     { name: "Readiness Score", path: "/readiness" },
     { name: "About Us", path: "/about" },
