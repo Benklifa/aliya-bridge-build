@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Layout from "../components/Layout";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Card } from "@/components/ui/card";
@@ -257,7 +258,25 @@ const RealEstateReadiness = () => {
     const communityMatches = getCommunityMatches(weightedScore, categories);
 
     return (
-      <div className="max-w-6xl mx-auto space-y-8 print:space-y-4">
+      <Layout hideBuddy={true}>
+        {/* Header Section */}
+        <div className="bg-primary py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="font-serif text-5xl font-bold text-white mb-4">
+                Real Estate Readiness Assessment
+              </h1>
+              <p className="text-xl text-white leading-relaxed">
+                Your personalized readiness report with community recommendations for purchasing property in Israel.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Results Section */}
+        <div className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto space-y-8 print:space-y-4">
         {/* Overall Score */}
         <Card className="p-8 bg-gradient-to-br from-primary to-navy-700 text-white print:break-inside-avoid">
           <div className="text-center">
@@ -580,13 +599,34 @@ const RealEstateReadiness = () => {
             )}
           </div>
         </Card>
-      </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
     );
   }
 
   // Questionnaire View
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <Layout hideBuddy={true}>
+      {/* Header Section */}
+      <div className="bg-primary py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="font-serif text-5xl font-bold text-white mb-4">
+              Real Estate Readiness Assessment
+            </h1>
+            <p className="text-xl text-white leading-relaxed">
+              Discover your readiness to purchase property in Israel and get personalized community recommendations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Questionnaire Section */}
+      <div className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto space-y-8">
       <Card className="p-8 bg-gradient-to-br from-primary to-navy-700 text-white">
         <h2 className="text-3xl font-serif font-bold mb-4 text-center">Real Estate Readiness Assessment</h2>
         <p className="text-center text-lg">
@@ -609,25 +649,24 @@ const RealEstateReadiness = () => {
               {responses
                 .filter(q => q.category === category)
                 .map((question) => (
-                  <div key={question.id} className="space-y-3">
-                    <div className="flex justify-between items-start">
-                      <label className="text-black font-medium flex-1">
-                        {question.id}. {question.text}
-                      </label>
-                      <span className="ml-4 text-2xl font-bold text-primary min-w-[3rem] text-right">
-                        {question.value}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <span className="text-sm text-gray-500 min-w-[3rem]">Not true</span>
+                  <div key={question.id} className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors">
+                    <label className="text-base font-semibold text-gray-900 mb-3 block">
+                      {question.id}. {question.text}
+                    </label>
+                    <div className="space-y-2">
                       <Slider
                         value={[question.value]}
                         onValueChange={(value) => handleSliderChange(question.id, value)}
+                        min={0}
                         max={10}
                         step={1}
-                        className="flex-1"
+                        className="w-full"
                       />
-                      <span className="text-sm text-gray-500 min-w-[3rem] text-right">Very true</span>
+                      <div className="flex justify-between text-xs text-gray-500 px-1">
+                        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
+                          <span key={num} className="w-4 text-center">{num}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -644,7 +683,10 @@ const RealEstateReadiness = () => {
           </Button>
         </div>
       </Card>
-    </div>
+          </div>
+        </div>
+      </div>
+    </Layout>
   );
 };
 
