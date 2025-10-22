@@ -117,8 +117,8 @@ const AmIReadyToBuy = () => {
         weight: 0.10,
         maxScore: 30,
         questions: responses.filter(q => q.category === "Logistics & Lifecycle"),
-        summary: "Neighborhood logistics fit your stage well; proximity to schools and clinics supports stability.",
-        nextStep: "Connect with recommended agents and schedule consultation with real estate lawyer."
+        summary: "You have a clear purchase timeline and understand the process, but need to build your professional team.",
+        nextStep: "Connect with recommended agents and schedule consultation with real estate lawyer to review legal requirements."
       }
     };
 
