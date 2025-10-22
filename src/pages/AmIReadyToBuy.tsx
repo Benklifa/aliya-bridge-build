@@ -374,8 +374,8 @@ const AmIReadyToBuy = () => {
                         </tr>
                         <tr className="border-b border-gray-100">
                           <td className="py-3 px-2 font-medium">Legal Fees</td>
-                          <td className="py-3 px-2">₪10,000–₪20,000</td>
-                          <td className="py-3 px-2 text-gray-700">Varies by complexity</td>
+                          <td className="py-3 px-2">1%–1.5% + VAT</td>
+                          <td className="py-3 px-2 text-gray-700">Of purchase price; varies by complexity</td>
                         </tr>
                         <tr className="border-b border-gray-100">
                           <td className="py-3 px-2 font-medium">Broker Fee</td>
