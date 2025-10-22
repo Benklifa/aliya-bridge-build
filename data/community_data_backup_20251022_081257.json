@@ -1,0 +1,412 @@
+{
+  "last_updated": "2025-10-22T08:12:57.964951",
+  "data_sources": [
+    {
+      "name": "Yad2",
+      "url": "https://www.yad2.co.il/realestate",
+      "description": "Israel's leading real estate platform for property listings and prices"
+    },
+    {
+      "name": "Madlan",
+      "url": "https://www.madlan.co.il",
+      "description": "Real estate market analytics and neighborhood insights"
+    },
+    {
+      "name": "Numbeo",
+      "url": "https://www.numbeo.com/cost-of-living",
+      "description": "Global cost-of-living database with user-contributed data"
+    }
+  ],
+  "cities": [
+    {
+      "city": "beit_shemesh",
+      "last_updated": "2025-10-22T08:12:57.965033",
+      "data_sources": [
+        {
+          "name": "Yad2",
+          "url": "https://www.yad2.co.il/realestate",
+          "type": "Property Listings"
+        },
+        {
+          "name": "Madlan",
+          "url": "https://www.madlan.co.il",
+          "type": "Market Analytics"
+        },
+        {
+          "name": "Numbeo",
+          "url": "https://www.numbeo.com/cost-of-living",
+          "type": "Cost of Living"
+        }
+      ],
+      "property_data": {
+        "avg_price_per_sqm": 18500,
+        "avg_rent_3br": 5200,
+        "listings_count": 245,
+        "price_trend": "stable",
+        "source": "Yad2"
+      },
+      "market_analytics": {
+        "market_index": 72.5,
+        "price_change_1y": 3.2,
+        "demand_level": "high",
+        "supply_level": "medium",
+        "avg_days_on_market": 45,
+        "neighborhood_scores": {
+          "schools": 8.5,
+          "transportation": 6.5,
+          "amenities": 7.8,
+          "safety": 8.2
+        },
+        "source": "Madlan"
+      },
+      "cost_of_living": {
+        "housing": {
+          "rent_1br_center": 3800,
+          "rent_1br_outside": 3200,
+          "rent_3br_center": 5500,
+          "rent_3br_outside": 4900,
+          "price_per_sqm_center": 20000,
+          "price_per_sqm_outside": 17500
+        },
+        "groceries": {
+          "monthly": 3500,
+          "weekly": 875
+        },
+        "transportation": {
+          "monthly_pass": 250,
+          "taxi_start": 12,
+          "taxi_per_km": 5.5,
+          "gasoline_liter": 7.2
+        },
+        "utilities": {
+          "electricity": 450,
+          "water": 180,
+          "internet": 120,
+          "phone": 50,
+          "total": 800
+        },
+        "dining": {
+          "inexpensive_meal": 60,
+          "mid_range_meal_2p": 250,
+          "coffee": 14
+        },
+        "total_monthly": 10700,
+        "cost_index": 78.5,
+        "quality_of_life_index": 142.5,
+        "source": "Numbeo"
+      }
+    },
+    {
+      "city": "modiin",
+      "last_updated": "2025-10-22T08:12:57.965055",
+      "data_sources": [
+        {
+          "name": "Yad2",
+          "url": "https://www.yad2.co.il/realestate",
+          "type": "Property Listings"
+        },
+        {
+          "name": "Madlan",
+          "url": "https://www.madlan.co.il",
+          "type": "Market Analytics"
+        },
+        {
+          "name": "Numbeo",
+          "url": "https://www.numbeo.com/cost-of-living",
+          "type": "Cost of Living"
+        }
+      ],
+      "property_data": {
+        "avg_price_per_sqm": 22000,
+        "avg_rent_3br": 6500,
+        "listings_count": 189,
+        "price_trend": "up",
+        "source": "Yad2"
+      },
+      "market_analytics": {
+        "market_index": 81.3,
+        "price_change_1y": 5.8,
+        "demand_level": "high",
+        "supply_level": "low",
+        "avg_days_on_market": 32,
+        "neighborhood_scores": {
+          "schools": 9.2,
+          "transportation": 7.8,
+          "amenities": 8.9,
+          "safety": 9.1
+        },
+        "source": "Madlan"
+      },
+      "cost_of_living": {
+        "housing": {
+          "rent_1br_center": 4500,
+          "rent_1br_outside": 3800,
+          "rent_3br_center": 7000,
+          "rent_3br_outside": 6200,
+          "price_per_sqm_center": 24000,
+          "price_per_sqm_outside": 20500
+        },
+        "groceries": {
+          "monthly": 3800,
+          "weekly": 950
+        },
+        "transportation": {
+          "monthly_pass": 280,
+          "taxi_start": 12,
+          "taxi_per_km": 5.5,
+          "gasoline_liter": 7.2
+        },
+        "utilities": {
+          "electricity": 480,
+          "water": 190,
+          "internet": 130,
+          "phone": 50,
+          "total": 850
+        },
+        "dining": {
+          "inexpensive_meal": 70,
+          "mid_range_meal_2p": 280,
+          "coffee": 16
+        },
+        "total_monthly": 12550,
+        "cost_index": 89.2,
+        "quality_of_life_index": 168.3,
+        "source": "Numbeo"
+      }
+    },
+    {
+      "city": "rehovot",
+      "last_updated": "2025-10-22T08:12:57.965086",
+      "data_sources": [
+        {
+          "name": "Yad2",
+          "url": "https://www.yad2.co.il/realestate",
+          "type": "Property Listings"
+        },
+        {
+          "name": "Madlan",
+          "url": "https://www.madlan.co.il",
+          "type": "Market Analytics"
+        },
+        {
+          "name": "Numbeo",
+          "url": "https://www.numbeo.com/cost-of-living",
+          "type": "Cost of Living"
+        }
+      ],
+      "property_data": {
+        "avg_price_per_sqm": 20500,
+        "avg_rent_3br": 5800,
+        "listings_count": 156,
+        "price_trend": "stable",
+        "source": "Yad2"
+      },
+      "market_analytics": {
+        "market_index": 75.8,
+        "price_change_1y": 4.1,
+        "demand_level": "medium",
+        "supply_level": "medium",
+        "avg_days_on_market": 52,
+        "neighborhood_scores": {
+          "schools": 8.8,
+          "transportation": 7.2,
+          "amenities": 8.1,
+          "safety": 8.5
+        },
+        "source": "Madlan"
+      },
+      "cost_of_living": {
+        "housing": {
+          "rent_1br_center": 4000,
+          "rent_1br_outside": 3400,
+          "rent_3br_center": 6200,
+          "rent_3br_outside": 5500,
+          "price_per_sqm_center": 22000,
+          "price_per_sqm_outside": 19500
+        },
+        "groceries": {
+          "monthly": 3600,
+          "weekly": 900
+        },
+        "transportation": {
+          "monthly_pass": 260,
+          "taxi_start": 12,
+          "taxi_per_km": 5.5,
+          "gasoline_liter": 7.2
+        },
+        "utilities": {
+          "electricity": 450,
+          "water": 180,
+          "internet": 120,
+          "phone": 50,
+          "total": 800
+        },
+        "dining": {
+          "inexpensive_meal": 65,
+          "mid_range_meal_2p": 260,
+          "coffee": 15
+        },
+        "total_monthly": 11500,
+        "cost_index": 82.7,
+        "quality_of_life_index": 155.8,
+        "source": "Numbeo"
+      }
+    },
+    {
+      "city": "netanya",
+      "last_updated": "2025-10-22T08:12:57.965096",
+      "data_sources": [
+        {
+          "name": "Yad2",
+          "url": "https://www.yad2.co.il/realestate",
+          "type": "Property Listings"
+        },
+        {
+          "name": "Madlan",
+          "url": "https://www.madlan.co.il",
+          "type": "Market Analytics"
+        },
+        {
+          "name": "Numbeo",
+          "url": "https://www.numbeo.com/cost-of-living",
+          "type": "Cost of Living"
+        }
+      ],
+      "property_data": {
+        "avg_price_per_sqm": 17800,
+        "avg_rent_3br": 4900,
+        "listings_count": 312,
+        "price_trend": "up",
+        "source": "Yad2"
+      },
+      "market_analytics": {
+        "market_index": 68.2,
+        "price_change_1y": 6.2,
+        "demand_level": "medium",
+        "supply_level": "high",
+        "avg_days_on_market": 68,
+        "neighborhood_scores": {
+          "schools": 7.9,
+          "transportation": 6.8,
+          "amenities": 7.5,
+          "safety": 7.8
+        },
+        "source": "Madlan"
+      },
+      "cost_of_living": {
+        "housing": {
+          "rent_1br_center": 3600,
+          "rent_1br_outside": 3000,
+          "rent_3br_center": 5300,
+          "rent_3br_outside": 4600,
+          "price_per_sqm_center": 19500,
+          "price_per_sqm_outside": 16500
+        },
+        "groceries": {
+          "monthly": 3400,
+          "weekly": 850
+        },
+        "transportation": {
+          "monthly_pass": 240,
+          "taxi_start": 12,
+          "taxi_per_km": 5.5,
+          "gasoline_liter": 7.2
+        },
+        "utilities": {
+          "electricity": 420,
+          "water": 170,
+          "internet": 110,
+          "phone": 50,
+          "total": 750
+        },
+        "dining": {
+          "inexpensive_meal": 60,
+          "mid_range_meal_2p": 240,
+          "coffee": 14
+        },
+        "total_monthly": 10150,
+        "cost_index": 75.3,
+        "quality_of_life_index": 138.2,
+        "source": "Numbeo"
+      }
+    },
+    {
+      "city": "haifa",
+      "last_updated": "2025-10-22T08:12:57.965107",
+      "data_sources": [
+        {
+          "name": "Yad2",
+          "url": "https://www.yad2.co.il/realestate",
+          "type": "Property Listings"
+        },
+        {
+          "name": "Madlan",
+          "url": "https://www.madlan.co.il",
+          "type": "Market Analytics"
+        },
+        {
+          "name": "Numbeo",
+          "url": "https://www.numbeo.com/cost-of-living",
+          "type": "Cost of Living"
+        }
+      ],
+      "property_data": {
+        "avg_price_per_sqm": 16500,
+        "avg_rent_3br": 4500,
+        "listings_count": 278,
+        "price_trend": "stable",
+        "source": "Yad2"
+      },
+      "market_analytics": {
+        "market_index": 65.9,
+        "price_change_1y": 2.9,
+        "demand_level": "medium",
+        "supply_level": "high",
+        "avg_days_on_market": 71,
+        "neighborhood_scores": {
+          "schools": 8.3,
+          "transportation": 8.1,
+          "amenities": 8.4,
+          "safety": 8.0
+        },
+        "source": "Madlan"
+      },
+      "cost_of_living": {
+        "housing": {
+          "rent_1br_center": 3400,
+          "rent_1br_outside": 2800,
+          "rent_3br_center": 4900,
+          "rent_3br_outside": 4200,
+          "price_per_sqm_center": 18000,
+          "price_per_sqm_outside": 15500
+        },
+        "groceries": {
+          "monthly": 3300,
+          "weekly": 825
+        },
+        "transportation": {
+          "monthly_pass": 230,
+          "taxi_start": 12,
+          "taxi_per_km": 5.5,
+          "gasoline_liter": 7.2
+        },
+        "utilities": {
+          "electricity": 400,
+          "water": 160,
+          "internet": 110,
+          "phone": 50,
+          "total": 720
+        },
+        "dining": {
+          "inexpensive_meal": 55,
+          "mid_range_meal_2p": 230,
+          "coffee": 13
+        },
+        "total_monthly": 9500,
+        "cost_index": 71.8,
+        "quality_of_life_index": 145.9,
+        "source": "Numbeo"
+      }
+    }
+  ]
+}

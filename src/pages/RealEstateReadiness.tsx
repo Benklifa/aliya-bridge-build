@@ -320,8 +320,19 @@ const RealEstateReadiness = () => {
 
         {/* Community Match Table */}
         <Card className="p-6 print:break-inside-avoid">
-          <h3 className="text-2xl font-serif font-bold text-primary mb-4">🏘️ Community Match Recommendations</h3>
-          <p className="text-gray-600 mb-6">Based on your responses, here are the top communities that match your preferences and readiness level:</p>
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h3 className="text-2xl font-serif font-bold text-primary">🏘️ Community Match Recommendations</h3>
+              <p className="text-gray-600 mt-2">Based on your responses, here are the top communities that match your preferences and readiness level.</p>
+            </div>
+            <div className="text-right">
+              <div className="inline-flex items-center gap-2 bg-green-50 px-3 py-1 rounded-full text-xs">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                <span className="text-green-700 font-medium">Live Data</span>
+              </div>
+              <p className="text-xs text-gray-500 mt-1">Updated weekly</p>
+            </div>
+          </div>
           
           <div className="space-y-6">
             {communityMatches.map((community, idx) => (
@@ -437,6 +448,32 @@ const RealEstateReadiness = () => {
             </table>
           </div>
           <p className="text-xs text-gray-500 mt-4">* Estimates based on current market data. Actual costs may vary based on lifestyle and specific location within each city.</p>
+          
+          {/* Data Sources Attribution */}
+          <div className="mt-6 pt-6 border-t border-gray-200">
+            <h4 className="text-sm font-semibold text-gray-700 mb-3">📊 Data Sources</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div className="bg-gray-50 p-3 rounded">
+                <a href="https://www.yad2.co.il/realestate" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
+                  Yad2
+                </a>
+                <p className="text-gray-600 mt-1">Property listings and market prices</p>
+              </div>
+              <div className="bg-gray-50 p-3 rounded">
+                <a href="https://www.madlan.co.il" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
+                  Madlan
+                </a>
+                <p className="text-gray-600 mt-1">Market analytics and trends</p>
+              </div>
+              <div className="bg-gray-50 p-3 rounded">
+                <a href="https://www.numbeo.com/cost-of-living" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary hover:underline">
+                  Numbeo
+                </a>
+                <p className="text-gray-600 mt-1">Cost-of-living data</p>
+              </div>
+            </div>
+            <p className="text-xs text-gray-500 mt-3 italic">Data updated weekly • Last update: {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</p>
+          </div>
         </Card>
 
         {/* Priority Areas & Recommendations */}
