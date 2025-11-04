@@ -14,7 +14,7 @@ const Navigation = () => {
     { name: "Real Estate Readiness", path: "/real-estate-readiness" },
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "Events", path: "/events" },
+    // { name: "Events", path: "/events" }, // Temporarily hidden - uncomment to restore
     { name: "In the News", path: "/news" },
     { name: "FAQ", path: "/faq" },
     { name: "Contact", path: "/contact" },
