@@ -16,7 +16,7 @@ const Navigation = () => {
     { name: "Services", path: "/services" },
     // { name: "Events", path: "/events" }, // Temporarily hidden - uncomment to restore
     { name: "In the News", path: "/news" },
-    { name: "FAQ", path: "/faq" },
+    // { name: "FAQ", path: "/faq" }, // Temporarily hidden - uncomment to restore
     { name: "Contact", path: "/contact" },
   ];
 
