@@ -13,7 +13,7 @@ const Navigation = () => {
     { name: "Readiness Score", path: "/readiness" },
     // { name: "Real Estate Readiness", path: "/real-estate-readiness" }, // Temporarily hidden - uncomment to restore
     { name: "About Us", path: "/about" },
-    { name: "Services", path: "/services" },
+    // { name: "Services", path: "/services" }, // Temporarily hidden - uncomment to restore
     // { name: "Events", path: "/events" }, // Temporarily hidden - uncomment to restore
     { name: "In the News", path: "/news" },
     // { name: "FAQ", path: "/faq" }, // Temporarily hidden - uncomment to restore
