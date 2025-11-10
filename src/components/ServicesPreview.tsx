@@ -74,16 +74,6 @@ const ServicesPreview = () => {
               );
             })}
           </div>
-
-          <div className="text-center">
-            <Link 
-              to="/services"
-              className="inline-flex items-center space-x-2 text-accent hover:text-accent/80 font-medium"
-            >
-              <span>View All Services</span>
-              <ArrowRight size={16} />
-            </Link>
-          </div>
         </div>
       </div>
     </section>

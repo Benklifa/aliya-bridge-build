@@ -9,7 +9,7 @@ const AliyaProjectPlanning = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-4xl md:text-5xl font-bold mb-6">
-              Aliyah Project Management
+              Aliya Project Management
             </h1>
             <p className="text-xl md:text-2xl text-gold-300">
               Planning and Hands-on logistics support
@@ -25,7 +25,7 @@ const AliyaProjectPlanning = () => {
             {/* Introduction */}
             <div className="prose prose-lg max-w-none mb-12">
               <p className="text-lg leading-relaxed text-white mb-6">
-                Making Aliyah isn't just a move — it's a complete life transition. Between paperwork, housing, schools, healthcare, banking, and budgets, it's easy to feel lost. Many expect Nefesh B'Nefesh or an absorption center to handle the details, only to discover that much of the process falls on their shoulders.
+                Making Aliya isn't just a move — it's a complete life transition. Between paperwork, housing, schools, healthcare, banking, and budgets, it's easy to feel lost. Many expect Nefesh B'Nefesh or an absorption center to handle the details, only to discover that much of the process falls on their shoulders.
               </p>
               
               <p className="text-lg leading-relaxed text-white mb-6">
@@ -33,7 +33,7 @@ const AliyaProjectPlanning = () => {
               </p>
 
               <p className="text-lg leading-relaxed text-white mb-8">
-                We start with an in-depth conversation about the life you want in Israel — where you see yourself living, what lifestyle you hope to maintain, and how your finances can support it. Then we project-manage your Aliyah:
+                We start with an in-depth conversation about the life you want in Israel — where you see yourself living, what lifestyle you hope to maintain, and how your finances can support it. Then we project-manage your Aliya:
               </p>
             </div>
 
@@ -102,17 +102,17 @@ const AliyaProjectPlanning = () => {
             {/* Gantt Chart Placeholder */}
             <div className="bg-white rounded-lg card-shadow p-8 mb-12">
               <h3 className="font-serif text-2xl font-bold text-primary mb-6 text-center">
-                Your Aliyah Timeline
+                Your Aliya Timeline
               </h3>
               <div className="bg-navy-50 rounded-lg p-8 flex items-center justify-center min-h-[400px]">
                 <img 
                   src="/aliya-gantt-chart.png" 
-                  alt="Aliyah Project Timeline Gantt Chart" 
+                  alt="Aliya Project Timeline Gantt Chart" 
                   className="w-full h-auto object-contain"
                 />
               </div>
               <p className="text-sm text-muted-foreground text-center mt-4">
-                Sample Aliyah project timeline showing key milestones and tasks
+                Sample Aliya project timeline showing key milestones and tasks
               </p>
             </div>
 
