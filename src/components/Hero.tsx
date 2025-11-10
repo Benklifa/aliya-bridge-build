@@ -21,28 +21,44 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-white fade-in max-w-3xl mx-auto drop-shadow-lg">
-            Start planning now to achieve the lifestyle you want - now and later.
+            Personalized Financial and Logistical support - before, during and happily-ever-after
           </p>
         </div>
         
         {/* Large spacer to push buttons below the road sign */}
         <div className="flex-grow min-h-[250px]"></div>
         
-        {/* Buttons positioned lower below the road sign with more spacing */}
-        <div className="flex flex-col sm:flex-row gap-8 justify-center items-center fade-in pb-12">
+        {/* Buttons in 2×2 grid positioned lower below the road sign */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto fade-in pb-12">
+          <Link 
+            to="/framework" 
+            className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
+          >
+            <span>Financial Planning</span>
+            <ArrowRight size={20} />
+          </Link>
+          
+          <Link 
+            to="/aliya-project-planning" 
+            className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
+          >
+            <span>Aliya Project Planning</span>
+            <ArrowRight size={20} />
+          </Link>
+          
           <Link 
             to="/contact" 
-            className="btn-gold inline-flex items-center space-x-2 px-8 py-4 rounded-md font-semibold text-lg hover:scale-105 transition-transform"
+            className="btn-gold inline-flex items-center justify-center space-x-2 px-6 py-4 rounded-md font-semibold text-lg hover:scale-105 transition-transform"
           >
             <Calendar size={20} />
             <span>Schedule a Free Consultation</span>
           </Link>
           
           <Link 
-            to="/framework" 
-            className="inline-flex items-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-8 py-4 rounded-md font-medium text-lg"
+            to="/readiness" 
+            className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
           >
-            <span>Explore the A.L.I.Y.A Framework</span>
+            <span>Aliya Financial Readiness Quiz</span>
             <ArrowRight size={20} />
           </Link>
         </div>

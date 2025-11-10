@@ -12,6 +12,7 @@ const Navigation = () => {
     { name: "A.L.I.Y.A Framework", path: "/framework" },
     { name: "Readiness Score", path: "/readiness" },
     // { name: "Real Estate Readiness", path: "/real-estate-readiness" }, // Temporarily hidden - uncomment to restore
+    { name: "Aliya Project Planning", path: "/aliya-project-planning" },
     { name: "About Us", path: "/about" },
     // { name: "Services", path: "/services" }, // Temporarily hidden - uncomment to restore
     // { name: "Events", path: "/events" }, // Temporarily hidden - uncomment to restore

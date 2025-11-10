@@ -99,7 +99,7 @@ const AliyaBuddy = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="aliya-buddy-button fixed left-6 top-1/2 z-50 bg-white hover:bg-gray-50 rounded-full shadow-2xl transition-all hover:scale-105 hover:animate-bounce border-4 border-primary"
+          className="aliya-buddy-button fixed left-6 top-1/2 z-50 bg-white hover:bg-gray-50 rounded-full shadow-2xl transition-all hover:scale-105 border-4 border-primary animate-bounce"
           aria-label="Open Aliya Buddy Chat"
           style={{ 
             width: '120px', 

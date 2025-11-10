@@ -27,19 +27,24 @@ const ServicesPreview = () => {
       icon: FileText,
       title: "Complete Aliyah Planning",
       description: "Full budgeting and retirement plan for Aliyah or dual-country retirement.",
+    },
+    {
+      icon: Calendar,
+      title: "Aliya Project Management",
+      description: "Budgets, action items, checklists and deadlines to align with your desired timeline – completely customized for you.",
     }
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <section className="py-16 bg-primary">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl font-bold text-primary mb-4">
+            <h2 className="font-serif text-3xl font-bold text-white mb-4">
               Our Services
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive financial solutions for every stage of your Aliyah journey
+            <p className="text-lg text-white max-w-2xl mx-auto">
+              Comprehensive solutions for every stage of your Aliyah journey
             </p>
           </div>
 
