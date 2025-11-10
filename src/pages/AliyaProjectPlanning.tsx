@@ -19,27 +19,27 @@ const AliyaProjectPlanning = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-primary">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Introduction */}
             <div className="prose prose-lg max-w-none mb-12">
-              <p className="text-lg leading-relaxed text-muted-foreground mb-6">
+              <p className="text-lg leading-relaxed text-white mb-6">
                 Making Aliyah isn't just a move — it's a complete life transition. Between paperwork, housing, schools, healthcare, banking, and budgets, it's easy to feel lost. Many expect Nefesh B'Nefesh or an absorption center to handle the details, only to discover that much of the process falls on their shoulders.
               </p>
               
-              <p className="text-lg leading-relaxed text-muted-foreground mb-6">
-                <strong className="text-primary">That's where Aliya Financial steps in.</strong>
+              <p className="text-lg leading-relaxed text-white mb-6">
+                <strong className="text-gold-300">That's where Aliya Financial steps in.</strong>
               </p>
 
-              <p className="text-lg leading-relaxed text-muted-foreground mb-8">
+              <p className="text-lg leading-relaxed text-white mb-8">
                 We start with an in-depth conversation about the life you want in Israel — where you see yourself living, what lifestyle you hope to maintain, and how your finances can support it. Then we project-manage your Aliyah:
               </p>
             </div>
 
             {/* Key Services Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-              <div className="bg-card rounded-lg card-shadow p-6">
+              <div className="bg-white rounded-lg card-shadow p-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Calendar className="text-accent" size={24} />
@@ -51,7 +51,7 @@ const AliyaProjectPlanning = () => {
                 </div>
               </div>
 
-              <div className="bg-card rounded-lg card-shadow p-6">
+              <div className="bg-white rounded-lg card-shadow p-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <FileText className="text-accent" size={24} />
@@ -63,7 +63,7 @@ const AliyaProjectPlanning = () => {
                 </div>
               </div>
 
-              <div className="bg-card rounded-lg card-shadow p-6">
+              <div className="bg-white rounded-lg card-shadow p-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Users className="text-accent" size={24} />
@@ -75,7 +75,7 @@ const AliyaProjectPlanning = () => {
                 </div>
               </div>
 
-              <div className="bg-card rounded-lg card-shadow p-6">
+              <div className="bg-white rounded-lg card-shadow p-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <CheckSquare className="text-accent" size={24} />
@@ -89,18 +89,18 @@ const AliyaProjectPlanning = () => {
             </div>
 
             {/* Additional Services */}
-            <div className="bg-navy-50 rounded-lg p-8 mb-12">
-              <h3 className="font-serif text-2xl font-bold text-primary mb-4">Keeping You On Track</h3>
-              <p className="text-lg text-muted-foreground mb-6">
+            <div className="bg-navy-800 rounded-lg p-8 mb-12">
+              <h3 className="font-serif text-2xl font-bold text-white mb-4">Keeping You On Track</h3>
+              <p className="text-lg text-white mb-6">
                 We keep you on track with updates and reminders throughout your journey.
               </p>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-white">
                 Meanwhile, as financial advisors licensed in both the U.S. and Israel, we align every decision with your long-term financial goals — investments, taxes, insurance, pensions, and retirement planning.
               </p>
             </div>
 
             {/* Gantt Chart Placeholder */}
-            <div className="bg-card rounded-lg card-shadow p-8 mb-12">
+            <div className="bg-white rounded-lg card-shadow p-8 mb-12">
               <h3 className="font-serif text-2xl font-bold text-primary mb-6 text-center">
                 Your Aliyah Timeline
               </h3>
