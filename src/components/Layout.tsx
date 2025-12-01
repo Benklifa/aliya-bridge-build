@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Mail, MapPin, Menu, X } from "lucide-react";
+import { Mail, MapPin, Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
 import AliyaBuddy from "./AliyaBuddy";
 
@@ -112,6 +112,10 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <Mail size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
                 <span className="break-all">info@aliyafinancial.com</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
+                <span>516-639-7000</span>
               </div>
             </div>
           </div>
