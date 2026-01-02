@@ -36,25 +36,44 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission (replace with actual email sending logic)
+    // Send form data to Formspree (delivers to Michael@aliyafinancial.com and Lisa@aliyafinancial.com)
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setIsSubmitted(true);
-      toast({
-        title: "Message Sent Successfully",
-        description: "We'll get back to you within 24 hours.",
+      const response = await fetch("https://formspree.io/f/mjgkwkaz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          countryState: formData.countryState,
+          topic: formData.topic,
+          message: formData.message,
+          _replyto: formData.email,
+          _subject: `New Contact Form Submission - ${formData.topic || 'General Inquiry'}`
+        })
       });
-      
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        countryState: "",
-        topic: "",
-        message: ""
-      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast({
+          title: "Message Sent Successfully",
+          description: "We'll get back to you within 24 hours.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          countryState: "",
+          topic: "",
+          message: ""
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
       
     } catch (error) {
       toast({
