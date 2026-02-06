@@ -17,15 +17,21 @@ const Disclosures: React.FC = () => {
           </div>
 
           {/* Registration Status */}
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8 rounded-r-lg">
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8 rounded-r-lg">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Registration Status
+              Registration Status and Affiliations
             </h2>
             <p className="text-gray-800 mb-4">
-              <strong>Aliya Financial is currently applying for registration as an Investment Adviser with the State of New Jersey.</strong> Investment advisory services will only be offered after registration is approved by the New Jersey Bureau of Securities.
+              <strong>Current Advisory Services:</strong> Investment advisory services are offered through Prudential Financial Planning Services, a division of Pruco Securities, LLC ("Pruco"), pursuant to separate client agreements. Michael Benklifa is a registered representative of Pruco.
+            </p>
+            <p className="text-gray-800 mb-4">
+              <strong>Aliya Financial LLC Status:</strong> Aliya Financial LLC is an independent entity and is not affiliated with Pruco or any of its affiliates. Aliya Financial LLC is currently applying for registration as an Investment Adviser with the State of New Jersey.
+            </p>
+            <p className="text-gray-800 mb-4">
+              The educational content, planning tools, and services described on this website are offered by Aliya Financial LLC. No investment advisory services will be offered or provided by Aliya Financial LLC until its registration as an Investment Adviser is approved.
             </p>
             <p className="text-gray-800">
-              Until registration is approved, Aliya Financial is not authorized to provide investment advisory services. Information on this website is for educational purposes only.
+              Upon approval, advisory services will be offered exclusively through Aliya Financial LLC pursuant to a new and separate client agreement.
             </p>
           </div>
 
