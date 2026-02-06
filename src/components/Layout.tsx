@@ -181,17 +181,6 @@ const Layout = ({ children, hideNav = false, hideBuddy = false }: LayoutProps) =
   return (
     <div className="min-h-screen flex flex-col">
       {!hideNav && <Navigation />}
-      {/* Pre-Registration Disclaimer Banner */}
-      <div className="bg-yellow-50 border-b-2 border-yellow-400 py-3 px-4">
-        <div className="container mx-auto">
-          <p className="text-sm text-gray-800 text-center">
-            <strong>Important Notice:</strong> Aliya Financial is currently applying for registration as an Investment Adviser with the State of New Jersey. 
-            Investment advisory services will only be offered after registration is approved. 
-            Information on this website is for educational purposes only and does not constitute investment advice. 
-            <Link to="/disclosures" className="underline hover:text-blue-800 ml-1">Learn more</Link>
-          </p>
-        </div>
-      </div>
       <main className="flex-1">
         {children}
       </main>
