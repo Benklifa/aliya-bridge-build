@@ -122,10 +122,16 @@ const Contact = () => {
             <h1 className="font-serif text-5xl font-bold text-white mb-6">
               Contact Us
             </h1>
-            <p className="text-xl text-white leading-relaxed">
+            <p className="text-xl text-white leading-relaxed mb-4">
               Tell us where you are in your Aliyah journey and how we can help 
               you achieve your cross-border financial goals.
             </p>
+            <div className="bg-yellow-100 border-2 border-yellow-400 rounded-lg p-4 mt-6 max-w-3xl mx-auto">
+              <p className="text-sm text-gray-800">
+                <strong>Please Note:</strong> Aliya Financial is currently applying for registration as an Investment Adviser. 
+                Advisory services will only be offered after registration approval. This inquiry is for informational purposes only.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -294,7 +300,7 @@ const Contact = () => {
                   </li>
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                    <span>Initial consultation is complimentary</span>
+                    <span>Initial consultation is for informational purposes only</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />

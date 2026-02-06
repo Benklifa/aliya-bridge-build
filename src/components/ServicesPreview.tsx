@@ -6,32 +6,32 @@ const ServicesPreview = () => {
     {
       icon: PieChart,
       title: "Financial Planning",
-      description: "Comprehensive cross-border financial strategies tailored for Aliyah transitions.",
+      description: "Upon registration approval: Comprehensive cross-border financial strategies tailored for Aliyah transitions.",
     },
     {
       icon: TrendingUp,
       title: "Investment Management", 
-      description: "Professional portfolio management with dual-country tax optimization.",
+      description: "Upon registration approval: Professional portfolio management with dual-country tax optimization. Investing involves risk.",
     },
     {
       icon: Briefcase,
       title: "Alternative Investments",
-      description: "For qualified investors seeking diversified income strategies.",
+      description: "Upon registration approval: For accredited investors only. Alternative investments involve substantial risk and may not be suitable for all investors.",
     },
     {
       icon: Calendar,
       title: "Retirement Income Strategies",
-      description: "Sustainable income planning for U.S.-Israel retirement scenarios.",
+      description: "Upon registration approval: Sustainable income planning for U.S.-Israel retirement scenarios.",
     },
     {
       icon: FileText,
       title: "Complete Aliyah Planning",
-      description: "Full budgeting and retirement plan for Aliyah or dual-country retirement.",
+      description: "Upon registration approval: Full budgeting and retirement plan for Aliyah or dual-country retirement.",
     },
     {
       icon: Calendar,
       title: "Aliya Project Management",
-      description: "Budgets, action items, checklists and deadlines to align with your desired timeline – completely customized for you.",
+      description: "Educational planning tools and resources. Full project management services available upon registration approval.",
     }
   ];
 

@@ -154,12 +154,16 @@ const Footer = () => {
 
         {/* Disclaimer */}
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            Educational content. Not legal, tax, or investment advice. Investing involves risk. 
-            Past performance does not guarantee future results.
+          <p className="text-xs text-muted-foreground leading-relaxed mb-3">
+            <strong>Important Disclosure:</strong> Aliya Financial is currently applying for registration as an Investment Adviser with the State of New Jersey and is not yet authorized to provide investment advisory services. 
+            Educational content only. Not legal, tax, or investment advice. 
+            Investing involves risk, including possible loss of principal. Past performance does not guarantee future results. 
+            Cross-border investing involves additional risks including currency fluctuations, political and economic instability, and differences in accounting standards and regulations. 
+            International investments may not be suitable for all investors. 
+            Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> before making any investment decisions.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
-            © 2024 Aliya Financial. All rights reserved.
+            © 2026 Aliya Financial. All rights reserved.
           </p>
         </div>
       </div>
@@ -177,6 +181,17 @@ const Layout = ({ children, hideNav = false, hideBuddy = false }: LayoutProps) =
   return (
     <div className="min-h-screen flex flex-col">
       {!hideNav && <Navigation />}
+      {/* Pre-Registration Disclaimer Banner */}
+      <div className="bg-yellow-50 border-b-2 border-yellow-400 py-3 px-4">
+        <div className="container mx-auto">
+          <p className="text-sm text-gray-800 text-center">
+            <strong>Important Notice:</strong> Aliya Financial is currently applying for registration as an Investment Adviser with the State of New Jersey. 
+            Investment advisory services will only be offered after registration is approved. 
+            Information on this website is for educational purposes only and does not constitute investment advice. 
+            <Link to="/disclosures" className="underline hover:text-blue-800 ml-1">Learn more</Link>
+          </p>
+        </div>
+      </div>
       <main className="flex-1">
         {children}
       </main>

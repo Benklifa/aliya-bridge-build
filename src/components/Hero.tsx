@@ -51,7 +51,7 @@ const Hero = () => {
             className="btn-gold inline-flex items-center justify-center space-x-2 px-6 py-4 rounded-md font-semibold text-lg hover:scale-105 transition-transform"
           >
             <Calendar size={20} />
-            <span>Schedule a Free Consultation</span>
+            <span>Request Information</span>
           </Link>
           
           <Link 
