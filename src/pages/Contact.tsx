@@ -11,6 +11,7 @@ const Contact = () => {
     phone: "",
     countryState: "",
     topic: "",
+    referralSource: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,6 +25,21 @@ const Contact = () => {
     "Retirement Income Strategies",
     "Complete Aliyah Planning",
     "General Inquiry",
+    "Other"
+  ];
+
+  const referralSources = [
+    "Google Search",
+    "Bing Search",
+    "Facebook",
+    "Instagram",
+    "LinkedIn",
+    "Twitter/X",
+    "YouTube",
+    "Friend or Family Referral",
+    "Professional Referral",
+    "Community Event",
+    "Nefesh B'Nefesh",
     "Other"
   ];
 
@@ -49,6 +65,7 @@ const Contact = () => {
           phone: formData.phone,
           countryState: formData.countryState,
           topic: formData.topic,
+          referralSource: formData.referralSource,
           message: formData.message,
           _replyto: formData.email,
           _subject: `New Contact Form Submission - ${formData.topic || 'General Inquiry'}`
@@ -69,6 +86,7 @@ const Contact = () => {
           phone: "",
           countryState: "",
           topic: "",
+          referralSource: "",
           message: ""
         });
       } else {
@@ -218,6 +236,24 @@ const Contact = () => {
                     <option value="">Select a topic...</option>
                     {topics.map(topic => (
                       <option key={topic} value={topic}>{topic}</option>
+                    ))}
+                  </select>
+                </div>
+                
+                <div>
+                  <label htmlFor="referralSource" className="block text-sm font-medium text-black mb-2">
+                    How did you hear about us?
+                  </label>
+                  <select
+                    id="referralSource"
+                    name="referralSource"
+                    value={formData.referralSource}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                  >
+                    <option value="">Select an option...</option>
+                    {referralSources.map(source => (
+                      <option key={source} value={source}>{source}</option>
                     ))}
                   </select>
                 </div>
