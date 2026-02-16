@@ -32,39 +32,25 @@ const Disclosures: React.FC = () => {
             </p>
           </div>
 
-          {/* Form ADV */}
+          {/* Regulatory Filings */}
           <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
             <h2 className="text-2xl font-bold text-navy-900 mb-4">
-              Form ADV
+              Regulatory Filings
             </h2>
             <p className="text-gray-700 mb-4">
-              Upon registration approval, our Form ADV Part 2A (firm brochure) will be available here and through the SEC's Investment Adviser Public Disclosure (IAPD) database at{' '}
+              Our Form ADV Part 2A (Disclosure Brochure) contains detailed information regarding our services (following registration approval), fees, and business practices. A copy is available upon request and will be provided to all prospective clients before any advisory relationship begins. Fees are negotiable and will be clearly outlined in a written Investment Advisory Agreement and described in the Form ADV Part 2A.
+            </p>
+            <p className="text-gray-700">
+              Additional information will be available on the Investment Adviser Public Disclosure website{' '}
               <a 
                 href="https://adviserinfo.sec.gov/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
-                adviserinfo.sec.gov
-              </a>.
-            </p>
-            <p className="text-gray-700 mb-4">
-              Form ADV Part 2A contains important information about our firm, including our services, fees, conflicts of interest, and disciplinary history (if any).
-            </p>
-            <p className="text-gray-700 mb-4">
-              A copy of our written disclosure brochure is available upon request and will be provided to all prospective clients as required by state law. Additional information about the firm will be available on{' '}
-              <a 
-                href="https://www.adviserinfo.sec.gov/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline"
-              >
-                www.adviserinfo.sec.gov
+                (adviserinfo.sec.gov)
               </a>
               {' '}following registration approval.
-            </p>
-            <p className="text-gray-700">
-              <strong>Fees:</strong> Fees will be described in detail in the firm's Form ADV Part 2A disclosure brochure. Fees are negotiable and vary based on services provided.
             </p>
           </div>
 
@@ -122,7 +108,7 @@ const Disclosures: React.FC = () => {
               <li><strong>High Fees:</strong> Often involve higher fees than traditional investments</li>
             </ul>
             <p className="text-gray-700 mt-4">
-              Alternative investments are generally only suitable for sophisticated investors who fully understand the risks and can afford to lose their entire investment. <strong>Aliya Financial does not offer or recommend specific alternative investments.</strong> Any educational information provided is for general informational purposes only.
+              Educational content regarding alternative investments is provided for general awareness only. Alternative investments are generally only suitable for sophisticated investors who fully understand the risks and can afford to lose their entire investment. <strong>Any future discussions in this category, if offered, would be limited to eligible investors under applicable law.</strong> Aliya Financial does not offer, sell, or recommend specific alternative investment products at this time.
             </p>
           </div>
 
@@ -178,8 +164,11 @@ const Disclosures: React.FC = () => {
               </a>{' '}
               for information about how we collect, use, and protect your personal information.
             </p>
-            <p className="text-gray-700">
+            <p className="text-gray-700 mb-4">
               <strong>We protect non-public personal information in accordance with the Gramm-Leach-Bliley Act and applicable state regulations.</strong> We are committed to maintaining the confidentiality and security of client information and will provide our Privacy Notice to all clients upon establishment of an advisory relationship.
+            </p>
+            <p className="text-gray-700">
+              <strong>Cybersecurity Notice:</strong> Aliya Financial maintains written cybersecurity policies and procedures designed to protect non-public personal information. In the event of a data incident involving non-public personal information, the firm will provide notifications as required by applicable law and regulation.
             </p>
           </div>
 

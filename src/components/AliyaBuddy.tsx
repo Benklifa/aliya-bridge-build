@@ -207,10 +207,13 @@ const AliyaBuddy = () => {
             <div className="text-xs text-gray-600 mt-2 px-1 bg-yellow-50 border border-yellow-200 rounded p-2">
               <p className="font-semibold mb-1">Important Disclaimer:</p>
               <p className="leading-relaxed mb-2">
-                Aliya Buddy is an automated educational information tool. It does not provide investment advice, recommendations, or individualized financial guidance. Responses are general information only and may not apply to your specific situation.
+                Aliya Buddy is an automated educational information tool. It does not provide investment advice, recommendations, or individualized financial, tax, or legal guidance. Responses are general information only and may not apply to your specific situation.
+              </p>
+              <p className="leading-relaxed mb-2">
+                <strong>Do not submit confidential or account-specific information.</strong> Use of this tool does not create an advisory relationship.
               </p>
               <p className="leading-relaxed">
-                Aliya Financial LLC is applying for registration as an Investment Adviser in the State of New Jersey and does not provide advisory services until registration is approved.
+                Aliya Financial LLC does not provide advisory services until registration is approved.
               </p>
             </div>
           </div>
