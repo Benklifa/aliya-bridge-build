@@ -72,8 +72,8 @@ const Framework = () => {
             </div>
           </div>
 
-          {/* Framework Cards - Responsive Grid */}
-          <div className="max-w-6xl mx-auto">
+          {/* Framework Details Cards - Temporarily hidden for regulatory approval */}
+          {/* <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {frameworkElements.map((element) => (
                 <Link
@@ -83,13 +83,11 @@ const Framework = () => {
                   onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                 >
                   <div className={`bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 md:p-8 border-l-4 ${element.color} h-full flex flex-col justify-between`}>
-                    {/* Title */}
                     <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4 flex items-center">
                       <span className="text-accent mr-2">{element.letter}.</span>
                       {element.title}
                     </h3>
                     
-                    {/* CTA Link */}
                     <div className="flex items-center text-accent font-semibold group-hover:text-accent/80 transition-colors">
                       <span>Learn more about {element.title}</span>
                       <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -98,7 +96,7 @@ const Framework = () => {
                 </Link>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </Layout>
