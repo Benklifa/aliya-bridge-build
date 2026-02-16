@@ -33,7 +33,7 @@ const AliyaProjectPlanning = () => {
               </p>
 
               <p className="text-lg leading-relaxed text-white mb-8">
-                We discuss planning considerations for the life you want in Israel — where you see yourself living, what lifestyle you hope to maintain, and how your finances can support it. Then we discuss planning considerations for managing an Aliya transition:
+                We provide general planning considerations people commonly evaluate when moving to Israel — where you see yourself living, what lifestyle you hope to maintain, and how your finances can support it. Then we discuss planning considerations for managing an Aliya transition:
               </p>
             </div>
 
@@ -92,7 +92,7 @@ const AliyaProjectPlanning = () => {
             <div className="bg-navy-800 rounded-lg p-8 mb-12">
               <h3 className="font-serif text-2xl font-bold text-white mb-4">Keeping You On Track</h3>
               <p className="text-lg text-white mb-6">
-                We discuss planning considerations to help keep you on track with updates and reminders throughout your journey.
+                We discuss planning considerations to provides general organizational reminders typically involved in the Aliya process.
               </p>
               <p className="text-lg text-white">
                 Following registration approval, the firm expects to provide guidance intended to help align decisions with long-term financial goals — investments, taxes, insurance, pensions, and retirement planning.

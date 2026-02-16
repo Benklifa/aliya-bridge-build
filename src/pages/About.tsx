@@ -57,8 +57,8 @@ const About = () => {
               About Aliya Financial
             </h1>
             <p className="text-xl text-white leading-relaxed">
-              Educational resources and planning tools for your cross-border financial journey, 
-              combining decades of experience with deep understanding 
+              Educational resources and planning tools for cross-border financial planning considerations, 
+              based on professional background and experience with deep understanding 
               of U.S.-Israel financial transitions.
             </p>
           </div>

@@ -21,12 +21,12 @@ const ServicesPreview = () => {
     {
       icon: Calendar,
       title: "Retirement Income Strategies",
-      description: "Following registration approval, the firm expects to offer sustainable income planning for U.S.-Israel retirement scenarios.",
+      description: "Following registration approval, the firm expects to offer retirement income planning concepts.",
     },
     {
       icon: FileText,
       title: "Complete Aliyah Planning",
-      description: "Following registration approval, prospective services may include full budgeting and retirement planning for Aliyah or dual-country retirement.",
+      description: "Following registration approval, prospective services may include comprehensive planning services for Aliyah or dual-country retirement.",
     },
     {
       icon: Calendar,
