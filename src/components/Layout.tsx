@@ -10,7 +10,7 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "A.L.I.Y.A Framework", path: "/framework" },
-    { name: "Readiness Score", path: "/readiness" },
+    // { name: "Readiness Score", path: "/readiness" }, // Temporarily hidden for regulatory approval - uncomment to restore
     // { name: "Real Estate Readiness", path: "/real-estate-readiness" }, // Temporarily hidden - uncomment to restore
     { name: "Aliya Project Planning", path: "/aliya-project-planning" },
     { name: "About Us", path: "/about" },
@@ -184,7 +184,8 @@ const Layout = ({ children, hideNav = false, hideBuddy = false }: LayoutProps) =
         {children}
       </main>
       <Footer />
-      {!hideBuddy && <AliyaBuddy />}
+      {/* Temporarily hidden for regulatory approval - uncomment to restore */}
+      {/* {!hideBuddy && <AliyaBuddy />} */}
     </div>
   );
 };
