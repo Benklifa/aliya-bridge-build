@@ -11,7 +11,7 @@ const CTAStrip = () => {
           </h2>
           
           <p className="text-xl text-gray-800 mb-8 max-w-2xl mx-auto">
-            Request an introductory educational meeting to discuss general cross-border financial planning considerations.
+            Request an educational information session to discuss general cross-border financial planning considerations.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -20,7 +20,7 @@ const CTAStrip = () => {
               className="btn-gold inline-flex items-center space-x-2 px-8 py-4 rounded-md font-semibold text-lg hover:scale-105 transition-transform"
             >
               <Calendar size={20} />
-              <span>Request Information</span>
+              <span>Request Educational Materials</span>
             </Link>
             
             <Link 

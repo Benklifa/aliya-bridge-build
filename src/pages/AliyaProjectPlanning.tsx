@@ -33,7 +33,7 @@ const AliyaProjectPlanning = () => {
               </p>
 
               <p className="text-lg leading-relaxed text-white mb-8">
-                We start with an in-depth conversation about the life you want in Israel — where you see yourself living, what lifestyle you hope to maintain, and how your finances can support it. Then we project-manage your Aliya:
+                We discuss planning considerations for the life you want in Israel — where you see yourself living, what lifestyle you hope to maintain, and how your finances can support it. Then we discuss planning considerations for managing an Aliya transition:
               </p>
             </div>
 
@@ -92,10 +92,10 @@ const AliyaProjectPlanning = () => {
             <div className="bg-navy-800 rounded-lg p-8 mb-12">
               <h3 className="font-serif text-2xl font-bold text-white mb-4">Keeping You On Track</h3>
               <p className="text-lg text-white mb-6">
-                We keep you on track with updates and reminders throughout your journey.
+                We discuss planning considerations to help keep you on track with updates and reminders throughout your journey.
               </p>
               <p className="text-lg text-white">
-                Meanwhile, as financial advisors licensed in both the U.S. and Israel, we align every decision with your long-term financial goals — investments, taxes, insurance, pensions, and retirement planning.
+                Following registration approval, the firm expects to provide guidance intended to help align decisions with long-term financial goals — investments, taxes, insurance, pensions, and retirement planning.
               </p>
             </div>
 
@@ -122,7 +122,7 @@ const AliyaProjectPlanning = () => {
                 Putting the Puzzle Together
               </h3>
               <p className="text-lg leading-relaxed">
-                Together, we help you put the puzzle together — so your move to Israel is not just possible, but purposeful, calm, and financially sound.
+                Together, we discuss how to put the puzzle together — so your move to Israel can be purposeful, calm, and financially sound.
               </p>
             </div>
           </div>

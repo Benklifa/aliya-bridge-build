@@ -5,7 +5,7 @@ const About = () => {
   const teamMembers = [
     {
       name: "Michael Hanania Benklifa",
-      title: "Licensed Financial Advisor",
+      title: "Financial professional — registration pending",
       credentials: "Series 7, 63, 65 | Life & Health Insurance | MBA",
       image: "https://via.placeholder.com/300x300/1C2D41/C8A95E?text=Michael+Benklifa",
       bio: "Michael Hanania Benklifa holds Series 7, 63, and 65 registrations, as well as Life & Health Insurance licenses in the U.S. He holds dual MBAs from Texas A&M University and ESC, and is fluent in English, Hebrew, and French.\n\nHis background includes cross-border financial planning education, multi-currency portfolio considerations, and general tax-aware planning education. Securities licensing in Israel is pending regulatory approval.\n\nNote: Certain investment strategies, including derivatives and alternatives, involve significant risk and may not be suitable for all investors.",
@@ -34,8 +34,8 @@ const About = () => {
 
   const whyReasons = [
     {
-      title: "Licensed Expertise",
-      description: "Proper licensing and credentials in U.S. markets; Israeli licensing pending approval"
+      title: "Professional Background",
+      description: "Professional credentials in U.S. markets; Israeli licensing pending approval"
     },
     {
       title: "Cross-Border Focus",

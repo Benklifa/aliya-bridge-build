@@ -52,8 +52,8 @@ const Framework = () => {
             </h1>
             <p className="text-xl text-white leading-relaxed">
               Our comprehensive methodology for cross-border financial planning, 
-              designed specifically to ensure your Aliyah transition supports 
-              the lifestyle you want—both now and in retirement.
+              designed specifically to help evaluate whether your Aliyah transition supports 
+              your desired lifestyle—both now and in retirement.
             </p>
           </div>
         </div>

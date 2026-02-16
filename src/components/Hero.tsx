@@ -17,7 +17,7 @@ const Hero = () => {
         {/* Text content positioned higher above the road sign */}
         <div className="max-w-4xl mx-auto pt-4">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 fade-in drop-shadow-lg">
-            Putting the puzzle together<br />for a successful Aliya
+            Putting the puzzle together<br />for financial preparation for Aliya
           </h1>
           
           <p className="text-xl md:text-2xl text-white fade-in max-w-3xl mx-auto drop-shadow-lg">
@@ -51,7 +51,7 @@ const Hero = () => {
             className="btn-gold inline-flex items-center justify-center space-x-2 px-6 py-4 rounded-md font-semibold text-lg hover:scale-105 transition-transform"
           >
             <Calendar size={20} />
-            <span>Request Information</span>
+            <span>Request Educational Materials</span>
           </Link>
           
           <Link 

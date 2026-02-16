@@ -141,7 +141,7 @@ const Contact = () => {
               Contact Us
             </h1>
             <p className="text-xl text-white leading-relaxed mb-4">
-              Request an introductory educational meeting to learn about cross-border financial planning considerations.
+              Request an educational information session to learn about cross-border financial planning considerations.
             </p>
             <p className="text-sm text-white/90 italic">
               Information provided will be used only to respond to your inquiry. Submission does not establish an advisory relationship. No individualized investment advice will be provided prior to registration approval.
