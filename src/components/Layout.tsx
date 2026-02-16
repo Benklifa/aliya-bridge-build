@@ -155,12 +155,11 @@ const Footer = () => {
         {/* Disclaimer */}
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            <strong>Important Disclosures:</strong> Investment advisory services are offered through Prudential Financial Planning Services, a division of Pruco Securities, LLC ("Pruco"), pursuant to separate client agreements. Michael Benklifa is a registered representative of Pruco. 
-            Aliya Financial LLC is an independent entity and is not affiliated with Pruco or any of its affiliates. Aliya Financial LLC is currently applying for registration as an Investment Adviser with the State of New Jersey. 
-            No investment advisory services will be offered or provided by Aliya Financial LLC until its registration as an Investment Adviser is approved. 
+            <strong>Important Disclosure:</strong> Aliya Financial LLC is applying for registration as an Investment Adviser in the State of New Jersey. Registration does not imply a certain level of skill or training. No investment advisory services are offered or provided until registration is approved. 
+            This website is for educational and informational purposes only. 
             Investing involves risk, including possible loss of principal. Past performance does not guarantee future results. 
             Cross-border investing involves additional risks including currency fluctuations, political and economic instability, and differences in accounting standards and regulations. 
-            Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> before making any investment decisions.
+            Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> for more information.
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             © 2026 Aliya Financial. All rights reserved.

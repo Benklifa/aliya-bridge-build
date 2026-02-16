@@ -15,8 +15,11 @@ const ReadinessScore = () => {
               </h1>
             </div>
             <p className="text-xl text-white leading-relaxed">
-              Take this 10-minute self-assessment to see how prepared you are for Aliyah. 
-              You'll receive a personalized readiness report with your top gaps and next steps.
+              Take this automated educational readiness assessment to see how prepared you are for Aliyah. 
+              You'll receive a general preparedness score with illustrative planning considerations.
+            </p>
+            <p className="text-sm text-white/90 italic mt-4">
+              For illustrative purposes only. Not personalized investment advice.
             </p>
           </div>
         </div>

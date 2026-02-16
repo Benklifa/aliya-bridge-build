@@ -8,12 +8,12 @@ const About = () => {
       title: "Licensed Financial Advisor",
       credentials: "Series 7, 63, 65 | Life & Health Insurance | MBA",
       image: "https://via.placeholder.com/300x300/1C2D41/C8A95E?text=Michael+Benklifa",
-      bio: "Michael Hanania Benklifa is a licensed financial advisor holding Series 7, 63, and 65 registrations, as well as Life & Health Insurance licenses in the U.S. He holds dual MBAs from Texas A&M University and ESC, and is fluent in English, Hebrew, and French.\n\nHis practice focuses on cross-border financial planning, including multi-currency portfolio management and tax-aware investment strategies. Securities licensing in Israel is pending regulatory approval.\n\nNote: Certain investment strategies, including derivatives and alternatives, involve significant risk and may not be suitable for all investors.",
+      bio: "Michael Hanania Benklifa holds Series 7, 63, and 65 registrations, as well as Life & Health Insurance licenses in the U.S. He holds dual MBAs from Texas A&M University and ESC, and is fluent in English, Hebrew, and French.\n\nHis background includes cross-border financial planning education, multi-currency portfolio considerations, and general tax-aware planning education. Securities licensing in Israel is pending regulatory approval.\n\nNote: Certain investment strategies, including derivatives and alternatives, involve significant risk and may not be suitable for all investors.",
       email: "Michael@AliyaFinancial.com",
       specialties: [
-        "Cross-border tax-aware planning",
-        "Multi-currency portfolio management",
-        "Retirement and estate planning for U.S.–Israel transitions"
+        "Cross-border tax-aware planning education",
+        "Multi-currency portfolio considerations",
+        "Retirement and estate planning education for U.S.–Israel transitions"
       ]
     },
     {
@@ -57,7 +57,7 @@ const About = () => {
               About Aliya Financial
             </h1>
             <p className="text-xl text-white leading-relaxed">
-              Expert guidance for your cross-border financial journey, 
+              Educational resources and planning tools for your cross-border financial journey, 
               combining decades of experience with deep understanding 
               of U.S.-Israel financial transitions.
             </p>

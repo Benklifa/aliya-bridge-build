@@ -140,9 +140,11 @@ const Contact = () => {
             <h1 className="font-serif text-5xl font-bold text-white mb-6">
               Contact Us
             </h1>
-            <p className="text-xl text-white leading-relaxed">
-              Tell us where you are in your Aliyah journey and how we can help 
-              you achieve your cross-border financial goals.
+            <p className="text-xl text-white leading-relaxed mb-4">
+              Request an introductory educational meeting to learn about cross-border financial planning considerations.
+            </p>
+            <p className="text-sm text-white/90 italic">
+              Information provided will be used only to respond to your inquiry. Submission does not establish an advisory relationship. No individualized investment advice will be provided prior to registration approval.
             </p>
           </div>
         </div>
@@ -326,7 +328,7 @@ const Contact = () => {
                 <ul className="space-y-3 text-sm text-black">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                    <span>We'll respond within 24 hours</span>
+                    <span>We aim to respond promptly, typically within 1-2 business days</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />

@@ -9,9 +9,14 @@ const News = () => {
             <h1 className="font-serif text-5xl font-bold text-white mb-6">
               In the News
             </h1>
-            <p className="text-xl text-white leading-relaxed">
-              Featured articles about Aliya Financial and our cross-border financial planning expertise.
+            <p className="text-xl text-white leading-relaxed mb-4">
+              Featured articles about Aliya Financial and cross-border financial planning education.
             </p>
+            <div className="bg-white/10 border border-white/30 rounded-lg p-4 mt-4 max-w-3xl mx-auto">
+              <p className="text-sm text-white/90">
+                <strong>Disclaimer:</strong> Third-party media content is for informational purposes only. Aliya Financial does not endorse or adopt statements made by third parties.
+              </p>
+            </div>
           </div>
         </div>
       </div>

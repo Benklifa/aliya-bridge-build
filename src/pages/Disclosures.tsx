@@ -19,19 +19,16 @@ const Disclosures: React.FC = () => {
           {/* Registration Status */}
           <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8 rounded-r-lg">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Registration Status and Affiliations
+              Registration Status
             </h2>
             <p className="text-gray-800 mb-4">
-              <strong>Current Advisory Services:</strong> Investment advisory services are offered through Prudential Financial Planning Services, a division of Pruco Securities, LLC ("Pruco"), pursuant to separate client agreements. Michael Benklifa is a registered representative of Pruco.
+              <strong>Aliya Financial LLC is applying for registration as an Investment Adviser in the State of New Jersey.</strong> Registration does not imply a certain level of skill or training.
             </p>
             <p className="text-gray-800 mb-4">
-              <strong>Aliya Financial LLC Status:</strong> Aliya Financial LLC is an independent entity and is not affiliated with Pruco or any of its affiliates. Aliya Financial LLC is currently applying for registration as an Investment Adviser with the State of New Jersey.
-            </p>
-            <p className="text-gray-800 mb-4">
-              The educational content, planning tools, and services described on this website are offered by Aliya Financial LLC. No investment advisory services will be offered or provided by Aliya Financial LLC until its registration as an Investment Adviser is approved.
+              No investment advisory services are offered or provided until registration is approved. The educational content, planning tools, and general information on this website are for informational purposes only.
             </p>
             <p className="text-gray-800">
-              Upon approval, advisory services will be offered exclusively through Aliya Financial LLC pursuant to a new and separate client agreement.
+              Following registration approval, the firm expects to offer investment advisory services pursuant to written advisory agreements with clients.
             </p>
           </div>
 
@@ -90,10 +87,10 @@ const Disclosures: React.FC = () => {
           {/* Alternative Investments */}
           <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
             <h2 className="text-2xl font-bold text-navy-900 mb-4">
-              Alternative Investments
+              Educational Information Regarding Alternative Investments
             </h2>
             <p className="text-gray-700 mb-4">
-              Alternative investments, including derivatives, options, and other complex strategies, involve substantial risk and may not be suitable for all investors. These investments may:
+              This website may contain educational information regarding alternative investments, including derivatives, options, and other complex strategies. These investments involve substantial risk and may not be suitable for all investors. Alternative investments may:
             </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
               <li>Be highly illiquid with limited or no ability to sell</li>

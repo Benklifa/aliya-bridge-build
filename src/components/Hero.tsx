@@ -21,7 +21,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-white fade-in max-w-3xl mx-auto drop-shadow-lg">
-            Personalized Financial and Logistical support - before, during and happily-ever-after
+            Educational resources and planning tools for your U.S.-Israel transition
           </p>
         </div>
         
@@ -34,7 +34,7 @@ const Hero = () => {
             to="/framework" 
             className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
           >
-            <span>Financial Planning</span>
+            <span>Learn About Financial Planning</span>
             <ArrowRight size={20} />
           </Link>
           
@@ -42,7 +42,7 @@ const Hero = () => {
             to="/aliya-project-planning" 
             className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
           >
-            <span>Aliya Project Planning</span>
+            <span>Explore Project Planning</span>
             <ArrowRight size={20} />
           </Link>
           
