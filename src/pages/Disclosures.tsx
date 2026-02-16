@@ -48,8 +48,23 @@ const Disclosures: React.FC = () => {
                 adviserinfo.sec.gov
               </a>.
             </p>
-            <p className="text-gray-700">
+            <p className="text-gray-700 mb-4">
               Form ADV Part 2A contains important information about our firm, including our services, fees, conflicts of interest, and disciplinary history (if any).
+            </p>
+            <p className="text-gray-700 mb-4">
+              A copy of our written disclosure brochure is available upon request and will be provided to all prospective clients as required by state law. Additional information about the firm will be available on{' '}
+              <a 
+                href="https://www.adviserinfo.sec.gov/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline"
+              >
+                www.adviserinfo.sec.gov
+              </a>
+              {' '}following registration approval.
+            </p>
+            <p className="text-gray-700">
+              <strong>Fees:</strong> Fees will be described in detail in the firm's Form ADV Part 2A disclosure brochure. Fees are negotiable and vary based on services provided.
             </p>
           </div>
 
@@ -90,18 +105,24 @@ const Disclosures: React.FC = () => {
               Educational Information Regarding Alternative Investments
             </h2>
             <p className="text-gray-700 mb-4">
-              This website may contain educational information regarding alternative investments, including derivatives, options, and other complex strategies. These investments involve substantial risk and may not be suitable for all investors. Alternative investments may:
+              <strong>Alternative investments involve substantial risk including limited liquidity, valuation uncertainty, lack of transparency, and potential conflicts of interest. These investments are not suitable for all investors.</strong>
+            </p>
+            <p className="text-gray-700 mb-4">
+              This website may contain educational information regarding alternative investments, including derivatives, options, hedge funds, private equity, real estate partnerships, and other complex strategies. These investments involve substantial risk and may not be suitable for all investors. Alternative investments may:
             </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Be highly illiquid with limited or no ability to sell</li>
-              <li>Involve leverage, which can magnify both gains and losses</li>
-              <li>Have limited regulatory oversight</li>
-              <li>Require meeting specific accredited investor qualifications</li>
-              <li>Have complex tax treatment</li>
-              <li>Lack transparency in valuation and performance</li>
+              <li><strong>Limited Liquidity:</strong> Be highly illiquid with limited or no ability to sell or redeem investments</li>
+              <li><strong>Leverage Risk:</strong> Involve leverage, which can magnify both gains and losses</li>
+              <li><strong>Valuation Uncertainty:</strong> Lack transparent pricing and may be difficult to value accurately</li>
+              <li><strong>Limited Oversight:</strong> Have limited regulatory oversight compared to traditional investments</li>
+              <li><strong>Conflicts of Interest:</strong> May involve potential conflicts between the sponsor, manager, and investors</li>
+              <li><strong>Accredited Investor Requirements:</strong> Require meeting specific accredited investor qualifications</li>
+              <li><strong>Complex Tax Treatment:</strong> Have complex tax consequences that may vary by jurisdiction</li>
+              <li><strong>Lack of Transparency:</strong> Provide limited disclosure about holdings, performance, and fees</li>
+              <li><strong>High Fees:</strong> Often involve higher fees than traditional investments</li>
             </ul>
             <p className="text-gray-700 mt-4">
-              Alternative investments are generally only suitable for sophisticated investors who can afford to lose their entire investment.
+              Alternative investments are generally only suitable for sophisticated investors who fully understand the risks and can afford to lose their entire investment. <strong>Aliya Financial does not offer or recommend specific alternative investments.</strong> Any educational information provided is for general informational purposes only.
             </p>
           </div>
 
@@ -150,12 +171,15 @@ const Disclosures: React.FC = () => {
             <h2 className="text-2xl font-bold text-navy-900 mb-4">
               Privacy
             </h2>
-            <p className="text-gray-700">
+            <p className="text-gray-700 mb-4">
               Please review our{' '}
               <a href="/privacy" className="text-blue-600 hover:text-blue-800 underline">
                 Privacy Policy
               </a>{' '}
-              for information about how we collect, use, and protect your personal information. We are committed to maintaining the confidentiality and security of client information in accordance with applicable regulations.
+              for information about how we collect, use, and protect your personal information.
+            </p>
+            <p className="text-gray-700">
+              <strong>We protect non-public personal information in accordance with the Gramm-Leach-Bliley Act and applicable state regulations.</strong> We are committed to maintaining the confidentiality and security of client information and will provide our Privacy Notice to all clients upon establishment of an advisory relationship.
             </p>
           </div>
 
