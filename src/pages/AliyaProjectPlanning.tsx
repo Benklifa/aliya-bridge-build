@@ -46,7 +46,7 @@ const AliyaProjectPlanning = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-primary mb-2">Personalized Timelines</h3>
-                    <p className="text-muted-foreground">Creating personalized timelines and to-do lists</p>
+                    <p className="text-muted-foreground">Providing sample timelines and organizational checklists</p>
                   </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@ const AliyaProjectPlanning = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-primary mb-2">Financial Planning</h3>
-                    <p className="text-muted-foreground">Guiding you through budgets, banking, and housing options</p>
+                    <p className="text-muted-foreground">Providing educational considerations regarding budgets, banking, and housing options</p>
                   </div>
                 </div>
               </div>
@@ -122,7 +122,7 @@ const AliyaProjectPlanning = () => {
                 Putting the Puzzle Together
               </h3>
               <p className="text-lg leading-relaxed">
-                Together, we discuss how to put the puzzle together — so your move to Israel can be purposeful, calm, and financially sound.
+                Together, we discuss how to put the puzzle together — so your move to Israel can be organized and well-planned.
               </p>
             </div>
           </div>
