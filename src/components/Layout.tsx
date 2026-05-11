@@ -13,7 +13,7 @@ const Navigation = () => {
     // { name: "Readiness Score", path: "/readiness" }, // Temporarily hidden for regulatory approval - uncomment to restore
     // { name: "Real Estate Readiness", path: "/real-estate-readiness" }, // Temporarily hidden - uncomment to restore
     { name: "Aliya Project Planning", path: "/aliya-project-planning" },
-    { name: "About Us", path: "/about" },
+//     { name: "About Us", path: "/about" }, // Temporarily hidden for regulatory approval - uncomment to restore
     // { name: "Services", path: "/services" }, // Temporarily hidden - uncomment to restore
     // { name: "Events", path: "/events" }, // Temporarily hidden - uncomment to restore
     // { name: "In the News", path: "/news" }, // Temporarily hidden - uncomment to restore
