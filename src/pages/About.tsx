@@ -5,15 +5,15 @@ const About = () => {
   const teamMembers = [
     {
       name: "Michael Hanania Benklifa",
-      title: "Financial professional — registration pending",
+      title: "Founder & Chief Investment Officer",
       credentials: "Series 7, 63, 65 | Life & Health Insurance | MBA",
       image: "https://via.placeholder.com/300x300/1C2D41/C8A95E?text=Michael+Benklifa",
-      bio: "Michael Hanania Benklifa holds Series 7, 63, and 65 registrations, as well as Life & Health Insurance licenses in the U.S. He holds dual MBAs from Texas A&M University and ESC, and is fluent in English, Hebrew, and French.\n\nHis background includes cross-border financial planning education, multi-currency portfolio considerations, and general tax-aware planning education. Securities licensing in Israel is pending regulatory approval.\n\nNote: Certain investment strategies, including derivatives and alternatives, involve significant risk and may not be suitable for all investors.",
+      bio: "Michael Hanania Benklifa holds Series 7, 63, and 65 registrations, as well as Life & Health Insurance licenses in the U.S. He holds dual MBAs from Texas A&M University and ESC, and is fluent in English, Hebrew, and French.\n\nHis practice focuses on cross-border financial planning, including multi-currency portfolio management and tax-aware investment strategies. Securities licensing in Israel is pending regulatory approval.\n\nNote: Certain investment strategies, including derivatives and alternatives, involve significant risk and may not be suitable for all investors.",
       email: "Michael@AliyaFinancial.com",
       specialties: [
-        "Cross-border tax-aware planning education",
-        "Multi-currency portfolio considerations",
-        "Retirement and estate planning education for U.S.–Israel transitions"
+        "Cross-border tax-aware planning",
+        "Multi-currency portfolio management",
+        "Retirement and estate planning for U.S.–Israel transitions"
       ]
     },
     {
@@ -34,16 +34,16 @@ const About = () => {
 
   const whyReasons = [
     {
-      title: "Professional Background",
-      description: "Professional credentials in U.S. markets; Israeli licensing pending approval"
+      title: "Licensed Expertise",
+      description: "Proper licensing and credentials in U.S. markets; Israeli licensing pending approval"
     },
     {
       title: "Cross-Border Focus",
-      description: "Knowledge of dual-country financial regulations and planning needs"
+      description: "Knowledge of dual-country financial regulations and comprehensive planning needs"
     },
     {
       title: "Client-Centered Approach",
-      description: "Experience guiding families through the financial aspects of U.S.–Israel transitions"
+      description: "Dedicated to guiding families through the financial aspects of U.S.–Israel transitions"
     }
   ];
 
@@ -57,8 +57,8 @@ const About = () => {
               About Aliya Financial
             </h1>
             <p className="text-xl text-white leading-relaxed">
-              Educational resources and planning tools for cross-border financial planning considerations, 
-              based on professional background and experience with deep understanding 
+              We provide comprehensive cross-border financial planning services and advisory solutions, 
+              combining professional expertise with deep understanding 
               of U.S.-Israel financial transitions.
             </p>
           </div>

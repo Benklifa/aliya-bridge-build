@@ -10,14 +10,14 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "A.L.I.Y.A Framework", path: "/framework" },
-    // { name: "Readiness Score", path: "/readiness" }, // Temporarily hidden for regulatory approval - uncomment to restore
-    // { name: "Real Estate Readiness", path: "/real-estate-readiness" }, // Temporarily hidden - uncomment to restore
+    { name: "Readiness Score", path: "/readiness" },
+    { name: "Real Estate Readiness", path: "/real-estate-readiness" },
     { name: "Aliya Project Planning", path: "/aliya-project-planning" },
-//     { name: "About Us", path: "/about" }, // Temporarily hidden for regulatory approval - uncomment to restore
-    // { name: "Services", path: "/services" }, // Temporarily hidden - uncomment to restore
-    // { name: "Events", path: "/events" }, // Temporarily hidden - uncomment to restore
-    // { name: "In the News", path: "/news" }, // Temporarily hidden - uncomment to restore
-    // { name: "FAQ", path: "/faq" }, // Temporarily hidden - uncomment to restore
+    { name: "About Us", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Events", path: "/events" },
+    { name: "In the News", path: "/news" },
+    { name: "FAQ", path: "/faq" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -155,8 +155,7 @@ const Footer = () => {
         {/* Disclaimer */}
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            <strong>Important Disclosure:</strong> Aliya Financial LLC is applying for registration as an Investment Adviser in the State of New Jersey. Registration does not imply a certain level of skill or training. No investment advisory services are offered or provided until registration is approved. 
-            This website is for educational and informational purposes only. 
+            <strong>Important Disclosure:</strong> Aliya Financial LLC is registered as an Investment Adviser in the State of New Jersey. Registration does not imply a certain level of skill or training. 
             Investing involves risk, including possible loss of principal. Past performance does not guarantee future results. 
             Cross-border investing involves additional risks including currency fluctuations, political and economic instability, and differences in accounting standards and regulations. 
             Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> for more information.

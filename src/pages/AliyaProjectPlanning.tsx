@@ -33,7 +33,7 @@ const AliyaProjectPlanning = () => {
               </p>
 
               <p className="text-lg leading-relaxed text-white mb-8">
-                We provide general planning considerations people commonly evaluate when moving to Israel — where you see yourself living, what lifestyle you hope to maintain, and how your finances can support it. Then we discuss planning considerations for managing an Aliya transition:
+                We provide comprehensive planning considerations for your Aliya transition — where you see yourself living, what lifestyle you hope to maintain, and how your finances can support it. Our services include:
               </p>
             </div>
 
@@ -82,7 +82,7 @@ const AliyaProjectPlanning = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-primary mb-2">Financial Planning</h3>
-                    <p className="text-muted-foreground">Providing educational considerations regarding budgets, banking, and housing options</p>
+                    <p className="text-muted-foreground">Comprehensive budgeting, banking, and housing analysis</p>
                   </div>
                 </div>
               </div>
@@ -92,10 +92,10 @@ const AliyaProjectPlanning = () => {
             <div className="bg-navy-800 rounded-lg p-8 mb-12">
               <h3 className="font-serif text-2xl font-bold text-white mb-4">Keeping You On Track</h3>
               <p className="text-lg text-white mb-6">
-                We discuss planning considerations to provides general organizational reminders typically involved in the Aliya process.
+                We provide ongoing support and reminders throughout your Aliya process to help keep you on track.
               </p>
               <p className="text-lg text-white">
-                Following registration approval, the firm expects to provide guidance intended to help align decisions with long-term financial goals — investments, taxes, insurance, pensions, and retirement planning.
+                Our firm provides guidance intended to help align your decisions with long-term financial goals — investments, taxes, insurance, pensions, and retirement planning.
               </p>
             </div>
 

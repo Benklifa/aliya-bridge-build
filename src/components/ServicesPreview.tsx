@@ -6,32 +6,32 @@ const ServicesPreview = () => {
     {
       icon: PieChart,
       title: "Financial Planning",
-      description: "Following registration approval, the firm expects to offer comprehensive cross-border financial planning education and strategies for Aliyah transitions.",
+      description: "Comprehensive cross-border financial planning and strategies tailored to your Aliyah transition.",
     },
     {
       icon: TrendingUp,
       title: "Investment Management", 
-      description: "Following registration approval, the firm plans to provide portfolio management services with tax-aware planning considerations. Investing involves risk.",
+      description: "Professional portfolio management with tax-aware planning strategies. Investing involves risk.",
     },
     {
       icon: Briefcase,
       title: "Alternative Investments",
-      description: "Educational information regarding alternative investments and risk considerations. Following registration approval, prospective services may be available for accredited investors only.",
+      description: "Alternative investment strategies and risk management. Services available for accredited investors.",
     },
     {
       icon: Calendar,
       title: "Retirement Income Strategies",
-      description: "Following registration approval, the firm expects to offer retirement income planning concepts.",
+      description: "Comprehensive retirement income planning and strategies.",
     },
     {
       icon: FileText,
       title: "Complete Aliyah Planning",
-      description: "Following registration approval, prospective services may include comprehensive planning services for Aliyah or dual-country retirement.",
+      description: "Comprehensive planning services for Aliyah and dual-country retirement scenarios.",
     },
     {
       icon: Calendar,
       title: "Aliya Project Management",
-      description: "Educational planning tools and general preparedness resources. Following registration approval, the firm plans to provide comprehensive project management services.",
+      description: "Comprehensive project management and organizational support throughout your Aliya process."
     }
   ];
 
@@ -41,10 +41,10 @@ const ServicesPreview = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl font-bold text-white mb-4">
-              Prospective Services
+              Our Services
             </h2>
             <p className="text-lg text-white max-w-2xl mx-auto">
-              Educational resources and future service offerings for your Aliyah journey
+              Comprehensive financial planning and advisory services for your Aliyah journey
             </p>
           </div>
 
