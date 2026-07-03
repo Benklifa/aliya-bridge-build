@@ -6,7 +6,7 @@ const ServicesPreview = () => {
     {
       icon: PieChart,
       title: "Financial Planning",
-      description: "Comprehensive cross-border financial planning and strategies tailored to your Aliyah transition.",
+      description: "Comprehensive financial planning for retirement, estate, wealth transfer, and major life transitions. Specialized expertise in U.S.-Israel cross-border scenarios.",
     },
     {
       icon: TrendingUp,
@@ -16,22 +16,22 @@ const ServicesPreview = () => {
     {
       icon: Briefcase,
       title: "Alternative Investments",
-      description: "Alternative investment strategies and risk management. Services available for accredited investors.",
+      description: "Access to alternative investment strategies and risk management solutions for eligible accredited investors seeking portfolio diversification.",
     },
     {
       icon: Calendar,
       title: "Retirement Income Strategies",
-      description: "Comprehensive retirement income planning and strategies.",
+      description: "Personalized retirement income strategies designed to provide lasting financial security — including Social Security optimization, IRA distributions, and pension planning.",
     },
     {
       icon: FileText,
       title: "Complete Aliyah Planning",
-      description: "Comprehensive planning services for Aliyah and dual-country retirement scenarios.",
+      description: "Specialized planning for individuals and families relocating to Israel — covering dual-country tax implications, asset transfer, currency, and benefits coordination.",
     },
     {
       icon: Calendar,
       title: "Aliya Project Management",
-      description: "Comprehensive project management and organizational support throughout your Aliya process.",
+      description: "Structured project management and coordination support for every phase of your Aliyah — so nothing falls through the cracks.",
     }
   ];
 
