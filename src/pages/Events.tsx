@@ -149,7 +149,7 @@ const Events = () => {
                   Register for Event
                 </h2>
                 <button
-                  onClick={handleCloseModal}
+                  aria-label="Close event details" onClick={handleCloseModal}
                   className="text-gray-500 hover:text-gray-700"
                 >
                   <X className="w-5 h-5 sm:w-6 sm:h-6" />
