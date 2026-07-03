@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities;  /* Accessibility: WCAG 2.5.5 minimum touch target size (44x44px) */ @layer utilities {   button, a, [role="button"], input[type="submit"], input[type="button"] {     min-height: 44px;     min-width: 44px;   } }
 
 /* Aliya Financial Design System - Banking Grade Professional */
 
