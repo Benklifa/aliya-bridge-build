@@ -17,7 +17,6 @@ import News from "./pages/News";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import ReadinessScore from "./pages/ReadinessScore";
-import RealEstateReadinessParent from "./pages/RealEstateReadinessParent";
 import WhereShouldILive from "./pages/WhereShouldILive";
 import AmIReadyToBuy from "./pages/AmIReadyToBuy";
 import AliyaProjectPlanning from "./pages/AliyaProjectPlanning";
@@ -49,7 +48,6 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/readiness" element={<ReadinessScore />} />
-          <Route path="/real-estate-readiness" element={<RealEstateReadinessParent />} />
           <Route path="/where-should-i-live" element={<WhereShouldILive />} />
           <Route path="/am-i-ready-to-buy" element={<AmIReadyToBuy />} />
           <Route path="/aliya-project-planning" element={<AliyaProjectPlanning />} />
