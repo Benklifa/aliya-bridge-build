@@ -149,7 +149,7 @@ const Footer = () => {
                 Disclosures
               </Link>
               <a 
-                href="/FormCRS.pdf" 
+                href="/form-crs" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block text-muted-foreground hover:text-accent font-semibold"
