@@ -148,6 +148,14 @@ const Footer = () => {
               <Link to="/disclosures" className="block text-muted-foreground hover:text-accent">
                 Disclosures
               </Link>
+              <a 
+                href="/FormCRS.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-muted-foreground hover:text-accent font-semibold"
+              >
+                Form CRS
+              </a>
             </div>
           </div>
         </div>

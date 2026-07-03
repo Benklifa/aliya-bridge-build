@@ -11,7 +11,7 @@ const ServicesPreview = () => {
     {
       icon: TrendingUp,
       title: "Investment Management", 
-      description: "Professional portfolio management with tax-aware planning strategies. Investing involves risk.",
+      description: "Professional portfolio management with tax-aware investment strategies, considering dual-country implications. Investing involves risk.",
     },
     {
       icon: Briefcase,
@@ -31,7 +31,7 @@ const ServicesPreview = () => {
     {
       icon: Calendar,
       title: "Aliya Project Management",
-      description: "Comprehensive project management and organizational support throughout your Aliya process."
+      description: "Comprehensive project management and organizational support throughout your Aliya process.",
     }
   ];
 

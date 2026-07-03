@@ -22,13 +22,10 @@ const Disclosures: React.FC = () => {
               Registration Status
             </h2>
             <p className="text-gray-800 mb-4">
-              <strong>Aliya Financial LLC is applying for registration as an Investment Adviser in the State of New Jersey.</strong> Registration does not imply a certain level of skill or training.
-            </p>
-            <p className="text-gray-800 mb-4">
-              No investment advisory services are offered or provided until registration is approved. The educational content, planning tools, and general information on this website are for informational purposes only.
+              <strong>Aliya Financial LLC is registered as an Investment Adviser in the State of New Jersey.</strong> Registration does not imply a certain level of skill or training.
             </p>
             <p className="text-gray-800">
-              Following registration approval, the firm expects to offer investment advisory services pursuant to written advisory agreements with clients.
+              Aliya Financial offers investment advisory services pursuant to written advisory agreements with clients.
             </p>
           </div>
 
@@ -38,20 +35,32 @@ const Disclosures: React.FC = () => {
               Regulatory Filings
             </h2>
             <p className="text-gray-700 mb-4">
-              Our Form ADV Part 2A (Disclosure Brochure) contains detailed information regarding our services (following registration approval), fees, and business practices. A copy is available upon request and will be provided to all prospective clients before any advisory relationship begins. Fees are negotiable and will be clearly outlined in a written Investment Advisory Agreement and described in the Form ADV Part 2A.
+              Our Form ADV Part 2A (Disclosure Brochure) contains detailed information regarding our services, fees, and business practices. A copy is available upon request and will be provided to all prospective clients before any advisory relationship begins. Fees are negotiable and will be clearly outlined in a written Investment Advisory Agreement and described in the Form ADV Part 2A.
             </p>
             <p className="text-gray-700">
-              Additional information will be available on the Investment Adviser Public Disclosure website{' '}
+              Additional information about Aliya Financial LLC is available on the Investment Adviser Public Disclosure website at{' '}
               <a 
                 href="https://adviserinfo.sec.gov/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
-                (adviserinfo.sec.gov)
-              </a>
-              {' '}following registration approval.
+                adviserinfo.sec.gov
+              </a>.
             </p>
+            <p className="text-gray-700 mt-4">
+              A copy of our Form CRS (Client Relationship Summary) is available below:
+            </p>
+            <div className="mt-4">
+              <a 
+                href="/FormCRS.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-navy-600 hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-500"
+              >
+                Download Form CRS
+              </a>
+            </div>
           </div>
 
           {/* Investment Risks */}
@@ -138,7 +147,7 @@ const Disclosures: React.FC = () => {
               <li>A comprehensive analysis of any investment or strategy</li>
             </ul>
             <p className="text-gray-700 mt-4">
-              Personalized investment advice will only be provided after Aliya Financial receives registration approval from the State of New Jersey and a client enters into a written advisory agreement.
+              Personalized investment advice is provided after a client enters into a written advisory agreement with Aliya Financial.
             </p>
           </div>
 
@@ -148,7 +157,7 @@ const Disclosures: React.FC = () => {
               No Advisory Relationship Created
             </h2>
             <p className="text-gray-700">
-              Use of this website, submission of contact forms, or participation in educational tools (such as readiness quizzes) does not create an advisory relationship with Aliya Financial. An advisory relationship is only created through execution of a written advisory agreement after registration approval.
+              Use of this website, submission of contact forms, or participation in educational tools (such as readiness quizzes) does not create an advisory relationship with Aliya Financial. An advisory relationship is only created through execution of a written advisory agreement.
             </p>
           </div>
 
