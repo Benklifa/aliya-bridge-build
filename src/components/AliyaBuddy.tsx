@@ -98,7 +98,7 @@ const AliyaBuddy = () => {
       {/* Floating Chat Button - Left Side, Middle */}
       {!isOpen && (
         <button
-          onClick={() => setIsOpen(true)}
+          aria-label="Open Aliya Buddy chat assistant" onClick={() => setIsOpen(true)}
           className="aliya-buddy-button fixed left-6 top-1/2 z-50 bg-white hover:bg-gray-50 rounded-full shadow-2xl transition-all hover:scale-105 border-4 border-primary hover:animate-bounce"
           aria-label="Open Aliya Buddy Chat"
           style={{ 
@@ -131,7 +131,7 @@ const AliyaBuddy = () => {
               </div>
             </div>
             <button
-              onClick={() => setIsOpen(false)}
+              aria-label="Close Aliya Buddy chat assistant" onClick={() => setIsOpen(false)}
               className="hover:bg-white/20 rounded-full p-1 transition-colors"
               aria-label="Close chat"
             >
