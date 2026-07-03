@@ -17,11 +17,11 @@ const Hero = () => {
         {/* Text content positioned higher above the road sign */}
         <div className="max-w-4xl mx-auto pt-4">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 fade-in drop-shadow-lg">
-            Putting the puzzle together<br />for financial preparation for Aliya
+            Financial Planning for Life's Biggest Transitions
           </h1>
           
           <p className="text-xl md:text-2xl text-white fade-in max-w-3xl mx-auto drop-shadow-lg">
-            Educational resources and planning tools for your U.S.-Israel transition
+            From retirement and portfolio strategy to cross-border planning and Aliyah — we help you make confident financial decisions at every stage of life
           </p>
         </div>
         
@@ -34,7 +34,7 @@ const Hero = () => {
             to="/framework" 
             className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
           >
-            <span>Learn About Financial Planning</span>
+            <span>Get Started</span>
             <ArrowRight size={20} />
           </Link>
           
