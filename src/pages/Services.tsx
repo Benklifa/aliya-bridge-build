@@ -179,8 +179,8 @@ const Services = () => {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-white mb-8">
-              Schedule a complimentary consultation to discuss which services 
-              are right for your Aliyah journey.
+                            Schedule a complimentary consultation to discuss which services
+              are right for you.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
