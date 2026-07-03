@@ -53,7 +53,7 @@ const Disclosures: React.FC = () => {
             </p>
             <div className="mt-4">
               <a 
-                href="/FormCRS.pdf" 
+                href="/form-crs" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-navy-600 hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-500"
