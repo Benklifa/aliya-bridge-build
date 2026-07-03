@@ -44,7 +44,7 @@ const ServicesPreview = () => {
               Our Services
             </h2>
             <p className="text-lg text-white max-w-2xl mx-auto">
-              Comprehensive financial planning and advisory services for your Aliyah journey
+                            Comprehensive financial planning for retirement, wealth management, and life's major transitions — including cross-border and Aliyah planning
             </p>
           </div>
 
