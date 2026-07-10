@@ -18,7 +18,7 @@ const Services = () => {
     {
       icon: PieChart,
       title: "Financial Planning",
-      description: "Comprehensive cross-border financial strategies tailored for Aliyah transitions.",
+      description: "Comprehensive planning for retirement, estate, and wealth transfer — built to stand on its own, with cross-border and Aliyah scenarios modeled when they're on the table.",
       color: "text-blue-600",
       details: [
         "Complete financial health assessment across both countries",
@@ -97,8 +97,7 @@ const Services = () => {
               Our Services
             </h1>
             <p className="text-xl text-white leading-relaxed">
-              Comprehensive financial solutions designed specifically for 
-              Americans making Aliyah or considering dual-country retirement.
+              Comprehensive financial planning — retirement, investments, estate, and income strategy — with specialized expertise for families navigating, or considering, a U.S.–Israel move.
             </p>
           </div>
         </div>
