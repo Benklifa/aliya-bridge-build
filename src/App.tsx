@@ -20,6 +20,7 @@ import ReadinessScore from "./pages/ReadinessScore";
 import WhereShouldILive from "./pages/WhereShouldILive";
 import AmIReadyToBuy from "./pages/AmIReadyToBuy";
 import AliyaProjectPlanning from "./pages/AliyaProjectPlanning";
+import Tools from "./pages/Tools";
 import Disclosures from "./pages/Disclosures";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/where-should-i-live" element={<WhereShouldILive />} />
           <Route path="/am-i-ready-to-buy" element={<AmIReadyToBuy />} />
           <Route path="/aliya-project-planning" element={<AliyaProjectPlanning />} />
+          <Route path="/tools" element={<Tools />} />
           <Route path="/disclosures" element={<Disclosures />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
