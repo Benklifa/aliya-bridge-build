@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import ServiceTiers from "@/components/ServiceTiers";
 import { Calendar, CheckSquare, FileText, Users } from "lucide-react";
 
 const AliyaProjectPlanning = () => {
@@ -128,6 +129,9 @@ const AliyaProjectPlanning = () => {
           </div>
         </div>
       </section>
+
+      {/* Service Tiers */}
+      <ServiceTiers />
     </Layout>
   );
 };
