@@ -104,7 +104,7 @@ const Footer = () => {
   return (
     <footer className="bg-navy-50 border-t border-border mt-8 sm:mt-16">
       <div className="container mx-auto px-4 py-8 sm:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
           {/* Contact Information */}
           <div className="space-y-3 sm:space-y-4">
             <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Contact</h3>
@@ -132,6 +132,22 @@ const Footer = () => {
                 <MapPin size={14} className="sm:w-4 sm:h-4 mt-0.5 flex-shrink-0" />
                 <span>Jerusalem, Israel</span>
               </div>
+            </div>
+          </div>
+
+          {/* Resources */}
+          <div className="space-y-3 sm:space-y-4">
+            <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Resources</h3>
+            <div className="space-y-2 text-xs sm:text-sm">
+              <Link to="/glossary" className="block text-muted-foreground hover:text-accent">
+                Aliyah Financial Dictionary
+              </Link>
+              <Link to="/tools" className="block text-muted-foreground hover:text-accent">
+                Learning Tools
+              </Link>
+              <Link to="/readiness" className="block text-muted-foreground hover:text-accent">
+                Readiness Score
+              </Link>
             </div>
           </div>
 

@@ -2,10 +2,7 @@ import Layout from "@/components/Layout";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const FAQ = () => {
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-
-  const faqs = [
+const faqs = [
     {
       question: "How does currency hedging work for Aliyah planning?",
       answer: "Currency hedging involves using financial instruments to protect against adverse exchange rate movements between USD and ILS. We implement strategies like forward contracts, currency-hedged investments, and maintaining assets in both currencies to reduce exposure to volatility."
@@ -40,8 +37,29 @@ const FAQ = () => {
     }
   ];
 
+// FAQPage structured data for search engines, generated from the FAQ content above
+const faqJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+});
+
+const FAQ = () => {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: faqJsonLd }}
+      />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
