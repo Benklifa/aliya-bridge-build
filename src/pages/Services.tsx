@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import TwoCountryScenario from "@/components/TwoCountryScenario";
 import { Link } from "react-router-dom";
 import { 
   PieChart, 
@@ -171,7 +172,14 @@ const Services = () => {
               );
             })}
           </div>
+        </div>
+      </div>
 
+      {/* The Two-Country Scenario — signature planning model */}
+      <TwoCountryScenario />
+
+      <div className="py-16">
+        <div className="container mx-auto px-4">
           {/* CTA Section */}
           <div className="max-w-4xl mx-auto bg-primary rounded-lg p-8 text-center">
             <h2 className="font-serif text-3xl font-bold text-white mb-4">
