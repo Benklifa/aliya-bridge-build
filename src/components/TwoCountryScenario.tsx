@@ -87,15 +87,15 @@ const TwoCountryScenario = () => {
 
           {/* CTA card fills the sixth grid slot */}
           <Link
-            to="/contact"
+            to="/tools"
             className="group flex items-center justify-between rounded-xl bg-gold-500 p-4 transition hover:brightness-110"
           >
             <div>
               <div className="text-sm font-bold text-white mb-1">
-                See it built for your numbers
+                Try the Two-Country Scenario preview
               </div>
               <div className="text-xs text-white/85">
-                Schedule a complimentary consultation
+                See the conceptual model in action
               </div>
             </div>
             <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />

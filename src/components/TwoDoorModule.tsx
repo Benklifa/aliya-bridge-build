@@ -37,7 +37,7 @@ const TwoDoorModule = () => {
 
           {/* Door B — someday maybe */}
           <Link
-            to="/services"
+            to="/tools"
             className="group relative rounded-2xl border border-slate-200 bg-slate-50 p-8 transition hover:shadow-lg hover:border-slate-300"
           >
             <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-5">
