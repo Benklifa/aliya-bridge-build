@@ -17,11 +17,11 @@ const Hero = () => {
         {/* Text content positioned higher above the road sign */}
         <div className="max-w-4xl mx-auto pt-4">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 fade-in drop-shadow-lg">
-            Financial Planning for Life's Biggest Transitions
+            Planning for Life's Major Transitions — Wherever They Take You
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-white fade-in max-w-3xl mx-auto drop-shadow-lg">
-            From retirement and portfolio strategy to cross-border planning and Aliyah — we help you make confident financial decisions at every stage of life
+            Retirement. Relocation. Career change. Cross-border moves. Whatever the transition, we build the financial plan that carries you through — with specialized expertise in U.S.–Israel Aliyah planning.
           </p>
         </div>
         

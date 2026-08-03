@@ -10,7 +10,8 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "A.L.I.Y.A Framework", path: "/framework" },
-    { name: "Readiness Score", path: "/readiness" },
+    // { name: "Readiness Score", path: "/readiness" }, // Hidden while comparing against Risk Profile — route still live
+    { name: "Risk Profile", path: "/risk-profile" },
     { name: "Learning Tools", path: "/tools" },
     // { name: "Aliya Project Planning", path: "/aliya-project-planning" },
     { name: "About Us", path: "/about" },
@@ -104,6 +105,12 @@ const Footer = () => {
   return (
     <footer className="bg-navy-50 border-t border-border mt-8 sm:mt-16">
       <div className="container mx-auto px-4 py-8 sm:py-12">
+        <div className="text-center mb-8 sm:mb-10">
+          <p className="font-serif text-base sm:text-lg text-primary italic">
+            Aliya Financial: planning for life's major transitions, wherever they take you.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
           {/* Contact Information */}
           <div className="space-y-3 sm:space-y-4">
@@ -145,9 +152,10 @@ const Footer = () => {
               <Link to="/tools" className="block text-muted-foreground hover:text-accent">
                 Learning Tools
               </Link>
-              <Link to="/readiness" className="block text-muted-foreground hover:text-accent">
-                Readiness Score
+              <Link to="/risk-profile" className="block text-muted-foreground hover:text-accent">
+                Risk Profile
               </Link>
+              {/* <Link to="/readiness" className="block text-muted-foreground hover:text-accent">Readiness Score</Link> */}
             </div>
           </div>
 
