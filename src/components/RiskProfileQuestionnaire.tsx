@@ -605,8 +605,8 @@ const RiskProfileQuestionnaire = () => {
           </h1>
           <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-xl mb-8">
             This questionnaire takes about five minutes. It looks at two different things: your{" "}
-            <strong className="text-foreground">capacity</strong> to take risk (your finances) and your{" "}
-            <strong className="text-foreground">tolerance</strong> for risk (your temperament). Your
+            <strong className="text-card-foreground">capacity</strong> to take risk (your finances) and your{" "}
+            <strong className="text-card-foreground">tolerance</strong> for risk (your temperament). Your
             preliminary model is set by whichever is <em>lower</em> — because a portfolio you can't afford,
             or can't sleep with, isn't the right portfolio.
           </p>
@@ -640,7 +640,7 @@ const RiskProfileQuestionnaire = () => {
               onCheckedChange={(checked) => setAcknowledged(checked === true)}
               className="mt-0.5"
             />
-            <span className="text-sm leading-relaxed text-foreground">
+            <span className="text-sm leading-relaxed text-card-foreground">
               I have read the disclosures above and understand this questionnaire is a preliminary tool,
               not a recommendation.
             </span>
@@ -693,7 +693,7 @@ const RiskProfileQuestionnaire = () => {
                   }`}
                 >
                   <RadioGroupItem value={i.toString()} id={optionId} />
-                  <span className={`text-sm sm:text-base ${answers[q.id] === i ? "font-semibold text-primary" : "text-foreground"}`}>
+                  <span className={`text-sm sm:text-base ${answers[q.id] === i ? "font-semibold text-primary" : "text-card-foreground"}`}>
                     {opt.label}
                   </span>
                 </Label>
@@ -732,7 +732,7 @@ const RiskProfileQuestionnaire = () => {
         <ScoreBar label="Risk capacity (financial)" value={results.capacity} colorClass="bg-teal-500" />
         <ScoreBar label="Risk tolerance (behavioral)" value={results.tolerance} colorClass="bg-gold-500" />
         <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
-          Your model is set by the <strong className="text-foreground">lower</strong> of the two scores
+          Your model is set by the <strong className="text-card-foreground">lower</strong> of the two scores
           {results.relocationCap
             ? ", and further limited to Balanced pending review of your near-term relocation plans"
             : ""}
@@ -749,7 +749,7 @@ const RiskProfileQuestionnaire = () => {
         <div className="mt-4 border-t border-border pt-3 space-y-1">
           {model.detail.map((d) => (
             <div key={d.label} className="flex justify-between text-sm py-1">
-              <span className="text-foreground">{d.label}</span>
+              <span className="text-card-foreground">{d.label}</span>
               <span className="font-bold tabular-nums">{d.pct}%</span>
             </div>
           ))}
@@ -762,7 +762,7 @@ const RiskProfileQuestionnaire = () => {
           <p className="text-xs font-bold uppercase tracking-wider text-gold-600 mb-3">
             For discussion with your adviser
           </p>
-          <ul className="list-disc list-outside pl-4 space-y-1.5 text-sm text-foreground leading-relaxed">
+          <ul className="list-disc list-outside pl-4 space-y-1.5 text-sm text-card-foreground leading-relaxed">
             {results.divergence && (
               <li>
                 Your financial capacity and personal tolerance scores diverge meaningfully — this is worth
@@ -787,7 +787,7 @@ const RiskProfileQuestionnaire = () => {
               <p className="text-sm text-muted-foreground">
                 {i + 1}. {qq.text}
               </p>
-              <p className="text-sm font-semibold text-foreground mt-0.5">
+              <p className="text-sm font-semibold text-card-foreground mt-0.5">
                 {answers[qq.id] !== undefined ? qq.options[answers[qq.id]].label : "—"}
               </p>
             </div>
