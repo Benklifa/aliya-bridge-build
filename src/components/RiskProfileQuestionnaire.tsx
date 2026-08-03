@@ -796,7 +796,7 @@ const RiskProfileQuestionnaire = () => {
       </Card>
 
       {/* Disclosures */}
-      <div className="text-xs text-muted-foreground leading-relaxed space-y-1.5">
+      <div className="bg-navy-50 border border-border rounded-lg p-6 text-xs text-muted-foreground leading-relaxed space-y-1.5">
         {DISCLOSURES.map((d, i) => (
           <p key={i}>{d}</p>
         ))}
