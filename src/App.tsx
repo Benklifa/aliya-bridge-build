@@ -22,6 +22,7 @@ import AmIReadyToBuy from "./pages/AmIReadyToBuy";
 import AliyaProjectPlanning from "./pages/AliyaProjectPlanning";
 import Tools from "./pages/Tools";
 import Glossary from "./pages/Glossary";
+import RiskProfile from "./pages/RiskProfile";
 import Disclosures from "./pages/Disclosures";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
@@ -49,7 +50,9 @@ const App = () => (
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQ />} />
+          {/* Kept live but unlinked while comparing against /risk-profile — see Layout.tsx nav/footer */}
           <Route path="/readiness" element={<ReadinessScore />} />
+          <Route path="/risk-profile" element={<RiskProfile />} />
           <Route path="/where-should-i-live" element={<WhereShouldILive />} />
           <Route path="/am-i-ready-to-buy" element={<AmIReadyToBuy />} />
           <Route path="/aliya-project-planning" element={<AliyaProjectPlanning />} />
