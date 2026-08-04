@@ -723,8 +723,8 @@ const RiskProfileQuestionnaire = () => {
         <p className="text-xs font-bold uppercase tracking-wider text-gold-500 mb-1">
           Preliminary risk profile{clientName ? ` — ${clientName}` : ""}
         </p>
-        <h1 className="font-serif text-3xl sm:text-4xl font-bold text-primary mb-2">{model.name}</h1>
-        <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-xl">{model.summary}</p>
+        <h1 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-2">{model.name}</h1>
+        <p className="text-base sm:text-lg leading-relaxed text-white/90 max-w-xl">{model.summary}</p>
       </div>
 
       {/* Scores */}
