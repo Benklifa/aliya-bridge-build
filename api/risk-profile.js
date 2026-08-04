@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
   try {
     const {
-      clientName,
+      clientEmail,
       modelName,
       modelLevel,
       capacity,
@@ -39,7 +39,10 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Missing profile results' });
     }
 
-    const cleanName = typeof clientName === 'string' ? clientName.trim().slice(0, 100) : '';
+    const cleanEmail = typeof clientEmail === 'string' ? clientEmail.trim().slice(0, 200) : '';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      return res.status(400).json({ error: 'A valid client email is required' });
+    }
     const cleanFlags = Array.isArray(flags) ? flags.slice(0, 20) : [];
     const cleanSummary = summary.slice(0, 20000);
 
@@ -85,12 +88,12 @@ export default async function handler(req, res) {
           </div>
 
           <div class="content">
-            <h2 style="color: #1e3a8a;">Preliminary profile for ${cleanName || 'a new client'}</h2>
+            <h2 style="color: #1e3a8a;">Preliminary profile for ${cleanEmail}</h2>
 
             <div class="profile-details">
               <div class="detail-row">
-                <span class="label">Client:</span>
-                <span class="value">${cleanName || 'Not provided'}</span>
+                <span class="label">Client email:</span>
+                <span class="value">${cleanEmail}</span>
               </div>
               <div class="detail-row">
                 <span class="label">Preliminary model:</span>
@@ -128,12 +131,13 @@ export default async function handler(req, res) {
     await transporter.sendMail({
       from: `"Aliya Financial Website" <${gmailUser}>`,
       to: 'michael@aliyafinancial.com',
-      subject: `New Risk Profile: ${cleanName || 'New Client'} — ${modelName}`,
+      replyTo: cleanEmail,
+      subject: `New Risk Profile: ${cleanEmail} — ${modelName}`,
       html: notificationHTML,
     });
 
     console.log('Risk profile submitted:', {
-      clientName: cleanName,
+      clientEmail: cleanEmail,
       modelName,
       modelLevel,
       capacity,

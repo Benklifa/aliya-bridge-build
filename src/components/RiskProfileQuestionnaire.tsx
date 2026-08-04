@@ -378,15 +378,19 @@ type DeliveryStatus = "working" | "done" | "error" | undefined;
 
 /* ------------------------ helpers ------------------------ */
 
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+}
+
 function buildSummaryText({
-  clientName,
+  clientEmail,
   results,
   model,
   answers,
   completedAt,
   full,
 }: {
-  clientName: string;
+  clientEmail: string;
   results: Results;
   model: RiskModel;
   answers: Answers;
@@ -395,7 +399,7 @@ function buildSummaryText({
 }): string {
   const L: string[] = [];
   L.push("ALIYA FINANCIAL — CLIENT RISK PROFILE (PRELIMINARY)");
-  if (clientName) L.push(`Client: ${clientName}`);
+  L.push(`Client email: ${clientEmail}`);
   L.push(`Completed: ${completedAt}`);
   L.push("");
   L.push(`Preliminary model: ${model.name} (Level ${model.level} of 5)`);
@@ -512,7 +516,7 @@ function AllocationBar({ model }: { model: RiskModel }) {
 const RiskProfileQuestionnaire = () => {
   const [screen, setScreen] = useState<"welcome" | "quiz" | "results">("welcome");
   const [acknowledged, setAcknowledged] = useState(false);
-  const [clientName, setClientName] = useState("");
+  const [clientEmail, setClientEmail] = useState("");
   const [idx, setIdx] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [delivery, setDelivery] = useState<Partial<Record<DeliveryKey, DeliveryStatus>>>({});
@@ -525,7 +529,7 @@ const RiskProfileQuestionnaire = () => {
   const completedAt = useMemo(() => new Date().toLocaleString(), [screen === "results"]);
 
   const setStatus = (k: DeliveryKey, v: DeliveryStatus) => setDelivery((d) => ({ ...d, [k]: v }));
-  const summaryArgs = { clientName, results, model, answers, completedAt };
+  const summaryArgs = { clientEmail, results, model, answers, completedAt };
 
   const select = (value: string) => setAnswers((a) => ({ ...a, [q.id]: Number(value) }));
   const next = () => (idx < total - 1 ? setIdx(idx + 1) : setScreen("results"));
@@ -535,12 +539,15 @@ const RiskProfileQuestionnaire = () => {
     setIdx(0);
     setScreen("welcome");
     setAcknowledged(false);
+    setClientEmail("");
     setDelivery({});
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const canBegin = acknowledged && isValidEmail(clientEmail);
+
   const beginQuiz = () => {
-    if (!acknowledged) return;
+    if (!canBegin) return;
     setScreen("quiz");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -564,7 +571,7 @@ const RiskProfileQuestionnaire = () => {
     // mailto has URL-length limits, so the email carries the compact summary;
     // the full record travels via print/PDF, the copied text, or "Send full profile" below.
     const body = buildSummaryText({ ...summaryArgs, full: false });
-    const subject = `Risk profile — ${clientName || "new client"}`;
+    const subject = `Risk profile — ${clientEmail}`;
     window.location.href = `mailto:${ADVISOR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -575,7 +582,7 @@ const RiskProfileQuestionnaire = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          clientName,
+          clientEmail,
           modelName: model.name,
           modelLevel: model.level,
           capacity: results.capacity,
@@ -623,14 +630,16 @@ const RiskProfileQuestionnaire = () => {
           </div>
 
           <div className="mb-6 max-w-sm">
-            <Label htmlFor="clientName" className="text-sm font-semibold text-muted-foreground mb-2 block">
-              Your name (optional — appears on your summary)
+            <Label htmlFor="clientEmail" className="text-sm font-semibold text-muted-foreground mb-2 block">
+              Your email (required — so we can send you your results and follow up)
             </Label>
             <Input
-              id="clientName"
-              value={clientName}
-              onChange={(e) => setClientName(e.target.value)}
-              placeholder="First and last name"
+              id="clientEmail"
+              type="email"
+              required
+              value={clientEmail}
+              onChange={(e) => setClientEmail(e.target.value)}
+              placeholder="you@example.com"
             />
           </div>
 
@@ -646,7 +655,7 @@ const RiskProfileQuestionnaire = () => {
             </span>
           </label>
 
-          <Button onClick={beginQuiz} disabled={!acknowledged} size="lg" className="px-8">
+          <Button onClick={beginQuiz} disabled={!canBegin} size="lg" className="px-8">
             Begin the questionnaire
           </Button>
         </Card>
@@ -721,7 +730,7 @@ const RiskProfileQuestionnaire = () => {
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
         <p className="text-xs font-bold uppercase tracking-wider text-gold-500 mb-1">
-          Preliminary risk profile{clientName ? ` — ${clientName}` : ""}
+          Preliminary risk profile — {clientEmail}
         </p>
         <h1 className="font-serif text-3xl sm:text-4xl font-bold text-white mb-2">{model.name}</h1>
         <p className="text-base sm:text-lg leading-relaxed text-white/90 max-w-xl">{model.summary}</p>
