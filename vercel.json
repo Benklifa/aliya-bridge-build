@@ -1,8 +1,15 @@
 {
-  "rewrites": [
+  "cleanUrls": true,
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/where-should-i-live",
+      "destination": "/tools",
+      "permanent": true
+    },
+    {
+      "source": "/am-i-ready-to-buy",
+      "destination": "/tools",
+      "permanent": true
     }
   ]
 }
