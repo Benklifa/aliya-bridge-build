@@ -17,8 +17,6 @@ import News from "./pages/News";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import ReadinessScore from "./pages/ReadinessScore";
-import WhereShouldILive from "./pages/WhereShouldILive";
-import AmIReadyToBuy from "./pages/AmIReadyToBuy";
 import AliyaProjectPlanning from "./pages/AliyaProjectPlanning";
 import Tools from "./pages/Tools";
 import Glossary from "./pages/Glossary";
@@ -53,8 +51,6 @@ const App = () => (
           {/* Kept live but unlinked while comparing against /risk-profile — see Layout.tsx nav/footer */}
           <Route path="/readiness" element={<ReadinessScore />} />
           <Route path="/risk-profile" element={<RiskProfile />} />
-          <Route path="/where-should-i-live" element={<WhereShouldILive />} />
-          <Route path="/am-i-ready-to-buy" element={<AmIReadyToBuy />} />
           <Route path="/aliya-project-planning" element={<AliyaProjectPlanning />} />
           <Route path="/tools" element={<Tools />} />
           <Route path="/glossary" element={<Glossary />} />
