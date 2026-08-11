@@ -2,7 +2,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import type { RouteRecord } from "vite-react-ssg";
 import Index from "./pages/Index";
 import Framework from "./pages/Framework";
 import FrameworkAlign from "./pages/FrameworkAlign";
@@ -27,41 +28,47 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const Root = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/framework" element={<Framework />} />
-          <Route path="/framework/a" element={<FrameworkAlign />} />
-          <Route path="/framework/l" element={<FrameworkLive />} />
-          <Route path="/framework/i" element={<FrameworkInvest />} />
-          <Route path="/framework/y" element={<FrameworkYrusha />} />
-          <Route path="/framework/adapt" element={<FrameworkAdapt />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/faq" element={<FAQ />} />
-          {/* Kept live but unlinked while comparing against /risk-profile — see Layout.tsx nav/footer */}
-          <Route path="/readiness" element={<ReadinessScore />} />
-          <Route path="/risk-profile" element={<RiskProfile />} />
-          <Route path="/aliya-project-planning" element={<AliyaProjectPlanning />} />
-          <Route path="/tools" element={<Tools />} />
-          <Route path="/glossary" element={<Glossary />} />
-          <Route path="/disclosures" element={<Disclosures />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <ScrollToTop />
+      <Outlet />
     </TooltipProvider>
   </QueryClientProvider>
 );
 
-export default App;
-// Force rebuild Tue Oct 21 10:08:57 EDT 2025
+export const routes: RouteRecord[] = [
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      { index: true, element: <Index /> },
+      { path: "framework", element: <Framework /> },
+      { path: "framework/a", element: <FrameworkAlign /> },
+      { path: "framework/l", element: <FrameworkLive /> },
+      { path: "framework/i", element: <FrameworkInvest /> },
+      { path: "framework/y", element: <FrameworkYrusha /> },
+      { path: "framework/adapt", element: <FrameworkAdapt /> },
+      { path: "about", element: <About /> },
+      { path: "services", element: <Services /> },
+      { path: "events", element: <Events /> },
+      { path: "news", element: <News /> },
+      { path: "contact", element: <Contact /> },
+      { path: "faq", element: <FAQ /> },
+      // Kept live but unlinked while comparing against /risk-profile — see Layout.tsx nav/footer
+      { path: "readiness", element: <ReadinessScore /> },
+      { path: "risk-profile", element: <RiskProfile /> },
+      { path: "aliya-project-planning", element: <AliyaProjectPlanning /> },
+      { path: "tools", element: <Tools /> },
+      { path: "glossary", element: <Glossary /> },
+      { path: "disclosures", element: <Disclosures /> },
+      // "404" is a real static path so the build emits dist/404.html, which
+      // Vercel serves (with a 404 status) for any unknown URL once the SPA
+      // catch-all rewrite is gone. The "*" route covers client-side navigation.
+      { path: "404", element: <NotFound /> },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+];
