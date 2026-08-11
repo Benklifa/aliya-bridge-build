@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
@@ -345,6 +346,7 @@ const Tools = () => {
 
   return (
     <Layout>
+      <PageMeta title="Learning Tools: Cross-Border Planning, Explained | Aliya Financial" description="Free educational tools that map the U.S.–Israel financial terrain — whether you're moving next year, someday, or just want the question answered." path="/tools" />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
@@ -107,6 +108,7 @@ const Contact = () => {
   if (isSubmitted) {
     return (
       <Layout>
+      <PageMeta title="Contact Us | Aliya Financial" description="Request an educational information session to learn about cross-border financial planning considerations. Submitting an inquiry does not establish an advisory relationship." path="/contact" />
         <div className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
@@ -133,6 +135,7 @@ const Contact = () => {
 
   return (
     <Layout>
+      <PageMeta title="Contact Us | Aliya Financial" description="Request an educational information session to learn about cross-border financial planning considerations. Submitting an inquiry does not establish an advisory relationship." path="/contact" />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           {/* Header */}

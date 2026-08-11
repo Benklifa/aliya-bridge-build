@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -5,6 +6,7 @@ import { Link } from "react-router-dom";
 const FrameworkInvest = () => {
   return (
     <Layout>
+      <PageMeta title="Invest & Insure: Income & Currency — A.L.I.Y.A. Framework" description="Build reliable income streams while managing Israel's 10-year tax window and balancing growth with protection across two financial systems." path="/framework/i" />
       <div className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

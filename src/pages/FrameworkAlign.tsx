@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { Target, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -5,6 +6,7 @@ import { Link } from "react-router-dom";
 const FrameworkAlign = () => {
   return (
     <Layout>
+      <PageMeta title="Align: Lifestyle & Budget — A.L.I.Y.A. Framework" description="Align your financial reality with your Aliyah vision through comprehensive budgeting, lifestyle planning, and rent-vs-buy housing strategy in both countries." path="/framework/a" />
       <div className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

@@ -1,9 +1,11 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import RiskProfileQuestionnaire from "@/components/RiskProfileQuestionnaire";
 
 const RiskProfile = () => {
   return (
     <Layout hideBuddy={true}>
+      <PageMeta title="Client Risk Profile | Aliya Financial" description="A confidential, two-part questionnaire covering your capacity to take risk and your tolerance for it. For illustrative purposes only — not personalized investment advice." path="/risk-profile" />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

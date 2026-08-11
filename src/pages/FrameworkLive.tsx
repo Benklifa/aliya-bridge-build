@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { Heart } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -5,6 +6,7 @@ import { Link } from "react-router-dom";
 const FrameworkLive = () => {
   return (
     <Layout>
+      <PageMeta title="Live: Longevity & Lifetime Income — A.L.I.Y.A. Framework" description="Plan for longevity with strategies that address rising late-life costs, healthcare needs, and reliable lifetime income for a U.S.–Israel retirement." path="/framework/l" />
       <div className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

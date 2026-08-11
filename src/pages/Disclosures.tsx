@@ -1,9 +1,11 @@
+import PageMeta from "@/components/PageMeta";
 import React from 'react';
 import Layout from '../components/Layout';
 
 const Disclosures: React.FC = () => {
   return (
     <Layout>
+      <PageMeta title="Important Disclosures | Aliya Financial" description="Important disclosures about Aliya Financial's website, services, and educational tools. Please read carefully before using our website or services." path="/disclosures" />
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}

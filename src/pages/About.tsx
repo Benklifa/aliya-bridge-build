@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "../components/Layout";
 import { Mail } from "lucide-react";
 
@@ -49,6 +50,7 @@ const About = () => {
 
   return (
     <Layout>
+      <PageMeta title="About Us | Aliya Financial" description="Comprehensive cross-border financial planning services and advisory solutions, combining professional expertise with deep understanding of U.S.–Israel financial transitions." path="/about" />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           {/* Header */}

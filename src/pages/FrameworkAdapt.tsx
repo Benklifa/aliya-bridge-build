@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { Shuffle } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -5,6 +6,7 @@ import { Link } from "react-router-dom";
 const FrameworkAdapt = () => {
   return (
     <Layout>
+      <PageMeta title="Adapt: Liquidity & Flexibility — A.L.I.Y.A. Framework" description="Maintain liquidity and flexibility through your move with cash reserves, currency access, and practical lending solutions in both countries." path="/framework/adapt" />
       <div className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

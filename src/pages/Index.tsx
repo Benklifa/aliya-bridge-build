@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import Hero from "@/components/Hero";
 import TwoDoorModule from "@/components/TwoDoorModule";
@@ -11,6 +12,7 @@ import CTAStrip from "@/components/CTAStrip";
 const Index = () => {
   return (
     <Layout>
+      <PageMeta title="Aliya Financial — Planning for Life's Major Transitions" description="Retirement, relocation, career change, cross-border moves — financial planning that carries you through life's transitions, with specialized expertise in U.S.–Israel Aliyah planning." path="/" />
       <Hero />
       <TwoDoorModule />
       <DidYouKnowTicker />

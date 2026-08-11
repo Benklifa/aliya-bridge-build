@@ -2,8 +2,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import type { RouteRecord } from "vite-react-ssg";
+import PageMeta from "@/components/PageMeta";
 import Index from "./pages/Index";
 import Framework from "./pages/Framework";
 import FrameworkAlign from "./pages/FrameworkAlign";
@@ -28,16 +29,28 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
-const Root = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <ScrollToTop />
-      <Outlet />
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const Root = () => {
+  const { pathname } = useLocation();
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        {/* Site-level fallback so any route without its own <PageMeta> still
+            ships real tags instead of a bare <head>. Every routed page below
+            renders its own <PageMeta>, which — per react-helmet-async's
+            render-order merge — overrides this one for that page. */}
+        <PageMeta
+          title="Aliya Financial - Planning for Life's Major Transitions, Wherever They Take You"
+          description="Aliya Financial: planning for life's major transitions, wherever they take you. Financial and retirement planning for relocation, career change, and cross-border transitions — including specialized U.S.-Israel Aliyah planning."
+          path={pathname}
+        />
+        <Toaster />
+        <Sonner />
+        <ScrollToTop />
+        <Outlet />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export const routes: RouteRecord[] = [
   {

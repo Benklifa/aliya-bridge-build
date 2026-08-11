@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { Calendar, MapPin, Clock, X } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -71,6 +72,7 @@ const Events = () => {
   if (loading) {
     return (
       <Layout>
+      <PageMeta title="Upcoming Events | Aliya Financial" description="Seminars and workshops on financial planning for Aliyah — browse upcoming Aliya Financial events and register." path="/events" />
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
@@ -83,6 +85,7 @@ const Events = () => {
 
   return (
     <Layout>
+      <PageMeta title="Upcoming Events | Aliya Financial" description="Seminars and workshops on financial planning for Aliyah — browse upcoming Aliya Financial events and register." path="/events" />
       <div className="min-h-screen bg-gradient-to-b from-navy-50 to-white py-8 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="mb-8 sm:mb-16">

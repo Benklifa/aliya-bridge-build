@@ -1,3 +1,4 @@
+import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import ServiceTiers from "@/components/ServiceTiers";
 import { Calendar, CheckSquare, FileText, Users } from "lucide-react";
@@ -5,6 +6,7 @@ import { Calendar, CheckSquare, FileText, Users } from "lucide-react";
 const AliyaProjectPlanning = () => {
   return (
     <Layout>
+      <PageMeta title="Aliya Project Management | Aliya Financial" description="Planning and hands-on logistics support for your Aliyah transition — housing, healthcare, banking, budgets, and the details that fall on your shoulders." path="/aliya-project-planning" />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-navy-900 to-navy-700 text-white py-16">
         <div className="container mx-auto px-4">
