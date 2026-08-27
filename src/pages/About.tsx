@@ -2,6 +2,26 @@ import PageMeta from "@/components/PageMeta";
 import Layout from "../components/Layout";
 import { Mail } from "lucide-react";
 
+// Person structured data for Michael Benklifa, for search/AI engines
+const founderJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Michael Hanania Benklifa",
+  jobTitle: "Founder & Chief Investment Officer",
+  email: "Michael@AliyaFinancial.com",
+  worksFor: {
+    "@type": "FinancialService",
+    name: "Aliya Financial LLC",
+    url: "https://aliyafinancial.com",
+  },
+  knowsLanguage: ["English", "Hebrew", "French"],
+  alumniOf: ["Texas A&M University", "ESC"],
+  sameAs: [
+    "https://www.linkedin.com/in/michaelbenklifa",
+    "https://www.amazon.com/stores/Michael-Hanania-Benklifa/author/B004ANLAEI",
+  ],
+});
+
 const About = () => {
   const teamMembers = [
     {
@@ -36,7 +56,7 @@ const About = () => {
   const whyReasons = [
     {
       title: "Licensed Expertise",
-              description: "Registered Investment Adviser in the State of New Jersey, with proper licensing and credentials in U.S. financial markets"
+              description: "Registered Investment Adviser (CRD #340264) in the State of New Jersey, with proper licensing and credentials in U.S. financial markets"
     },
     {
       title: "Cross-Border Focus",
@@ -51,6 +71,10 @@ const About = () => {
   return (
     <Layout>
       <PageMeta title="About Us | Aliya Financial" description="Comprehensive cross-border financial planning services and advisory solutions, combining professional expertise with deep understanding of U.S.–Israel financial transitions." path="/about" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: founderJsonLd }}
+      />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           {/* Header */}

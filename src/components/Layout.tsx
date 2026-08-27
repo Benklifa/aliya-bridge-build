@@ -3,6 +3,29 @@ import { Mail, MapPin, Menu, X, Phone } from "lucide-react";
 import { useState } from "react";
 import AliyaBuddy from "./AliyaBuddy";
 
+// FinancialService structured data for search/AI engines, rendered sitewide via Layout
+const organizationJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  name: "Aliya Financial LLC",
+  url: "https://aliyafinancial.com",
+  email: "info@aliyafinancial.com",
+  telephone: "+1-516-639-7000",
+  description: "Registered Investment Adviser in the State of New Jersey specializing in cross-border U.S.-Israel financial and retirement planning.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Highland Park",
+    addressRegion: "NJ",
+    addressCountry: "US",
+  },
+  areaServed: ["US", "IL"],
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "CRD",
+    value: "340264",
+  },
+});
+
 const Navigation = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -187,7 +210,7 @@ const Footer = () => {
         {/* Disclaimer */}
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            <strong>Important Disclosure:</strong> Aliya Financial LLC is registered as an Investment Adviser in the State of New Jersey. Registration does not imply a certain level of skill or training. 
+            <strong>Important Disclosure:</strong> Aliya Financial LLC (CRD #340264) is a registered investment adviser in the State of New Jersey. Registration does not imply a certain level of skill or training.
             Investing involves risk, including possible loss of principal. Past performance does not guarantee future results. 
             Cross-border investing involves additional risks including currency fluctuations, political and economic instability, and differences in accounting standards and regulations. 
             Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> for more information.
@@ -210,6 +233,10 @@ interface LayoutProps {
 const Layout = ({ children, hideNav = false, hideBuddy = false }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: organizationJsonLd }}
+      />
       {!hideNav && <Navigation />}
       <main className="flex-1">
         {children}

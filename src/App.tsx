@@ -24,6 +24,7 @@ import Tools from "./pages/Tools";
 import Glossary from "./pages/Glossary";
 import RiskProfile from "./pages/RiskProfile";
 import Disclosures from "./pages/Disclosures";
+import Retirement401kAliyah from "./pages/learn/Retirement401kAliyah";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -77,6 +78,7 @@ export const routes: RouteRecord[] = [
       { path: "tools", element: <Tools /> },
       { path: "glossary", element: <Glossary /> },
       { path: "disclosures", element: <Disclosures /> },
+      { path: "learn/401k-when-you-make-aliyah", element: <Retirement401kAliyah /> },
       // "404" is a real static path so the build emits dist/404.html, which
       // Vercel serves (with a 404 status) for any unknown URL once the SPA
       // catch-all rewrite is gone. The "*" route covers client-side navigation.
