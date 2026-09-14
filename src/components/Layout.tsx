@@ -36,7 +36,6 @@ const Navigation = () => {
     // { name: "Readiness Score", path: "/readiness" }, // Hidden while comparing against Risk Profile — route still live
     { name: "Risk Profile", path: "/risk-profile" },
     { name: "Learning Tools", path: "/tools" },
-    // { name: "Aliya Project Planning", path: "/aliya-project-planning" },
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Events", path: "/events" },

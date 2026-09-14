@@ -4,7 +4,7 @@ import { PieChart, Compass, FileText, Check, ArrowRight, type LucideIcon } from 
 // Homepage services teaser — three tiers, general-planning-first. Tier 2 is
 // the flagship (U.S.-Israel relocation/Aliyah) but is presented alongside,
 // not instead of, everyday financial and retirement planning. Full detail
-// lives on /services (general) and /aliya-project-planning (flagship pricing tiers).
+// lives on /services.
 
 interface Tier {
   icon: LucideIcon;
@@ -38,10 +38,10 @@ const TIERS: Tier[] = [
     includes: [
       "Dual-country tax mapping",
       "Cross-border benefits & currency planning",
-      "Phased project management, start to finish",
+      "Coordinated, phased transition timeline",
     ],
     cta: "Explore Aliya Planning",
-    to: "/aliya-project-planning",
+    to: "/services",
     featured: true,
   },
   {

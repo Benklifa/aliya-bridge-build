@@ -19,7 +19,6 @@ import News from "./pages/News";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import ReadinessScore from "./pages/ReadinessScore";
-import AliyaProjectPlanning from "./pages/AliyaProjectPlanning";
 import Tools from "./pages/Tools";
 import Glossary from "./pages/Glossary";
 import RiskProfile from "./pages/RiskProfile";
@@ -75,7 +74,6 @@ export const routes: RouteRecord[] = [
       // Kept live but unlinked while comparing against /risk-profile — see Layout.tsx nav/footer
       { path: "readiness", element: <ReadinessScore /> },
       { path: "risk-profile", element: <RiskProfile /> },
-      { path: "aliya-project-planning", element: <AliyaProjectPlanning /> },
       { path: "tools", element: <Tools /> },
       { path: "glossary", element: <Glossary /> },
       { path: "disclosures", element: <Disclosures /> },

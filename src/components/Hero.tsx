@@ -28,25 +28,17 @@ const Hero = () => {
         {/* Large spacer to push buttons below the road sign */}
         <div className="flex-grow min-h-[250px]"></div>
         
-        {/* Buttons in 2×2 grid positioned lower below the road sign */}
+        {/* Buttons positioned lower below the road sign */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto fade-in pb-12">
-          <Link 
-            to="/framework" 
+          <Link
+            to="/framework"
             className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
           >
             <span>Get Started</span>
             <ArrowRight size={20} />
           </Link>
-          
-          <Link 
-            to="/aliya-project-planning" 
-            className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
-          >
-            <span>Explore Project Planning</span>
-            <ArrowRight size={20} />
-          </Link>
-          
-          <Link 
+
+          <Link
             to="/contact" 
             className="btn-gold inline-flex items-center justify-center space-x-2 px-6 py-4 rounded-md font-semibold text-lg hover:scale-105 transition-transform"
           >

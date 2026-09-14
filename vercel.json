@@ -10,6 +10,11 @@
       "source": "/am-i-ready-to-buy",
       "destination": "/tools",
       "permanent": true
+    },
+    {
+      "source": "/aliya-project-planning",
+      "destination": "/services",
+      "permanent": true
     }
   ]
 }
