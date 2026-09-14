@@ -26,10 +26,10 @@ const About = () => {
   const teamMembers = [
     {
       name: "Michael Hanania Benklifa",
-      title: "Founder & Chief Investment Officer",
-      credentials: "Series 7, 63, 65 | Life & Health Insurance | MBA",
+      title: "Managing Member & Chief Compliance Officer",
+      credentials: "Series 65 | Life & Health Insurance | Dual MBA",
       image: "https://via.placeholder.com/300x300/1C2D41/C8A95E?text=Michael+Benklifa",
-              bio: "Michael Hanania Benklifa holds Series 7, 63, and 65 registrations, as well as Life & Health Insurance licenses in the U.S. He holds dual MBAs from Texas A&M University and ESC, and is fluent in English, Hebrew, and French.\n\nHis practice focuses on cross-border financial planning, including multi-currency portfolio management and tax-aware investment strategies.\n\nNote: Certain investment strategies, including derivatives and alternatives, involve significant risk and may not be suitable for all investors.",
+              bio: "Michael Hanania Benklifa is a Series 65–licensed Investment Adviser Representative and holds Life & Health Insurance licenses in the U.S. Earlier in his career, he also passed the FINRA Series 7 and 63 examinations. He holds dual MBAs from Texas A&M University and ESC, and is fluent in English, Hebrew, and French.\n\nHis practice focuses on cross-border financial planning, including multi-currency portfolio management and tax-aware investment strategies.\n\nNote: Certain investment strategies, including derivatives and alternatives, involve significant risk and may not be suitable for all investors.",
       email: "Michael@AliyaFinancial.com",
       specialties: [
         "Cross-border tax-aware planning",
