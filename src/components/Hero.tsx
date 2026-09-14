@@ -21,7 +21,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-white fade-in max-w-3xl mx-auto drop-shadow-lg">
-            Retirement. Relocation. Career change. Cross-border moves. Whatever the transition, we build the financial plan that carries you through — with specialized expertise in U.S.–Israel Aliyah planning.
+            Retirement. Relocation. Career change. Whatever the transition, we build the plan that carries you through it — with specialized expertise in U.S.–Israel Aliyah.
           </p>
         </div>
         
