@@ -7,7 +7,7 @@ const founderJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Michael Hanania Benklifa",
-  jobTitle: "Founder & Chief Investment Officer",
+  jobTitle: "Managing Member & Chief Compliance Officer",
   email: "Michael@AliyaFinancial.com",
   worksFor: {
     "@type": "FinancialService",
