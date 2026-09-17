@@ -1,20 +1,8 @@
 {
-  "cleanUrls": true,
-  "redirects": [
+  "rewrites": [
     {
-      "source": "/where-should-i-live",
-      "destination": "/tools",
-      "permanent": true
-    },
-    {
-      "source": "/am-i-ready-to-buy",
-      "destination": "/tools",
-      "permanent": true
-    },
-    {
-      "source": "/aliya-project-planning",
-      "destination": "/services",
-      "permanent": true
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

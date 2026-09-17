@@ -1,11 +1,9 @@
-import PageMeta from "@/components/PageMeta";
 import React from 'react';
 import Layout from '../components/Layout';
 
 const Disclosures: React.FC = () => {
   return (
     <Layout>
-      <PageMeta title="Important Disclosures | Aliya Financial" description="Important disclosures about Aliya Financial's website, services, and educational tools. Please read carefully before using our website or services." path="/disclosures" />
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -24,7 +22,7 @@ const Disclosures: React.FC = () => {
               Registration Status
             </h2>
             <p className="text-gray-800 mb-4">
-              <strong>Aliya Financial LLC (CRD #340264) is a registered investment adviser in the State of New Jersey.</strong> Registration does not imply a certain level of skill or training.
+              <strong>Aliya Financial LLC is registered as an Investment Adviser in the State of New Jersey.</strong> Registration does not imply a certain level of skill or training.
             </p>
             <p className="text-gray-800">
               Aliya Financial offers investment advisory services pursuant to written advisory agreements with clients.
@@ -40,10 +38,10 @@ const Disclosures: React.FC = () => {
               Our Form ADV Part 2A (Disclosure Brochure) contains detailed information regarding our services, fees, and business practices. A copy is available upon request and will be provided to all prospective clients before any advisory relationship begins. Fees are negotiable and will be clearly outlined in a written Investment Advisory Agreement and described in the Form ADV Part 2A.
             </p>
             <p className="text-gray-700">
-              Additional information about Aliya Financial LLC (CRD #340264) is available on the Investment Adviser Public Disclosure website at{' '}
-              <a
-                href="https://adviserinfo.sec.gov/firm/summary/340264"
-                target="_blank"
+              Additional information about Aliya Financial LLC is available on the Investment Adviser Public Disclosure website at{' '}
+              <a 
+                href="https://adviserinfo.sec.gov/" 
+                target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 underline"
               >

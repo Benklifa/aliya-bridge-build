@@ -1,4 +1,3 @@
-import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -44,7 +43,6 @@ const Framework = () => {
 
   return (
     <Layout>
-      <PageMeta title="The A.L.I.Y.A. Framework Explained | Aliya Financial" description="Our methodology for cross-border financial planning — designed to help evaluate whether your Aliyah transition supports your desired lifestyle, now and in retirement." path="/framework" />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           {/* Header */}

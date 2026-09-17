@@ -1,10 +1,8 @@
-import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 
 const News = () => {
   return (
     <Layout>
-      <PageMeta title="In the News | Aliya Financial" description="Featured articles about Aliya Financial and cross-border financial planning education." path="/news" />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

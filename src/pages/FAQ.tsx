@@ -1,4 +1,3 @@
-import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
@@ -57,7 +56,6 @@ const FAQ = () => {
 
   return (
     <Layout>
-      <PageMeta title="Frequently Asked Questions | Aliya Financial" description="Common questions about cross-border financial planning and Aliyah preparation." path="/faq" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: faqJsonLd }}

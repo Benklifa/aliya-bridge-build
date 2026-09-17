@@ -17,28 +17,36 @@ const Hero = () => {
         {/* Text content positioned higher above the road sign */}
         <div className="max-w-4xl mx-auto pt-4">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 fade-in drop-shadow-lg">
-            Planning for Life's Major Transitions — Wherever They Take You
+            Financial Planning for Life's Biggest Transitions
           </h1>
-
+          
           <p className="text-xl md:text-2xl text-white fade-in max-w-3xl mx-auto drop-shadow-lg">
-            Retirement. Relocation. Career change. Whatever the transition, we build the plan that carries you through it — with specialized expertise in U.S.–Israel Aliyah.
+            From retirement and portfolio strategy to cross-border planning and Aliyah — we help you make confident financial decisions at every stage of life
           </p>
         </div>
         
         {/* Large spacer to push buttons below the road sign */}
         <div className="flex-grow min-h-[250px]"></div>
         
-        {/* Buttons positioned lower below the road sign */}
+        {/* Buttons in 2×2 grid positioned lower below the road sign */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto fade-in pb-12">
-          <Link
-            to="/framework"
+          <Link 
+            to="/framework" 
             className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
           >
             <span>Get Started</span>
             <ArrowRight size={20} />
           </Link>
-
-          <Link
+          
+          <Link 
+            to="/aliya-project-planning" 
+            className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
+          >
+            <span>Explore Project Planning</span>
+            <ArrowRight size={20} />
+          </Link>
+          
+          <Link 
             to="/contact" 
             className="btn-gold inline-flex items-center justify-center space-x-2 px-6 py-4 rounded-md font-semibold text-lg hover:scale-105 transition-transform"
           >

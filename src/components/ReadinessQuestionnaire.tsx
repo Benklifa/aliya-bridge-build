@@ -20,7 +20,11 @@ interface CategoryScore {
 }
 
 const ReadinessQuestionnaire = () => {
-  const [showResults, setShowResults] = useState(false);
+  // Load saved state from localStorage
+  const [showResults, setShowResults] = useState(() => {
+    const saved = localStorage.getItem('readinessShowResults');
+    return saved ? JSON.parse(saved) : false;
+  });
 
   const initialQuestions: Question[] = [
     // 🅰️ Align (Lifestyle & Budget) - 6 questions
@@ -60,18 +64,10 @@ const ReadinessQuestionnaire = () => {
     { id: 26, category: "Adapt", text: "I could pause, delay, or adjust my move without major financial hardship.", value: 5 },
   ];
 
-  const [responses, setResponses] = useState<Question[]>(initialQuestions);
-
-  // Restore saved state on mount. localStorage is read here rather than in the
-  // useState initializers so the first render never touches browser APIs —
-  // required for build-time prerendering (SSG), where initializers run under Node.
-  // Declared before the write-effect below so the restore wins on mount.
-  useEffect(() => {
-    const savedResponses = localStorage.getItem('readinessResponses');
-    if (savedResponses) setResponses(JSON.parse(savedResponses));
-    const savedShowResults = localStorage.getItem('readinessShowResults');
-    if (savedShowResults) setShowResults(JSON.parse(savedShowResults));
-  }, []);
+  const [responses, setResponses] = useState<Question[]>(() => {
+    const saved = localStorage.getItem('readinessResponses');
+    return saved ? JSON.parse(saved) : initialQuestions;
+  });
 
   // Save to localStorage whenever responses or showResults change
   useEffect(() => {

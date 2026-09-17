@@ -1,11 +1,9 @@
-import PageMeta from "@/components/PageMeta";
 import Layout from "../components/Layout";
 import ReadinessQuestionnaire from "../components/ReadinessQuestionnaire";
 
 const ReadinessScore = () => {
   return (
     <Layout hideBuddy={true}>
-      <PageMeta title="Aliya Readiness Score™ | Aliya Financial" description="An automated educational readiness assessment: see how prepared you are for Aliyah and receive a general preparedness score with illustrative planning considerations." path="/readiness" />
       {/* Header Section */}
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">

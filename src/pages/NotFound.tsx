@@ -1,4 +1,3 @@
-import PageMeta from "@/components/PageMeta";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -11,7 +10,6 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <PageMeta title="Page Not Found | Aliya Financial" description="The page you're looking for doesn't exist or may have moved. Return to the Aliya Financial homepage." path="/404" noindex />
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">404</h1>
         <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>

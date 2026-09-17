@@ -1,4 +1,3 @@
-import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { BookOpen } from "lucide-react";
 
@@ -64,7 +63,6 @@ const GLOSSARY: GlossaryGroup[] = [
 const Glossary = () => {
   return (
     <Layout>
-      <PageMeta title="The Aliyah Financial Dictionary | Aliya Financial" description="The terms that come up constantly in U.S.–Israel financial planning — defined in plain English." path="/glossary" />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

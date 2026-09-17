@@ -1,4 +1,3 @@
-import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import TwoCountryScenario from "@/components/TwoCountryScenario";
 import { Link } from "react-router-dom";
@@ -91,7 +90,6 @@ const Services = () => {
 
   return (
     <Layout>
-      <PageMeta title="Our Services | Aliya Financial" description="Comprehensive financial planning — retirement, investments, estate, and income strategy — with specialized expertise for families navigating, or considering, a U.S.–Israel move." path="/services" />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           {/* Header */}

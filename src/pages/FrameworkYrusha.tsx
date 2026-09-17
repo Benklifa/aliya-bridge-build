@@ -1,4 +1,3 @@
-import PageMeta from "@/components/PageMeta";
 import Layout from "@/components/Layout";
 import { Users } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,7 +5,6 @@ import { Link } from "react-router-dom";
 const FrameworkYrusha = () => {
   return (
     <Layout>
-      <PageMeta title="Y'rusha: Legacy & Estate Planning — A.L.I.Y.A. Framework" description="Cross-border estate planning with proper wills, beneficiary design, and tax-sensitive legacy strategies that work in both the U.S. and Israel." path="/framework/y" />
       <div className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

@@ -1,35 +1,14 @@
-import PageMeta from "@/components/PageMeta";
 import Layout from "../components/Layout";
 import { Mail } from "lucide-react";
-
-// Person structured data for Michael Benklifa, for search/AI engines
-const founderJsonLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Michael Hanania Benklifa",
-  jobTitle: "Managing Member & Chief Compliance Officer",
-  email: "Michael@AliyaFinancial.com",
-  worksFor: {
-    "@type": "FinancialService",
-    name: "Aliya Financial LLC",
-    url: "https://aliyafinancial.com",
-  },
-  knowsLanguage: ["English", "Hebrew", "French"],
-  alumniOf: ["Texas A&M University", "ESC"],
-  sameAs: [
-    "https://www.linkedin.com/in/michaelbenklifa",
-    "https://www.amazon.com/stores/Michael-Hanania-Benklifa/author/B004ANLAEI",
-  ],
-});
 
 const About = () => {
   const teamMembers = [
     {
       name: "Michael Hanania Benklifa",
-      title: "Managing Member & Chief Compliance Officer",
-      credentials: "Series 65 | Life & Health Insurance | Dual MBA",
+      title: "Founder & Chief Investment Officer",
+      credentials: "Series 7, 63, 65 | Life & Health Insurance | MBA",
       image: "https://via.placeholder.com/300x300/1C2D41/C8A95E?text=Michael+Benklifa",
-              bio: "Michael Hanania Benklifa is a Series 65–licensed Investment Adviser Representative and holds Life & Health Insurance licenses in the U.S. Earlier in his career, he also passed the FINRA Series 7 and 63 examinations. He holds dual MBAs from Texas A&M University and ESC, and is fluent in English, Hebrew, and French.\n\nHis practice focuses on cross-border financial planning, including multi-currency portfolio management and tax-aware investment strategies.\n\nNote: Certain investment strategies, including derivatives and alternatives, involve significant risk and may not be suitable for all investors.",
+              bio: "Michael Hanania Benklifa holds Series 7, 63, and 65 registrations, as well as Life & Health Insurance licenses in the U.S. He holds dual MBAs from Texas A&M University and ESC, and is fluent in English, Hebrew, and French.\n\nHis practice focuses on cross-border financial planning, including multi-currency portfolio management and tax-aware investment strategies.\n\nNote: Certain investment strategies, including derivatives and alternatives, involve significant risk and may not be suitable for all investors.",
       email: "Michael@AliyaFinancial.com",
       specialties: [
         "Cross-border tax-aware planning",
@@ -56,7 +35,7 @@ const About = () => {
   const whyReasons = [
     {
       title: "Licensed Expertise",
-              description: "Registered Investment Adviser (CRD #340264) in the State of New Jersey, with proper licensing and credentials in U.S. financial markets"
+              description: "Registered Investment Adviser in the State of New Jersey, with proper licensing and credentials in U.S. financial markets"
     },
     {
       title: "Cross-Border Focus",
@@ -70,11 +49,6 @@ const About = () => {
 
   return (
     <Layout>
-      <PageMeta title="About Us | Aliya Financial" description="Comprehensive cross-border financial planning services and advisory solutions, combining professional expertise with deep understanding of U.S.–Israel financial transitions." path="/about" />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: founderJsonLd }}
-      />
       <div className="bg-primary py-16">
         <div className="container mx-auto px-4">
           {/* Header */}
