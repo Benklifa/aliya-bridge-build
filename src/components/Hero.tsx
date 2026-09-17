@@ -38,16 +38,8 @@ const Hero = () => {
             <ArrowRight size={20} />
           </Link>
           
-          <Link 
-            to="/aliya-project-planning" 
-            className="inline-flex items-center justify-center space-x-2 bg-white text-primary hover:bg-gold-500 hover:text-white transition-colors border-2 border-gold-500 px-6 py-4 rounded-md font-medium text-lg"
-          >
-            <span>Explore Project Planning</span>
-            <ArrowRight size={20} />
-          </Link>
-          
-          <Link 
-            to="/contact" 
+          <Link
+            to="/contact"
             className="btn-gold inline-flex items-center justify-center space-x-2 px-6 py-4 rounded-md font-semibold text-lg hover:scale-105 transition-transform"
           >
             <Calendar size={20} />
