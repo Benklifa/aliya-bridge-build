@@ -7,28 +7,23 @@ const DidYouKnowTicker = () => {
     {
       icon: TrendingUp,
       text: "A 10% USD/ILS currency swing with 4% inflation can cut purchasing power by ~14% in a year.",
-      color: "text-red-500"
     },
     {
       icon: Shield,
       text: "New or returning residents may qualify for a 10-year Israeli tax exemption on foreign income and gains.",
-      color: "text-teal-500"
     },
     {
       icon: Calendar,
       text: "Each 12-month delay in enrolling in Medicare Part B may add ~10% to premiums—for life.",
-      color: "text-orange-500"
     },
     {
       icon: DollarSign,
       text: "U.S. life insurance is often 30–50% less expensive than comparable coverage in Israel.",
-      color: "text-green-500"
     },
     {
       icon: AlertCircle,
       text: "Borrowing against investments or permanent life insurance is debt, not income—useful for liquidity without triggering Israeli income tax.",
-      color: "text-blue-500"
-    }
+    },
   ];
 
   const [currentFactIndex, setCurrentFactIndex] = useState(0);
@@ -45,42 +40,45 @@ const DidYouKnowTicker = () => {
   const IconComponent = currentFact.icon;
 
   return (
-    <section className="bg-muted/30 py-8">
+    <section className="bg-primary pt-6 pb-16">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-4">
-            <h2 className="font-serif text-3xl font-semibold text-primary mb-2">
-              Did You Know...
-            </h2>
-          </div>
-          
-          <div className="bg-card rounded-lg card-shadow p-6 min-h-[120px] flex items-center justify-center">
-            <div className="ticker-slide flex items-start space-x-4 text-center">
-              <IconComponent size={24} className={`${currentFact.color} flex-shrink-0 mt-1`} />
+        <div className="max-w-2xl mx-auto">
+          <div className="cta-panel shadow-lg px-6 pt-5 pb-4 md:px-7 md:pt-6 md:pb-5">
+            <div className="ticker-slide flex items-start gap-4 text-left">
+              <span className="flex items-center justify-center w-10 h-10 rounded-full bg-primary text-gold-500 flex-shrink-0">
+                <IconComponent size={18} strokeWidth={2} />
+              </span>
               <div className="flex-1">
-                <p className="text-lg text-card-foreground leading-relaxed">
+                <div
+                  className="text-gold-600 font-semibold uppercase text-xs mb-1"
+                  style={{ letterSpacing: "0.12em" }}
+                >
+                  Did You Know
+                </div>
+                <p className="font-serif text-lg text-primary leading-snug">
                   {currentFact.text}
                 </p>
-                <Link 
-                  to="/framework" 
-                  className="inline-block mt-3 text-sm text-accent hover:text-accent/80 font-medium"
+                <Link
+                  to="/framework"
+                  className="inline-block mt-2 text-sm text-gold-600 hover:text-gold-500 font-semibold transition-colors"
+                  style={{ minHeight: "auto", minWidth: "auto" }}
                 >
                   Learn more →
                 </Link>
               </div>
             </div>
           </div>
-          
+
           {/* Progress indicators */}
-          <div className="flex justify-center mt-4 space-x-2">
+          <div className="flex justify-center mt-5 space-x-2">
             {facts.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentFactIndex(index)}
+                aria-label={`Show fact ${index + 1}`}
+                style={{ minHeight: "auto", minWidth: "auto" }}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentFactIndex 
-                    ? "bg-accent" 
-                    : "bg-muted-foreground/30"
+                  index === currentFactIndex ? "bg-gold-500" : "bg-white/25"
                 }`}
               />
             ))}

@@ -50,18 +50,18 @@ export default {
         // Aliya Financial brand colors
         navy: {
           DEFAULT: "hsl(var(--navy-primary))",
-          50: "hsl(207 63% 95%)",
-          100: "hsl(207 63% 90%)",
+          50: "hsl(218 42% 95%)",
+          100: "hsl(218 42% 90%)",
           500: "hsl(var(--navy-primary))",
-          600: "hsl(207 63% 15%)",
-          900: "hsl(207 63% 10%)",
+          600: "hsl(218 42% 14%)",
+          900: "hsl(218 42% 9%)",
         },
         gold: {
           DEFAULT: "hsl(var(--gold-accent))",
-          50: "hsl(43 48% 95%)",
-          100: "hsl(43 48% 90%)",
+          50: "hsl(41 54% 95%)",
+          100: "hsl(41 54% 90%)",
           500: "hsl(var(--gold-accent))",
-          600: "hsl(43 48% 50%)",
+          600: "hsl(41 54% 46%)",
         },
         teal: {
           DEFAULT: "hsl(var(--teal-highlight))",

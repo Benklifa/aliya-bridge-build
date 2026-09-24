@@ -1,22 +1,83 @@
 import { Link, useLocation } from "react-router-dom";
 import { Mail, MapPin, Menu, X, Phone } from "lucide-react";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import AliyaBuddy from "./AliyaBuddy";
+import MarketTicker from "./MarketTicker";
 
 const Navigation = () => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // On desktop, the logo+title group is centered within the header's own
+  // container (measured, not flex-centered — the logo graphic overflows its
+  // small flex box via absolute positioning, so CSS justify-center centers
+  // the wrong, smaller box and misses visually). The nav row is then
+  // stretched to the title's rendered width and centered on it too, so
+  // everything in the ribbon shares one true center. On mobile the group
+  // stays pinned left (hamburger pinned right), untouched.
+  useLayoutEffect(() => {
+    const align = () => {
+      const groupEl = document.querySelector<HTMLElement>(".logo-title-group");
+      const titleEl = document.querySelector<HTMLElement>('header a[href="/"] .fs-logo');
+      const navEl = document.querySelector<HTMLElement>(".header-nav");
+      const headerContainer = document.querySelector<HTMLElement>("header .max-w-6xl");
+      if (!groupEl || !titleEl || !navEl || !headerContainer) return;
+
+      groupEl.style.transform = "none";
+
+      if (window.innerWidth >= 768) {
+        const containerRect = headerContainer.getBoundingClientRect();
+        const containerCenter = containerRect.left + containerRect.width / 2;
+        const titleRect = titleEl.getBoundingClientRect();
+        const titleCenter = titleRect.left + titleRect.width / 2;
+        const groupRect = groupEl.getBoundingClientRect();
+        const desired = containerCenter - titleCenter;
+        const clamped = Math.max(
+          -groupRect.left,
+          Math.min(window.innerWidth - groupRect.right, desired),
+        );
+        groupEl.style.transform = clamped ? `translateX(${clamped}px)` : "";
+      }
+
+      const titleRect = titleEl.getBoundingClientRect();
+      const titleCenter = titleRect.left + titleRect.width / 2;
+
+      navEl.style.transform = "none";
+      navEl.style.width = `${titleRect.width}px`;
+      const navRect = navEl.getBoundingClientRect();
+      const navCenter = navRect.left + navRect.width / 2;
+      const desired = titleCenter - navCenter;
+      const clamped = Math.max(-navRect.left, Math.min(window.innerWidth - navRect.right, desired));
+      navEl.style.transform = clamped ? `translateX(${clamped}px)` : "";
+    };
+
+    align();
+    window.addEventListener("resize", align);
+
+    // ResizeObserver catches layout changes a plain window "resize" event
+    // can miss (e.g. the title reflowing once web fonts finish loading).
+    const headerEl = document.querySelector("header");
+    const resizeObserver = headerEl ? new ResizeObserver(align) : null;
+    if (headerEl && resizeObserver) resizeObserver.observe(headerEl);
+
+    document.fonts?.ready?.then(align);
+
+    return () => {
+      window.removeEventListener("resize", align);
+      resizeObserver?.disconnect();
+    };
+  }, []);
+
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "A.L.I.Y.A Framework", path: "/framework" },
-    { name: "Readiness Score", path: "/readiness" },
+    // { name: "A.L.I.Y.A Framework", path: "/framework" },
+    // { name: "Readiness Score", path: "/readiness" },
     // { name: "Learning Tools", path: "/tools" },
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
-    { name: "Events", path: "/events" },
-    { name: "In the News", path: "/news" },
-    { name: "FAQ", path: "/faq" },
+    // { name: "Events", path: "/events" },
+    // { name: "In the News", path: "/news" },
+    // { name: "FAQ", path: "/faq" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -27,102 +88,153 @@ const Navigation = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-navy-900 border-b border-navy-600">
-      <div className="container mx-auto px-2 sm:px-4">
-        <div className="flex flex-col py-3 sm:py-4">
-          {/* Logo, Title, and Hamburger Menu */}
-          <div className="flex items-center justify-between mb-3 sm:mb-4">
-            <div className="flex items-start space-x-3 sm:space-x-4">
-              <div className="relative h-12 sm:h-16 md:h-20 w-12 sm:w-16 md:w-20 flex-shrink-0">
-                <img 
-                  src="/israel-puzzle-logo.png" 
-                  alt="Aliya Financial Israel Puzzle Logo" 
-                  className="absolute top-0 left-0 h-[180px] sm:h-[200px] md:h-[240px] w-auto object-contain z-20"
-                />
-              </div>
-              <Link to="/" className="flex items-center pt-1">
-                <div className="font-serif font-bold text-xl sm:text-3xl md:text-4xl lg:text-5xl text-white">
-                  Aliya Financial
+    <div className="sticky top-0 z-50 w-full">
+      <header className="w-full bg-navy-900 border-b border-navy-600">
+        <div className="max-w-6xl mx-auto px-2 sm:px-4">
+          <div className="relative flex flex-col" style={{ paddingTop: 0, paddingBottom: "6px" }}>
+            {/* Logo, Title, and Hamburger Menu */}
+            <div
+              className="flex items-end justify-between gap-x-3 sm:gap-x-8"
+              style={{
+                paddingTop: 0,
+                marginBottom: 0,
+              }}
+            >
+              <div className="logo-title-group flex items-end space-x-3 sm:space-x-4 min-w-0">
+                <div
+                  className="relative self-start flex-shrink-0"
+                  style={{ height: "clamp(2.25rem, 1rem + 5vw, 5rem)", width: "clamp(2.25rem, 1rem + 5vw, 5rem)" }}
+                >
+                  <img
+                    src="/israel-puzzle-logo.png"
+                    alt="Aliya Financial Israel Puzzle Logo"
+                    className="absolute top-0 left-0 w-auto object-contain z-20"
+                    style={{ height: "clamp(10rem, 6rem + 10vw, 20rem)" }}
+                  />
                 </div>
-              </Link>
+                <Link to="/" className="flex flex-col items-center min-w-0">
+                  <div
+                    className="fs-logo font-bold text-white"
+                    style={{
+                      fontFamily: "'Times New Roman', Times, serif",
+                      fontVariant: "small-caps",
+                      letterSpacing: "clamp(0em, -0.45em + 2.9vw, 0.28em)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Aliya Financial
+                  </div>
+                  <div
+                    className="fs-eyebrow text-gold-500 font-semibold whitespace-nowrap"
+                    style={{
+                      fontFamily: "'Times New Roman', Times, serif",
+                      fontStyle: "italic",
+                      letterSpacing: "0.18em",
+                    }}
+                  >
+                    Putting the puzzle together
+                  </div>
+                </Link>
+              </div>
+
+              {/* Hamburger Menu Button - Mobile Only */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden text-white p-2"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
             </div>
 
-            {/* Hamburger Menu Button - Mobile Only */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-white p-2"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile Dropdown Menu */}
+            {isMobileMenuOpen && (
+              <nav className="md:hidden absolute right-0 top-full z-30 w-52 bg-navy-600 border border-gold-500/20 rounded-lg mt-2 py-2 shadow-lg">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={handleNavClick}
+                    className={`block px-4 py-3 text-sm font-medium transition-colors hover:bg-white/10 ${
+                      isActive(item.path)
+                        ? "text-gold-500 bg-white/10"
+                        : "text-white"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
+            )}
           </div>
+        </div>
+      </header>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center justify-end space-x-6 lg:space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm lg:text-base font-medium transition-colors hover:text-gold-500 whitespace-nowrap ${
-                  isActive(item.path) 
-                    ? "text-gold-500 border-b-2 border-gold-500" 
-                    : "text-white"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+      {/* Scrolling market/exchange-rate tape — sits between the dark title
+          banner and the nav band */}
+      <MarketTicker />
 
-          {/* Mobile Dropdown Menu */}
-          {isMobileMenuOpen && (
-            <nav className="md:hidden bg-navy-800 rounded-lg mt-2 py-2 shadow-lg">
+      {/* Desktop Navigation — its own band under the dark banner, centered
+          on the same axis as the title and page body rather than pinned
+          to a row's edge inside the (now slimmer) dark header */}
+      <div className="hidden md:block w-full bg-card border-b border-border">
+        <div className="max-w-6xl mx-auto px-2 sm:px-4">
+          <div className="flex justify-center py-1">
+            <nav className="header-nav flex items-center justify-between">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
-                  onClick={handleNavClick}
-                  className={`block px-4 py-3 text-sm font-medium transition-colors hover:bg-navy-700 ${
-                    isActive(item.path) 
-                      ? "text-gold-500 bg-navy-700" 
-                      : "text-white"
+                  style={{ minHeight: "auto", minWidth: "auto" }}
+                  className={`text-sm lg:text-base font-medium transition-colors hover:text-gold-600 whitespace-nowrap ${
+                    isActive(item.path)
+                      ? "text-gold-600 border-b-2 border-gold-600"
+                      : "text-primary"
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
             </nav>
-          )}
+          </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 };
 
 const Footer = () => {
   return (
     <footer className="bg-navy-50 border-t border-border mt-8 sm:mt-16">
-      <div className="container mx-auto px-4 py-8 sm:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
+      <div className="container mx-auto px-4 py-6 sm:py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Contact Information */}
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-2 sm:space-y-3">
             <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Contact</h3>
-            <div className="space-y-2 text-xs sm:text-sm text-muted-foreground">
-              <div className="flex items-center space-x-2">
+            <div className="space-y-1.5 text-xs sm:text-sm text-muted-foreground">
+              <Link
+                to="/contact"
+                className="flex items-center space-x-2 hover:text-accent transition-colors"
+                style={{ minHeight: "auto", minWidth: "auto" }}
+              >
                 <Mail size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
                 <span className="break-all">info@aliyafinancial.com</span>
-              </div>
-              <div className="flex items-center space-x-2">
+              </Link>
+              <Link
+                to="/contact"
+                className="flex items-center space-x-2 hover:text-accent transition-colors"
+                style={{ minHeight: "auto", minWidth: "auto" }}
+              >
                 <Phone size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
                 <span>516-639-7000</span>
-              </div>
+              </Link>
             </div>
           </div>
 
           {/* Locations */}
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-2 sm:space-y-3">
             <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Locations</h3>
-            <div className="space-y-2 text-xs sm:text-sm text-muted-foreground">
+            <div className="space-y-1.5 text-xs sm:text-sm text-muted-foreground">
               <div className="flex items-start space-x-2">
                 <MapPin size={14} className="sm:w-4 sm:h-4 mt-0.5 flex-shrink-0" />
                 <span>Highland Park, NJ (USA)</span>
@@ -134,40 +246,37 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Resources */}
-          <div className="space-y-3 sm:space-y-4">
-            <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Resources</h3>
-            <div className="space-y-2 text-xs sm:text-sm">
-              <Link to="/glossary" className="block text-muted-foreground hover:text-accent">
-                Aliyah Financial Dictionary
-              </Link>
-              <Link to="/tools" className="block text-muted-foreground hover:text-accent">
-                Learning Tools
-              </Link>
-              <Link to="/readiness" className="block text-muted-foreground hover:text-accent">
-                Readiness Score
-              </Link>
-            </div>
-          </div>
-
           {/* Legal Links */}
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-2 sm:space-y-3">
             <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Legal</h3>
-            <div className="space-y-2 text-xs sm:text-sm">
-              <Link to="/privacy" className="block text-muted-foreground hover:text-accent">
+            <div className="space-y-1 text-xs sm:text-sm">
+              <Link
+                to="/privacy"
+                className="block text-muted-foreground hover:text-accent"
+                style={{ minHeight: "auto", minWidth: "auto" }}
+              >
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="block text-muted-foreground hover:text-accent">
+              <Link
+                to="/terms"
+                className="block text-muted-foreground hover:text-accent"
+                style={{ minHeight: "auto", minWidth: "auto" }}
+              >
                 Terms of Service
               </Link>
-              <Link to="/disclosures" className="block text-muted-foreground hover:text-accent">
+              <Link
+                to="/disclosures"
+                className="block text-muted-foreground hover:text-accent"
+                style={{ minHeight: "auto", minWidth: "auto" }}
+              >
                 Disclosures
               </Link>
-              <a 
-                href="/form-crs" 
-                target="_blank" 
+              <a
+                href="/form-crs"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="block text-muted-foreground hover:text-accent font-semibold"
+                style={{ minHeight: "auto", minWidth: "auto" }}
               >
                 Form CRS
               </a>
@@ -176,7 +285,7 @@ const Footer = () => {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
+        <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-border">
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
             <strong>Important Disclosure:</strong> Aliya Financial LLC is registered as an Investment Adviser in the State of New Jersey. Registration does not imply a certain level of skill or training. 
             Investing involves risk, including possible loss of principal. Past performance does not guarantee future results. 

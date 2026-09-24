@@ -4,18 +4,18 @@
 
 /* Aliya Financial Design System - Banking Grade Professional */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 @layer base {
   :root {
     /* Aliya Financial Brand Colors */
-    --navy-primary: 207 63% 19%;        /* #1C2D41 - Dark Navy */
-    --navy-light: 207 43% 35%;          /* Lighter navy for cards */
-    --gold-accent: 43 48% 58%;          /* #C8A95E - Gold accents */
-    --gold-light: 43 38% 68%;           /* Lighter gold */
+    --navy-primary: 218 42% 18%;        /* #1B2942 - Dark Navy (print ad) */
+    --navy-light: 218 32% 32%;          /* Lighter navy for cards */
+    --gold-accent: 41 54% 54%;          /* #C9A24B - Gold accents (print ad) */
+    --gold-light: 41 44% 66%;           /* Lighter gold */
     --soft-white: 210 17% 98%;          /* #F8F9FA - Background */
-    --cream: 45 25% 95%;                /* Warm cream background */
-    --teal-highlight: 188 44% 39%;      /* #3A8D92 - Teal highlights */
+    --cream: 42 48% 86%;                /* #EDE3CC - Warm cream/tan background */
+    --teal-highlight: 188 44% 39%;      /* #3A8D92 - Teal highlights (legacy, not used by current brand) */
     
     /* Semantic color system */
     --background: var(--navy-primary);
@@ -111,7 +111,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
   }
   
   /* Fix input text color - ensure it's always dark on light backgrounds */
@@ -128,7 +128,70 @@
   h1, h2, .font-serif {
     font-family: 'Playfair Display', Georgia, serif;
   }
-  
+
+  /* Warm, personal italic serif subheadline style */
+  .font-serif-italic {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /*
+   * Fluid type scale — every size below grows continuously with viewport
+   * width (clamp(min, preferred-vw, max)) instead of jumping between fixed
+   * breakpoint sizes. Keeping them all defined together keeps their
+   * proportions to each other consistent at every screen size.
+   */
+  :root {
+    --fs-logo: clamp(1.225rem, 0.7rem + 3.64vw, 4.55rem);
+    --fs-eyebrow: clamp(0.65rem, 0.5rem + 1vw, 1.25rem);
+    --fs-h1: clamp(1.9rem, 1.1rem + 3.6vw, 3.75rem);
+    --fs-h2: clamp(1.5rem, 1rem + 2.4vw, 2.5rem);
+    --fs-body-lg: clamp(1.05rem, 0.9rem + 0.7vw, 1.5rem);
+    --fs-body: clamp(0.95rem, 0.85rem + 0.4vw, 1.125rem);
+  }
+
+  .fs-logo { font-size: var(--fs-logo); }
+  .fs-eyebrow { font-size: var(--fs-eyebrow); }
+  .fs-h1 { font-size: var(--fs-h1); }
+  .fs-h2 { font-size: var(--fs-h2); }
+  .fs-body-lg { font-size: var(--fs-body-lg); }
+  .fs-body { font-size: var(--fs-body); }
+
+  /* Fine gold hairline rule under major headlines */
+  .hairline-gold {
+    width: 4rem;
+    height: 1px;
+    margin: 1.25rem auto;
+    background: hsl(var(--gold-accent));
+    border: none;
+  }
+
+  /* Boxed cream CTA panel */
+  .cta-panel {
+    background: hsl(var(--cream));
+    color: hsl(var(--navy-primary));
+    border-radius: 0.5rem;
+  }
+
+  /* Small gold diamond bullet markers */
+  .diamond-bullets {
+    list-style: none;
+    padding-left: 0;
+  }
+  .diamond-bullets li {
+    position: relative;
+    padding-left: 1.75rem;
+  }
+  .diamond-bullets li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    color: hsl(var(--gold-accent));
+    font-size: 0.75em;
+  }
+
   /* Custom gradients and effects */
   .hero-gradient {
     background: linear-gradient(135deg, hsl(var(--navy-primary) / 0.95) 0%, hsl(var(--navy-primary) / 0.85) 100%);
@@ -179,7 +242,21 @@
     from { opacity: 0; transform: translateX(20px); }
     to { opacity: 1; transform: translateX(0); }
   }
-  
+
+  /* Scrolling market-data tape — two copies of the content sit side by
+     side and the track scrolls exactly one copy's width for a seamless loop. */
+  .market-ticker-track {
+    width: max-content;
+    animation: marketTickerScroll 45s linear infinite;
+  }
+  .market-ticker-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes marketTickerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
   /* Puzzle card utilities */
   .puzzle-card {
     position: relative;
