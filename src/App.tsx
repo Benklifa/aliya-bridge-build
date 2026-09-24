@@ -22,6 +22,7 @@ import AmIReadyToBuy from "./pages/AmIReadyToBuy";
 import Tools from "./pages/Tools";
 import Glossary from "./pages/Glossary";
 import Disclosures from "./pages/Disclosures";
+import Privacy from "./pages/Privacy";
 import LifeEvent from "./pages/LifeEvent";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
@@ -55,6 +56,7 @@ const App = () => (
           <Route path="/tools" element={<Tools />} />
           <Route path="/glossary" element={<Glossary />} />
           <Route path="/disclosures" element={<Disclosures />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/life-events/:slug" element={<LifeEvent />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

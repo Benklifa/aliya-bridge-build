@@ -40,7 +40,7 @@ const DidYouKnowTicker = () => {
   const IconComponent = currentFact.icon;
 
   return (
-    <section className="bg-primary pt-6 pb-16">
+    <section className="bg-primary pt-6 pb-10">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <div className="cta-panel shadow-lg px-6 pt-5 pb-4 md:px-7 md:pt-6 md:pb-5">

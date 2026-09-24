@@ -205,13 +205,13 @@ const Navigation = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-navy-50 border-t border-border mt-8 sm:mt-16">
-      <div className="container mx-auto px-4 py-6 sm:py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <footer className="bg-navy-50 border-t border-border">
+      <div className="container mx-auto px-4 py-5 sm:py-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
           {/* Contact Information */}
-          <div className="space-y-2 sm:space-y-3">
+          <div className="space-y-1.5 sm:space-y-2">
             <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Contact</h3>
-            <div className="space-y-1.5 text-xs sm:text-sm text-muted-foreground">
+            <div className="space-y-1 text-xs sm:text-sm text-muted-foreground">
               <Link
                 to="/contact"
                 className="flex items-center space-x-2 hover:text-accent transition-colors"
@@ -232,9 +232,9 @@ const Footer = () => {
           </div>
 
           {/* Locations */}
-          <div className="space-y-2 sm:space-y-3">
+          <div className="space-y-1.5 sm:space-y-2">
             <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Locations</h3>
-            <div className="space-y-1.5 text-xs sm:text-sm text-muted-foreground">
+            <div className="space-y-1 text-xs sm:text-sm text-muted-foreground">
               <div className="flex items-start space-x-2">
                 <MapPin size={14} className="sm:w-4 sm:h-4 mt-0.5 flex-shrink-0" />
                 <span>Highland Park, NJ (USA)</span>
@@ -247,22 +247,15 @@ const Footer = () => {
           </div>
 
           {/* Legal Links */}
-          <div className="space-y-2 sm:space-y-3">
+          <div className="space-y-1.5 sm:space-y-2">
             <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Legal</h3>
-            <div className="space-y-1 text-xs sm:text-sm">
+            <div className="space-y-0.5 text-xs sm:text-sm">
               <Link
                 to="/privacy"
                 className="block text-muted-foreground hover:text-accent"
                 style={{ minHeight: "auto", minWidth: "auto" }}
               >
                 Privacy Policy
-              </Link>
-              <Link
-                to="/terms"
-                className="block text-muted-foreground hover:text-accent"
-                style={{ minHeight: "auto", minWidth: "auto" }}
-              >
-                Terms of Service
               </Link>
               <Link
                 to="/disclosures"
@@ -272,7 +265,7 @@ const Footer = () => {
                 Disclosures
               </Link>
               <a
-                href="/form-crs"
+                href="/form-crs.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-muted-foreground hover:text-accent font-semibold"
@@ -285,14 +278,14 @@ const Footer = () => {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-border">
-          <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            <strong>Important Disclosure:</strong> Aliya Financial LLC is registered as an Investment Adviser in the State of New Jersey. Registration does not imply a certain level of skill or training. 
-            Investing involves risk, including possible loss of principal. Past performance does not guarantee future results. 
-            Cross-border investing involves additional risks including currency fluctuations, political and economic instability, and differences in accounting standards and regulations. 
+        <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-border">
+          <p className="text-xs text-muted-foreground leading-snug mb-2">
+            <strong>Important Disclosure:</strong> Aliya Financial LLC is registered as an Investment Adviser in the State of New Jersey. Registration does not imply a certain level of skill or training.
+            Investing involves risk, including possible loss of principal. Past performance does not guarantee future results.
+            Cross-border investing involves additional risks including currency fluctuations, political and economic instability, and differences in accounting standards and regulations.
             Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> for more information.
           </p>
-          <p className="text-xs text-muted-foreground mt-2">
+          <p className="text-xs text-muted-foreground mt-1">
             © 2026 Aliya Financial. All rights reserved.
           </p>
         </div>

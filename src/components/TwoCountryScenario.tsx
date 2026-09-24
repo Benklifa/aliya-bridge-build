@@ -1,11 +1,9 @@
-import { Link } from "react-router-dom";
 import {
   Scale,
   TrendingUp,
   HeartPulse,
   Home,
   ScrollText,
-  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 
@@ -47,7 +45,7 @@ const SCENARIO_DIMENSIONS: ScenarioDimension[] = [
 
 const TwoCountryScenario = () => {
   return (
-    <section className="py-14 px-4 bg-primary">
+    <section className="py-10 px-4 bg-primary">
       <div className="max-w-4xl mx-auto">
         <p className="text-xs font-bold tracking-widest uppercase text-gold-500 mb-3">
           Our signature planning model
@@ -55,14 +53,14 @@ const TwoCountryScenario = () => {
         <h2 className="font-serif text-3xl font-bold text-white mb-4">
           The Two-Country Scenario
         </h2>
-        <p className="text-slate-200 leading-relaxed max-w-2xl mb-10">
-          Every plan can include a side-by-side model of staying versus making
-          Aliyah — with the tax, income, and estate differences laid out year by
-          year. So the decision is informed and quantified, not hypothetical —
-          whether you act on it this year, in ten years, or never.
+        <p className="text-slate-200 leading-snug max-w-2xl mb-6">
+          Making Aliya introduces structural changes to tax planning, income,
+          budget, real estate, estate planning and more. Make decisions that
+          are informed and quantified, not hypothetical — whether you act on
+          it now, in a year, in ten years or never.
         </p>
 
-        <div className="grid sm:grid-cols-2 gap-4 mb-10">
+        <div className="grid sm:grid-cols-2 gap-4 mb-6">
           {SCENARIO_DIMENSIONS.map((d) => {
             const Icon = d.icon;
             return (
@@ -77,32 +75,16 @@ const TwoCountryScenario = () => {
                   <div className="text-sm font-semibold text-white mb-1">
                     {d.label}
                   </div>
-                  <div className="text-xs leading-relaxed text-slate-300">
+                  <div className="text-xs leading-snug text-slate-300">
                     {d.line}
                   </div>
                 </div>
               </div>
             );
           })}
-
-          {/* CTA card fills the sixth grid slot */}
-          <Link
-            to="/tools"
-            className="group flex items-center justify-between rounded-xl bg-gold-500 p-4 transition hover:brightness-110"
-          >
-            <div>
-              <div className="text-sm font-bold text-white mb-1">
-                Try the Two-Country Scenario preview
-              </div>
-              <div className="text-xs text-white/85">
-                See the conceptual model in action
-              </div>
-            </div>
-            <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
 
-        <p className="text-xs text-slate-400 leading-relaxed max-w-2xl">
+        <p className="text-xs text-slate-400 leading-snug max-w-2xl">
           Scenario models are illustrative planning frameworks based on the
           information provided and stated assumptions — not projections or
           guarantees of any outcome, tax result, or benefit amount. Aliya

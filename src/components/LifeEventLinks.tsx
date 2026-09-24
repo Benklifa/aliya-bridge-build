@@ -43,7 +43,7 @@ const LifeEventLinks = () => {
                 className="max-w-xs bg-navy-900 border-gold-500/40 text-white px-4 py-3"
                 side="top"
               >
-                <p className="text-sm leading-relaxed mb-2">{event.hoverBlurb}</p>
+                <p className="text-sm leading-snug mb-2">{event.hoverBlurb}</p>
                 <p className="text-xs font-semibold text-gold-500 uppercase tracking-wide">
                   Click to learn more
                 </p>

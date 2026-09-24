@@ -107,20 +107,20 @@ const Contact = () => {
   if (isSubmitted) {
     return (
       <Layout>
-        <div className="py-16">
+        <div className="bg-primary py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
-              <CheckCircle size={64} className="text-green-600 mx-auto mb-6" />
-              <h1 className="font-serif text-4xl font-bold text-primary mb-4">
+              <CheckCircle size={64} className="text-gold-500 mx-auto mb-6" />
+              <h1 className="fs-h1 font-serif font-bold text-white mb-4">
                 Thank You!
               </h1>
-              <p className="text-xl text-black mb-8">
-                Your message has been sent successfully. We'll review your inquiry 
+              <p className="fs-body-lg text-white/90 mb-8">
+                Your message has been sent successfully. We'll review your inquiry
                 and get back to you within 24 hours.
               </p>
-              <button 
+              <button
                 onClick={() => setIsSubmitted(false)}
-                className="btn-primary"
+                className="btn-gold px-6 py-3 rounded-md font-semibold"
               >
                 Send Another Message
               </button>
@@ -133,29 +133,30 @@ const Contact = () => {
 
   return (
     <Layout>
-      <div className="bg-primary py-16">
+      <div className="bg-primary pt-6 pb-10">
         <div className="container mx-auto px-4">
           {/* Header */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="font-serif text-5xl font-bold text-white mb-6">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="fs-h1 font-serif font-bold text-white mb-2">
               Contact Us
             </h1>
-            <p className="text-xl text-white leading-relaxed mb-4">
+            <hr className="hairline-gold" />
+            <p className="fs-body-lg font-serif-italic text-white mt-6">
               Request an educational information session to learn about cross-border financial planning considerations.
             </p>
-            <p className="text-sm text-white/90 italic">
+            <p className="text-sm text-white/70 italic mt-4">
               Information provided will be used only to respond to your inquiry. Submission does not establish an advisory relationship. No individualized investment advice will be provided prior to registration approval.
             </p>
           </div>
         </div>
       </div>
-      
-      <div className="py-16">
+
+      <div className="pt-10 pb-16">
         <div className="container mx-auto px-4">
 
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-white rounded-lg card-shadow p-8">
+            <div className="cta-panel shadow-lg p-8">
               <h2 className="font-serif text-2xl font-bold text-primary mb-6">
                 Get in Touch
               </h2>
@@ -295,37 +296,37 @@ const Contact = () => {
 
             {/* Contact Information */}
             <div className="space-y-8">
-              <div className="bg-navy-50 rounded-lg p-8">
+              <div className="cta-panel shadow-lg p-8">
                 <h3 className="font-serif text-2xl font-bold text-primary mb-6">
                   Contact Information
                 </h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <Mail size={24} className="text-accent mt-1" />
+                    <Mail size={24} className="text-gold-600 mt-1" />
                     <div>
                       <h4 className="font-semibold text-primary mb-2">Email</h4>
-                      <p className="text-black">Lisa@AliyaFinancial.com</p>
-                      <p className="text-black">Michael@AliyaFinancial.com</p>
+                      <p className="text-primary">Lisa@AliyaFinancial.com</p>
+                      <p className="text-primary">Michael@AliyaFinancial.com</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-4">
-                    <MapPin size={24} className="text-accent mt-1" />
+                    <MapPin size={24} className="text-gold-600 mt-1" />
                     <div>
                       <h4 className="font-semibold text-primary mb-2">Locations</h4>
-                      <p className="text-black mb-1">Highland Park, NJ (USA)</p>
-                      <p className="text-black">Jerusalem, Israel</p>
+                      <p className="text-primary mb-1">Highland Park, NJ (USA)</p>
+                      <p className="text-primary">Jerusalem, Israel</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white rounded-lg card-shadow p-8">
+              <div className="cta-panel shadow-lg p-8">
                 <h3 className="font-serif text-xl font-bold text-primary mb-4">
                   What to Expect
                 </h3>
-                <ul className="space-y-3 text-sm text-black">
+                <ul className="space-y-3 text-sm text-primary">
                   <li className="flex items-start space-x-2">
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
                     <span>We aim to respond promptly, typically within 1-2 business days</span>
