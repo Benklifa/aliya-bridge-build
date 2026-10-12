@@ -5,10 +5,11 @@
 // IMPORTANT: never pass PII (names, emails, phones, form values) in params.
 
 export const META_PIXEL_ID_PLACEHOLDER = "META_PIXEL_ID_PLACEHOLDER";
+export const DEFAULT_META_PIXEL_ID = "4497366180476268";
 
 export const META_PIXEL_ID: string =
   (import.meta.env.VITE_META_PIXEL_ID as string | undefined)?.trim() ||
-  META_PIXEL_ID_PLACEHOLDER;
+  DEFAULT_META_PIXEL_ID;
 
 export const isPixelEnabled = () =>
   META_PIXEL_ID !== META_PIXEL_ID_PLACEHOLDER &&

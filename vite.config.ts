@@ -27,6 +27,7 @@ const marketDataDevMiddleware = (): Plugin => ({
 // Injects the Meta Pixel base code + <noscript> into index.html.
 // Pixel ID comes from VITE_META_PIXEL_ID; if unset (placeholder), nothing is injected.
 const META_PIXEL_ID_PLACEHOLDER = "META_PIXEL_ID_PLACEHOLDER";
+const DEFAULT_META_PIXEL_ID = "4497366180476268";
 const metaPixelHtml = (pixelId: string): Plugin => ({
   name: "meta-pixel-html",
   transformIndexHtml(html) {
@@ -50,7 +51,7 @@ const metaPixelHtml = (pixelId: string): Plugin => ({
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  const metaPixelId = (env.VITE_META_PIXEL_ID || META_PIXEL_ID_PLACEHOLDER).trim();
+  const metaPixelId = (env.VITE_META_PIXEL_ID || DEFAULT_META_PIXEL_ID).trim();
   return {
   server: {
     host: "::",
