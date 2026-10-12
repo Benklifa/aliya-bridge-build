@@ -26,6 +26,7 @@ import Privacy from "./pages/Privacy";
 import LifeEvent from "./pages/LifeEvent";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import MetaPixelTracker from "./components/MetaPixelTracker";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <MetaPixelTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/framework" element={<Framework />} />

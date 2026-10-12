@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/metaPixel";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -74,6 +75,8 @@ const Contact = () => {
 
       if (response.ok) {
         setIsSubmitted(true);
+        // Meta Pixel: successful consultation request only. No PII.
+        trackEvent("Lead", { content_name: "Schedule a Free Consultation" });
         toast({
           title: "Message Sent Successfully",
           description: "We'll get back to you within 24 hours.",
