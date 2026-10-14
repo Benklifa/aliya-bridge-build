@@ -280,10 +280,12 @@ const Footer = () => {
         {/* Disclaimer */}
         <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-border">
           <p className="text-xs text-muted-foreground leading-snug mb-2">
-            <strong>Important Disclosure:</strong> Aliya Financial LLC is registered as an Investment Adviser in the State of New Jersey. Registration does not imply a certain level of skill or training.
+            <strong>Important Disclosure:</strong> Aliya Financial LLC is a NJ-registered investment adviser (
+            <a href="https://adviserinfo.sec.gov/firm/summary/340264" target="_blank" rel="noopener noreferrer" className="underline hover:text-accent">CRD 340264</a>
+            ). Registration does not imply a certain level of skill or training.
             Investing involves risk, including possible loss of principal. Past performance does not guarantee future results.
             Cross-border investing involves additional risks including currency fluctuations, political and economic instability, and differences in accounting standards and regulations.
-            Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> for more information.
+            Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> for more information. See also our <Link to="/privacy" className="underline hover:text-accent">Privacy Policy</Link>.
           </p>
           <p className="text-xs text-muted-foreground mt-1">
             © 2026 Aliya Financial. All rights reserved.

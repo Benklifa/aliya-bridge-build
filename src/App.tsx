@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, type ReactNode } from "react";
 import Index from "./pages/Index";
 import Framework from "./pages/Framework";
 import FrameworkAlign from "./pages/FrameworkAlign";
@@ -28,14 +29,19 @@ import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import MetaPixelTracker from "./components/MetaPixelTracker";
 
-const queryClient = new QueryClient();
+// Routes are wrapped by a router passed in: BrowserRouter on the client,
+// StaticRouter during build-time prerendering (src/entry-server.tsx).
+type RouterShell = (props: { children: ReactNode }) => JSX.Element;
+const DefaultRouter: RouterShell = ({ children }) => <BrowserRouter>{children}</BrowserRouter>;
 
-const App = () => (
+const App = ({ Router = DefaultRouter }: { Router?: RouterShell }) => {
+  const [queryClient] = useState(() => new QueryClient());
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <Router>
         <ScrollToTop />
         <MetaPixelTracker />
         <Routes>
@@ -63,10 +69,11 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;
 // Force rebuild Tue Oct 21 10:08:57 EDT 2025
