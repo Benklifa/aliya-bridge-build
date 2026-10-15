@@ -148,7 +148,7 @@ const Contact = () => {
               Request an educational information session to learn about cross-border financial planning considerations.
             </p>
             <p className="text-sm text-white/70 italic mt-4">
-              Information provided will be used only to respond to your inquiry. Submission does not establish an advisory relationship. No individualized investment advice will be provided prior to registration approval.
+              Information provided will be used only to respond to your inquiry. Submission does not establish an advisory relationship.
             </p>
           </div>
         </div>
