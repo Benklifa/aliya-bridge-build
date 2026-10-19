@@ -291,8 +291,8 @@ const BorrowAgainstPortfolio = () => {
                     <input id="pl-phone" name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={onChange} className={inputClass} />
                   </div>
                   <p className="text-xs text-muted-foreground leading-snug">
-                    By submitting this form, you agree that Aliya Financial may contact you by email, phone, or text at the number you provide about your inquiry, including by autodialed call or text message if you give a mobile number. Consent is not a condition of receiving advisory services. Message and data rates may apply. You can opt out of texts by replying STOP. See our{" "}
-                    <Link to="/privacy" className="underline hover:text-accent">Privacy Policy</Link>. Information you provide will be used as described in that policy, including to respond to your inquiry. Submitting this form does not establish an advisory relationship and is not an application for, offer of, or commitment to lend.
+                    By submitting this form, you agree that Aliya Financial may contact you by email, phone, or text about your inquiry. Message and data rates may apply. Reply STOP to opt out of texts. See our{" "}
+                    <Link to="/website-privacy" className="underline hover:text-accent">Privacy Policy</Link>. Submitting this form does not establish an advisory relationship and is not an application for, offer of, or commitment to lend.
                   </p>
                   <button
                     type="submit"

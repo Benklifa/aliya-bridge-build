@@ -255,7 +255,14 @@ const Footer = () => {
                 className="block text-muted-foreground hover:text-accent"
                 style={{ minHeight: "auto", minWidth: "auto" }}
               >
-                Privacy Policy
+                Client Privacy Notice
+              </Link>
+              <Link
+                to="/website-privacy"
+                className="block text-muted-foreground hover:text-accent"
+                style={{ minHeight: "auto", minWidth: "auto" }}
+              >
+                Website Privacy Policy
               </Link>
               <Link
                 to="/disclosures"
@@ -285,7 +292,7 @@ const Footer = () => {
             ). Registration does not imply a certain level of skill or training.
             Investing involves risk, including possible loss of principal. Past performance does not guarantee future results.
             Cross-border investing involves additional risks including currency fluctuations, political and economic instability, and differences in accounting standards and regulations.
-            Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> for more information. See also our <Link to="/privacy" className="underline hover:text-accent">Privacy Policy</Link>.
+            Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> for more information. See also our <Link to="/privacy" className="underline hover:text-accent">Client Privacy Notice</Link> and <Link to="/website-privacy" className="underline hover:text-accent">Website Privacy Policy</Link>.
           </p>
           <p className="text-xs text-muted-foreground mt-1">
             © 2026 Aliya Financial. All rights reserved.

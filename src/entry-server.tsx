@@ -8,7 +8,7 @@ export const routes: string[] = [
   "/", "/framework", "/framework/a", "/framework/l", "/framework/i", "/framework/y",
   "/framework/adapt", "/about", "/services", "/events", "/news", "/contact", "/faq",
   "/readiness", "/where-should-i-live", "/am-i-ready-to-buy", "/tools", "/glossary",
-  "/disclosures", "/privacy", "/borrow-against-portfolio",
+  "/disclosures", "/privacy", "/website-privacy", "/borrow-against-portfolio",
   ...lifeEvents.map((e) => `/life-events/${e.slug}`),
 ];
 
