@@ -8,12 +8,15 @@ export const routes: string[] = [
   "/", "/framework", "/framework/a", "/framework/l", "/framework/i", "/framework/y",
   "/framework/adapt", "/about", "/services", "/events", "/news", "/contact", "/faq",
   "/readiness", "/where-should-i-live", "/am-i-ready-to-buy", "/tools", "/glossary",
-  "/disclosures", "/privacy", "/borrow-against-portfolio",
+  "/disclosures", "/privacy", "/borrow-against-portfolio", "/aliya-plan",
   ...lifeEvents.map((e) => `/life-events/${e.slug}`),
 ];
 
 // Routes prerendered with <meta name="robots" content="noindex">.
-export const noindexRoutes: string[] = ["/borrow-against-portfolio"];
+export const noindexRoutes: string[] = ["/borrow-against-portfolio", "/aliya-plan"];
+
+// Routes prerendered but left out of sitemap.xml.
+export const sitemapExcludeRoutes: string[] = ["/aliya-plan"];
 
 export function render(url: string): string {
   const Router = ({ children }: { children: ReactNode }) => (

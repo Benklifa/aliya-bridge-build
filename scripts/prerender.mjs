@@ -16,7 +16,7 @@ console.error = (msg, ...rest) => { if (typeof msg === "string" && msg.includes(
 const SITE = "https://aliyafinancial.com";
 const dist = path.resolve("dist");
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf8");
-const { render, routes, noindexRoutes = [] } = await import(pathToFileURL(path.resolve("dist-ssr/entry-server.js")).href);
+const { render, routes, noindexRoutes = [], sitemapExcludeRoutes = [] } = await import(pathToFileURL(path.resolve("dist-ssr/entry-server.js")).href);
 
 for (const route of routes) {
   let appHtml = "";
@@ -41,11 +41,12 @@ for (const route of routes) {
 }
 
 const today = new Date().toISOString().slice(0, 10);
+const sitemapRoutes = routes.filter((r) => !sitemapExcludeRoutes.includes(r));
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes.map((r) => `  <url><loc>${SITE}${r}</loc><lastmod>${today}</lastmod></url>`).join("\n")}
+${sitemapRoutes.map((r) => `  <url><loc>${SITE}${r}</loc><lastmod>${today}</lastmod></url>`).join("\n")}
 </urlset>
 `;
 fs.writeFileSync(path.join(dist, "sitemap.xml"), sitemap);
 fs.rmSync(path.resolve("dist-ssr"), { recursive: true, force: true });
-console.log(`sitemap.xml written with ${routes.length} URLs`);
+console.log(`sitemap.xml written with ${sitemapRoutes.length} URLs`);
