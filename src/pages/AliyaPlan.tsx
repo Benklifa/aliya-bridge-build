@@ -157,8 +157,8 @@ const AliyaPlan = () => {
         </div>
       </div>
 
-      {/* Fees, licensing, and tax statements */}
-      <div className="py-10">
+      {/* Fees, licensing, and tax statements (explicit white band: body background is navy) */}
+      <div className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>

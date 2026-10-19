@@ -183,22 +183,22 @@ const BorrowAgainstPortfolio = () => {
         </div>
       </div>
 
-      {/* 3. Fit */}
-      <div className="py-10">
+      {/* 3. Fit (navy band: light text) */}
+      <div className="py-10 bg-primary">
         <div className="container mx-auto px-4">
-                    <p className="max-w-4xl mx-auto text-muted-foreground italic mb-6">
+                    <p className="max-w-4xl mx-auto text-[#e2e6ec] italic mb-6">
             These are general illustrations, not a recommendation about your situation.
           </p>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-              <h2 className="font-serif text-2xl font-bold text-primary mb-4">Who It May Fit</h2>
-              <ul className="diamond-bullets space-y-3 text-muted-foreground leading-snug">
+              <h2 className="font-serif text-2xl font-bold text-white mb-4">Who It May Fit</h2>
+              <ul className="diamond-bullets space-y-3 text-[#e2e6ec] leading-snug">
                 {mayFit.map((t) => <li key={t}>{t}</li>)}
               </ul>
             </div>
             <div>
-              <h2 className="font-serif text-2xl font-bold text-primary mb-4">Who It May Not Fit</h2>
-              <ul className="diamond-bullets space-y-3 text-muted-foreground leading-snug">
+              <h2 className="font-serif text-2xl font-bold text-white mb-4">Who It May Not Fit</h2>
+              <ul className="diamond-bullets space-y-3 text-[#e2e6ec] leading-snug">
                 {mayNotFit.map((t) => <li key={t}>{t}</li>)}
               </ul>
             </div>
@@ -206,31 +206,8 @@ const BorrowAgainstPortfolio = () => {
         </div>
       </div>
 
-      {/* 4. Risks */}
+      {/* 4. Lender, conflict, and tax statements */}
       <div className="py-10 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto border-2 border-gold-500 rounded-lg p-6 md:p-8">
-            <h2 className="font-serif text-2xl font-bold text-primary mb-3 flex items-center gap-2">
-              <AlertTriangle className="text-gold-600" size={24} aria-hidden="true" />
-              Understand the Risks
-            </h2>
-            <p className="text-primary font-semibold mb-4">
-              Borrowing against securities carries risk and is not suitable for all investors.
-              Before deciding, please consider the following:
-            </p>
-            <ul className="space-y-3 text-muted-foreground leading-snug">
-              {risks.map((r) => (
-                <li key={r.title}>
-                  <strong className="text-primary">{r.title}</strong> {r.body}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* 5 + 6. Lender and tax statements */}
-      <div className="py-10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
@@ -255,7 +232,30 @@ const BorrowAgainstPortfolio = () => {
         </div>
       </div>
 
-      {/* 7. CTA form */}
+      {/* 5. Risks (calm navy panel, kept in main body before the form) */}
+      <div className="py-10 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto bg-primary border border-gold-500/50 rounded-lg p-6 md:p-8">
+            <h2 className="font-serif text-2xl font-bold text-white mb-3 flex items-center gap-2">
+              <AlertTriangle className="text-gold-500" size={24} aria-hidden="true" />
+              Understand the Risks
+            </h2>
+            <p className="text-white font-semibold mb-4">
+              Borrowing against securities carries risk and is not suitable for all investors.
+              Before deciding, please consider the following:
+            </p>
+            <ul className="space-y-3 text-[#e2e6ec] leading-snug">
+              {risks.map((r) => (
+                <li key={r.title}>
+                  <strong className="text-white">{r.title}</strong> {r.body}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* 6. CTA form */}
       <div id="consultation" className="py-10 bg-primary scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="max-w-lg mx-auto cta-panel shadow-lg p-8">
@@ -315,7 +315,7 @@ const BorrowAgainstPortfolio = () => {
         </div>
       </div>
 
-      {/* 8. Page footer statement */}
+      {/* 7. Page footer statement */}
       <div className="py-6 bg-white">
         <div className="container mx-auto px-4">
           <p className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
