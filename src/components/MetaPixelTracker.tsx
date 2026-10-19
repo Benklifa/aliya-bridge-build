@@ -35,6 +35,8 @@ const MetaPixelTracker = () => {
       if (ev) trackEvent("ViewContent", { content_name: ev.pageTitle, content_category: "Life Event" });
     } else if (/^\/borrow-against-portfolio\/?$/.test(pathname)) {
       trackEvent("ViewContent", { content_name: "Portfolio Lending", content_category: "Landing Page" });
+    } else if (/^\/pre-aliya-liquidity-reserve\/?$/.test(pathname)) {
+      trackEvent("ViewContent", { content_name: "Liquidity Reserve", content_category: "Landing Page" });
     } else if (/^\/aliya-plan\/?$/.test(pathname)) {
       trackEvent("ViewContent", { content_name: "Aliya Plan", content_category: "Landing Page" });
     } else if (/^\/services\/?$/.test(pathname)) {

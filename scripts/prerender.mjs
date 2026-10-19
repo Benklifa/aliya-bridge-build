@@ -16,7 +16,7 @@ console.error = (msg, ...rest) => { if (typeof msg === "string" && msg.includes(
 const SITE = "https://aliyafinancial.com";
 const dist = path.resolve("dist");
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf8");
-const { render, routes, noindexRoutes = [], sitemapExcludeRoutes = [] } = await import(pathToFileURL(path.resolve("dist-ssr/entry-server.js")).href);
+const { render, routes, noindexRoutes = [], sitemapExcludeRoutes = [], routeMeta = {} } = await import(pathToFileURL(path.resolve("dist-ssr/entry-server.js")).href);
 
 for (const route of routes) {
   let appHtml = "";
@@ -29,6 +29,16 @@ for (const route of routes) {
   let html = template.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
   html = html.replace(/<link rel="canonical"[^>]*>/, "");
   html = html.replace("</head>", `  <link rel="canonical" href="${canonical}" />\n  </head>`);
+  const meta = routeMeta[route];
+  if (meta) {
+    const esc = (t) => t.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+    html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(meta.title)}</title>`);
+    html = html.replace(/(<meta name="description" content=")[^"]*"/, `$1${esc(meta.description)}"`);
+    html = html.replace(/(<meta property="og:title" content=")[^"]*"/, `$1${esc(meta.ogTitle)}"`);
+    html = html.replace(/(<meta name="twitter:title" content=")[^"]*"/, `$1${esc(meta.ogTitle)}"`);
+    html = html.replace(/(<meta property="og:description" content=")[^"]*"/, `$1${esc(meta.description)}"`);
+    html = html.replace(/(<meta name="twitter:description" content=")[^"]*"/, `$1${esc(meta.description)}"`);
+  }
   if (noindexRoutes.includes(route)) {
     html = html.replace("</head>", `  <meta name="robots" content="noindex" />\n  </head>`);
   }
