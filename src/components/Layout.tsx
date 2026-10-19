@@ -226,7 +226,7 @@ const Footer = () => {
                 style={{ minHeight: "auto", minWidth: "auto" }}
               >
                 <Phone size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
-                <span>516-639-7000</span>
+                <span>732-508-7320</span>
               </Link>
             </div>
           </div>

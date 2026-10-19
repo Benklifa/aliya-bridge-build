@@ -198,7 +198,7 @@ const Disclosures: React.FC = () => {
               <div className="bg-card/50 p-4 rounded-lg mb-4">
                 <p className="text-primary"><strong>Aliya Financial</strong></p>
                 <p className="text-muted-foreground">Email: info@aliyafinancial.com</p>
-                <p className="text-muted-foreground">Phone: 516-639-7000</p>
+                <p className="text-muted-foreground">Phone: 732-508-7320</p>
                 <p className="text-muted-foreground">Location: Highland Park, NJ (USA)</p>
               </div>
               <p className="text-muted-foreground mb-2">
