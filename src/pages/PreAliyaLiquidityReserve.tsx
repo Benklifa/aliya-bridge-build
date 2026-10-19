@@ -52,7 +52,7 @@ const steps = [
 const mayFit = [
   "People planning Aliya, or recently arrived, who do not yet have an Israeli credit history or full Israeli banking.",
   "Investors with a diversified, taxable U.S. brokerage portfolio who would prefer not to sell appreciated holdings to raise emergency cash.",
-  "People who also keep regular cash savings and want a backstop behind them, not a replacement for them.",
+  "People who also keep regular cash savings and want access to funds without selling, and understand the amount available can shrink or disappear in a market decline.",
   "People with a clear plan and an expected source of funds to repay anything they borrow.",
   "Those who are comfortable with market fluctuations and able to add funds if the lender requires it.",
 ];
