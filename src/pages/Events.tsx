@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { Calendar, MapPin, Clock, X } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -95,6 +96,16 @@ const Events = () => {
           </div>
 
           <div className="max-w-3xl mx-auto space-y-6 sm:space-y-8">
+            {events.length === 0 && (
+              <div className="bg-white rounded-lg shadow-md p-6 text-center">
+                <p className="text-base sm:text-lg text-black mb-4">
+                  There are no upcoming events right now. Please check back later.
+                </p>
+                <Link to="/contact" className="btn-primary inline-block py-2 sm:py-3 px-4 sm:px-6 rounded-md font-medium">
+                  Contact Us
+                </Link>
+              </div>
+            )}
             {events.map((event) => {
               return (
                 <div

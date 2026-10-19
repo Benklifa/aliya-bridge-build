@@ -318,8 +318,7 @@ const Contact = () => {
                     <MapPin size={24} className="text-gold-600 mt-1" />
                     <div>
                       <h4 className="font-semibold text-primary mb-2">Locations</h4>
-                      <p className="text-primary mb-1">Highland Park, NJ (USA)</p>
-                      <p className="text-primary">Jerusalem, Israel</p>
+                      <p className="text-primary">Highland Park, NJ (USA)</p>
                     </div>
                   </div>
                 </div>
