@@ -91,7 +91,7 @@ const Events = () => {
               Upcoming Events
             </h1>
             <p className="text-base sm:text-lg text-black">
-              Join us for exclusive seminars and workshops on financial planning for Aliyah.
+              Join us for exclusive seminars and workshops on investment advice for people preparing to make Aliya.
             </p>
           </div>
 
