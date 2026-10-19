@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AlertTriangle, Calendar, CheckCircle, Send } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/metaPixel";
 
-// Landing page for the Meta ad "Buying in Israel? Borrow against your portfolio
-// instead of selling it." Not linked from the nav; noindex (see prerender + effect below).
+// Landing page for the Meta ad "Buying in Israel: borrowing against a portfolio instead of selling it." Not linked from the nav; noindex (see prerender + effect below).
 // All copy requires compliance review before any change.
 
 const FORM_SOURCE = "Portfolio Lending";
@@ -13,7 +13,7 @@ const FORM_SOURCE = "Portfolio Lending";
 const steps = [
   {
     title: "Review your situation",
-    body: "We start with a free consultation to understand your goals, your timeline, and the investments you hold in eligible U.S. brokerage accounts.",
+    body: "We start with a free consultation to understand your goals, your timeline, and the investments you hold in eligible U.S. brokerage accounts. The consultation is educational. Any loan is between you and the custodian.",
   },
   {
     title: "Check eligibility with the custodian",
@@ -21,16 +21,16 @@ const steps = [
   },
   {
     title: "Access funds if approved",
-    body: "If the custodian approves a line of credit, you may draw funds as needed, for example toward a purchase in Israel, while your portfolio generally stays invested.",
+    body: "If the custodian approves a line of credit, you may draw funds from that lender as needed, for example toward a purchase in Israel, while your portfolio generally stays invested. Approval and funding are the custodian's decisions, not Aliya Financial's.",
   },
   {
     title: "Plan for repayment",
-    body: "Interest accrues on the amount you borrow at a variable rate set by the lender. We help you think through a repayment plan and how the loan fits your overall financial picture.",
+    body: "Interest accrues on the amount you borrow at a variable rate set by the lender. We can help you think through how a loan would fit your overall financial picture. We do not set the rate, service the loan, or arrange repayment with the lender.",
   },
 ];
 
 const mayFit = [
-  "Olim and families planning Aliya who need a significant sum for a defined, shorter-term purpose, such as a down payment on a home in Israel.",
+  "People planning Aliya who need a significant sum for a defined, shorter-term purpose, such as a down payment on a home in Israel.",
   "Investors with a diversified, taxable brokerage portfolio who would prefer not to sell appreciated holdings.",
   "People with a clear plan and an expected source of funds to repay the loan.",
   "Those who are comfortable with market fluctuations and able to add funds if the lender requires it.",
@@ -51,7 +51,7 @@ const risks = [
   },
   {
     title: "Securities may be sold without notice and at a loss.",
-    body: "The lender may be able to sell your securities without contacting you first, and you may not be able to choose which securities are sold. A forced sale may also create taxable gains or losses.",
+    body: "The lender may be able to sell your securities without contacting you first, and you may not be able to choose which securities are sold. A forced sale can realize the capital gains taxes that borrowing was meant to defer, and it may create taxable gains or losses.",
   },
   {
     title: "Interest rates are variable.",
@@ -60,6 +60,14 @@ const risks = [
   {
     title: "You can lose more than you deposit.",
     body: "If the value of your collateral falls far enough, you may owe the lender more than the value of the securities in your account.",
+  },
+    {
+    title: "Currency risk on a dollar loan for a shekel purchase.",
+    body: "If you borrow in U.S. dollars to fund a purchase priced in Israeli shekels, a move in the dollar-shekel rate can change what the loan costs you in shekels, or what a shekel asset is worth against the dollar debt. Currency moves can reverse.",
+  },
+  {
+    title: "Israeli lenders may treat the loan as debt.",
+    body: "If you use borrowed funds toward a purchase in Israel, an Israeli lender may ask about the source of your down payment and may count the U.S. portfolio loan as existing debt when it underwrites a mortgage. Aliya Financial does not arrange Israeli mortgages and is not a mortgage broker.",
   },
   {
     title: "Not suitable for all investors.",
@@ -139,14 +147,11 @@ const BorrowAgainstPortfolio = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="fs-h1 font-serif font-bold text-white mb-2">
-              Buying in Israel? Borrow against your portfolio instead of selling it.
+              Buying in Israel: borrowing against a portfolio instead of selling it.
             </h1>
             <hr className="hairline-gold" />
             <p className="fs-body-lg font-serif-italic text-white mt-4">
-              If you are making Aliya and need a large sum, such as a down payment on a home in Israel,
-              an asset-based loan offered through our custodian may let you access cash while your U.S.
-              investments stay invested. Borrowing instead of selling may also potentially defer the
-              capital gains taxes that a sale could trigger.
+              If you are making Aliya and need a large sum, such as a down payment on a home in Israel, a securities-based loan from the brokerage that holds your account can let you stay invested and defer capital gains, though a market drop can force sales. Aliya Financial does not make the loan.
             </p>
             <a
               href="#consultation"
@@ -181,6 +186,9 @@ const BorrowAgainstPortfolio = () => {
       {/* 3. Fit */}
       <div className="py-10">
         <div className="container mx-auto px-4">
+                    <p className="max-w-4xl mx-auto text-muted-foreground italic mb-6">
+            These are general illustrations, not a recommendation about your situation.
+          </p>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
               <h2 className="font-serif text-2xl font-bold text-primary mb-4">Who It May Fit</h2>
@@ -228,23 +236,19 @@ const BorrowAgainstPortfolio = () => {
             <div>
               <h2 className="font-serif text-2xl font-bold text-primary mb-3">Who Makes the Loan</h2>
               <p className="text-muted-foreground leading-snug mb-3">
-                Loans are made and serviced by the brokerage firm or custodian that holds your account,
-                not by Aliya Financial LLC. Aliya Financial does not lend money. Loan approval, terms,
-                interest rates, and collateral requirements are determined solely by the lender.
+                Loans are made and serviced by the brokerage firm or custodian that holds your account, not by Aliya Financial, LLC. Aliya Financial does not lend money, does not arrange loans or mortgages, and is not a mortgage broker. Aliya Financial receives no compensation from the custodian for these loans. Loan approval, terms, interest rates, and collateral requirements are determined solely by the lender.
               </p>
               <p className="text-muted-foreground leading-snug">
-                If your advisory fee is based on the value of the assets we manage, borrowing instead of
-                selling keeps those assets in your account, which also benefits Aliya Financial. This is
-                a conflict of interest, and we will discuss it with you.
+                Aliya Financial's advisory fee is up to 1% a year of assets under management. Borrowing instead of selling keeps those assets in the account, so the firm continues to earn that fee. For example, keeping about $200,000 invested at 1% means about $2,000 a year in advisory fees. That is a conflict of interest, and we will discuss it with you before you decide. Aliya Financial is fee-based, not fee-only: insurance and annuities are offered separately and pay commissions.
+              </p>
+              <p className="text-muted-foreground leading-snug mt-3">
+                Aliya Financial is based in the United States and is not licensed in Israel. It does not give Israeli tax, legal, or mortgage advice.
               </p>
             </div>
             <div>
               <h2 className="font-serif text-2xl font-bold text-primary mb-3">Not Tax or Legal Advice</h2>
               <p className="text-muted-foreground leading-snug">
-                This page is for educational purposes only and is not tax or legal advice. The tax
-                treatment of borrowing, loan interest, and any future sale of securities depends on your
-                individual circumstances and may differ between the United States and Israel. Please
-                consult a qualified tax professional before making a decision.
+                This page is for educational purposes only and is not tax or legal advice. U.S. citizens owe U.S. tax on worldwide income wherever they live. The tax treatment of borrowing, loan interest, and any future sale of securities depends on your individual circumstances and may differ between the United States and Israel. Please consult a qualified U.S. and, if needed, Israeli tax professional before making a decision.
               </p>
             </div>
           </div>
@@ -287,10 +291,8 @@ const BorrowAgainstPortfolio = () => {
                     <input id="pl-phone" name="phone" type="tel" autoComplete="tel" value={form.phone} onChange={onChange} className={inputClass} />
                   </div>
                   <p className="text-xs text-muted-foreground leading-snug">
-                    By submitting this form, you agree that Aliya Financial may contact you by email or
-                    phone about your inquiry. Information you provide will be used only to respond to your
-                    inquiry. Submitting this form does not establish an advisory relationship and is not an
-                    application for, offer of, or commitment to lend.
+                    By submitting this form, you agree that Aliya Financial may contact you by email, phone, or text at the number you provide about your inquiry, including by autodialed call or text message if you give a mobile number. Consent is not a condition of receiving advisory services. Message and data rates may apply. You can opt out of texts by replying STOP. See our{" "}
+                    <Link to="/privacy" className="underline hover:text-accent">Privacy Policy</Link>. Information you provide will be used as described in that policy, including to respond to your inquiry. Submitting this form does not establish an advisory relationship and is not an application for, offer of, or commitment to lend.
                   </p>
                   <button
                     type="submit"
@@ -317,8 +319,7 @@ const BorrowAgainstPortfolio = () => {
       <div className="py-6 bg-white">
         <div className="container mx-auto px-4">
           <p className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
-            Aliya Financial LLC is a NJ-registered investment adviser. Insurance offered separately as a
-            licensed agent.
+            Educational only, not individual tax, legal, or investment advice. Aliya Financial, LLC is an investment adviser registered in New Jersey; registration does not imply a certain level of skill or training. Insurance is offered separately through a licensed agent and pays commissions. Aliya Financial is based in the United States and is not licensed in Israel.
           </p>
         </div>
       </div>
