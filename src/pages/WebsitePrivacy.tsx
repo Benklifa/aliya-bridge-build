@@ -54,7 +54,8 @@ const WebsitePrivacy = () => (
                 <strong className="text-primary">Questions you type into our education tool.</strong> If
                 you use the education tool on our Tools page, what you type is sent through our server
                 to a third-party AI service provider to generate a response. Please do not enter
-                account numbers or other sensitive details.
+                account numbers or other sensitive details. The tool provides general education, not
+                advice.
               </li>
               <li>
                 <strong className="text-primary">Answers saved on your device.</strong> Some of our
@@ -95,8 +96,11 @@ const WebsitePrivacy = () => (
           <section>
             <h2 className="font-serif text-xl font-bold text-primary mb-3">How We Use Your Information</h2>
             <p className="text-muted-foreground">
-              We use the information you submit only to respond to your inquiry and to provide the
-              services you ask about.
+              We use the information you submit to respond to your inquiry and to provide the services
+              you ask about. We use website and Pixel information to run the site and measure our
+              advertising. We share information with service providers that help us run this site
+              (Vercel, Formspree, Google, Meta, and our AI provider) so they can provide those services,
+              and when required by law. We keep records as required by securities regulations.
             </p>
           </section>
 
@@ -118,6 +122,10 @@ const WebsitePrivacy = () => (
                 and ask to unsubscribe.
               </li>
               <li>
+                <strong className="text-primary">Calls.</strong> Ask us to stop calling by phone or
+                email, and we will.
+              </li>
+              <li>
                 <strong className="text-primary">Cookies.</strong> You can block or delete cookies in
                 your browser settings. Blocking cookies may limit the Meta Pixel.
               </li>
@@ -135,6 +143,22 @@ const WebsitePrivacy = () => (
               If you become a client, our{" "}
               <Link to="/privacy" className={linkClass}>Client Privacy Notice</Link> explains how we
               collect, share, and protect client financial information.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-serif text-xl font-bold text-primary mb-3">Security</h2>
+            <p className="text-muted-foreground">
+              We use reasonable safeguards to protect information we receive, but no website or internet
+              transmission is completely secure.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-serif text-xl font-bold text-primary mb-3">Children</h2>
+            <p className="text-muted-foreground">
+              This website is not directed to children under 13, and we do not knowingly collect their
+              information.
             </p>
           </section>
 
