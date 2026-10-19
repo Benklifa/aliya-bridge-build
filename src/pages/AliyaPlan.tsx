@@ -5,8 +5,9 @@ import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/metaPixel";
 
-// Landing page for the Meta ad "Planning Aliya? Or just planning to plan? The garage sale can
-// wait until spring. Your financial plan can't." Not linked from the nav; noindex; not in sitemap.
+// Landing page for the Meta ad: headline "Planning for Aliya, not just planning to plan",
+// hook "The garage sale can wait until spring. The investment plan can't."
+// Not linked from the nav; noindex; not in sitemap.
 // Structure, form, consent, and compliance footer mirror BorrowAgainstPortfolio.tsx.
 // All copy requires compliance review before any change.
 
@@ -115,7 +116,7 @@ const AliyaPlan = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="fs-h1 font-serif font-bold text-white mb-2">
-              Starting your Aliya plan: what to sort out before the garage sale.
+              Planning for Aliya: what to sort out before the garage sale.
             </h1>
             <hr className="hairline-gold" />
             <p className="fs-body-lg font-serif-italic text-white mt-4">
@@ -223,7 +224,7 @@ const AliyaPlan = () => {
                   </div>
                   <p className="text-xs text-muted-foreground leading-snug">
                     By submitting this form, you agree that Aliya Financial may contact you by email, phone, or text about your inquiry. Message and data rates may apply. Reply STOP to opt out of texts. See our{" "}
-                    <Link to="/privacy#website" className="underline hover:text-accent">Privacy Policy</Link>. Submitting this form does not establish an advisory relationship and is not an application for, offer of, or commitment to lend.
+                    <Link to="/privacy#website" className="underline hover:text-accent">Privacy Policy</Link>. Submitting this form does not establish an advisory relationship.
                   </p>
                   <button
                     type="submit"
