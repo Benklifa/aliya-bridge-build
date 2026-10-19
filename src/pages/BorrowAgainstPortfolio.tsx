@@ -4,6 +4,7 @@ import { AlertTriangle, Calendar, CheckCircle, Send } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/metaPixel";
+import { scrollToId } from "@/lib/scrollToAnchor";
 
 // Landing page for the Meta ad "Buying in Israel: borrowing against a portfolio instead of selling it." Not linked from the nav; noindex (see prerender + effect below).
 // All copy requires compliance review before any change.
@@ -137,6 +138,15 @@ const BorrowAgainstPortfolio = () => {
     }
   };
 
+  // Smooth in-page jumps (hero links). Updates the URL hash without a router
+  // navigation so ScrollToTop does not interfere.
+  const jumpTo = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (scrollToId(id)) {
+      e.preventDefault();
+      window.history.replaceState(window.history.state, "", `#${id}`);
+    }
+  };
+
   const inputClass =
     "w-full px-4 py-3 border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent";
 
@@ -153,9 +163,19 @@ const BorrowAgainstPortfolio = () => {
             <p className="fs-body-lg font-serif-italic text-white mt-4">
               If you are making Aliya and need a large sum, such as a down payment on a home in Israel, a securities-based loan from the brokerage that holds your account can let you stay invested and defer capital gains, though a market drop can force sales. Aliya Financial does not make the loan.
             </p>
+            <p className="fs-body mt-4">
+              <a
+                href="#risks"
+                onClick={jumpTo("risks")}
+                className="text-gold-500 underline underline-offset-4 hover:text-gold-100 font-semibold"
+              >
+                Before you decide, read the risks.
+              </a>
+            </p>
             <a
               href="#consultation"
-              className="btn-gold inline-flex items-center space-x-2 px-6 py-3 rounded-md font-semibold mt-6"
+              onClick={jumpTo("consultation")}
+              className="btn-gold inline-flex items-center space-x-2 px-6 py-3 rounded-md font-semibold mt-4"
             >
               <Calendar size={18} />
               <span>Book a Free Consultation</span>
@@ -233,7 +253,7 @@ const BorrowAgainstPortfolio = () => {
       </div>
 
       {/* 5. Risks (calm navy panel, kept in main body before the form) */}
-      <div className="py-10 bg-white">
+      <div id="risks" className="py-10 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-primary border border-gold-500/50 rounded-lg p-6 md:p-8">
             <h2 className="font-serif text-2xl font-bold text-white mb-3 flex items-center gap-2">

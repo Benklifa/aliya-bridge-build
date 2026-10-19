@@ -1,16 +1,19 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { scrollToId } from "@/lib/scrollToAnchor";
 
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // If the URL has an anchor (e.g. /privacy#website), scroll to it instead of the top.
+    // If the URL has an anchor (e.g. /privacy#website or /borrow-against-portfolio#risks),
+    // scroll to it (below the sticky header) instead of the top.
     if (hash) {
-      const el = document.getElementById(decodeURIComponent(hash.slice(1)));
-      if (el) {
-        el.scrollIntoView({ behavior: "instant" as ScrollBehavior, block: "start" });
-        return;
+      const id = decodeURIComponent(hash.slice(1));
+      if (scrollToId(id, "instant" as ScrollBehavior)) {
+        // Re-apply after the browser's own initial fragment jump on page load.
+        const t = window.setTimeout(() => scrollToId(id, "instant" as ScrollBehavior), 100);
+        return () => window.clearTimeout(t);
       }
     }
     // Scroll to top immediately when route changes
