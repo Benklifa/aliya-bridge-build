@@ -12,6 +12,11 @@
       ],
       "destination": "https://aliyafinancial.com/$1",
       "permanent": true
+    },
+    {
+      "source": "/website-privacy",
+      "destination": "/privacy#website",
+      "permanent": true
     }
   ],
   "rewrites": [

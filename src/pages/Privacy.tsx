@@ -3,12 +3,12 @@ import Layout from '../components/Layout';
 const SHARING_ROWS = [
   {
     reason:
-      "For our everyday business purposes — such as to process your transactions, maintain your account(s), respond to court orders and legal investigations, or report to credit bureaus",
+      "For our everyday business purposes, such as to process your transactions, maintain your account(s), respond to court orders and legal investigations, or report to credit bureaus",
     share: "Yes",
     limit: "No",
   },
   {
-    reason: "For our marketing purposes — to offer our products and services to you",
+    reason: "For our marketing purposes: to offer our products and services to you",
     share: "Yes",
     limit: "No",
   },
@@ -18,12 +18,12 @@ const SHARING_ROWS = [
     limit: "We don't share",
   },
   {
-    reason: "For our affiliates' everyday business purposes — information about your transactions and experiences",
+    reason: "For our affiliates' everyday business purposes: information about your transactions and experiences",
     share: "No",
     limit: "We don't share",
   },
   {
-    reason: "For our affiliates' everyday business purposes — information about your creditworthiness",
+    reason: "For our affiliates' everyday business purposes: information about your creditworthiness",
     share: "No",
     limit: "We don't share",
   },
@@ -143,7 +143,7 @@ const Privacy = () => {
                 <strong className="text-primary">Why can't I limit all sharing?</strong> Federal and state law give you the right to limit only:
               </p>
               <ul className="diamond-bullets space-y-2 text-muted-foreground">
-                <li>Sharing for affiliates' everyday business purposes — information about your creditworthiness</li>
+                <li>Sharing for affiliates' everyday business purposes: information about your creditworthiness</li>
                 <li>Affiliates from using your information to market to you</li>
                 <li>Sharing for nonaffiliates to market to you</li>
               </ul>
@@ -172,6 +172,161 @@ const Privacy = () => {
           <div className="text-center text-muted-foreground text-sm mt-10 pt-6 border-t border-border">
             <p>Last Updated: August 25, 2026</p>
           </div>
+
+          {/* Website Privacy (merged from the former /website-privacy page; DRAFT FOR COMPLIANCE REVIEW).
+              Trackers described reflect what the site loads as of Oct 19, 2026: Meta Pixel, Google Fonts,
+              Formspree forms, an embedded Google Form on /events, the AI education tool on /tools, and
+              browser localStorage for questionnaires. No Google Analytics or Vercel Analytics. */}
+          <section id="website" className="mt-12 pt-10 border-t-2 border-gold-500 scroll-mt-24">
+            <h2 className="font-serif text-2xl font-bold text-primary mb-4">Website Privacy</h2>
+            <div className="border-l-4 border-gold-500 bg-card/50 p-6 mb-8 rounded-r-lg">
+              <p className="text-muted-foreground">
+                This section explains what information Aliya Financial, LLC collects when you visit
+                aliyafinancial.com or use its forms, and how we use it.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              <section>
+                <h3 className="font-serif text-lg font-bold text-primary mb-3">What We Collect</h3>
+                <ul className="diamond-bullets space-y-3 text-muted-foreground">
+                  <li>
+                    <strong className="text-primary">Information you enter in our forms.</strong> When you
+                    submit a form on this site, such as the contact form or a consultation request, we
+                    collect what you enter. This may include your name, email address, phone number, and
+                    message. The contact form also asks for your location, topic of interest, and how you
+                    heard about us. Form submissions are delivered to us through our form provider,
+                    Formspree. Event registrations use an embedded Google Form, which collects the details
+                    shown on that form.
+                  </li>
+                  <li>
+                    <strong className="text-primary">Questions you type into our education tool.</strong> If
+                    you use the education tool on our Tools page, what you type is sent through our server
+                    to a third-party AI service provider to generate a response. Please do not enter
+                    account numbers or other sensitive details. The tool provides general education, not
+                    advice.
+                  </li>
+                  <li>
+                    <strong className="text-primary">Answers saved on your device.</strong> Some of our
+                    questionnaires save your answers in your browser so you can come back to them. These
+                    answers stay on your device and are not sent to us.
+                  </li>
+                  <li>
+                    <strong className="text-primary">Basic technical information.</strong> Like most
+                    websites, our hosting provider (Vercel) and the services described below automatically
+                    receive basic technical information, such as your IP address, browser type, and the
+                    pages you visit.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3 className="font-serif text-lg font-bold text-primary mb-3">Cookies and Tracking</h3>
+                <ul className="diamond-bullets space-y-3 text-muted-foreground">
+                  <li>
+                    <strong className="text-primary">Meta Pixel.</strong> We use the Meta Pixel, a tool from
+                    Meta Platforms, the company behind Facebook and Instagram. It uses cookies and similar
+                    technology to record visits to our pages and certain actions, such as clicking a phone
+                    or email link or successfully submitting a form, so we can measure and improve our
+                    advertising on Meta. We do not send your name, email address, phone number, or form
+                    answers to Meta through the Pixel. Meta may combine this information with other
+                    information it has about you, under its own privacy policy.
+                  </li>
+                  <li>
+                    <strong className="text-primary">Google Fonts.</strong> Our pages load fonts from Google
+                    Fonts, which receives your IP address and browser information when the fonts load.
+                  </li>
+                  <li>
+                    We do not currently use Google Analytics or any other website analytics service.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3 className="font-serif text-lg font-bold text-primary mb-3">How We Use Your Information</h3>
+                <p className="text-muted-foreground">
+                  We use the information you submit to respond to your inquiry and to provide the services
+                  you ask about. We use website and Pixel information to run the site and measure our
+                  advertising. We share information with service providers that help us run this site
+                  (Vercel, Formspree, Google, Meta, and our AI provider) so they can provide those services,
+                  and when required by law. We keep records as required by securities regulations.
+                </p>
+              </section>
+
+              <section>
+                <h3 className="font-serif text-lg font-bold text-primary mb-3">We Do Not Sell Your Information</h3>
+                <p className="text-muted-foreground">We do not sell or rent your personal information.</p>
+              </section>
+
+              <section>
+                <h3 className="font-serif text-lg font-bold text-primary mb-3">Your Choices</h3>
+                <ul className="diamond-bullets space-y-3 text-muted-foreground">
+                  <li>
+                    <strong className="text-primary">Texts.</strong> Reply STOP to any text message from us
+                    to stop receiving texts.
+                  </li>
+                  <li>
+                    <strong className="text-primary">Email.</strong> Email{" "}
+                    <a href="mailto:michael@aliyafinancial.com" className="text-gold-600 hover:text-gold-500 underline">michael@aliyafinancial.com</a>{" "}
+                    and ask to unsubscribe.
+                  </li>
+                  <li>
+                    <strong className="text-primary">Calls.</strong> Ask us to stop calling by phone or
+                    email, and we will.
+                  </li>
+                  <li>
+                    <strong className="text-primary">Cookies.</strong> You can block or delete cookies in
+                    your browser settings. Blocking cookies may limit the Meta Pixel.
+                  </li>
+                  <li>
+                    <strong className="text-primary">Meta ads.</strong> You can control how Meta uses your
+                    activity to show you ads in the ad preferences of your Facebook or Instagram account
+                    settings.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3 className="font-serif text-lg font-bold text-primary mb-3">Security</h3>
+                <p className="text-muted-foreground">
+                  We use reasonable safeguards to protect information we receive, but no website or internet
+                  transmission is completely secure.
+                </p>
+              </section>
+
+              <section>
+                <h3 className="font-serif text-lg font-bold text-primary mb-3">Children</h3>
+                <p className="text-muted-foreground">
+                  This website is not directed to children under 13, and we do not knowingly collect their
+                  information.
+                </p>
+              </section>
+
+              <section>
+                <h3 className="font-serif text-lg font-bold text-primary mb-3">Changes</h3>
+                <p className="text-muted-foreground">
+                  We may update this policy from time to time. The date below shows when it last changed.
+                </p>
+              </section>
+
+              <section>
+                <h3 className="font-serif text-lg font-bold text-primary mb-3">Contact</h3>
+                <p className="text-muted-foreground">
+                  Aliya Financial, LLC
+                  <br />
+                  Phone: <a href="tel:+17325087320" className="text-gold-600 hover:text-gold-500 underline">732-508-7320</a>
+                  <br />
+                  Email:{" "}
+                  <a href="mailto:michael@aliyafinancial.com" className="text-gold-600 hover:text-gold-500 underline">michael@aliyafinancial.com</a>
+                </p>
+              </section>
+        
+            </div>
+
+            <div className="text-center text-muted-foreground text-sm mt-10 pt-6 border-t border-border">
+              <p>Last updated: October 19, 2026</p>
+            </div>
+          </section>
         </div>
       </div>
     </Layout>

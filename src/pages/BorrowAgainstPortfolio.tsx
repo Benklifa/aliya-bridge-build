@@ -292,7 +292,7 @@ const BorrowAgainstPortfolio = () => {
                   </div>
                   <p className="text-xs text-muted-foreground leading-snug">
                     By submitting this form, you agree that Aliya Financial may contact you by email, phone, or text about your inquiry. Message and data rates may apply. Reply STOP to opt out of texts. See our{" "}
-                    <Link to="/website-privacy" className="underline hover:text-accent">Privacy Policy</Link>. Submitting this form does not establish an advisory relationship and is not an application for, offer of, or commitment to lend.
+                    <Link to="/privacy#website" className="underline hover:text-accent">Privacy Policy</Link>. Submitting this form does not establish an advisory relationship and is not an application for, offer of, or commitment to lend.
                   </p>
                   <button
                     type="submit"
