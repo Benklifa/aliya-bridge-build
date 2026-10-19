@@ -25,6 +25,7 @@ import Glossary from "./pages/Glossary";
 import Disclosures from "./pages/Disclosures";
 import Privacy from "./pages/Privacy";
 import LifeEvent from "./pages/LifeEvent";
+import BorrowAgainstPortfolio from "./pages/BorrowAgainstPortfolio";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import MetaPixelTracker from "./components/MetaPixelTracker";
@@ -66,6 +67,7 @@ const App = ({ Router = DefaultRouter }: { Router?: RouterShell }) => {
           <Route path="/disclosures" element={<Disclosures />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/life-events/:slug" element={<LifeEvent />} />
+          <Route path="/borrow-against-portfolio" element={<BorrowAgainstPortfolio />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

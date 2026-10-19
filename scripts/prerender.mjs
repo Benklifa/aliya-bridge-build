@@ -16,7 +16,7 @@ console.error = (msg, ...rest) => { if (typeof msg === "string" && msg.includes(
 const SITE = "https://aliyafinancial.com";
 const dist = path.resolve("dist");
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf8");
-const { render, routes } = await import(pathToFileURL(path.resolve("dist-ssr/entry-server.js")).href);
+const { render, routes, noindexRoutes = [] } = await import(pathToFileURL(path.resolve("dist-ssr/entry-server.js")).href);
 
 for (const route of routes) {
   let appHtml = "";
@@ -29,6 +29,9 @@ for (const route of routes) {
   let html = template.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
   html = html.replace(/<link rel="canonical"[^>]*>/, "");
   html = html.replace("</head>", `  <link rel="canonical" href="${canonical}" />\n  </head>`);
+  if (noindexRoutes.includes(route)) {
+    html = html.replace("</head>", `  <meta name="robots" content="noindex" />\n  </head>`);
+  }
   html = html.replace(/(<meta property="og:url" content=")[^"]*"/, `$1${canonical}"`);
   html = html.replace(/(<meta name="twitter:url" content=")[^"]*"/, `$1${canonical}"`);
   const outDir = route === "/" ? dist : path.join(dist, route.slice(1));

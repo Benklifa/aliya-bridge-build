@@ -33,6 +33,8 @@ const MetaPixelTracker = () => {
     if (m) {
       const ev = getLifeEvent(m[1]);
       if (ev) trackEvent("ViewContent", { content_name: ev.pageTitle, content_category: "Life Event" });
+    } else if (/^\/borrow-against-portfolio\/?$/.test(pathname)) {
+      trackEvent("ViewContent", { content_name: "Portfolio Lending", content_category: "Landing Page" });
     } else if (/^\/services\/?$/.test(pathname)) {
       trackEvent("ViewContent", { content_name: "Services", content_category: "Service" });
     }
