@@ -239,10 +239,6 @@ const Footer = () => {
                 <MapPin size={14} className="sm:w-4 sm:h-4 mt-0.5 flex-shrink-0" />
                 <span>Highland Park, NJ (USA)</span>
               </div>
-              <div className="flex items-start space-x-2">
-                <MapPin size={14} className="sm:w-4 sm:h-4 mt-0.5 flex-shrink-0" />
-                <span>Jerusalem, Israel</span>
-              </div>
             </div>
           </div>
 
