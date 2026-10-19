@@ -8,10 +8,16 @@ import { scrollToId } from "@/lib/scrollToAnchor";
 
 // DRAFT, NOT FOR PUBLICATION. Landing page B, "Pre-Aliya liquidity reserve".
 // Source copy: /workspace/portfolio-home-financing/marketing/page-b-pre-aliyah-liquidity-reserve.md
-// (used word for word). Not reviewed by Compliance Bot, not approved by Michael as CCO, and
-// needs Israeli licensing clearance from counsel. Do not merge to main, publish, or link from an ad.
+// (used word for word), revised Oct 19, 2026 after COMPLIANCE_REVIEW.md (all 10 page B must-fixes applied).
+// Compliance Bot: approved with edits. Not approved by Michael as CCO. Do not merge to main, publish,
+// deploy, or link from any ad until Michael signs off with a compliance log entry and every launch
+// condition in README.md is cleared (including Israeli counsel's licensing view, the cross-border CPA
+// note, brokerage written terms, and removal of "Jerusalem, Israel" from the site-wide footer).
+// Risk 2 ("Your brokerage's rules may change when you move.") is Compliance must-fix 7: revise only
+// after the brokerage confirms its terms in writing.
 // Not linked from the nav or footer; noindex; not in sitemap.
-// Layout, colors, risks panel, anchors, form, and consent mirror BorrowAgainstPortfolio.tsx.
+// Layout, colors, risks panel, anchors, form, and consent mirror BorrowAgainstPortfolio.tsx; section
+// order matches the live lending page (risks right before the form).
 
 const FORM_SOURCE = "Liquidity Reserve";
 // Lead source tag requested in the source doc's form-handling note.
@@ -19,9 +25,9 @@ const LEAD_SOURCE = "page-b-pre-aliya-reserve";
 const PAGE_TITLE = "Pre-Aliya liquidity reserve | Aliya Financial";
 
 const benefits = [
-  "Arranged before the move, so access to funds does not depend on a new Israeli credit file.",
-  "Nothing is borrowed unless it is needed. Interest is charged only on amounts actually borrowed.",
-  "An alternative to selling investments in a hurry to cover an unexpected cost.",
+  "Set up with your U.S. brokerage before the move, subject to its approval, so it does not depend on a new Israeli credit file. The brokerage's rules still apply after you move.",
+  "Nothing is borrowed unless it is needed. The brokerage charges interest only on amounts borrowed; our advisory fee applies to your full account either way.",
+  "An alternative to selling investments in a hurry to cover an unexpected cost, though in a market drop the brokerage may sell them for you.",
 ];
 
 const steps = [
@@ -39,7 +45,7 @@ const steps = [
   },
   {
     title: "Draw only if needed, then repay",
-    body: "If an emergency comes up before your Israeli banking and credit are in place, you may draw funds from the brokerage. Interest then accrues on the amount borrowed at a variable rate set by the lender. We can help you plan how and when to repay it. We do not set the rate, service the loan, or arrange repayment with the lender.",
+    body: "If an emergency comes up before your Israeli banking and credit are in place, you may draw funds from the brokerage. Before you draw, we work out with you a realistic source and timeline for repaying it. Interest accrues on the amount borrowed at a variable rate set by the brokerage. The line is meant for a short-term emergency, not for ongoing living costs. We do not set the rate, service the loan, or arrange repayment with the brokerage.",
   },
 ];
 
@@ -67,6 +73,10 @@ const risks = [
     body: "The amount you can borrow depends on the value of your securities and on the lender's rules, which the lender can change at any time. In a market decline, often the same time an emergency happens, less may be available, or none.",
   },
   {
+    title: "Your brokerage's rules may change when you move.",
+    body: "A brokerage may limit margin borrowing, or change or close the account, after you change your residence to Israel, and getting funds to you before you have an Israeli bank account may take extra steps. Confirm with the brokerage before you rely on the line.",
+  },
+  {
     title: "A market decline can trigger a margin call.",
     body: "If the value of the securities in your account falls, the lender may require you to deposit additional funds or securities, or may sell some or all of your securities to cover the loan.",
   },
@@ -92,7 +102,7 @@ const risks = [
   },
   {
     title: "A margin loan must be disclosed to an Israeli lender.",
-    body: "If you later apply for an Israeli mortgage or other credit, disclose any margin line and balance when asked about existing obligations. Brokerage statements will show the loan.",
+    body: "If you later apply for an Israeli mortgage or other credit, disclose any margin line and balance when asked about existing obligations. Brokerage statements will show the loan. Tell any Israeli lender about the loan, and confirm with a licensed Israeli mortgage adviser.",
   },
   {
     title: "Not suitable for all investors.",
@@ -190,11 +200,11 @@ const PreAliyaLiquidityReserve = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="fs-h1 font-serif font-bold text-white mb-2">
-              Pre-Aliya liquidity reserve: a portfolio-backed backstop set up before the move and used only if needed.
+              Pre-Aliya liquidity reserve: a margin line from your U.S. brokerage, set up before the move and drawn only if needed.
             </h1>
             <hr className="hairline-gold" />
             <p className="fs-body-lg font-serif-italic text-white mt-4">
-              In the first months after Aliya, Israeli credit history and banking can take time to build. A margin line approved in advance by the brokerage that holds your U.S. account can sit undrawn as an emergency backstop while your portfolio stays invested, and borrowing instead of selling may defer capital gains. A market drop can trigger a margin call or force sales, and it is not suitable for all investors. Aliya Financial does not make the loan.
+              In the first months after Aliya, Israeli credit history and banking can take time to build. A margin line approved in advance by the brokerage that holds your U.S. account can sit undrawn while your portfolio stays invested, and borrowing instead of selling may defer capital gains, not avoid them. The line is not guaranteed: the brokerage can reduce or end it at any time, and less may be available in a market drop. A market drop can also trigger a margin call or force sales. It is not suitable for all investors. The loan is made by the brokerage, not Aliya Financial.
             </p>
             <ul className="diamond-bullets space-y-2 text-[#e2e6ec] text-left max-w-xl mx-auto mt-5 fs-body">
               {benefits.map((b) => <li key={b}>{b}</li>)}
@@ -262,30 +272,7 @@ const PreAliyaLiquidityReserve = () => {
         </div>
       </div>
 
-      {/* 4. Risks (calm navy panel), right after the fit lists per the source doc */}
-      <div id="risks" className="py-10 bg-white scroll-mt-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-primary border border-gold-500/50 rounded-lg p-6 md:p-8">
-            <h2 className="font-serif text-2xl font-bold text-white mb-3 flex items-center gap-2">
-              <AlertTriangle className="text-gold-500" size={24} aria-hidden="true" />
-              Understand the Risks
-            </h2>
-            <p className="text-white font-semibold mb-4">
-              Borrowing against securities carries risk and is not suitable for all investors.
-              Before deciding, please consider the following:
-            </p>
-            <ul className="space-y-3 text-[#e2e6ec] leading-snug">
-              {risks.map((r) => (
-                <li key={r.title}>
-                  <strong className="text-white">{r.title}</strong> {r.body}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* 5 + 6. Who Makes the Loan and Our Conflicts; Not Tax or Legal Advice */}
+      {/* 4 + 5. Who Makes the Loan and Our Conflicts; Not Tax or Legal Advice */}
       <div className="py-10 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -313,6 +300,29 @@ const PreAliyaLiquidityReserve = () => {
                 This page is for educational purposes only and is not tax or legal advice. U.S. citizens owe U.S. tax on worldwide income wherever they live. The tax treatment of borrowing, loan interest, and any future sale of securities depends on your individual circumstances and may differ between the United States and Israel. Please consult a qualified U.S. and, if needed, Israeli tax professional before making a decision.
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 6. Risks (calm navy panel), right before the form, as on the live lending page */}
+      <div id="risks" className="py-10 bg-white scroll-mt-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto bg-primary border border-gold-500/50 rounded-lg p-6 md:p-8">
+            <h2 className="font-serif text-2xl font-bold text-white mb-3 flex items-center gap-2">
+              <AlertTriangle className="text-gold-500" size={24} aria-hidden="true" />
+              Understand the Risks
+            </h2>
+            <p className="text-white font-semibold mb-4">
+              Borrowing against securities carries risk and is not suitable for all investors.
+              Before deciding, please consider the following:
+            </p>
+            <ul className="space-y-3 text-[#e2e6ec] leading-snug">
+              {risks.map((r) => (
+                <li key={r.title}>
+                  <strong className="text-white">{r.title}</strong> {r.body}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -380,7 +390,7 @@ const PreAliyaLiquidityReserve = () => {
       <div className="py-6 bg-white">
         <div className="container mx-auto px-4">
           <p className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
-            Educational only, not individual tax, legal, or investment advice. Aliya Financial, LLC is an investment adviser registered in New Jersey. Insurance is offered separately through a licensed agent and pays commissions. Registration does not imply a certain level of skill or training. Aliya Financial is based in the United States and is not licensed in Israel.
+            Educational only, not individual tax, legal, or investment advice. Aliya Financial, LLC is an investment adviser registered in New Jersey; registration does not imply a certain level of skill or training. Insurance is offered separately through a licensed agent and pays commissions. Aliya Financial is based in the United States and is not licensed in Israel.
           </p>
         </div>
       </div>
