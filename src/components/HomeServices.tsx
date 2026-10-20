@@ -42,7 +42,7 @@ const HomeServices = () => (
           ))}
         </div>
         <p className="text-center mt-6">
-          <Link to="/services" className="text-gold-600 hover:text-gold-500 underline font-semibold">
+          <Link to="/services" className="text-gold-700 hover:text-primary underline font-semibold">
             Explore all services
           </Link>
         </p>

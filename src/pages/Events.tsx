@@ -84,7 +84,7 @@ const Events = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-navy-50 to-white py-8 sm:py-16">
+      <div className="min-h-screen bg-white py-8 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="mb-8 sm:mb-16">
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4">

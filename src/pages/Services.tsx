@@ -29,7 +29,7 @@ const Services = () => {
                 className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-md font-semibold text-gold-600 hover:text-gold-500 transition-colors"
               >
                 <Phone size={18} />
-                <span>Schedule a Free Consultation</span>
+                <span>Request a free consultation</span>
               </Link>
             </div>
           </div>

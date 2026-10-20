@@ -62,6 +62,8 @@ export default {
           100: "hsl(41 54% 90%)",
           500: "hsl(var(--gold-accent))",
           600: "hsl(41 54% 46%)",
+          // Darker gold for text and links on white or cream (WCAG AA, 4.8:1 or better).
+          700: "hsl(41 64% 29%)",
         },
         teal: {
           DEFAULT: "hsl(var(--teal-highlight))",

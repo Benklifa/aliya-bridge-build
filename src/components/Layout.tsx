@@ -105,12 +105,28 @@ const Navigation = () => {
                   className="relative self-start flex-shrink-0"
                   style={{ height: "clamp(2.25rem, 1rem + 5vw, 5rem)", width: "clamp(2.25rem, 1rem + 5vw, 5rem)" }}
                 >
-                  <img
-                    src="/israel-puzzle-logo.png"
-                    alt="Aliya Financial Israel Puzzle Logo"
-                    className="absolute top-0 left-0 w-auto object-contain z-20"
-                    style={{ height: "clamp(10rem, 6rem + 10vw, 20rem)" }}
-                  />
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcSet="/images/logo-121w.avif 121w, /images/logo-182w.avif 182w, /images/logo-242w.avif 242w"
+                      sizes="(max-width: 640px) 61px, calc((6rem + 10vw) * 0.379)"
+                    />
+                    <source
+                      type="image/webp"
+                      srcSet="/images/logo-121w.webp 121w, /images/logo-182w.webp 182w, /images/logo-242w.webp 242w"
+                      sizes="(max-width: 640px) 61px, calc((6rem + 10vw) * 0.379)"
+                    />
+                    <img
+                      src="/images/logo-242w.png"
+                      alt="Aliya Financial Israel Puzzle Logo"
+                      width={242}
+                      height={640}
+                      loading="eager"
+                      decoding="async"
+                      className="absolute top-0 left-0 w-auto object-contain z-20"
+                      style={{ height: "clamp(10rem, 6rem + 10vw, 20rem)" }}
+                    />
+                  </picture>
                 </div>
                 <Link to="/" className="flex flex-col items-center min-w-0">
                   <div
@@ -212,22 +228,22 @@ const Footer = () => {
           <div className="space-y-1.5 sm:space-y-2">
             <h3 className="font-serif font-semibold text-base sm:text-lg text-primary">Contact</h3>
             <div className="space-y-1 text-xs sm:text-sm text-muted-foreground">
-              <Link
-                to="/contact"
-                className="flex items-center space-x-2 hover:text-accent transition-colors"
+              <a
+                href="mailto:info@aliyafinancial.com"
+                className="flex items-center space-x-2 py-1 hover:text-accent transition-colors"
                 style={{ minHeight: "auto", minWidth: "auto" }}
               >
                 <Mail size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
                 <span className="break-all">info@aliyafinancial.com</span>
-              </Link>
-              <Link
-                to="/contact"
-                className="flex items-center space-x-2 hover:text-accent transition-colors"
+              </a>
+              <a
+                href="tel:+17325087320"
+                className="flex items-center space-x-2 py-1 hover:text-accent transition-colors"
                 style={{ minHeight: "auto", minWidth: "auto" }}
               >
                 <Phone size={14} className="sm:w-4 sm:h-4 flex-shrink-0" />
                 <span>732-508-7320</span>
-              </Link>
+              </a>
             </div>
           </div>
 

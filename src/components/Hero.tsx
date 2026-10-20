@@ -4,15 +4,23 @@ import LifeEventLinks from "./LifeEventLinks";
 
 const Hero = () => {
   return (
-    <section
-      className="relative flex items-start justify-center overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(hsl(var(--navy-primary) / 0.88), hsl(var(--navy-primary) / 0.88)), url('/lovable-uploads/80ed530d-61bc-49e2-a97f-d091d6bde7fb.png')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
+    <section className="relative flex items-start justify-center overflow-hidden">
+      {/* Background photo (responsive AVIF/WebP, above the fold: eager, high priority) under a navy overlay */}
+      <picture aria-hidden="true">
+        <source type="image/avif" srcSet="/images/hero-640.avif 640w, /images/hero-1024.avif 1024w" sizes="100vw" />
+        <source type="image/webp" srcSet="/images/hero-640.webp 640w, /images/hero-1024.webp 1024w" sizes="100vw" />
+        <img
+          src="/images/hero-1024.webp"
+          alt=""
+          width={1024}
+          height={1536}
+          loading="eager"
+          decoding="async"
+          {...{ fetchpriority: "high" }}
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+      </picture>
+      <div className="absolute inset-0" style={{ background: "hsl(var(--navy-primary) / 0.88)" }} aria-hidden="true" />
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center pt-10 md:pt-14 pb-10">
         <div className="max-w-4xl mx-auto">
@@ -28,7 +36,7 @@ const Hero = () => {
           <hr className="hairline-gold" />
 
           <p className="fs-body-lg font-serif-italic text-white fade-in max-w-3xl mx-auto drop-shadow-lg mt-6">
-            From retirement and portfolio strategy to cross-border planning and Aliya — we help you make confident financial decisions at every stage of life
+            From retirement and portfolio strategy to cross-border planning and Aliya: we help you make confident financial decisions at every stage of life
           </p>
 
           <div className="mt-8 fade-in">
@@ -38,7 +46,7 @@ const Hero = () => {
             >
               <span className="inline-flex items-center gap-3 font-serif font-bold text-lg">
                 <Calendar size={22} />
-                Schedule a Free Consultation
+                Request a free consultation
               </span>
               <span className="text-sm font-medium">
                 No products. No pressure. Ask us anything.

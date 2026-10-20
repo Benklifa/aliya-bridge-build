@@ -107,8 +107,8 @@ const Privacy = () => {
                 </table>
               </div>
               <p className="text-muted-foreground mt-4">
-                <strong className="text-primary">Questions?</strong> Call 732-508-7320 or email{' '}
-                <a href="mailto:michael@aliyafinancial.com" className="text-gold-600 hover:text-gold-500 underline">
+                <strong className="text-primary">Questions?</strong> Call <a href="tel:+17325087320" className="text-gold-700 hover:text-primary underline">732-508-7320</a> or email{' '}
+                <a href="mailto:michael@aliyafinancial.com" className="text-gold-700 hover:text-primary underline">
                   michael@aliyafinancial.com
                 </a>.
               </p>
@@ -267,7 +267,7 @@ const Privacy = () => {
                   </li>
                   <li>
                     <strong className="text-primary">Email.</strong> Email{" "}
-                    <a href="mailto:michael@aliyafinancial.com" className="text-gold-600 hover:text-gold-500 underline">michael@aliyafinancial.com</a>{" "}
+                    <a href="mailto:michael@aliyafinancial.com" className="text-gold-700 hover:text-primary underline">michael@aliyafinancial.com</a>{" "}
                     and ask to unsubscribe.
                   </li>
                   <li>
@@ -314,10 +314,10 @@ const Privacy = () => {
                 <p className="text-muted-foreground">
                   Aliya Financial, LLC
                   <br />
-                  Phone: <a href="tel:+17325087320" className="text-gold-600 hover:text-gold-500 underline">732-508-7320</a>
+                  Phone: <a href="tel:+17325087320" className="text-gold-700 hover:text-primary underline">732-508-7320</a>
                   <br />
                   Email:{" "}
-                  <a href="mailto:michael@aliyafinancial.com" className="text-gold-600 hover:text-gold-500 underline">michael@aliyafinancial.com</a>
+                  <a href="mailto:michael@aliyafinancial.com" className="text-gold-700 hover:text-primary underline">michael@aliyafinancial.com</a>
                 </p>
               </section>
         

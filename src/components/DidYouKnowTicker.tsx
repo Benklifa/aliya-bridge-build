@@ -50,7 +50,7 @@ const DidYouKnowTicker = () => {
               </span>
               <div className="flex-1">
                 <div
-                  className="text-gold-600 font-semibold uppercase text-xs mb-1"
+                  className="text-gold-700 font-semibold uppercase text-xs mb-1"
                   style={{ letterSpacing: "0.12em" }}
                 >
                   Did You Know
@@ -60,7 +60,7 @@ const DidYouKnowTicker = () => {
                 </p>
                 <Link
                   to="/framework"
-                  className="inline-block mt-2 text-sm text-gold-600 hover:text-gold-500 font-semibold transition-colors"
+                  className="inline-block mt-2 text-sm text-gold-700 hover:text-primary font-semibold transition-colors"
                   style={{ minHeight: "auto", minWidth: "auto" }}
                 >
                   Learn more →

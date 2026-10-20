@@ -3,6 +3,7 @@ import { StaticRouter } from "react-router-dom/server";
 import type { ReactNode } from "react";
 import App from "./App";
 import { lifeEvents } from "./data/lifeEvents";
+export { routeMeta } from "./lib/routeMeta";
 
 export const routes: string[] = [
   "/", "/framework", "/framework/a", "/framework/l", "/framework/i", "/framework/y",

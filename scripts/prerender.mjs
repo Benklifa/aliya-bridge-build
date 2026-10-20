@@ -14,9 +14,10 @@ const origError = console.error;
 console.error = (msg, ...rest) => { if (typeof msg === "string" && msg.includes("useLayoutEffect does nothing on the server")) return; origError(msg, ...rest); };
 
 const SITE = "https://aliyafinancial.com";
+const HERO_AVIF_SRCSET = "/images/hero-640.avif 640w, /images/hero-1024.avif 1024w";
 const dist = path.resolve("dist");
 const template = fs.readFileSync(path.join(dist, "index.html"), "utf8");
-const { render, routes, noindexRoutes = [], sitemapExcludeRoutes = [] } = await import(pathToFileURL(path.resolve("dist-ssr/entry-server.js")).href);
+const { render, routes, noindexRoutes = [], sitemapExcludeRoutes = [], routeMeta = {} } = await import(pathToFileURL(path.resolve("dist-ssr/entry-server.js")).href);
 
 for (const route of routes) {
   let appHtml = "";
@@ -31,6 +32,24 @@ for (const route of routes) {
   html = html.replace("</head>", `  <link rel="canonical" href="${canonical}" />\n  </head>`);
   if (noindexRoutes.includes(route)) {
     html = html.replace("</head>", `  <meta name="robots" content="noindex" />\n  </head>`);
+  }
+  const meta = routeMeta[route];
+  if (meta) {
+    const esc = (v) => String(v).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const ogTitle = esc(meta.ogTitle ?? meta.title);
+    html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(meta.title)}</title>`);
+    html = html.replace(/(<meta name="description" content=")[^"]*"/, `$1${esc(meta.description)}"`);
+    html = html.replace(/(<meta property="og:title" content=")[^"]*"/, `$1${ogTitle}"`);
+    html = html.replace(/(<meta name="twitter:title" content=")[^"]*"/, `$1${ogTitle}"`);
+    html = html.replace(/(<meta property="og:description" content=")[^"]*"/, `$1${esc(meta.description)}"`);
+    html = html.replace(/(<meta name="twitter:description" content=")[^"]*"/, `$1${esc(meta.description)}"`);
+  }
+  if (route === "/") {
+    // Homepage only: preload the responsive hero image (AVIF) at high priority.
+    html = html.replace(
+      "</head>",
+      `  <link rel="preload" as="image" type="image/avif" imagesrcset="${HERO_AVIF_SRCSET}" imagesizes="100vw" fetchpriority="high" />\n  </head>`,
+    );
   }
   html = html.replace(/(<meta property="og:url" content=")[^"]*"/, `$1${canonical}"`);
   html = html.replace(/(<meta name="twitter:url" content=")[^"]*"/, `$1${canonical}"`);

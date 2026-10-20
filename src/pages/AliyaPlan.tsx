@@ -4,6 +4,10 @@ import { Calendar, CheckCircle, Send } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/metaPixel";
+import { scrollToId } from "@/lib/scrollToAnchor";
+import { getUtm } from "@/lib/utm";
+import UtmHiddenFields from "@/components/UtmHiddenFields";
+import MobileCtaBar from "@/components/MobileCtaBar";
 
 // Landing page for the Meta ad: headline "Planning for Aliya, not just planning to plan",
 // hook "The garage sale can wait until spring. The investment plan can't."
@@ -88,6 +92,7 @@ const AliyaPlan = () => {
           topic: FORM_SOURCE,
           _replyto: form.email,
           _subject: `New Consultation Request - ${FORM_SOURCE}`,
+          ...getUtm(),
         }),
       });
       if (!response.ok) throw new Error("Form submission failed");
@@ -103,6 +108,15 @@ const AliyaPlan = () => {
       });
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  // Smooth in-page jump to the form (same as the lending page). Updates the
+  // hash with a relative URL, so the path and query string (UTM) are kept.
+  const jumpTo = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (scrollToId(id)) {
+      e.preventDefault();
+      window.history.replaceState(window.history.state, "", `#${id}`);
     }
   };
 
@@ -125,11 +139,13 @@ const AliyaPlan = () => {
               are a few to consider early.
             </p>
             <a
+              id="hero-cta"
               href="#consultation"
+              onClick={jumpTo("consultation")}
               className="btn-gold inline-flex items-center space-x-2 px-6 py-3 rounded-md font-semibold mt-6"
             >
               <Calendar size={18} />
-              <span>Book a Free Consultation</span>
+              <span>Request a free consultation</span>
             </a>
           </div>
         </div>
@@ -210,6 +226,7 @@ const AliyaPlan = () => {
                   with it.
                 </p>
                 <form onSubmit={onSubmit} className="space-y-4">
+                  <UtmHiddenFields />
                   <div>
                     <label htmlFor="pl-name" className="block text-sm font-medium text-black mb-2">Full Name *</label>
                     <input id="pl-name" name="name" type="text" required autoComplete="name" value={form.name} onChange={onChange} className={inputClass} />
@@ -236,7 +253,7 @@ const AliyaPlan = () => {
                     ) : (
                       <>
                         <Send size={20} />
-                        <span>Book a Free Consultation</span>
+                        <span>Request a free consultation</span>
                       </>
                     )}
                   </button>
@@ -255,6 +272,7 @@ const AliyaPlan = () => {
           </p>
         </div>
       </div>
+      <MobileCtaBar targetId="consultation" heroCtaId="hero-cta" />
     </Layout>
   );
 };

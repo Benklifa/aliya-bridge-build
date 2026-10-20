@@ -17,8 +17,16 @@ else
     echo "✗ Warning: aliya-buddy-icon-source.png not found"
 fi
 
+# Favicons: prefer the small, pre-sized files in asset-sources/favicons
+# (16x16, 32x32 PNGs and a 16/32/48 .ico, a few KB each). The old fallback
+# below copied the full 1.7 MB logo PNG into every favicon slot.
+if [ -f "$ASSET_SOURCE_DIR/favicons/favicon.ico" ]; then
+    cp "$ASSET_SOURCE_DIR/favicons/favicon.ico" "$PUBLIC_DIR/favicon.ico"
+    cp "$ASSET_SOURCE_DIR/favicons/favicon-32x32.png" "$PUBLIC_DIR/favicon-32x32.png"
+    cp "$ASSET_SOURCE_DIR/favicons/favicon-16x16.png" "$PUBLIC_DIR/favicon-16x16.png"
+    echo "✓ Favicon files restored from asset-sources/favicons"
 # Generate favicon files from the Israel puzzle logo
-if [ -f "$ASSET_SOURCE_DIR/favicon-source.png" ]; then
+elif [ -f "$ASSET_SOURCE_DIR/favicon-source.png" ]; then
     # Copy as main favicon
     cp "$ASSET_SOURCE_DIR/favicon-source.png" "$PUBLIC_DIR/favicon.ico"
     

@@ -1,6 +1,10 @@
 import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { captureUtm } from "./lib/utm";
+
+// Keep ad UTM params for lead attribution across internal navigation.
+captureUtm();
 
 const container = document.getElementById("root")!;
 // Prerendered pages ship real HTML; hydrate them. Otherwise render normally.

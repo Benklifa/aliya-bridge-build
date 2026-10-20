@@ -30,6 +30,8 @@ import AliyaPlan from "./pages/AliyaPlan";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import MetaPixelTracker from "./components/MetaPixelTracker";
+import RouteMeta from "./components/RouteMeta";
+import { Analytics } from "@vercel/analytics/react";
 
 // Routes are wrapped by a router passed in: BrowserRouter on the client,
 // StaticRouter during build-time prerendering (src/entry-server.tsx).
@@ -46,6 +48,7 @@ const App = ({ Router = DefaultRouter }: { Router?: RouterShell }) => {
       <Router>
         <ScrollToTop />
         <MetaPixelTracker />
+        <RouteMeta />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/framework" element={<Framework />} />
@@ -74,6 +77,8 @@ const App = ({ Router = DefaultRouter }: { Router?: RouterShell }) => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
+      {/* Vercel Web Analytics (cookieless). */}
+      <Analytics />
     </TooltipProvider>
   </QueryClientProvider>
   );

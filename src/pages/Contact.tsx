@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/metaPixel";
+import { getUtm } from "@/lib/utm";
+import UtmHiddenFields from "@/components/UtmHiddenFields";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -69,7 +71,8 @@ const Contact = () => {
           referralSource: formData.referralSource,
           message: formData.message,
           _replyto: formData.email,
-          _subject: `New Contact Form Submission - ${formData.topic || 'General Inquiry'}`
+          _subject: `New Contact Form Submission - ${formData.topic || 'General Inquiry'}`,
+          ...getUtm(),
         })
       });
 
@@ -165,6 +168,7 @@ const Contact = () => {
               </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
+                <UtmHiddenFields />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
@@ -309,8 +313,22 @@ const Contact = () => {
                     <Mail size={24} className="text-gold-600 mt-1" />
                     <div>
                       <h4 className="font-semibold text-primary mb-2">Email</h4>
-                      <p className="text-primary">Lisa@AliyaFinancial.com</p>
-                      <p className="text-primary">Michael@AliyaFinancial.com</p>
+                      <p className="text-primary">
+                        <a href="mailto:Lisa@AliyaFinancial.com" className="underline underline-offset-2 hover:text-accent">Lisa@AliyaFinancial.com</a>
+                      </p>
+                      <p className="text-primary">
+                        <a href="mailto:Michael@AliyaFinancial.com" className="underline underline-offset-2 hover:text-accent">Michael@AliyaFinancial.com</a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <Phone size={24} className="text-gold-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-primary mb-2">Phone</h4>
+                      <p className="text-primary">
+                        <a href="tel:+17325087320" className="underline underline-offset-2 hover:text-accent">732-508-7320</a>
+                      </p>
                     </div>
                   </div>
 

@@ -49,7 +49,7 @@ const Disclosures: React.FC = () => {
                   href="https://adviserinfo.sec.gov/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gold-600 hover:text-gold-500 underline"
+                  className="text-gold-700 hover:text-primary underline"
                 >
                   adviserinfo.sec.gov
                 </a>.
@@ -174,7 +174,7 @@ const Disclosures: React.FC = () => {
               </h2>
               <p className="text-muted-foreground mb-3">
                 Please review our{' '}
-                <a href="/privacy" className="text-gold-600 hover:text-gold-500 underline">
+                <a href="/privacy" className="text-gold-700 hover:text-primary underline">
                   Privacy Policy
                 </a>{' '}
                 for information about how we collect, use, and protect your personal information.
@@ -197,8 +197,8 @@ const Disclosures: React.FC = () => {
               </p>
               <div className="bg-card/50 p-4 rounded-lg mb-4">
                 <p className="text-primary"><strong>Aliya Financial</strong></p>
-                <p className="text-muted-foreground">Email: info@aliyafinancial.com</p>
-                <p className="text-muted-foreground">Phone: 732-508-7320</p>
+                <p className="text-muted-foreground">Email: <a href="mailto:info@aliyafinancial.com" className="underline hover:text-accent">info@aliyafinancial.com</a></p>
+                <p className="text-muted-foreground">Phone: <a href="tel:+17325087320" className="underline hover:text-accent">732-508-7320</a></p>
                 <p className="text-muted-foreground">Location: Highland Park, NJ (USA)</p>
               </div>
               <p className="text-muted-foreground mb-2">
@@ -213,7 +213,7 @@ const Disclosures: React.FC = () => {
                     href="https://www.njconsumeraffairs.gov/bos"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gold-600 hover:text-gold-500 underline"
+                    className="text-gold-700 hover:text-primary underline"
                   >
                     www.njconsumeraffairs.gov/bos
                   </a>

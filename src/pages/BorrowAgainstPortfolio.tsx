@@ -4,6 +4,9 @@ import { AlertTriangle, Calendar, CheckCircle, Send } from "lucide-react";
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/metaPixel";
+import { getUtm } from "@/lib/utm";
+import UtmHiddenFields from "@/components/UtmHiddenFields";
+import MobileCtaBar from "@/components/MobileCtaBar";
 import { scrollToId } from "@/lib/scrollToAnchor";
 
 // Landing page for the Meta ad "Buying in Israel: borrowing against a portfolio instead of selling it." Not linked from the nav; noindex (see prerender + effect below).
@@ -120,6 +123,7 @@ const BorrowAgainstPortfolio = () => {
           topic: FORM_SOURCE,
           _replyto: form.email,
           _subject: `New Consultation Request - ${FORM_SOURCE}`,
+          ...getUtm(),
         }),
       });
       if (!response.ok) throw new Error("Form submission failed");
@@ -173,12 +177,13 @@ const BorrowAgainstPortfolio = () => {
               </a>
             </p>
             <a
+              id="hero-cta"
               href="#consultation"
               onClick={jumpTo("consultation")}
               className="btn-gold inline-flex items-center space-x-2 px-6 py-3 rounded-md font-semibold mt-4"
             >
               <Calendar size={18} />
-              <span>Book a Free Consultation</span>
+              <span>Request a free consultation</span>
             </a>
           </div>
         </div>
@@ -298,6 +303,7 @@ const BorrowAgainstPortfolio = () => {
                   your situation.
                 </p>
                 <form onSubmit={onSubmit} className="space-y-4">
+                  <UtmHiddenFields />
                   <div>
                     <label htmlFor="pl-name" className="block text-sm font-medium text-black mb-2">Full Name *</label>
                     <input id="pl-name" name="name" type="text" required autoComplete="name" value={form.name} onChange={onChange} className={inputClass} />
@@ -324,7 +330,7 @@ const BorrowAgainstPortfolio = () => {
                     ) : (
                       <>
                         <Send size={20} />
-                        <span>Book a Free Consultation</span>
+                        <span>Request a free consultation</span>
                       </>
                     )}
                   </button>
@@ -343,6 +349,7 @@ const BorrowAgainstPortfolio = () => {
           </p>
         </div>
       </div>
+      <MobileCtaBar targetId="consultation" heroCtaId="hero-cta" />
     </Layout>
   );
 };
