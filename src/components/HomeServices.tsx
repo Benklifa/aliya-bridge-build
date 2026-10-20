@@ -4,7 +4,7 @@ const services = [
   {
     title: "Financial Planning",
     description:
-      "Comprehensive planning for retirement, estate, wealth transfer, and major life transitions, with specialized expertise in U.S.-Israel cross-border situations.",
+      "Comprehensive planning for retirement, wealth transfer, and major life transitions, with specialized expertise in U.S.-Israel cross-border situations. On estate matters, we can coordinate with your estate attorneys.",
   },
   {
     title: "Investment Management",

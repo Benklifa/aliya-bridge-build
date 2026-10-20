@@ -6,7 +6,7 @@ const ServicesPreview = () => {
     {
       icon: PieChart,
       title: "Financial Planning",
-      description: "Comprehensive financial planning for retirement, estate, wealth transfer, and major life transitions. Specialized expertise in U.S.-Israel cross-border scenarios.",
+      description: "Comprehensive financial planning for retirement, wealth transfer, and major life transitions. Specialized expertise in U.S.-Israel cross-border scenarios. On estate matters, we can coordinate with your estate attorneys.",
     },
     {
       icon: TrendingUp,

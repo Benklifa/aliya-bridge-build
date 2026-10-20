@@ -32,8 +32,8 @@ const MetaPixelTracker = () => {
     const m = pathname.match(/^\/life-events\/([^/]+)\/?$/);
     if (m) {
       const ev = getLifeEvent(m[1]);
-      // content_name uses the stable button label so reporting is not split by heading edits.
-      if (ev) trackEvent("ViewContent", { content_name: ev.label, content_category: "Life Event" });
+      // content_name: fixed pixelName if set, else the button label, so reporting is not split by copy edits.
+      if (ev) trackEvent("ViewContent", { content_name: ev.pixelName ?? ev.label, content_category: "Life Event" });
     } else if (/^\/borrow-against-portfolio\/?$/.test(pathname)) {
       trackEvent("ViewContent", { content_name: "Portfolio Lending", content_category: "Landing Page" });
     } else if (/^\/aliya-plan\/?$/.test(pathname)) {

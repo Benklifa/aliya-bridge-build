@@ -170,7 +170,7 @@ const Privacy = () => {
 
           {/* Last Updated */}
           <div className="text-center text-muted-foreground text-sm mt-10 pt-6 border-t border-border">
-            <p>Last Updated: August 25, 2026</p>
+            <p>Last Updated: October 20, 2026</p>
           </div>
 
           {/* Website Privacy (merged from the former /website-privacy page; DRAFT FOR COMPLIANCE REVIEW).

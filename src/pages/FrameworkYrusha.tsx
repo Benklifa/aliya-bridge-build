@@ -63,8 +63,8 @@ const FrameworkYrusha = () => {
                   Asset Titling & Ownership Strategies
                 </h2>
                 <p className="text-card-foreground mb-4">
-                  How assets are titled affects taxation, probate, and transfer efficiency. We structure ownership 
-                  to minimize complications while optimizing for tax efficiency in both countries.
+                  How assets are titled affects taxation, probate, and transfer efficiency. We can coordinate with your
+                  estate attorneys on ownership to minimize complications while optimizing for tax efficiency in both countries.
                 </p>
                 <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>Joint vs. individual ownership analysis</li>

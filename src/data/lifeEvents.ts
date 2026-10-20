@@ -12,6 +12,8 @@ import {
 export interface LifeEvent {
   slug: string;
   label: string;
+  /** Optional fixed Meta Pixel content_name; defaults to label. */
+  pixelName?: string;
   icon: LucideIcon;
   hoverBlurb: string;
   pageTitle: string;
@@ -108,7 +110,7 @@ export const lifeEvents: LifeEvent[] = [
     howWeHelp: [
       "Help you understand the financial implications of different settlement structures before they're final.",
       "Rebuild a standalone financial plan for your new household — income, savings, and goals included.",
-      "Update beneficiaries, insurance, and estate documents so your plan matches your new reality.",
+      "Update beneficiaries and insurance, and we can coordinate with your estate attorneys on estate documents, so your plan matches your new reality.",
     ],
   },
   {
@@ -135,7 +137,9 @@ export const lifeEvents: LifeEvent[] = [
   },
   {
     slug: "estate-planning",
-    label: "Estate Planning",
+    label: "Estate Questions",
+    // Meta Pixel content_name kept as the original label so reporting stays continuous.
+    pixelName: "Estate Planning",
     icon: FileText,
     hoverBlurb:
       "U.S. and Israeli inheritance law don't automatically agree with each other — estate planning across both takes deliberate coordination.",
