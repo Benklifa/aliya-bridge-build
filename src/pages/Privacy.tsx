@@ -174,9 +174,17 @@ const Privacy = () => {
           </div>
 
           {/* Website Privacy (merged from the former /website-privacy page; DRAFT FOR COMPLIANCE REVIEW).
-              Trackers described reflect what the site loads as of Oct 19, 2026: Meta Pixel, Google Fonts,
-              Formspree forms, an embedded Google Form on /events, the AI education tool on /tools, and
-              browser localStorage for questionnaires. No Google Analytics or Vercel Analytics. */}
+              Trackers described reflect what the site loads as of Oct 20, 2026: Meta Pixel, Google Fonts,
+              Formspree forms (which also receive the ad's utm_* campaign labels, kept in sessionStorage for
+              the visit), the Google Form registration embed on /events (shown only when an event is listed;
+              none are listed now), the AI education tool on /tools, and browser localStorage for
+              questionnaires. No Google Analytics. The Vercel Web Analytics component is in the code, but Web
+              Analytics is NOT enabled on the Vercel project, so it collects nothing. Before enabling it,
+              replace the "We do not currently use ... analytics" sentence below with the approved text in
+              /workspace/aliya-ads/funnel-fixes/privacy-analytics-text.md:
+              "We use Vercel Web Analytics to understand how our website is used. It does not use cookies and
+              reports only aggregated information, such as pages viewed, the referring website, and
+              approximate device type and country. It does not identify you." */}
           <section id="website" className="mt-12 pt-10 border-t-2 border-gold-500 scroll-mt-24">
             <h2 className="font-serif text-2xl font-bold text-primary mb-4">Website Privacy</h2>
             <div className="border-l-4 border-gold-500 bg-card/50 p-6 mb-8 rounded-r-lg">
@@ -197,7 +205,9 @@ const Privacy = () => {
                     message. The contact form also asks for your location, topic of interest, and how you
                     heard about us. Form submissions are delivered to us through our form provider,
                     Formspree. Event registrations use an embedded Google Form, which collects the details
-                    shown on that form.
+                    shown on that form. If you arrive from one of our ads and submit a form, the ad campaign
+                    label in the link (for example, the ad source) is saved with your submission so we know
+                    which ads bring inquiries.
                   </li>
                   <li>
                     <strong className="text-primary">Questions you type into our education tool.</strong> If

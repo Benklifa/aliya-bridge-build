@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { scrollToId } from "@/lib/scrollToAnchor";
 
 /**
- * Slim sticky bottom bar (mobile only) with one button that scrolls to the
- * on-page form. It appears once the hero button has scrolled out of view and
- * hides as soon as the top of the form reaches the screen, so it never covers
- * the form, the content after it, or the footer.
+ * Slim sticky bottom bar (mobile only) with one button that scrolls to an
+ * on-page section (the form, or on the lending page the risks block). It
+ * appears once the hero button has scrolled out of view and hides as soon as
+ * the top of the target section reaches the screen, so it never covers the
+ * target, the content after it, or the footer.
  */
 const MobileCtaBar = ({
   targetId,

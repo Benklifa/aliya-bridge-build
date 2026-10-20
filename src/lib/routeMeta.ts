@@ -105,7 +105,7 @@ export const routeMeta: Record<string, RouteMetaEntry> = {
       "How a securities-based loan from your brokerage works, who makes the loan, the conflicts, and the risks. Aliya Financial does not make the loan.",
   },
   "/aliya-plan": {
-    title: t("Planning for Aliya"),
+    title: t("Preparing for Aliya"),
     description: "U.S. money questions to consider before a move to Israel. General information, not a recommendation.",
   },
   ...Object.fromEntries(
@@ -113,7 +113,7 @@ export const routeMeta: Record<string, RouteMetaEntry> = {
       `/life-events/${e.slug}`,
       {
         title: t(e.pageTitle),
-        description: `${e.pageTitle}: questions to consider, and how Aliya Financial, a fee-based investment adviser, may help.`,
+        description: e.metaDescription,
       },
     ]),
   ),

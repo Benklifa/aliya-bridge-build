@@ -349,7 +349,10 @@ const BorrowAgainstPortfolio = () => {
           </p>
         </div>
       </div>
-      <MobileCtaBar targetId="consultation" heroCtaId="hero-cta" />
+      {/* Compliance: the bar must not skip the risks. The risks block sits directly
+          before the form, so "show only after the risks" would leave no window at all;
+          the bar points to the risks instead and hides once they reach the screen. */}
+      <MobileCtaBar targetId="risks" heroCtaId="hero-cta" label="Read the risks first" />
     </Layout>
   );
 };

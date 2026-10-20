@@ -28,7 +28,7 @@ const Hero = () => {
             className="font-serif font-bold text-white mb-2 fade-in drop-shadow-lg"
             style={{ fontSize: "clamp(1.6rem, 0.95rem + 3vw, 3.2rem)" }}
           >
-            Financial Planning for Life's
+            Investment Advice for Life's
             <br />
             <span className="text-gold-500">Biggest Transitions</span>
           </h1>

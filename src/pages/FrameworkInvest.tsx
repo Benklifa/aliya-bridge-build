@@ -64,7 +64,7 @@ const FrameworkInvest = () => {
                 </h2>
                 <p className="text-card-foreground mb-4">
                   Life insurance serves multiple purposes in cross-border planning: protection, tax-advantaged growth, 
-                  and liquidity access. U.S. policies are often significantly less expensive than Israeli alternatives.
+                  and liquidity access.
                 </p>
                 <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>Term vs. permanent life insurance analysis</li>

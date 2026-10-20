@@ -18,11 +18,11 @@ const DidYouKnowTicker = () => {
     },
     {
       icon: DollarSign,
-      text: "U.S. life insurance is often 30–50% less expensive than comparable coverage in Israel.",
+      text: "U.S. and Israeli life insurance can differ a lot in cost and terms, so compare both. Insurance is offered separately through a licensed agent and pays commissions.",
     },
     {
       icon: AlertCircle,
-      text: "Borrowing against investments or permanent life insurance is debt, not income—useful for liquidity without triggering Israeli income tax.",
+      text: "Borrowing against investments or permanent life insurance creates debt, not income. It can provide cash without selling, but it carries interest costs and risks such as margin calls or forced sales, and taxes on gains are deferred, not avoided. Confirm Israeli tax treatment with a licensed Israeli tax adviser.",
     },
   ];
 
