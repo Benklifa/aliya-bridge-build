@@ -156,7 +156,7 @@ export const lifeEvents: LifeEvent[] = [
     howWeHelp: [
       "Review your beneficiary designations and account titling against your actual estate wishes.",
       "Coordinate with U.S. and Israeli estate attorneys so your plan is consistent in both jurisdictions.",
-      "This is the same thinking behind the Y'rusha (Legacy) element of our A.L.I.Y.A. framework — see how it fits the bigger picture on our Framework page.",
+      "This is the same thinking behind the Y'rusha (Legacy) element of our A.L.I.Y.A. framework. See how it fits the bigger picture on our Framework page.",
     ],
   },
   {

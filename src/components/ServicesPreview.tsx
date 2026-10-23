@@ -40,7 +40,7 @@ const ServicesPreview = () => {
             </h1>
             <hr className="hairline-gold" />
             <p className="fs-body-lg font-serif-italic text-white max-w-2xl mx-auto mt-4">
-              Comprehensive financial planning for retirement, wealth management, and life's major transitions — including cross-border and Aliyah planning
+              Investment advice for retirement, wealth management, and life's major transitions, including a move from the U.S. to Israel.
             </p>
           </div>
 

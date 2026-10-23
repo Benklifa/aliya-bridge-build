@@ -22,7 +22,7 @@ const Contact = () => {
 
   const topics = [
     "Event Registration",
-    "Financial Planning",
+    "Advice for Your Whole Financial Picture",
     "Investment Management", 
     "Alternative Investments",
     "Retirement Income Strategies",
