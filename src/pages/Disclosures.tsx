@@ -54,19 +54,6 @@ const Disclosures: React.FC = () => {
                   adviserinfo.sec.gov
                 </a>.
               </p>
-              <p className="text-muted-foreground mt-3">
-                A copy of our Form CRS (Client Relationship Summary) is available below:
-              </p>
-              <div className="mt-4">
-                <a
-                  href="/form-crs.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-gold inline-flex items-center px-4 py-2 text-sm font-medium rounded-md shadow-sm"
-                >
-                  Download Form CRS
-                </a>
-              </div>
             </section>
 
             {/* Investment Risks */}

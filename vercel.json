@@ -17,6 +17,16 @@
       "source": "/website-privacy",
       "destination": "/privacy#website",
       "permanent": true
+    },
+    {
+      "source": "/form-crs.html",
+      "destination": "/disclosures",
+      "permanent": true
+    },
+    {
+      "source": "/form-crs",
+      "destination": "/disclosures",
+      "permanent": true
     }
   ],
   "rewrites": [

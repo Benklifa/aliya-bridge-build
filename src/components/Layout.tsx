@@ -276,15 +276,6 @@ const Footer = () => {
               >
                 Disclosures
               </Link>
-              <a
-                href="/form-crs.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-muted-foreground hover:text-accent font-semibold"
-                style={{ minHeight: "auto", minWidth: "auto" }}
-              >
-                Form CRS
-              </a>
             </div>
           </div>
         </div>
