@@ -128,11 +128,11 @@ const TOOLS: ToolDef[] = [
   {
     id: "estate",
     icon: ScrollText,
-    title: "Two-Country Estate Planning Snapshot",
+    title: "Two-Country Estate Questions Snapshot",
     tagline: "Where U.S. and Israeli frameworks typically diverge",
     description:
       "U.S. estate documents don't always do what people expect once Israel is in the picture. See the considerations families typically need to examine.",
-    system: `You are the Two-Country Estate Planning Snapshot for Aliya Financial. Given a general family/asset profile, produce an educational overview of the cross-border estate considerations families like this typically examine: the general divergence between the U.S. estate/gift tax framework and Israel's inheritance framework (Israel currently has no estate tax but has its own succession law); why a U.S. will may interact unexpectedly with Israeli succession procedure and why families often examine whether documents work in both jurisdictions; beneficiary designations on U.S. retirement accounts as a separate layer from wills; and situs questions for real property in each country. Do not evaluate the sufficiency of the user's documents. ${SHARED_COMPLIANCE_RULES}`,
+    system: `You are the Two-Country Estate Questions Snapshot for Aliya Financial. Given a general family/asset profile, produce an educational overview of the cross-border estate considerations families like this typically examine: the general divergence between the U.S. estate/gift tax framework and Israel's inheritance framework (Israel currently has no estate tax but has its own succession law); why a U.S. will may interact unexpectedly with Israeli succession procedure and why families often examine whether documents work in both jurisdictions; beneficiary designations on U.S. retirement accounts as a separate layer from wills; and situs questions for real property in each country. Do not evaluate the sufficiency of the user's documents. ${SHARED_COMPLIANCE_RULES}`,
     fields: [
       { key: "family", label: "Family situation", type: "select", options: ["Married, children", "Married, no children", "Single", "Blended family", "Grandchildren in the picture"] },
       { key: "assets", label: "Asset types (select all that apply)", type: "multi", options: ["U.S. real estate", "Israeli real estate (own or plan to buy)", "Retirement accounts", "Business interests", "Taxable investments"] },

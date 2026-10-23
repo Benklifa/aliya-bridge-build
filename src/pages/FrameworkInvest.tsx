@@ -68,7 +68,7 @@ const FrameworkInvest = () => {
                 </p>
                 <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>Term vs. permanent life insurance analysis</li>
-                  <li>Cross-border estate planning integration</li>
+                  <li>Coordination with your estate attorneys across both countries</li>
                   <li>Policy loan strategies for liquidity</li>
                   <li>Tax treatment differences between countries</li>
                 </ul>
