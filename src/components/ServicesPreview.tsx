@@ -5,8 +5,8 @@ const ServicesPreview = () => {
   const services = [
     {
       icon: PieChart,
-      title: "Financial Planning",
-      description: "Comprehensive financial planning for retirement, estate, wealth transfer, and major life transitions. Specialized expertise in U.S.-Israel cross-border scenarios.",
+      title: "Advice for Your Whole Financial Picture",
+      description: "Investment advice that takes your goals, cash flow, and any planned move to Israel into account. Specialized expertise in U.S.-Israel cross-border scenarios. On estate matters, we can coordinate with your estate attorneys.",
     },
     {
       icon: TrendingUp,

@@ -16,7 +16,7 @@ export const routes: string[] = [
 export const noindexRoutes: string[] = ["/borrow-against-portfolio", "/aliya-plan"];
 
 // Routes prerendered but left out of sitemap.xml.
-export const sitemapExcludeRoutes: string[] = ["/aliya-plan"];
+export const sitemapExcludeRoutes: string[] = ["/borrow-against-portfolio", "/aliya-plan"];
 
 export function render(url: string): string {
   const Router = ({ children }: { children: ReactNode }) => (

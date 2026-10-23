@@ -24,7 +24,7 @@ const AliyaFrameworkSummary = () => {
     {
       letter: "Y",
       title: "Y'rusha",
-      description: "Cross-border wills, beneficiary design, titling, and tax-sensitive legacy planning.",
+      description: "Cross-border estate questions: beneficiary reviews and coordination with your estate attorneys.",
       puzzlePiece: "/lovable-uploads/e4789ae2-00ef-4434-8448-e40b3d958c6f.png"
     },
     {
@@ -98,9 +98,9 @@ const AliyaFrameworkSummary = () => {
                           </>
                         ) : index === 3 ? (
                           <>
-                            Cross-border wills, beneficiary design,<br/>
-                            titling, and tax-sensitive<br/>
-                            legacy planning.
+                            Cross-border estate questions:<br/>
+                            beneficiary reviews and coordination<br/>
+                            with your estate attorneys.
                           </>
                         ) : index === 4 ? (
                           <>

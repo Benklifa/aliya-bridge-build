@@ -29,7 +29,7 @@ const Framework = () => {
       id: "y",
       letter: "Y",
       title: "Y'rusha (Legacy)",
-      tagline: "Cross-border estate planning with proper wills, beneficiary design, and tax-sensitive legacy strategies.",
+      tagline: "Cross-border estate questions: beneficiary reviews and coordination with your estate attorneys.",
       color: "border-orange-500"
     },
     {

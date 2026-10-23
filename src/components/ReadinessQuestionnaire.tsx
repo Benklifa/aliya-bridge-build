@@ -50,7 +50,7 @@ const ReadinessQuestionnaire = () => {
     { id: 16, category: "Invest", text: "I have tested my plan against inflation and exchange-rate scenarios.", value: 5 },
     { id: 17, category: "Invest", text: "I can access cash during the move or first year without major tax consequences.", value: 5 },
     
-    // 🆈 Y'rusha (Protection & Estate Planning) - 4 questions
+    // 🆈 Y'rusha (Protection & Estate Questions) - 4 questions
     { id: 18, category: "Y'rusha", text: "I have reviewed how my U.S. will and estate plan may need to be updated to include Israeli laws and taxes.", value: 5 },
     { id: 19, category: "Y'rusha", text: "I have updated power-of-attorney and healthcare directive documents.", value: 5 },
     { id: 20, category: "Y'rusha", text: "My life insurance coverage will still meet my needs after Aliya.", value: 5 },
@@ -297,7 +297,7 @@ const ReadinessQuestionnaire = () => {
     "🅰️ Align (Lifestyle & Budget)": responses.filter(q => q.category === "Align"),
     "🅻 Live (Longevity & Lifetime Income)": responses.filter(q => q.category === "Live"),
     "🅸 Invest (Income, Inflation & Currency)": responses.filter(q => q.category === "Invest"),
-    "🆈 Y'rusha (Protection & Estate Planning)": responses.filter(q => q.category === "Y'rusha"),
+    "🆈 Y'rusha (Protection & Estate Questions)": responses.filter(q => q.category === "Y'rusha"),
     "🅰️ Adapt (Liquidity & Flexibility — Pre-Move Readiness)": responses.filter(q => q.category === "Adapt"),
   };
 

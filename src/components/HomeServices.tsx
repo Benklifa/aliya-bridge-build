@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    title: "Financial Planning",
+    title: "Advice for Your Whole Financial Picture",
     description:
-      "Comprehensive planning for retirement, estate, wealth transfer, and major life transitions, with specialized expertise in U.S.-Israel cross-border situations.",
+      "Investment advice that takes your goals, cash flow, and any planned move to Israel into account, with specialized expertise in U.S.-Israel cross-border situations. On estate matters, we can coordinate with your estate attorneys.",
   },
   {
     title: "Investment Management",

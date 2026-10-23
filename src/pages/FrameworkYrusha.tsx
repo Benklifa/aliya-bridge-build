@@ -20,7 +20,7 @@ const FrameworkYrusha = () => {
                 <span className="text-4xl font-bold text-foreground">Y'rusha (Legacy)</span>
               </div>
               <p className="text-xl text-white">
-                Cross-border estate planning with proper wills, beneficiary design, and tax-sensitive legacy strategies.
+                Cross-border estate questions: beneficiary reviews and coordination with your estate attorneys.
               </p>
             </div>
 
@@ -28,14 +28,14 @@ const FrameworkYrusha = () => {
             <div className="space-y-8">
               <div className="bg-card rounded-lg card-shadow p-8">
                 <h2 className="text-2xl font-bold text-card-foreground mb-4">
-                  Dual-Jurisdiction Will Preparation
+                  Wills in Two Countries
                 </h2>
                 <p className="text-card-foreground mb-4">
                   Having properly coordinated wills in both countries ensures your wishes are carried out efficiently 
                   and minimizes complications for your heirs. We coordinate with estate attorneys in both jurisdictions.
                 </p>
                 <ul className="list-disc list-inside text-card-foreground space-y-2">
-                  <li>Coordinated will preparation avoiding conflicts</li>
+                  <li>We can coordinate with your U.S. and Israeli estate attorneys so your wills work together.</li>
                   <li>Asset-specific jurisdiction planning</li>
                   <li>Executor selection and coordination strategies</li>
                   <li>Regular review and update protocols</li>
@@ -47,8 +47,8 @@ const FrameworkYrusha = () => {
                   Beneficiary Designation Optimization
                 </h2>
                 <p className="text-card-foreground mb-4">
-                  Proper beneficiary designations can bypass probate and minimize taxes. We ensure all accounts, 
-                  insurance policies, and retirement plans have appropriate and up-to-date beneficiary information.
+                  Proper beneficiary designations can bypass probate and minimize taxes. We review beneficiary designations
+                  on the accounts we advise on and flag any that may need updating.
                 </p>
                 <ul className="list-disc list-inside text-card-foreground space-y-2">
                   <li>Primary and contingent beneficiary strategies</li>
