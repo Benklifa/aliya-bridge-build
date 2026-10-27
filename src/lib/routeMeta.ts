@@ -5,6 +5,7 @@
 // Copy rules: "Aliya" (no h), "adviser" (never "planner"), no em or en dashes,
 // no performance, rate, testimonial, or superlative claims.
 import { lifeEvents } from "@/data/lifeEvents";
+import { articlePath, articles } from "@/content/articles";
 
 export interface RouteMetaEntry {
   title: string;
@@ -117,6 +118,12 @@ export const routeMeta: Record<string, RouteMetaEntry> = {
       },
     ]),
   ),
+  "/resources": {
+    title: t("Resources"),
+    description:
+      "Articles and downloads from Aliya Financial for Americans preparing to make Aliya. Educational and general in nature.",
+  },
+  ...Object.fromEntries(articles.map((a) => [articlePath(a.slug), { title: t(a.title), description: a.summary }])),
 };
 
 export const NOT_FOUND_META: RouteMetaEntry = {

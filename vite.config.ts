@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import fs from "fs";
 
 // Serves /api/market-data during local `vite`/`vite dev` sessions using the
 // same logic as the Vercel serverless function in api/market-data.js, so
@@ -48,6 +49,22 @@ const metaPixelHtml = (pixelId: string): Plugin => ({
   },
 });
 
+// Draft articles (src/content/articles, frontmatter `draft: true`) show on
+// local builds (no VERCEL) and Vercel Preview builds only. On Production the
+// plugin below blanks each draft's Markdown so its text never reaches the bundle.
+const SHOW_DRAFTS = !process.env.VERCEL || process.env.VERCEL_ENV === "preview";
+const stripDraftArticles = (): Plugin => ({
+  name: "strip-draft-articles",
+  enforce: "pre",
+  transform(_code, id) {
+    if (SHOW_DRAFTS || !/[\\/]src[\\/]content[\\/]articles[\\/][^\\/]+\.md\?raw$/.test(id)) return null;
+    const source = fs.readFileSync(id.replace(/\?raw$/, ""), "utf8");
+    const frontmatter = source.match(/^\uFEFF?---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? "";
+    if (/^draft:\s*["']?true["']?\s*$/im.test(frontmatter)) return { code: 'export default "";', map: null };
+    return null;
+  },
+});
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
@@ -57,7 +74,10 @@ export default defineConfig(({ mode }) => {
     host: "::",
     port: 8080,
   },
-  plugins: [react(), marketDataDevMiddleware(), metaPixelHtml(metaPixelId)],
+  plugins: [react(), marketDataDevMiddleware(), metaPixelHtml(metaPixelId), stripDraftArticles()],
+  define: {
+    __SHOW_DRAFTS__: JSON.stringify(SHOW_DRAFTS),
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

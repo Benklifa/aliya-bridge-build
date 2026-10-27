@@ -1,0 +1,13 @@
+/* Typography for Markdown article bodies (src/content/articles). */
+.article-body { color: hsl(var(--primary)); line-height: 1.7; }
+.article-body > * + * { margin-top: 1rem; }
+.article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 700; margin-top: 2rem; }
+.article-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; }
+.article-body p, .article-body li { color: hsl(var(--muted-foreground)); }
+.article-body ul { list-style: disc; padding-left: 1.5rem; }
+.article-body ol { list-style: decimal; padding-left: 1.5rem; }
+.article-body li + li { margin-top: 0.35rem; }
+.article-body a { text-decoration: underline; color: hsl(var(--primary)); }
+.article-body a:hover { color: hsl(var(--accent)); }
+.article-body strong { color: hsl(var(--primary)); }
+.article-body blockquote { border-left: 4px solid hsl(var(--border)); padding-left: 1rem; font-style: italic; }

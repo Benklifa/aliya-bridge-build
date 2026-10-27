@@ -3,6 +3,7 @@ import { StaticRouter } from "react-router-dom/server";
 import type { ReactNode } from "react";
 import App from "./App";
 import { lifeEvents } from "./data/lifeEvents";
+import { resourcesNoindexRoutes, resourcesRoutes, resourcesSitemapExcludeRoutes } from "./content/articles";
 export { routeMeta } from "./lib/routeMeta";
 
 export const routes: string[] = [
@@ -25,3 +26,9 @@ export function render(url: string): string {
   );
   return renderToString(<App Router={Router} />);
 }
+
+// Resources hub (/resources) and its articles (/resources/<slug>), generated
+// from src/content/articles. Hold rules live in src/content/resources.config.ts.
+routes.push(...resourcesRoutes);
+noindexRoutes.push(...resourcesNoindexRoutes);
+sitemapExcludeRoutes.push(...resourcesSitemapExcludeRoutes);

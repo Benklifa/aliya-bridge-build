@@ -32,6 +32,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import MetaPixelTracker from "./components/MetaPixelTracker";
 import RouteMeta from "./components/RouteMeta";
 import { Analytics } from "@vercel/analytics/react";
+import Resources from "./pages/Resources";
+import ResourceArticle from "./pages/ResourceArticle";
 
 // Routes are wrapped by a router passed in: BrowserRouter on the client,
 // StaticRouter during build-time prerendering (src/entry-server.tsx).
@@ -73,6 +75,8 @@ const App = ({ Router = DefaultRouter }: { Router?: RouterShell }) => {
           <Route path="/life-events/:slug" element={<LifeEvent />} />
           <Route path="/aliya-plan" element={<AliyaPlan />} />
           <Route path="/borrow-against-portfolio" element={<BorrowAgainstPortfolio />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/:slug" element={<ResourceArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

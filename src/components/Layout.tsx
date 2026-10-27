@@ -75,13 +75,15 @@ const Navigation = () => {
     // { name: "Learning Tools", path: "/tools" },
     { name: "About Us", path: "/about" },
     { name: "Services", path: "/services" },
+    { name: "Resources", path: "/resources" },
     // { name: "Events", path: "/events" },
     // { name: "In the News", path: "/news" },
     // { name: "FAQ", path: "/faq" },
     { name: "Contact", path: "/contact" },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) =>
+    location.pathname === path || (path === "/resources" && location.pathname.startsWith("/resources/"));
 
   const handleNavClick = () => {
     setIsMobileMenuOpen(false);
