@@ -8,6 +8,7 @@ import { scrollToId } from "@/lib/scrollToAnchor";
 import { getUtm } from "@/lib/utm";
 import UtmHiddenFields from "@/components/UtmHiddenFields";
 import MobileCtaBar from "@/components/MobileCtaBar";
+import { BOOKING_LABEL, BOOKING_NOTE, BOOKING_URL } from "@/lib/booking";
 
 // Landing page for the Meta ad: headline "Planning for Aliya, not just planning to plan",
 // hook "The garage sale can wait until spring. The investment plan can't."
@@ -120,6 +121,10 @@ const AliyaPlan = () => {
     }
   };
 
+  // Meta Pixel: Schedule on a click to the booking page (opens in a new tab).
+  // This records the click, not a completed booking. No PII.
+  const onBookClick = () => trackEvent("Schedule", { content_name: FORM_SOURCE });
+
   const inputClass =
     "w-full px-4 py-3 border border-input rounded-md focus:ring-2 focus:ring-accent focus:border-accent";
 
@@ -138,15 +143,27 @@ const AliyaPlan = () => {
               money questions may be easier to work through well before the moving boxes come out. Here
               are a few to consider early.
             </p>
-            <a
-              id="hero-cta"
-              href="#consultation"
-              onClick={jumpTo("consultation")}
-              className="btn-gold inline-flex items-center space-x-2 px-6 py-3 rounded-md font-semibold mt-6"
-            >
-              <Calendar size={18} />
-              <span>Request a free consultation</span>
-            </a>
+            <div id="hero-cta" className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onBookClick}
+                className="btn-gold inline-flex items-center space-x-2 px-6 py-3 rounded-md font-semibold"
+              >
+                <Calendar size={18} />
+                <span>{BOOKING_LABEL}</span>
+              </a>
+              <a
+                href="#consultation"
+                onClick={jumpTo("consultation")}
+                className="inline-flex items-center space-x-2 px-6 py-3 rounded-md font-semibold border border-gold-500 text-white hover:bg-white/10"
+              >
+                <Send size={18} />
+                <span>Request a free consultation</span>
+              </a>
+            </div>
+            <p className="text-white/80 text-sm mt-3">{BOOKING_NOTE}</p>
           </div>
         </div>
       </div>
@@ -225,6 +242,19 @@ const AliyaPlan = () => {
                   A free conversation about your Aliya plan and the U.S. money questions that come
                   with it.
                 </p>
+                <div className="text-center mb-6">
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={onBookClick}
+                    className="btn-gold inline-flex items-center justify-center space-x-2 w-full px-6 py-3 rounded-md font-semibold"
+                  >
+                    <Calendar size={18} />
+                    <span>{BOOKING_LABEL}</span>
+                  </a>
+                  <p className="text-primary/70 text-xs mt-2">{BOOKING_NOTE}</p>
+                </div>
                 <form onSubmit={onSubmit} className="space-y-4">
                   <UtmHiddenFields />
                   <div>
@@ -272,7 +302,11 @@ const AliyaPlan = () => {
           </p>
         </div>
       </div>
-      <MobileCtaBar targetId="consultation" heroCtaId="hero-cta" />
+      <MobileCtaBar
+        targetId="consultation"
+        heroCtaId="hero-cta"
+        secondary={{ href: BOOKING_URL, label: BOOKING_LABEL, onClick: onBookClick }}
+      />
     </Layout>
   );
 };

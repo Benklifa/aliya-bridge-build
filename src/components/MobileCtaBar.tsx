@@ -7,15 +7,19 @@ import { scrollToId } from "@/lib/scrollToAnchor";
  * appears once the hero button has scrolled out of view and hides as soon as
  * the top of the target section reaches the screen, so it never covers the
  * target, the content after it, or the footer.
+ * Optional secondary: an external link (for example a booking page) shown
+ * beside the main button; it opens in a new tab and calls onClick first.
  */
 const MobileCtaBar = ({
   targetId,
   heroCtaId,
   label = "Request a free consultation",
+  secondary,
 }: {
   targetId: string;
   heroCtaId: string;
   label?: string;
+  secondary?: { href: string; label: string; onClick?: () => void };
 }) => {
   const [show, setShow] = useState(false);
 
@@ -60,14 +64,37 @@ const MobileCtaBar = ({
       }`}
       style={{ paddingBottom: "calc(0.625rem + env(safe-area-inset-bottom))" }}
     >
-      <a
-        href={`#${targetId}`}
-        onClick={onClick}
-        tabIndex={show ? 0 : -1}
-        className="btn-gold flex w-full items-center justify-center rounded-md px-4 py-3 font-semibold"
-      >
-        {label}
-      </a>
+      {secondary ? (
+        <div className="grid grid-cols-2 gap-2">
+          <a
+            href={secondary.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={secondary.onClick}
+            tabIndex={show ? 0 : -1}
+            className="btn-gold flex items-center justify-center rounded-md px-2 py-3 text-sm font-semibold text-center"
+          >
+            {secondary.label}
+          </a>
+          <a
+            href={`#${targetId}`}
+            onClick={onClick}
+            tabIndex={show ? 0 : -1}
+            className="flex items-center justify-center rounded-md border border-gold-500 px-2 py-3 text-sm font-semibold text-white text-center"
+          >
+            {label}
+          </a>
+        </div>
+      ) : (
+        <a
+          href={`#${targetId}`}
+          onClick={onClick}
+          tabIndex={show ? 0 : -1}
+          className="btn-gold flex w-full items-center justify-center rounded-md px-4 py-3 font-semibold"
+        >
+          {label}
+        </a>
+      )}
     </div>
   );
 };
