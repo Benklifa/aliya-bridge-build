@@ -40,7 +40,7 @@ const ResourceArticle = () => {
       </div>
 
       {article.draft && (
-        <div className="bg-gold-500/20 border-b border-gold-500">
+        <div className="bg-[#FBF3DC] border-b border-gold-500">
           <div className="container mx-auto px-4 py-3">
             <p className="max-w-3xl mx-auto text-sm text-primary">
               <strong>Draft preview.</strong> This page is not published. Draft articles appear only on
