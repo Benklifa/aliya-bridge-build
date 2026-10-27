@@ -108,6 +108,10 @@ export const routeMeta: Record<string, RouteMetaEntry> = {
     title: t("Preparing for Aliya"),
     description: "U.S. money questions to consider before a move to Israel. General information, not a recommendation.",
   },
+  "/aliya-money-checklist": {
+    title: t("The Aliya Money Checklist"),
+    description: "A money checklist for Americans planning Aliya, organized by time horizon. Educational and general in nature.",
+  },
   ...Object.fromEntries(
     lifeEvents.map((e) => [
       `/life-events/${e.slug}`,

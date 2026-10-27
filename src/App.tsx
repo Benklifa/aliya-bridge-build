@@ -27,6 +27,7 @@ import Privacy from "./pages/Privacy";
 import LifeEvent from "./pages/LifeEvent";
 import BorrowAgainstPortfolio from "./pages/BorrowAgainstPortfolio";
 import AliyaPlan from "./pages/AliyaPlan";
+import AliyaMoneyChecklist from "./pages/AliyaMoneyChecklist";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import MetaPixelTracker from "./components/MetaPixelTracker";
@@ -72,6 +73,7 @@ const App = ({ Router = DefaultRouter }: { Router?: RouterShell }) => {
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/life-events/:slug" element={<LifeEvent />} />
           <Route path="/aliya-plan" element={<AliyaPlan />} />
+          <Route path="/aliya-money-checklist" element={<AliyaMoneyChecklist />} />
           <Route path="/borrow-against-portfolio" element={<BorrowAgainstPortfolio />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

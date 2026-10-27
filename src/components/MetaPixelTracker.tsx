@@ -38,6 +38,8 @@ const MetaPixelTracker = () => {
       trackEvent("ViewContent", { content_name: "Portfolio Lending", content_category: "Landing Page" });
     } else if (/^\/aliya-plan\/?$/.test(pathname)) {
       trackEvent("ViewContent", { content_name: "Aliya Plan", content_category: "Landing Page" });
+    } else if (/^\/aliya-money-checklist\/?$/.test(pathname)) {
+      trackEvent("ViewContent", { content_name: "Aliya Money Checklist", content_category: "Lead Magnet" });
     } else if (/^\/services\/?$/.test(pathname)) {
       trackEvent("ViewContent", { content_name: "Services", content_category: "Service" });
     }
