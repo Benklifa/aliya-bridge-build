@@ -85,7 +85,7 @@ const AliyaMoneyChecklist = () => {
             risk, including loss of principal. This checklist is educational and general in nature. It is not
             tax, legal, or individualized investment advice. Michael Benklifa is also a licensed insurance
             agent; any insurance is offered separately, may pay him a commission, and carries no advisory
-            fee. Aliya Financial is based in the United States and is not licensed in Israel.
+            fee. Aliya Financial LLC is based in the United States, is not licensed in Israel, and does not give Israeli tax advice.
           </p>
         </div>
       </div>
