@@ -4,3 +4,4 @@ export const BOOKING_URL =
 
 export const BOOKING_LABEL = "Book a free call";
 export const BOOKING_NOTE = "Free 30-minute consultation. No obligation.";
+export const BOOKING_RELATIONSHIP_NOTE = "A free consultation does not create an advisory relationship.";

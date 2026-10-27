@@ -8,7 +8,7 @@ import { scrollToId } from "@/lib/scrollToAnchor";
 import { getUtm } from "@/lib/utm";
 import UtmHiddenFields from "@/components/UtmHiddenFields";
 import MobileCtaBar from "@/components/MobileCtaBar";
-import { BOOKING_LABEL, BOOKING_NOTE, BOOKING_URL } from "@/lib/booking";
+import { BOOKING_LABEL, BOOKING_NOTE, BOOKING_RELATIONSHIP_NOTE, BOOKING_URL } from "@/lib/booking";
 
 // Landing page for the Meta ad: headline "Planning for Aliya, not just planning to plan",
 // hook "The garage sale can wait until spring. The investment plan can't."
@@ -18,7 +18,10 @@ import { BOOKING_LABEL, BOOKING_NOTE, BOOKING_URL } from "@/lib/booking";
 
 const FORM_SOURCE = "Aliya Plan";
 
-const checklist = [
+const INSURANCE_NOTE =
+  "Michael Benklifa is also a licensed insurance agent; insurance is offered separately and may pay him a commission.";
+
+const checklist: { title: string; body: string; note?: string }[] = [
   {
     title: "401(k) and IRA decisions",
     body: "What happens to your 401(k)s and IRAs when you move? Leaving accounts in place, rolling them over, or consolidating them may each carry different tax, cost, and access considerations, and the answer may depend on your age and plans.",
@@ -38,6 +41,7 @@ const checklist = [
   {
     title: "Insurance coverage abroad",
     body: "Will your health, life, and disability coverage still apply in Israel? Some policies may change, limit coverage, or end when you live abroad, so it may help to review each policy before you go.",
+    note: INSURANCE_NOTE,
   },
   {
     title: "Estate documents in two countries",
@@ -164,6 +168,7 @@ const AliyaPlan = () => {
               </a>
             </div>
             <p className="text-white/80 text-sm mt-3">{BOOKING_NOTE}</p>
+            <p className="text-white/80 text-sm mt-1">{BOOKING_RELATIONSHIP_NOTE}</p>
           </div>
         </div>
       </div>
@@ -183,6 +188,7 @@ const AliyaPlan = () => {
                 <li key={item.title} className="border border-border rounded-lg p-5">
                   <h3 className="font-serif text-lg font-bold text-primary mb-2">{item.title}</h3>
                   <p className="text-muted-foreground leading-snug">{item.body}</p>
+                  {item.note && <p className="text-muted-foreground text-sm leading-snug mt-2">{item.note}</p>}
                 </li>
               ))}
             </ul>
@@ -190,33 +196,22 @@ const AliyaPlan = () => {
         </div>
       </div>
 
-      {/* Fees, licensing, and tax statements (explicit white band: body background is navy) */}
+      {/* Tax and licensing statements (explicit white band: body background is navy) */}
       <div className="py-10 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div>
-              <h2 className="font-serif text-2xl font-bold text-primary mb-3">How We Are Paid</h2>
-              <p className="text-muted-foreground leading-snug mb-3">
-                Aliya Financial is fee-based, not fee-only: our advisory fee is 1% a year on the full value
-                of the holdings we manage. Michael Benklifa is also a licensed insurance agent; insurance is
-                offered separately and may pay him a commission. A free consultation does not create an
-                advisory relationship.
-              </p>
-              <p className="text-muted-foreground leading-snug">
-                Aliya Financial is based in the United States and is not licensed in Israel. It does not
-                give Israeli tax, legal, or mortgage advice.
-              </p>
-            </div>
-            <div>
-              <h2 className="font-serif text-2xl font-bold text-primary mb-3">Not Tax or Legal Advice</h2>
-              <p className="text-muted-foreground leading-snug">
-                This page is for educational purposes only and is not tax or legal advice. U.S. citizens
-                owe U.S. tax on worldwide income wherever they live. The tax treatment of retirement
-                accounts, investments, and any future sale of securities depends on your individual
-                circumstances and may differ between the United States and Israel. Please consult a
-                qualified U.S. and, if needed, Israeli tax professional before making a decision.
-              </p>
-            </div>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-serif text-2xl font-bold text-primary mb-3">Not Tax or Legal Advice</h2>
+            <p className="text-muted-foreground leading-snug mb-3">
+              This page is for educational purposes only and is not tax or legal advice. U.S. citizens
+              owe U.S. tax on worldwide income wherever they live. The tax treatment of retirement
+              accounts, investments, and any future sale of securities depends on your individual
+              circumstances and may differ between the United States and Israel. Please consult a
+              qualified U.S. and, if needed, Israeli tax professional before making a decision.
+            </p>
+            <p className="text-muted-foreground leading-snug">
+              Aliya Financial is based in the United States and is not licensed in Israel. It does not
+              give Israeli tax, legal, or mortgage advice.
+            </p>
           </div>
         </div>
       </div>
@@ -255,6 +250,7 @@ const AliyaPlan = () => {
                     <span>{BOOKING_LABEL}</span>
                   </a>
                   <p className="text-primary/70 text-xs mt-2">{BOOKING_NOTE}</p>
+                  <p className="text-primary/70 text-xs mt-1">{BOOKING_RELATIONSHIP_NOTE}</p>
                 </div>
                 <form onSubmit={onSubmit} className="space-y-4">
                   <UtmHiddenFields />
