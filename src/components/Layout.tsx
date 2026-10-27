@@ -291,9 +291,7 @@ const Footer = () => {
             Investing involves risk, including possible loss of principal. Past performance does not guarantee future results.
             Cross-border investing involves additional risks including currency fluctuations, political and economic instability, and differences in accounting standards and regulations.
             Please read our <Link to="/disclosures" className="underline hover:text-accent">full disclosures</Link> for more information. See also our <Link to="/privacy" className="underline hover:text-accent">Privacy Policy</Link>.
-          </p>
-          <p className="text-xs text-muted-foreground mt-1">
-            © 2026 Aliya Financial LLC. All rights reserved.
+            {" "}© 2026 Aliya Financial LLC. All rights reserved.
           </p>
         </div>
       </div>
