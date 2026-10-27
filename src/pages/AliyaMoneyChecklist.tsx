@@ -77,9 +77,9 @@ const AliyaMoneyChecklist = () => {
       </section>
 
       {/* Page disclosure (compliance review 2026-10-23, required edit 2) */}
-      <section className="py-8 bg-secondary/40">
+      <div className="py-6 bg-white border-t border-border">
         <div className="container mx-auto px-4">
-          <p className="max-w-3xl mx-auto text-xs text-primary/70 text-center">
+          <p className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
             Aliya Financial LLC is registered as an investment adviser with the New Jersey Bureau of
             Securities. Registration does not imply a certain level of skill or training. Investing involves
             risk, including loss of principal. This checklist is educational and general in nature. It is not
@@ -88,7 +88,7 @@ const AliyaMoneyChecklist = () => {
             fee. Aliya Financial is based in the United States and is not licensed in Israel.
           </p>
         </div>
-      </section>
+      </div>
     </Layout>
   );
 };
