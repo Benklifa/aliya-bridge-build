@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 
 // Download page for the lead magnet "The Aliya Money Checklist"
 // (compliance log AC-071, v2 with the five re-review fixes; source
-// /workspace/aliya-ads/lead-magnet/aliya-money-checklist.md).
+// /workspace/aliya-ads/lead-magnet/aliya-money-checklist.v2-topics.md).
 // Not linked from the nav; noindex; not in sitemap. Do not publish until
 // Michael gives CCO sign-off on the checklist. All copy requires compliance
 // review before any change. Direct download, no email capture.
