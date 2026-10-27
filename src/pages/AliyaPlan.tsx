@@ -197,9 +197,10 @@ const AliyaPlan = () => {
             <div>
               <h2 className="font-serif text-2xl font-bold text-primary mb-3">How We Are Paid</h2>
               <p className="text-muted-foreground leading-snug mb-3">
-                Aliya Financial is fee-based, not fee-only: our advisory fee is up to 1% a year on the
-                full value of the holdings we manage, and insurance and annuities are offered separately
-                and pay commissions. A free consultation does not create an advisory relationship.
+                Aliya Financial is fee-based, not fee-only: our advisory fee is 1% a year on the full value
+                of the holdings we manage. Michael Benklifa is also a licensed insurance agent; insurance is
+                offered separately and may pay him a commission. A free consultation does not create an
+                advisory relationship.
               </p>
               <p className="text-muted-foreground leading-snug">
                 Aliya Financial is based in the United States and is not licensed in Israel. It does not
@@ -298,7 +299,7 @@ const AliyaPlan = () => {
       <div className="py-6 bg-white">
         <div className="container mx-auto px-4">
           <p className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
-            Educational only, not individual tax, legal, or investment advice. Aliya Financial, LLC is an investment adviser registered in New Jersey; registration does not imply a certain level of skill or training. Insurance is offered separately through a licensed agent and pays commissions. Aliya Financial is based in the United States and is not licensed in Israel.
+            Aliya Financial LLC is registered as an investment adviser with the New Jersey Bureau of Securities. Registration does not imply a certain level of skill or training. Investing involves risk, including loss of principal. This content is educational and general in nature. It is not tax, legal, or individualized investment advice. Aliya Financial LLC is not licensed in Israel and does not give Israeli tax advice. US citizens owe US tax on worldwide income wherever they live. Michael Benklifa is also a licensed insurance agent; any insurance is offered separately, may pay him a commission, and carries no advisory fee.
           </p>
         </div>
       </div>

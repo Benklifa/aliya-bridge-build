@@ -184,12 +184,14 @@ const Privacy = () => {
               /workspace/aliya-ads/funnel-fixes/privacy-analytics-text.md:
               "We use Vercel Web Analytics to understand how our website is used. It does not use cookies and
               reports only aggregated information, such as pages viewed, the referring website, and
-              approximate device type and country. It does not identify you." */}
+              approximate device type and country. It does not identify you."
+              Oct 26, 2026: added the Google Calendar appointment booking paragraph and the booking-click
+              Pixel example (compliance review 2026-10-26, edit B3). */}
           <section id="website" className="mt-12 pt-10 border-t-2 border-gold-500 scroll-mt-24">
             <h2 className="font-serif text-2xl font-bold text-primary mb-4">Website Privacy</h2>
             <div className="border-l-4 border-gold-500 bg-card/50 p-6 mb-8 rounded-r-lg">
               <p className="text-muted-foreground">
-                This section explains what information Aliya Financial, LLC collects when you visit
+                This section explains what information Aliya Financial LLC collects when you visit
                 aliyafinancial.com or use its forms, and how we use it.
               </p>
             </div>
@@ -208,6 +210,12 @@ const Privacy = () => {
                     shown on that form. If you arrive from one of our ads and submit a form, the ad campaign
                     label in the link (for example, the ad source) is saved with your submission so we know
                     which ads bring inquiries.
+                  </li>
+                  <li>
+                    <strong className="text-primary">Appointment booking.</strong> If you book a call through
+                    our Google Calendar appointment page, Google collects the name, email address, and phone
+                    number you enter and shares them with us so we can schedule and hold the call. Google
+                    handles that information under its own privacy policy.
                   </li>
                   <li>
                     <strong className="text-primary">Questions you type into our education tool.</strong> If
@@ -237,7 +245,7 @@ const Privacy = () => {
                     <strong className="text-primary">Meta Pixel.</strong> We use the Meta Pixel, a tool from
                     Meta Platforms, the company behind Facebook and Instagram. It uses cookies and similar
                     technology to record visits to our pages and certain actions, such as clicking a phone
-                    or email link or successfully submitting a form, so we can measure and improve our
+                    or email link, clicking to book a call, or successfully submitting a form, so we can measure and improve our
                     advertising on Meta. We do not send your name, email address, phone number, or form
                     answers to Meta through the Pixel. Meta may combine this information with other
                     information it has about you, under its own privacy policy.
@@ -334,7 +342,7 @@ const Privacy = () => {
             </div>
 
             <div className="text-center text-muted-foreground text-sm mt-10 pt-6 border-t border-border">
-              <p>Last updated: October 19, 2026</p>
+              <p>Last updated: October 26, 2026</p>
             </div>
           </section>
         </div>
