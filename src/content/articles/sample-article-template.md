@@ -2,6 +2,7 @@
 slug: sample-article-template
 title: "Sample Article (Placeholder)"
 date: 2026-10-27
+# currentAsOf: 2026-10-27  (optional; defaults to date)
 summary: "Placeholder text used to preview the article template. This is not a real article and will not be published."
 tags: [Placeholder]
 draft: true
