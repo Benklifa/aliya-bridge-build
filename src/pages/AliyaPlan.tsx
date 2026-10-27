@@ -168,7 +168,6 @@ const AliyaPlan = () => {
               </a>
             </div>
             <p className="text-white/80 text-sm mt-3">{BOOKING_NOTE}</p>
-            <p className="text-white/80 text-sm mt-1">{BOOKING_RELATIONSHIP_NOTE}</p>
           </div>
         </div>
       </div>
@@ -192,26 +191,6 @@ const AliyaPlan = () => {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Tax and licensing statements (explicit white band: body background is navy) */}
-      <div className="py-10 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-serif text-2xl font-bold text-primary mb-3">Not Tax or Legal Advice</h2>
-            <p className="text-muted-foreground leading-snug mb-3">
-              This page is for educational purposes only and is not tax or legal advice. U.S. citizens
-              owe U.S. tax on worldwide income wherever they live. The tax treatment of retirement
-              accounts, investments, and any future sale of securities depends on your individual
-              circumstances and may differ between the United States and Israel. Please consult a
-              qualified U.S. and, if needed, Israeli tax professional before making a decision.
-            </p>
-            <p className="text-muted-foreground leading-snug">
-              Aliya Financial is based in the United States and is not licensed in Israel. It does not
-              give Israeli tax, legal, or mortgage advice.
-            </p>
           </div>
         </div>
       </div>
@@ -250,7 +229,6 @@ const AliyaPlan = () => {
                     <span>{BOOKING_LABEL}</span>
                   </a>
                   <p className="text-primary/70 text-xs mt-2">{BOOKING_NOTE}</p>
-                  <p className="text-primary/70 text-xs mt-1">{BOOKING_RELATIONSHIP_NOTE}</p>
                 </div>
                 <form onSubmit={onSubmit} className="space-y-4">
                   <UtmHiddenFields />
@@ -287,6 +265,27 @@ const AliyaPlan = () => {
                 </form>
               </>
             )}
+          </div>
+        </div>
+      </div>
+
+      {/* Important information: page disclosures, kept separate from the page footer statement below */}
+      <div className="py-8 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-lg font-bold text-primary mb-2">Important Information</h2>
+            <p className="text-sm text-muted-foreground leading-snug mb-2">{BOOKING_RELATIONSHIP_NOTE}</p>
+            <p className="text-sm text-muted-foreground leading-snug mb-2">
+              This page is for educational purposes only and is not tax or legal advice. U.S. citizens
+              owe U.S. tax on worldwide income wherever they live. The tax treatment of retirement
+              accounts, investments, and any future sale of securities depends on your individual
+              circumstances and may differ between the United States and Israel. Please consult a
+              qualified U.S. and, if needed, Israeli tax professional before making a decision.
+            </p>
+            <p className="text-sm text-muted-foreground leading-snug">
+              Aliya Financial is based in the United States and is not licensed in Israel. It does not
+              give Israeli tax, legal, or mortgage advice.
+            </p>
           </div>
         </div>
       </div>
