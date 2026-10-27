@@ -330,7 +330,7 @@ const Privacy = () => {
               <section>
                 <h3 className="font-serif text-lg font-bold text-primary mb-3">Contact</h3>
                 <p className="text-muted-foreground">
-                  Aliya Financial, LLC
+                  Aliya Financial LLC
                   <br />
                   Phone: <a href="tel:+17325087320" className="text-gold-700 hover:text-primary underline">732-508-7320</a>
                   <br />
