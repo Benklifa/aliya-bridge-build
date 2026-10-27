@@ -35,6 +35,10 @@ const ResourceArticle = () => {
                 </span>
               ))}
             </div>
+            <p className="mt-2 text-sm text-white/80">
+              Information current as of{" "}
+              <time dateTime={article.currentAsOf}>{formatArticleDate(article.currentAsOf)}</time>
+            </p>
           </div>
         </div>
       </div>

@@ -13,6 +13,8 @@ export interface Article {
   title: string;
   /** ISO date, YYYY-MM-DD. */
   date: string;
+  /** ISO date shown as "Information current as of ...". Defaults to `date`. */
+  currentAsOf: string;
   summary: string;
   tags: string[];
   draft: boolean;
@@ -52,11 +54,14 @@ function toArticle(file: string, raw: string): Article {
   const date = unquote(data.date);
   if (!SLUG_RE.test(slug)) throw new Error(`${file}: slug "${slug}" must be lowercase words joined by hyphens`);
   if (!DATE_RE.test(date)) throw new Error(`${file}: date "${date}" must be YYYY-MM-DD`);
+  const currentAsOf = data.currentAsOf ? unquote(data.currentAsOf) : date;
+  if (!DATE_RE.test(currentAsOf)) throw new Error(`${file}: currentAsOf "${currentAsOf}" must be YYYY-MM-DD`);
   const tagsRaw = data.tags ? data.tags.replace(/^\[|\]$/g, "") : "";
   return {
     slug,
     title: unquote(data.title),
     date,
+    currentAsOf,
     summary: unquote(data.summary),
     tags: tagsRaw.split(",").map(unquote).filter(Boolean),
     draft: unquote(data.draft ?? "false").toLowerCase() === "true",

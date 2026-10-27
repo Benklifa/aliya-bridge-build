@@ -14,6 +14,7 @@ sitemap.xml unless it is a draft or the hub is on hold
 slug: my-article-slug
 title: The Article Title
 date: 2026-11-02
+currentAsOf: 2026-11-02
 summary: One or two sentences shown on the hub and used as the page description.
 tags: [Taxes, Banking]
 draft: true
@@ -25,6 +26,10 @@ title as the H1), plus paragraphs, lists, **bold**, and [links](/contact).
 
 - `slug`: lowercase words joined by hyphens. It becomes the URL. Must be unique.
 - `date`: YYYY-MM-DD. Controls the order on the hub.
+- `currentAsOf`: optional, YYYY-MM-DD. The article page shows
+  "Information current as of <date>" under the title. Leave it out to use
+  `date`. When an article is reviewed and its facts are rechecked, update
+  `currentAsOf` (and keep `date` as the original publish date).
 - `tags`: optional, comma separated inside [ ].
 - `draft`: optional. `true` keeps the article off Production builds entirely
   and marks it noindex on Preview builds. Leave `draft: true` until the article
