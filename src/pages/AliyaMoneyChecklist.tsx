@@ -4,8 +4,9 @@ import { Download } from "lucide-react";
 import Layout from "@/components/Layout";
 
 // Download page for the lead magnet "The Aliya Money Checklist"
-// (compliance log AC-071, v2 with the five re-review fixes; source
-// /workspace/aliya-ads/lead-magnet/aliya-money-checklist.v2-topics.md).
+// (27 action items; source /workspace/aliya-ads/lead-magnet/aliya-money-checklist.md,
+// built from compliance final 2026-10-28_aliya-money-checklist_final.md with
+// Michael's 2026-10-28 edits: item 16 dropped, portfolio loan removed from item 15).
 // Not linked from the nav; noindex; not in sitemap. Do not publish until
 // Michael gives CCO sign-off on the checklist. All copy requires compliance
 // review before any change. Direct download, no email capture.
@@ -49,7 +50,7 @@ const AliyaMoneyChecklist = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-primary/80 mb-4">
-              28 items to review, organize, or plan, in four parts: planning a move in the future, about a
+              27 items to review, organize, or plan, in four parts: planning a move in the future, about a
               year out, the final months before the move, and the first months after arriving.
             </p>
             <p className="text-primary/80 mb-8">
