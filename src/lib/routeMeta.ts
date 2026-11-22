@@ -16,20 +16,20 @@ const SITE = "Aliya Financial";
 const t = (name: string) => `${name} | ${SITE}`;
 
 export const DEFAULT_META: RouteMetaEntry = {
-  title: t("Investment Adviser"),
+  title: t("Cross-Border Investment Adviser"),
   description:
-    "Aliya Financial, LLC is an investment adviser registered in New Jersey, serving U.S. clients, including Americans preparing to make Aliya.",
+    "Aliya Financial, LLC is a cross-border investment adviser registered in New Jersey, serving U.S. clients, including Americans preparing to make Aliya.",
 };
 
 export const routeMeta: Record<string, RouteMetaEntry> = {
   "/": DEFAULT_META,
   "/about": {
     title: t("About Us"),
-    description: "About Aliya Financial, LLC, an investment adviser registered in New Jersey and based in Highland Park, NJ.",
+    description: "About Aliya Financial, LLC, a cross-border investment adviser registered in New Jersey and based in Highland Park, NJ.",
   },
   "/services": {
     title: t("Services"),
-    description: "Investment advisory services from Aliya Financial, an investment adviser registered in New Jersey.",
+    description: "Investment advisory services from Aliya Financial, a cross-border investment adviser registered in New Jersey.",
   },
   "/contact": {
     title: t("Contact Us"),
