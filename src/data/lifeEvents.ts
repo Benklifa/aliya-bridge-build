@@ -33,7 +33,7 @@ export const lifeEvents: LifeEvent[] = [
       "Retirement resets your income, tax bracket, and healthcare picture all at once — and if Israel is part of the plan, the timing of that reset matters even more.",
     pageTitle: "Retirement Income Questions",
     metaDescription:
-      "Questions about retirement income, account withdrawals, and Social Security, including how a move to Israel can affect them. General information from a fee-based investment adviser.",
+      "Questions about retirement income, account withdrawals, and Social Security, including how a move to Israel can affect them. General information from an investment adviser.",
     pageIntro:
       "Retirement is one of the biggest financial pivots you'll make — income shifts from a paycheck to a mix of Social Security, pensions, and withdrawals, and every one of those pieces is taxed differently depending on where you live.",
     whyItMatters: [
@@ -55,7 +55,7 @@ export const lifeEvents: LifeEvent[] = [
       "Receiving or settling an inheritance brings tax, timing, and cross-border reporting questions that are easy to get wrong and expensive to unwind.",
     pageTitle: "Receiving an Inheritance",
     metaDescription:
-      "Questions about receiving or helping settle an inheritance, including U.S. and Israeli reporting and tax timing. General information from a fee-based investment adviser.",
+      "Questions about receiving or helping settle an inheritance, including U.S. and Israeli reporting and tax timing. General information from an investment adviser.",
     pageIntro:
       "Whether you're receiving an inheritance or helping settle one, the financial and reporting questions that follow rarely have obvious answers — especially once a second country and currency are involved.",
     whyItMatters: [
@@ -77,7 +77,7 @@ export const lifeEvents: LifeEvent[] = [
       "Combining finances with a spouse means combining tax situations, goals, and sometimes two different countries' worth of accounts.",
     pageTitle: "Money Questions When You Marry",
     metaDescription:
-      "Questions about combining accounts, benefits, and goals when you marry, including when one or both spouses may move to Israel. General information from a fee-based investment adviser.",
+      "Questions about combining accounts, benefits, and goals when you marry, including when one or both spouses may move to Israel. General information from an investment adviser.",
     pageIntro:
       "Marriage merges more than two lives — it merges two financial histories, two sets of goals, and often two different sets of accounts, benefits, and tax considerations.",
     whyItMatters: [
@@ -99,7 +99,7 @@ export const lifeEvents: LifeEvent[] = [
       "Dividing a household's finances means dividing accounts, taxes, and sometimes assets held in two different currencies.",
     pageTitle: "Money Questions in a Divorce",
     metaDescription:
-      "Questions about dividing accounts and setting up a new household budget in a divorce, including cross-border assets. General information from a fee-based investment adviser.",
+      "Questions about dividing accounts and setting up a new household budget in a divorce, including cross-border assets. General information from an investment adviser.",
     pageIntro:
       "Divorce requires untangling shared accounts, shared tax history, and shared plans — a process that gets more complex, not less, when cross-border assets or an Aliyah plan are involved.",
     whyItMatters: [
@@ -121,7 +121,7 @@ export const lifeEvents: LifeEvent[] = [
       "When the kids move out, your home, your budget, and your timeline all deserve a second look — especially if Aliyah moves from 'someday' to 'now.'",
     pageTitle: "Money Questions for Empty Nesters",
     metaDescription:
-      "Questions about cash flow, savings, and housing once children leave home, including an Aliya timeline. General information from a fee-based investment adviser.",
+      "Questions about cash flow, savings, and housing once children leave home, including an Aliya timeline. General information from an investment adviser.",
     pageIntro:
       "Once the kids are out on their own, the financial plan built around raising them usually needs one too — freed-up cash flow, a house that may no longer fit, and a timeline that's suddenly a lot more open.",
     whyItMatters: [
@@ -167,7 +167,7 @@ export const lifeEvents: LifeEvent[] = [
       "Making Aliyah touches your taxes, your accounts, your real estate, and your retirement timeline all at once — this is the transition we specialize in.",
     pageTitle: "Money Questions Before Aliya",
     metaDescription:
-      "U.S. money questions to consider before a move to Israel, such as retirement accounts, taxes, currency, and real estate. General information from a fee-based investment adviser.",
+      "U.S. money questions to consider before a move to Israel, such as retirement accounts, taxes, currency, and real estate. General information from an investment adviser.",
     pageIntro:
       "Making Aliyah is the transition we built this firm around. It touches nearly every part of your financial life — taxes, retirement accounts, real estate, and how your savings in dollars will fund spending in shekels.",
     whyItMatters: [

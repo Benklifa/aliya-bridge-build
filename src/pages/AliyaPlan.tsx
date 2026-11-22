@@ -180,7 +180,7 @@ const AliyaPlan = () => {
             <div>
               <h2 className="font-serif text-2xl font-bold text-primary mb-3">How We Are Paid</h2>
               <p className="text-muted-foreground leading-snug mb-3">
-                Aliya Financial is fee-based, not fee-only: our advisory fee is up to 1% a year on the
+                Aliya Financial is not fee-only: our advisory fee is up to 1% a year on the
                 full value of the holdings we manage, and insurance and annuities are offered separately
                 and pay commissions. A free consultation does not create an advisory relationship.
               </p>

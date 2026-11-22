@@ -9,7 +9,7 @@ const services = [
   {
     title: "Investment Management",
     description:
-      "Fee-based portfolio management with tax-aware strategies that consider the implications of living, working, or retiring across two countries.",
+      "Portfolio management with tax-aware strategies that consider the implications of living, working, or retiring across two countries.",
   },
   {
     title: "Retirement Income Strategies",
@@ -31,7 +31,7 @@ const HomeServices = () => (
           How Aliya Financial Helps
         </h2>
         <p className="text-center text-muted-foreground mb-6">
-          Aliya Financial is a fee-based investment adviser serving U.S. clients, including Americans preparing to make Aliya. Aliya Financial is based in the United States and is not licensed in Israel.
+          Aliya Financial is an investment adviser serving U.S. clients, including Americans preparing to make Aliya. Aliya Financial is based in the United States and is not licensed in Israel.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((s) => (
